@@ -1,0 +1,204 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{box-sizing: border-box;}
+  /*  *{border: 1px solid black;} */
+
+/* 팬아트 */
+.fanArt-text{
+    font-family: 'Pretendard-Regular';
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(237, 21, 93);
+
+    margin-bottom: 50px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/* 팬아트 작성란 */
+#fanartTitle{
+    font-family: 'Pretendard-Regular';
+    width: 100%;
+    height: 1000px;
+    padding: 25px;
+    border: 6px solid pink;
+    border-style: ridge;
+
+}
+
+
+
+/* 팬아트 작성 제목 스타일 */
+#fanartWriteTitle{
+    width: 300px;
+    height: 70px;
+    font-size: 25px;
+    border-radius: 20px;
+    border: 2px solid rgb(185, 179, 179);
+    padding: 15px;
+}
+
+#fanartWriteTitle:focus{
+    outline: none;
+    border: 2px solid rgb(237, 21, 93);
+}
+
+/* 팬아트 사진 / 글쓰기*/
+
+#fanart{
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    height: 800px;
+    width: auto;
+
+}
+
+#fanart > div:first-child{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    width: 100px;
+    border-bottom: 2px solid #a19e9e;
+}
+
+.preview{
+    display: flex;
+    width: 570px;
+    height: 730px;
+    margin-top: 50px;
+}
+
+#fanart-plus-write{
+    width: 450px;
+    height: 730px;
+    font-size: 30px;
+    padding: 20px;
+    resize: none;
+    overflow: auto;
+    margin-left: 100px;
+    margin-top: 50px;
+    outline: none;
+}
+.writeContent{
+    margin-left: 100px;
+    
+}
+
+#fanart-plus-write:focus{
+    border: 3px solid rgb(237, 21, 93);
+}
+
+.inputImage{
+
+    display: none;
+    margin-bottom: 0;
+}
+
+
+
+/* 팬아트 찾아보기/글쓰기 버튼 */
+#fanart-write{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+/* 팬아트 찾아보기/등록 버튼 전체 div */
+#addFanart{
+
+    display: flex;
+    width: 300px;
+    height: 30px;
+}
+
+/* 팬아트 등록 버튼 스타일 */
+#fanartWriteBtn{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(237, 21, 93);
+    color: white;
+    font-family: 'Pretendard-Regular';
+    border: 0;
+
+    cursor: pointer;
+}
+
+#fanartWriteBtn:hover{
+    background-color: white;
+    color: rgb(237, 21, 93);
+    border: 3px solid rgb(237, 21, 93);
+
+}
+
+
+
+/* 팬아트 게시판 작성글 */
+#fanartList-header{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Pretendard-Regular';
+}
+
+#fanartList-header > div:first-child{
+    font-size: 28px;
+    padding: 15px;
+    border-bottom: 2px solid gray;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+#fanartList-header a{
+    font-size: 20px;
+    text-decoration: 0;
+    color: black;
+}
+
+.fanartListInfo{
+    display: flex;
+    align-items: center;
+}
+
+#fanartList{
+    width: 100%;
+    padding: 10px;
+
+    margin-bottom: 100px;
+
+    font-family: 'Pretendard-Regular';
+
+    cursor: pointer;
+}
+
+#fanartList img{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.fanartList-first{
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.fanartList-first > div:first-child{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.fanartList-title{
+    font-weight: bold;
+    color: rgb(237, 21, 93)
+}

@@ -1,0 +1,92 @@
+/* 폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+  
+body{
+    background-color: #333333;
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+
+/* 로고 */
+#logo{
+    width: 650px;
+    margin-left: 300px;
+    position: sticky;
+    margin-top: 50px;
+    position: relative;
+}
+
+/* 글 */
+.textarea{
+    text-align:center;
+    color: white;
+    font-size: 40px;
+    margin-top: 0;
+}
+
+
+/* 아이디로 로그인 버튼 */
+#btn1{
+    font-family: 'Pretendard-Regular', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 40px;
+    width: 600px;
+    height: 50px;
+    font-size: 30px;
+    color: #333333;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    background-color: white;
+    text-decoration: none;
+}
+
+.btn23{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 돌아가기 버튼 */
+#btn2{
+    display: flex;
+    font-family: 'Pretendard-Regular', sans-serif;
+    color: #444444;
+    width: 240px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-right: 120px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    background-color: white;
+    text-decoration: none;
+}
+
+/* 가입하기 버튼 */
+#btn3{
+    font-family: 'Pretendard-Regular', sans-serif;
+    display: flex;
+    color: #444444;
+    width: 240px;
+    height: 40px;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+}
+
+

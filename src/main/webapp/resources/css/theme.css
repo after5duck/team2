@@ -1,0 +1,244 @@
+/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
+.header_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+ 
+ .main_logo_img_container {
+    position: relative;
+    bottom: 70px;
+    height: 130px;
+ }
+ 
+ 
+ /* 애니버스 로고 */
+ .main_logo {
+    width: 270px;
+    height: 270px;
+ }
+ 
+ /* 메뉴 리스트 테마추천, 팬아트 등  */
+ .menu_list {
+    display: flex;
+    gap: 70px;
+ }
+ 
+ .a_tag {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+ }
+ 
+ .a_tag:hover {
+    color: rgb(237, 21, 93);
+    transform: scale(1.1);
+    transition: 0.2s;
+    cursor: pointer;
+ }
+ 
+ 
+ /* 검색창 */
+ .search_prop {
+    margin-right: 10px;
+    height: 30px;
+    border-radius: 10px;
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 16px;
+ }
+ 
+ /* 유저 정보 */
+ .user_img {
+    background-image: url('../images/profile.png');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ 
+ .user_id {
+    text-align: center;
+    font-weight: bold;
+ }
+ 
+ /* ————————————————— 새로운 헤더 끝 ————————————————— */
+#theme{
+
+    color:rgb(237, 21, 93);
+}
+
+main{
+}
+
+.main_container{
+}
+
+
+.main_first{
+    display: flex;
+    
+
+    font-size: 40px;
+    font-weight: bold;
+    padding: 33px;
+}
+
+.main_second{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    width: 100%;
+
+}
+
+/* .main_third{
+    display: flex;
+    width: 350px;
+
+}
+.main_fourth{
+    display: flex;
+    width: 350px;
+
+} */
+.second{
+    padding-left: 33px;
+    padding-bottom: 33px;
+    width: 350px;
+}
+.content{
+    text-align: left;
+}
+.third{
+    padding-left: 33px;
+    padding-bottom: 33px;
+
+}
+.fourth{
+    padding-left: 33px;
+    padding-bottom: 33px;
+
+}
+
+.a_tag_theme{
+    text-decoration: none;
+    color: black;
+}
+.a_tag_theme:hover{
+
+    cursor: pointer;
+}
+.a_tag_theme > div:nth-child(2){
+    font-size: 25px;
+    padding-top: 10px;
+
+}
+.a_tag_theme > div:nth-child(3){
+    padding-top:5px;
+    color : gray;
+    line-height: 30px;
+}
+
+[name=theme_image]{
+    width: 370px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* *{box-sizing: border-box;}
+    div{border: 1px solid black;} */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+footer{
+    width: auto;
+    height: 260px;
+    display: flex;
+    background-color: #444343;
+    margin-bottom: 0;
+    font-family: 'Pretendard-Regular';
+}
+
+.footer_first{
+    width: 35%;
+    text-align: center;
+    margin-top: -120px;
+}
+
+
+.footer_first > div:last-child{
+    margin-top: -170px;
+}
+
+.footer_first strong{
+    margin-top: -100px;
+    color: white;
+}
+
+.footer_second{
+    width: 45%;
+    font-size: 17px;
+}
+
+
+.footer_second a{
+    text-decoration: 0;
+    color: white;
+    padding-right: 30px;
+
+}
+
+p{
+    color: white;
+    font-size: 14px;
+}
+
+.footer_second > div:first-child{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.footer_third{
+    width: 20%;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+
+.footer_third > i{
+    color: white;
+    width: 80px;
+    font-size: 40px;
+    
+}
+#text_box{
+    display: none;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+
+#footer_btn{
+    border: 0;
+    cursor: pointer;
+    background-color:#444343;
+}
+    
+

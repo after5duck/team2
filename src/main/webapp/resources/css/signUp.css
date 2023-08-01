@@ -1,0 +1,131 @@
+/* 폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
+  body {
+    font-family: 'Pretendard-Regular', sans-serif;
+  }
+
+
+.signUp-content{
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 900px;
+    margin: auto;
+    margin-top: 0px;
+
+    border: 2px solid #5c5757;
+    border-radius: 10px;
+}
+
+/* 로고 */
+
+#logo{
+    display: flex;
+    margin: auto;
+    margin-top: 0px;
+    
+}
+
+/* 딱 이것만 작성하면 가입 완료! 문구 */
+.ddack{
+    font-size: xx-large;
+    font-weight: bold;
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* *는 필수입력 항목입니다. */
+.ddack2{
+    display: flex;
+    font-size: small;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+.ddack2>div{ 
+    color:rgb(255, 0, 0);
+    padding-right: 5px;
+    font-size: large;
+}
+
+.required{
+    color: rgba(255, 0, 0, 0.781);
+    padding: 0 5px;
+}
+
+/* 각 제목들 (아이디, 이메일, 비밀번호 등등) */
+form[name="signUp-form"] > label{
+    display: block;
+    font-size: 23px;
+    margin-top: 23px;
+    margin-bottom: 8px;
+    color: #363434;
+    font-weight: bold;
+}
+
+.signUp-input-area{
+    display: flex;
+}
+
+/* input박스들 */
+.signUp-input-area > input{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+#memberPw{ /* 비번 input박스 사이 공간 */
+    margin-bottom: 7px;
+}
+
+/* 버튼 */
+.signUp-input-area > button {
+    margin-left: 20px;
+    width: 100px;
+    height: 35px;
+    background-color: gray;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* 가입 버튼 */
+#btn{
+    display: flex;
+    width: 400px;
+    height: 70px;
+    background-color: rgb(51, 48, 48);
+    border: 1px solid gray;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    font-size: x-large;
+
+    font-weight: bold;
+}
+
+
+/* error / confirm 메세지 */
+.signUp-message{
+    font-size: 15px;
+}
+
+.confirm{ color : green;}
+.error{color : red;}
+
+

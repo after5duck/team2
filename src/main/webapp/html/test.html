@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+.header_container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.main_logo_img_container {
+	position: relative;
+	bottom: 70px;
+	height: 130px;
+}
+
+
+/* 애니버스 로고 */
+.main_logo {
+	width: 270px;
+	height: 270px;
+}
+
+/* 메뉴 리스트 테마추천, 팬아트 등  */
+.menu_list {
+	display: flex;
+	gap: 70px;
+}
+
+.a_tag {
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.a_tag:hover {
+	color: rgb(237, 21, 93);
+	transform: scale(1.1);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+
+/* 검색창 */
+.search_prop {
+	margin-right: 10px;
+	height: 30px;
+	border-radius: 10px;
+	background-image: url(../images/search.png);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	padding-left: 30px;
+	font-size: 16px;
+}
+
+/* 유저 정보 */
+.user_img {
+	background-image: url('../images/profileImg.png');
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.user_id {
+	text-align: center;
+	font-weight: bold;
+}
+
+/* ----------------------------------- 새로운 헤더 끝 ----------------------------------- */
+
+
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header_container">
+			<div class="main_logo_img_container">
+				<!-- 애니버스 로고 -->
+				<img src="../resources/images/PJ2logo.png" alt="" class="main_logo">
+			</div>
+			<!-- 메뉴 리스트 테마추천, 팬아트 등 -->
+			<div class="menu_list">
+				<div class="menu_text_con"><a href="#" class="a_tag">테마추천</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">팬아트</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">굿즈</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">리뷰</a></div>
+			</div>
+			<!-- 검색창 -->
+			<div class="search_prop_con">
+				<input type="text" class="search_prop" placeholder="애니 이름을 검색하세요">
+			</div>
+			<!-- 유저 정보 -->
+			<div class="user_con">
+				<div class="user_img"></div>
+				<div class="user_id">닉네임</div>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

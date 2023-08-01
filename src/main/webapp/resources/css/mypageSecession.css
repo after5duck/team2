@@ -1,0 +1,376 @@
+/* section{
+    border: 1px solid black;
+}  
+article{
+    border: 1px solid black;
+}
+table *{
+    border: 1px solid black;
+} */
+
+/* 모두를 감싸고 있는 부분 (Header,Body,Footer 공통 적용) */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  /* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
+body{
+    margin: 0;
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+main{
+    width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
+.header_container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.main_logo_img_container {
+	position: relative;
+	bottom: 70px;
+	height: 130px;
+}
+
+
+/* 애니버스 로고 */
+.main_logo {
+	width: 270px;
+	height: 270px;
+}
+
+/* 메뉴 리스트 테마추천, 팬아트 등  */
+.menu_list {
+	display: flex;
+	gap: 70px;
+}
+
+.a_tag {
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.a_tag:hover {
+	color: rgb(237, 21, 93);
+	transform: scale(1.1);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+
+/* 검색창 */
+.search_prop {
+    display: flex;
+    align-items: center;
+	margin-right: 10px;
+	height: 40px;
+    flex-basis: 30%;
+	border-radius: 10px;
+	padding-left: 5px;
+	font-size: 16px;
+}
+.search_prop_con{
+    display: flex;
+}
+.search_prop_con > div{
+    visibility: hidden;
+}
+#slide_header_btn{
+    border: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 24px;
+    cursor: pointer;
+}
+#slide_header_btn:hover{
+    width: 50px;
+    height: 50px;
+    background-color: #dddddd50;
+    border-radius: 50%;
+}
+
+/* 유저 정보 */
+.user_img {
+	background-image: url('../images/profile.png');
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.user_id {
+	text-align: center;
+	font-weight: bold;
+}
+
+/* ————————————————— 새로운 헤더 끝 ————————————————— */
+
+/* ————————————————— Body     부분 ————————————————— */
+#content-main{
+    height: auto;
+}
+
+/* ————————————————— 메인 컨텐츠 제목 —————————————————*/
+#contentTitle{
+    height: 100px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(237, 21, 93);
+
+    font-size: 35px;
+    font-weight: bold;
+}
+#contentTitle > article{
+    font-size: 16px;
+    color: rgb(94, 94, 94);
+
+    margin-top: 10px;
+}
+
+/* 메인 컨텐츠 내부 */
+#contentProfile{
+    margin: 20px 0;
+    display: flex;
+}
+#menu{
+    flex-basis: 20%;
+    margin-bottom: 10px;
+    border-right: 2px solid #ddd;
+}
+#menu-ul{
+    list-style-type: none;
+    font-size: 20px;
+    width: 170px;
+}
+#menu-ul > li{
+    height: 30px;
+    margin: 20px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+#menu-ul > li:hover{
+    border-bottom: 2px solid rgb(237, 21, 93);
+    cursor: pointer;
+}
+#menu-ul > li:last-child{
+    margin-top: 210px;
+    
+}
+#menu-ul a{
+    color: black;
+    text-decoration: none;
+}
+#main-body{
+    flex-basis: 80%;
+}
+/* 회원탈퇴 목록이므로 회원탈퇴 메뉴바는 색칠되어야함 */
+#menu-ul > li:nth-of-type(6){
+    border-bottom: 2px solid rgb(237, 21, 93);
+    cursor: default;
+}
+
+/* 프로필 정보 */
+#bodyProfile{
+    width: 850px;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bodyProfileImg{
+    width: 150px;
+}
+
+#profile-info{
+    display: flex;
+    justify-content: center;
+    border-spacing: 30px;
+    font-size: 24px;
+}
+
+/* 비밀번호 확인 */
+#bodyTable{
+    margin-bottom: 15px;
+}
+.bodyList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    font-size: 24px;
+
+    margin: 10px auto;
+    border-spacing: 30px;
+}
+.bodyList th{
+    width: 200px;
+    text-align: right;
+}
+.td1{
+    width: 320px;
+    font-size: 20px;
+}
+.bodyList tr>td:last-child{
+    width: 200px;
+    font-size: 12px;
+}
+.td1 input{
+    outline: 0;
+    border: 0;
+    width: 100%;
+    font-size: 20px;
+    border-bottom: 3px solid rgb(94, 94, 94);
+}
+.bodyList input:focus{
+    outline: 0;
+    border-bottom: 3px solid rgb(237, 21, 93);
+}
+
+#btn-delEmail{
+    color: white;
+    background-color: rgb(94, 94, 94);
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+#table-btn{
+    display: flex;
+    justify-content: center;
+    border: 0;
+
+    cursor: pointer;
+}
+#table-btn > td{
+    text-align: center;
+}
+
+#td-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+#td-submit > td{
+    text-align: center;
+}
+
+/* ————————————————— 제출 버튼 ————————————————— */
+#btn-submit{
+    width: 200px;
+    height: 40px;
+
+    font-size: 24px;
+    color: white;
+    background-color: rgb(237, 21, 93);
+    border: 0;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* Footer 부분 */
+*{box-sizing: border-box;}
+   /*  div{border: 1px solid black;} */
+
+footer{
+    width: auto;
+    height: 260px;  
+    display: flex;
+    background-color: #444343;
+    margin-bottom: 0;
+    font-family: 'Pretendard-Regular';
+}
+
+.footer_first{
+    width: 35%;
+    text-align: center;
+}
+
+
+.footer_first > div:last-child{
+    margin-top: -170px;
+}
+
+.footer_first strong{
+    margin-top: -100px;
+    color: white;
+}
+
+.footer_second{
+    width: 45%;
+    font-size: 17px;
+}
+
+
+.footer_second a{
+    text-decoration: 0;
+    color: white;
+    padding-right: 30px;
+
+}
+
+p{
+    color: white;
+    font-size: 14px;
+}
+
+.footer_second > div:first-child{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.footer_second ul{
+    display: flex;
+    font-size: 16px;
+}
+.footer_second  li{
+    list-style-type: none;
+}
+
+.footer_third{
+    width: 20%;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+
+.footer_third > i{
+    color: white;
+    width: 80px;
+    font-size: 40px;
+    
+}
+#text_box{
+    display: none;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+
+#footer_btn{
+    border: 0;
+    cursor: pointer;
+    background-color:#444343;
+}

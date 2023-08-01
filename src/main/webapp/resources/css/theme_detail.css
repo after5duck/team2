@@ -1,0 +1,337 @@
+/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
+.header_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+ 
+ .main_logo_img_container {
+    position: relative;
+    bottom: 70px;
+    height: 130px;
+ }
+ 
+ 
+ /* 애니버스 로고 */
+ .main_logo {
+    width: 270px;
+    height: 270px;
+ }
+ 
+ /* 메뉴 리스트 테마추천, 팬아트 등  */
+ .menu_list {
+    display: flex;
+    gap: 70px;
+ }
+ 
+ .a_tag {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+ }
+ 
+ .a_tag:hover {
+    color: rgb(237, 21, 93);
+    transform: scale(1.1);
+    transition: 0.2s;
+    cursor: pointer;
+ }
+ 
+ 
+ /* 검색창 */
+ .search_prop {
+    margin-right: 10px;
+    height: 30px;
+    border-radius: 10px;
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 16px;
+ }
+ 
+ /* 유저 정보 */
+ .user_img {
+    background-image: url('../images/profile.png');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ 
+ .user_id {
+    text-align: center;
+    font-weight: bold;
+ }
+ 
+ /* ————————————————— 새로운 헤더 끝 ————————————————— */
+#theme{
+
+    color:rgb(237, 21, 93);
+}
+
+main{
+    
+}
+
+.main_container{
+    
+
+}
+.main_first{
+
+    background-image: url(../images/theme_detail_back_image1.png);
+    background-size:cover;
+    width: 100%;
+    height : 280px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+
+    padding-left: 40px;
+}
+.main_first > div:nth-child(1){
+    font-size: 40px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+[name=detail_image]{
+    width: 450px;
+    border-radius: 5px;
+}
+
+.main_content{
+    display: flex;
+    padding: 40px;
+}
+.main_content > div:last-child{
+    padding-left: 40px;
+    width: 1000px;
+}
+.main_third{
+    padding: 40px;
+    display: flex;
+}
+.main_third > div:last-child{
+    padding-left: 40px;
+    width: 1000px;
+
+}
+.main_fourth{
+    display: flex;
+    padding: 40px;
+}
+.main_fourth > div:last-child{
+    padding-left: 40px;
+    width: 1000px;
+
+}
+.main_fifth{
+    display: flex;
+    padding: 40px;
+}
+.main_fifth > div:last-child{
+    padding-left: 40px;
+    width: 1000px;
+
+}
+
+
+
+.detail_header{
+    display: flex;
+    justify-content: space-between;
+}
+.detail_header > div:last-child{
+    display: flex;
+    align-items: center;
+}
+
+.detail_title{
+    padding-top: 5px;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.detail_genre{
+    color: gray;
+    font-size: 20px;
+    padding-bottom: 30px;
+    
+}
+.detail_explain{
+    color: gray;
+    font-size: 15px;
+    line-height: 30px;
+    
+}
+[name=like_btn]{
+    border:none;
+    background-color: transparent;
+    font-size: 30px;
+    color: red;
+}
+[name=like_btn]:hover{
+    cursor: pointer;
+}
+.popupVideo{
+    padding-top: 10px;
+}
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.btn-15 {
+  background: hotpink;
+  border: none;
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: rgb(237, 21, 93);
+  border-radius: 50px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+.btn-15:hover {
+  color: #fff;
+}
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn-15:active {
+  top: 1px;
+}
+/* #preview_btn{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(237, 21, 93);
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+#preview_btn:hover{
+    cursor: pointer;
+    background-color: rgb(212, 17, 82);
+} */
+
+
+
+/* *{box-sizing: border-box;}
+    div{border: 1px solid black;} */
+
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    
+    footer{
+        width: auto;
+        height: 260px;
+        display: flex;
+        background-color: #444343;
+        margin-bottom: 0;
+        font-family: 'Pretendard-Regular';
+    }
+    
+    .footer_first{
+        width: 35%;
+        text-align: center;
+        margin-top: -120px;
+    }
+    
+    
+    .footer_first > div:last-child{
+        margin-top: -170px;
+    }
+    
+    .footer_first strong{
+        margin-top: -100px;
+        color: white;
+    }
+    
+    .footer_second{
+        width: 45%;
+        font-size: 17px;
+    }
+    
+    
+    .footer_second a{
+        text-decoration: 0;
+        color: white;
+        padding-right: 30px;
+    
+    }
+    
+    p{
+        color: white;
+        font-size: 14px;
+    }
+    
+    .footer_second > div:first-child{
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .footer_third{
+        width: 20%;
+        display: flex;
+        height: 100%;
+        text-align: center;
+        justify-content: center;
+        padding-top: 60px;
+    }
+    
+    
+    .footer_third > i{
+        color: white;
+        width: 80px;
+        font-size: 40px;
+        
+    }
+    #text_box{
+        display: none;
+        color: white;
+        text-align: center;
+        font-size: 13px;
+    }
+    
+    #footer_btn{
+        border: 0;
+        cursor: pointer;
+        background: #444343;;
+    }
+

@@ -1,0 +1,114 @@
+package edu.kh.teamPJ.board.model.dao;
+
+import static edu.kh.teamPJ.common.JDBCTemplate.*;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import edu.kh.teamPJ.board.model.dao.BoardDAO;
+import edu.kh.teamPJ.board.model.vo.Reply;
+
+public class ReplyDAO {
+
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Properties prop;
+	
+	public ReplyDAO() {
+		try {
+			prop = new Properties();
+			
+			String filePath = BoardDAO.class.getResource("/edu/kh/teamPJ/sql/reply-sql.xml").getPath();
+			
+			prop.loadFromXML(new FileInputStream(filePath));
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/** 이동호 
+	 * 게시글 댓글 목록 조회
+	 * @param conn
+	 * @param boardNo
+	 * @return rList
+	 * @throws Exception
+	 */
+	public List<Reply> selectReplyList(Connection conn, int boardNo) throws Exception{
+		
+		List<Reply> rList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectReplyList");
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Reply reply = new Reply();
+				
+				reply.setReplyNo(rs.getInt(1));
+				reply.setReplyContent(rs.getString(2));
+				reply.setCreateDate(rs.getString(3));
+				reply.setBoardNo(rs.getInt(4));
+				reply.setMemberNo(rs.getInt(5));
+				reply.setMemberNickname(rs.getString(6));
+				reply.setProfileImage(rs.getString(7));
+				
+				rList.add(reply);
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return rList;
+	}
+
+	/** 댓글 수 조회 이동호
+	    * @param conn
+	    * @param boardNo
+	    * @return result
+	    * @throws Exception
+	    */
+	   public int commentCount(Connection conn, int boardNo) throws Exception{
+	      
+	      int result = 0;
+	      
+	      try {
+	         String sql = prop.getProperty("commentCount");
+	         
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         pstmt.setInt(1, boardNo);
+	         
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            result = rs.getInt(1);
+	         }
+	         
+	      }finally {
+	         close(rs);
+	         close(pstmt);
+	      }
+
+	      return result;
+	   }
+	   
+	
+	
+}

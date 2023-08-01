@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{box-sizing: border-box;}
+   /* *{border: 1px solid black;} */
+
+.fanArt-text{
+    font-family: 'Pretendard-Regular';
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(237, 21, 93);
+
+    margin-bottom: 50px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+
+/* ****** 팬아트 그림 나오는 박스 2 */
+#fanartTitle2{
+    height: 1000px;
+    width: 100%;
+    border: 6px solid pink;
+    border-style: ridge;
+    font-family: 'Pretendard-Regular';
+
+    overflow: auto;
+
+}
+
+#fanartTitle2 > div:first-child{
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+.fanartTitle-view{
+    width: 100%;
+    height: 60px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.fanartTitle-view  i{
+    color: rgb(163, 159, 159);
+    margin-right: 10px;
+
+}
+
+.fanartTitle-view > div{
+    color: gray;
+    text-align: end;
+    margin-top: -25px;
+    margin-right: 25px;
+}
+
+#fanart2{
+    text-align: center;
+    overflow: auto;
+    width: 100%;
+
+}
+
+#fanart2 > img{
+    margin-top: 40px;
+    height: 830px;
+    padding-bottom: 50px;
+
+}
+
+#fanart2 > div{
+    border: 0px;
+    border-top: 5px solid pink;
+    border-style: double;
+}
+
+#fanartWriteExplain{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 4px solid gray;
+    border-style: groove;
+    resize: none;
+
+    padding: 20px;
+    font-size: 22px;
+    
+    font-family: 'Pretendard-Regular';
+}
+
+
+#fanart-write{
+    margin-top: 20px;
+    text-align: end;
+}
+
+#fanartWriteBtn{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(237, 21, 93);
+    color: white;
+    font-family: 'Pretendard-Regular';
+    border: 0;
+
+    cursor: pointer;
+}
+
+#fanartWriteBtn:hover{
+    background-color: pink;
+
+}
+
+/* 팬아트 하트 누르기 */
+
+#fanart-heartClick:hover{
+    transform: scale(1.5);
+    transition: 0.2s;
+    cursor: pointer;
+    color: pink;
+}
+
+/* 팬아트 좋아요 */
+.fanart-heartClick{
+    font-family: 'Pretendard-Regular';
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.fanart-heartClick > div{
+    font-size: 24px;
+    margin-top: -20px;
+    margin-left: 35px;
+}
+
+.fanart-heartClick > div:first-child{
+    border-bottom: 5px solid pink;
+}
+
+
+#fanart-heartClick{
+    color: pink;
+    margin-left: 20px;
+    font-size: 45px;
+    margin-top: -7px;
+}
+
+
+
+/*  팬아트 작성자 시점 - 수정/삭제 버튼 */
+
+.update-delete{
+    margin-top: 50px;
+    text-align: end;
+}
+.update-delete > button{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(237, 21, 93);
+    border: 0;
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+.update-delete > button:hover{
+    background-color: white;
+    color: rgb(237, 21, 93);
+    border: 2px solid rgb(237, 21, 93);
+}
+
+
+
+/* 팬아트 게시판 작성글 */
+#fanartList-header{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Pretendard-Regular';
+}
+
+#fanartList-header > div:first-child{
+    font-size: 28px;
+    padding: 15px;
+    border-bottom: 2px solid gray;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+#fanartList-header > div:first-child{
+    font-size: 28px;
+}
+
+#fanartList-header a{
+    font-size: 20px;
+    text-decoration: 0;
+    color: black;
+}
+
+.fanartListInfo{
+    display: flex;
+    align-items: center;
+}
+
+#fanartList{
+    width: 100%;
+    padding: 10px;
+
+    margin-bottom: 100px;
+
+    font-family: 'Pretendard-Regular';
+
+    cursor: pointer;
+}
+
+#fanartList img{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.fanartList-first{
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.fanartList-first > div:first-child{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.fanartList-title{
+    font-weight: bold;
+    color: rgb(237, 21, 93)
+}

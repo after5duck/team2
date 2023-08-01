@@ -1,0 +1,530 @@
+/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
+.header_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+ 
+ .main_logo_img_container {
+    position: relative;
+    bottom: 70px;
+    height: 130px;
+ }
+ 
+ 
+ /* 애니버스 로고 */
+ .main_logo {
+    width: 270px;
+    height: 270px;
+ }
+ 
+ /* 메뉴 리스트 테마추천, 팬아트 등  */
+ .menu_list {
+    display: flex;
+    gap: 70px;
+ }
+ 
+ .a_tag {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+ }
+ 
+ .a_tag:hover {
+    color: rgb(237, 21, 93);
+    transform: scale(1.1);
+    transition: 0.2s;
+    cursor: pointer;
+ }
+ 
+ 
+ /* 검색창 */
+ .search_prop {
+    margin-right: 10px;
+    height: 30px;
+    border-radius: 10px;
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-left: 30px;
+    font-size: 16px;
+ }
+ 
+ /* 유저 정보 */
+ .user_img {
+    background-image: url('../images/profile.png');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ 
+ .user_id {
+    text-align: center;
+    font-weight: bold;
+ }
+ 
+ /* ————————————————— 새로운 헤더 끝 ————————————————— */
+
+#goods{
+    color:rgb(237, 21, 93);
+}
+
+.main_container{
+
+ width: 100%;
+}
+
+.main_first{
+    display:flex;
+    padding: 33px;
+}
+
+.main_first > div:nth-child(1){
+    width: 350px;
+    font-size: 40px;
+    font-weight: bold;
+}
+#goods_kind{
+    display: flex;
+    color: gray;
+    font-size: 10px;
+    
+}
+#goods_kind > div:hover{
+    cursor: pointer;
+}
+#goods_kind > div{
+    padding: 20px;
+}
+.main_second{
+    padding: 33px;
+    font-size: 20px;
+}
+.main_third{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+}
+.main_third > div:first-child{
+
+    position: relative;
+
+}
+
+
+
+/* .main_fourth{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+}
+.main_fifth{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+}
+.main_sixth{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+}
+.main_seventh{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+}
+.main_eighth{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+
+} */
+.goods_name{
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+    padding: 10px 0 50px 0;
+    
+}
+#goods_image{
+    /* padding-top: 20px; */
+
+    width: 300px;
+    height: 300px;
+    /* background-image: url(../images/goods_image1.png);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius:10px;
+
+   
+}
+/* #goods_image2{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+
+}
+
+#goods_image3{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image4{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image5{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image5.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image6{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image6.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image7{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image7.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+    
+}
+#goods_image8{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image9{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image9.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image10{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image10.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image11{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image11.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image12{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image12.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image13{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image13.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image14{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image14.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image15{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image15.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image16{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image16.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image17{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image17.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image18{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image18.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image19{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image19.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image20{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image20.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image21{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image21.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image22{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image22.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image23{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image23.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+#goods_image24{
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/goods_image24.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-radius: 10px;
+} */
+
+
+[name=icon]{
+
+    color: red;
+    font-size: 25px;
+
+    position: absolute;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
+    
+}
+
+.goods{
+    position: relative;
+  
+}
+
+
+
+
+
+
+
+
+
+/* 
+ *{box-sizing: border-box;}
+    div{border: 1px solid black;} */
+
+footer{
+    width: auto;
+    height: 250px;
+    display: flex;
+    background-color: rgb(237, 21, 93);
+    margin-bottom: 0;
+}
+
+.footer_first{
+    width: 35%;
+    text-align: center;
+}
+
+.footer_first img{
+    margin-top: 30px;
+}
+
+
+.footer_first strong{
+    color: white;
+}
+
+.footer_second{
+    width: 45%;
+}
+
+
+.footer_second a{
+    text-decoration: 0;
+    color: white;
+    padding-right: 30px;
+
+}
+
+p{
+    color: white;
+    font-size: 14px;
+}
+
+.footer_second > div:first-child{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.footer_third{
+    width: 20%;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+
+.footer_third > i{
+    color: white;
+    width: 80px;
+    font-size: 40px;
+    
+}
+#text_box{
+    display: none;
+    color: white;
+    text-align: start;
+    text-align: center;
+}
+
+#btn{
+    background-color: rgb(237, 21, 93);
+    border: 0;
+    cursor: pointer;
+}

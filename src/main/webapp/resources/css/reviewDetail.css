@@ -1,0 +1,619 @@
+/* section p{
+    border: 1px solid black;
+}
+article{
+    border: 1px solid black;
+}
+table *{
+    border: 1px solid black;
+} */
+
+body{
+    margin: 0;
+}
+/* 모두를 감싸고 있는 부분 (Header,Body,Footer 공통 적용) */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  /* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
+body{
+    margin: 0;
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+main{
+    width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
+.header_container {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.main_logo_img_container {
+   position: relative;
+   bottom: 70px;
+   height: 130px;
+}
+
+
+/* 애니버스 로고 */
+.main_logo {
+   width: 270px;
+   height: 270px;
+}
+
+/* 메뉴 리스트 테마추천, 팬아트 등  */
+.menu_list {
+   display: flex;
+   gap: 70px;
+}
+
+.a_tag {
+   text-decoration-line: none;
+   color: black;
+   font-weight: bold;
+   font-size: 1.2em;
+}
+
+.a_tag:hover {
+   color: rgb(237, 21, 93);
+   transform: scale(1.1);
+   transition: 0.2s;
+   cursor: pointer;
+}
+
+
+/* 검색창 */
+.search_prop {
+    display: flex;
+    align-items: center;
+   margin-right: 10px;
+   height: 40px;
+    flex-basis: 30%;
+   border-radius: 10px;
+   padding-left: 5px;
+   font-size: 16px;
+}
+.search_prop_con{
+    display: flex;
+}
+.search_prop_con > div{
+    visibility: hidden;
+}
+#slide_header_btn{
+    border: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 24px;
+    cursor: pointer;
+}
+#slide_header_btn:hover{
+    width: 50px;
+    height: 50px;
+    background-color: #dddddd50;
+    border-radius: 50%;
+}
+
+/* 유저 정보 */
+.user_img {
+   background-image: url('../images/profile.png');
+   width: 50px;
+   height: 50px;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.user_id {
+   text-align: center;
+   font-weight: bold;
+}
+
+/* ————————————————— 새로운 헤더 끝 ————————————————— */
+
+/* Body 부분 */
+#content-main{
+    height: auto;
+    width: 900px;
+    margin: 10px auto;
+}
+#aniTitle{
+    height: 60px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    color: rgb(237, 21, 93);
+    
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+#contentTitle{
+    width: 100%;
+    height: auto;
+
+    margin-bottom: 100px;
+}
+#contentTitle> article:nth-child(2){
+    text-align: center;
+}
+
+
+#reviewProfile{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+}
+
+/* 리뷰 작성자 프로필 이미지 */
+#reviewProfileImage{
+    display: flex;
+    align-items: center;
+}
+
+#contentProfileImg{
+    width: 80px;
+}
+
+/* 리뷰 작성자 수정 삭제 별점 */
+#reviewContent{
+    height: 100px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+#reviewWriter{
+    display: flex;
+    
+    font-size: 20px;
+    flex-basis: 50%;
+    align-items: center;
+}
+#reviewWriter > *{
+    margin-right: 10px;
+}
+
+#reviewContent > form > input{
+    display: flex;
+    flex-basis: 50%;
+}
+/* 별점 */
+#reviewContent fieldset{
+    height: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+#myform fieldset{   
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 28px;
+    color: transparent;
+    text-shadow: 0 0 0 #c8c8c8;
+}
+#myform label:hover{
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
+}
+#myform label:hover ~ label{
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
+}
+
+
+/* 수정 삭제 버튼 */
+#btn-modify{
+    width: 50px;
+
+    font-weight: bold;
+
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+
+    color: rgb(94, 94, 94);
+    background-color: white;
+    
+    cursor: pointer;
+}
+#btn-modify:hover{
+    color: white;
+    background-color: rgb(94, 94, 94);
+}
+#btn-delete{
+    width: 50px;
+
+    font-weight: bold;
+
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+
+    color: rgb(94, 94, 94);
+    background-color: white;
+    
+    cursor: pointer;
+}
+#btn-delete:hover{
+    border: 1px solid rgb(237, 21, 93);
+    color: white;
+    background-color: rgb(237, 21, 93);
+}
+
+
+/* 리뷰 글 작성 */
+#reviewPart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#reviewTextarea{
+    width: 100%;
+    min-height: 300px;
+
+    color: black;
+    
+    display: flex;
+    flex-direction: column;
+    
+    margin: 30px 0;
+    padding: 5px;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    border-bottom: 1px solid #a9a9a9;
+    border-radius: 5px;
+    resize: none;
+}
+
+#reviewPart2{
+    display: flex;
+    align-items: center;
+    color: rgb(94, 94, 94);
+    font-weight: bold;
+}
+#commentCount{
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+    font-size: 20px;
+}
+#countNo{
+    color:rgb(239, 161, 15);
+    font-size: 20px;
+}
+
+
+
+/* 댓글 작성 */
+#commentProfileImg{
+    width: 50px;
+}
+
+/* 댓글 작성 관련 버튼 */
+#commentBtn{
+    flex-basis: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 작성 버튼 */
+#btn-review{
+    width: 60px;
+    height: 30px;
+
+    border: 1px solid rgb(237, 21, 93);
+    border-radius: 5px;
+
+    color: rgb(237, 21, 93);
+    background-color: white;
+
+    cursor: pointer;
+}
+#btn-review:hover{
+    color: white;
+    background-color: rgb(237, 21, 93);
+}
+
+/* 이전으로 버튼 */
+#btn-back{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+
+    border: 1px solid rgb(237, 21, 93);
+    border-radius: 5px;
+
+    color: rgb(237, 21, 93);
+    background-color: white;
+
+    cursor: pointer;
+}
+#btn-back:hover{
+    color: white;
+    background-color: rgb(237, 21, 93);
+}
+
+/* 목록으로 버튼 */
+#btn-list{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+
+    border: 1px solid rgb(237, 21, 93);
+    border-radius: 5px;
+
+    color: rgb(237, 21, 93);
+    background-color: white;
+
+    cursor: pointer;
+}
+#btn-list:hover{
+    color: white;
+    background-color: rgb(237, 21, 93);
+}
+
+/* 댓글 목록 */
+.commentPart2{
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.commentList{
+    width: 100%;
+    height: auto;
+
+    margin: 10px 0;
+    border-top: 2px solid #a9a9a9;
+}
+.commentList > p:first-child{
+    display: flex;
+    align-items: center;
+}
+
+.commentList > p:first-child > *{
+    margin-right: 5px;
+}
+
+.commentList span{
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+}
+.commentList span:last-child{
+    font-size : 12px;
+}
+
+.commentList > div:first-child{
+    flex-basis: 5%;
+    margin: 0 10px 0 0;
+}
+.commentList > div:last-child{
+    flex-basis: 95%;
+    padding-right: 10px;
+}
+.commentList span {
+    font-weight: bold;
+}
+
+.imgBorder{
+    width: 40px;
+}
+.commentPart3{
+    width: 100%;
+}
+.commentPart3-1{
+    width: 100%;
+    height: 60%;
+}
+.commentBody{
+    width: 100%;
+    min-height: 50px;
+
+    color: black;
+    resize: none;
+}
+
+/* 작성 댓글 수정 삭제 버튼 */
+.btn-comment{
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-modify-comment{
+    width: 50px;
+
+    margin-right: 5px;
+
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+
+    color: rgb(94, 94, 94);
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.btn-modify-comment:hover{
+
+    color: white;
+    background-color: rgb(94, 94, 94);
+}
+.btn-delete-comment{
+    width: 50px;
+
+    margin-right: 5px;
+
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+
+    color: rgb(94, 94, 94);
+    background-color: white;
+
+    cursor: pointer;
+}
+.btn-delete-comment:hover{
+
+    color: white;
+    border: 1px solid rgb(237, 21, 93);
+    background-color: rgb(237, 21, 93);
+}
+
+/* 댓글 작성 */
+
+#commentPart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+#commentMain{
+    flex-basis: 90%;
+    display: flex;
+}
+#commentWrite{
+    flex-basis: 10%;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+#comment{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+
+    color: black;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    padding: 10px 0 0 10px;
+    margin-left: 10px;
+
+    outline: none;
+
+    resize: none;
+}
+#btn-write{
+    width: 100%;
+    height: 100px;
+
+    background-color: white;
+    
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+#btn-write:hover{
+    color: white;
+    border: 1px solid rgb(237, 21, 93);
+    background-color: rgb(237, 21, 93);
+}
+
+
+
+/* Footer 부분 */
+
+*{box-sizing: border-box;}
+    /* div{border: 1px solid black;} */
+
+footer{
+    width: auto;
+    height: 250px;
+    display: flex;
+    background-color: rgb(237, 21, 93);
+}
+
+.footer_first{
+    width: 35%;
+    text-align: center;
+}
+
+.footer_first img{
+    margin-top: 30px;
+}
+
+
+.footer_first strong{
+    color: white;
+}
+
+.footer_second{
+    width: 45%;
+}
+
+
+.footer_second a{
+    text-decoration: 0;
+    color: white;
+    padding-right: 30px;
+    font-size: 12px;
+
+}
+
+p{
+    color: white;
+    font-size: 14px;
+}
+
+.footer_second > div:first-child{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.footer_third{
+    width: 20%;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+
+.footer_third > i{
+    color: white;
+    width: 80px;
+    font-size: 40px;
+    
+}
+#text_box{
+    display: none;
+    color: white;
+    text-align: start;
+    text-align: center;
+}
+
+#btn{
+    background-color: rgb(237, 21, 93);
+    border: 0;
+    cursor: pointer;
+}

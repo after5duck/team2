@@ -1,0 +1,120 @@
+.header_container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.main_logo_img_container {
+	position: relative;
+	bottom: 70px;
+	height: 130px;
+}
+
+/* 애니버스 로고 */
+.main_logo {
+	width: 270px;
+	height: 270px;
+}
+
+/* 메뉴 리스트 테마추천, 팬아트 등  */
+.menu_list {
+	display: flex;
+	gap: 70px;
+}
+
+.a_tag {
+	text-decoration-line: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.a_tag:hover {
+	color: rgb(237, 21, 93);
+	transform: scale(1.1);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+
+/* 검색창 */
+.search_prop {
+	margin-right: 10px;
+	height: 30px;
+	border-radius: 10px;
+	background-image: url(../images/search.png);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	padding-left: 30px;
+	font-size: 16px;
+}
+
+/* 유저 정보 */
+.user_img {
+	background-image: url('../images/profileImg.png');
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.user_id {
+	text-align: center;
+	font-weight: bold;
+}
+
+/* ----------------------------------- 새로운 헤더 끝 ----------------------------------- */
+
+/* 리뷰 게시판 */
+.container {
+	margin-top: 40px;
+	padding-bottom: 100px;
+}
+
+/* Hover : 핑크색 버튼 */
+
+.btn-pink {
+	/* 배경색과 글자색 설정 */
+	background-color: #E91E63;
+	color: #FFFFFF;
+
+	/* 그림자 효과 추가 */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+
+	/* 호버 효과 */
+	transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+	background-color: #EC407A;
+}
+
+#btn {
+	font-weight: 500;
+}
+
+/* 페이지네이션 */
+.pagination{
+    padding: 0;
+    list-style-type: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+
+    color: black;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-decoration: none;
+    display: block;
+    /* letter-spacing: -2px; */
+}

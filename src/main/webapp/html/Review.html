@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>리뷰 게시판</title>
+	<link rel="stylesheet" href="../resources/css/Review.css">
+	<link rel="stylesheet" href="../resources/css/footer.css">
+	<script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+	<!-- 공용 헤더 -->
+	<header>
+
+		<div class="header_container">
+			<div class="main_logo_img_container">
+				<!-- 애니버스 로고 -->
+				<a href="메인페이지.html">
+					<img src="../resources/images/PJ2logo.png" alt="" class="main_logo">
+				</a>
+			</div>
+			<!-- 메뉴 리스트 테마추천, 팬아트 등 -->
+			<div class="menu_list">
+				<div class="menu_text_con"><a href="#" class="a_tag">테마추천</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">팬아트</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">굿즈</a></div>
+				<div class="menu_text_con"><a href="#" class="a_tag">리뷰</a></div>
+			</div>
+			<!-- 검색창 -->
+			<div class="search_prop_con">
+				<input type="text" class="search_prop" placeholder="애니 이름을 검색하세요">
+			</div>
+			<!-- 유저 정보 -->
+			<div class="user_con">
+				<div class="user_img"></div>
+				<div class="user_id">닉네임</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="row">
+			<h2 class="mr-auto">리뷰게시판</h2>
+			<div class="form-inline mb-3">
+				<!-- <label for="sortSelect" class="mr-2">정렬:</label> -->
+				<select id="sortSelect" class="form-control mr-2">
+					<option value="date">작성일 순</option>
+					<option value="title">제목 순</option>
+					<option value="author">작성자 순</option>
+				</select>
+				<input type="date" class="form-control mr-2" placeholder="날짜로 검색">
+				<input type="text" class="form-control mr-2" placeholder="검색어를 입력해주세요.">
+				<button type="button" class="btn btn-pink">검색</button>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
+						<th>추천수</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>10</td>
+						<td>테스트입니다.</td>
+						<td>드레이븐짱짱쎔</td>
+						<td>2023-04-14</td>
+						<td>100</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>테스트입니다.</td>
+						<td>드레이븐짱짱쎔</td>
+						<td>2023-04-14</td>
+						<td>100</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>테스트입니다.</td>
+						<td>드레이븐짱짱쎔</td>
+						<td>2023-04-14</td>
+						<td>100</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>테스트입니다.</td>
+						<td>드레이븐짱짱쎔</td>
+						<td>2023-04-14</td>
+						<td>100</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>테스트입니다.</td>
+						<td>드레이븐짱짱쎔</td>
+						<td>2023-04-14</td>
+						<td>100</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>테스트입니다.</td>
+						<td>푸푸링</td>
+						<td>2022-07-30</td>
+						<td>80</td>
+						<td>40</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>테스트입니다.</td>
+						<td>너무조아해</td>
+						<td>2020-04-04</td>
+						<td>60</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>테스트입니다.</td>
+						<td>땡베뭉</td>
+						<td>2020-01-16</td>
+						<td>40</td>
+						<td>20</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>테스트입니다.</td>
+						<td>user01</td>
+						<td>2018-07-16</td>
+						<td>20</td>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>안녕하세요</td>
+						<td>홍길동</td>
+						<td>2017-05-04</td>
+						<td>10</td>
+						<td>5</td>
+					</tr>
+					<!-- 다른 게시글 내용 추가 -->
+				</tbody>
+			</table>
+		</div>
+		<div class="row justify-content-end">
+			<a href="Review_write.html" class="btn btn-pink">글쓰기</a>
+		</div>
+	</div><!-- .container -->
+
+	<footer>
+		<div class="footer_first">
+			<div>
+				<img src="../resources/images/footer_logo.png">
+			</div>
+			<div>
+				<h5><button id="footer_btn"><strong>(주) 애니버스 사업자 정보</strong></button></h5>
+				<div id="text_box">
+					상호 : 주식회사 애니버스 / 대표 : 아이육<br>
+					주소 : 서울특별시 강남구 테헤란로 10길 9길<br>
+					사업자등록번호 : 202-30-71018
+					이메일 : i6@aniverse.net / 대표전화 : 1588-1004
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="footer_second">
+			<div>
+				<a href="#">회사소개</a>
+				<a href="#">고객센터</a>
+				<a href="#">공지사항</a>
+				<a href="#">이용약관</a>
+				<a href="#">청소년보호정책</a>
+				<a href="#"><strong>개인정보 처리방침</strong></a>
+				<a href="#">저작권 표기</a>
+			</div>
+			<p>Copyright &copy; 2023.ANIVERSE.All right.reserved.</p>
+
+		</div>
+		<div class="footer_third">
+			<i class="fa-brands fa-twitter fa-2xl"></i>
+			<i class="fa-brands fa-instagram fa-2xl"></i>
+			<i class="fa-brands fa-youtube fa-2xl"></i>
+			<i class="fa-brands fa-facebook fa-2xl"></i>
+
+		</div>
+
+	</footer>
+
+
+	<!-- 부트스트랩 JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="../resources/js/footer.js"></script>
+</body>
+
+</html>

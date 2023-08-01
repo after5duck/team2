@@ -1,0 +1,98 @@
+/* 폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
+  body {
+    font-family: 'Pretendard-Regular', sans-serif;
+    background-color: rgba(238, 234, 234, 0.863);
+  }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.container > form{
+    display: block;
+    border: 1px solid rgb(179, 176, 176);
+    border-radius: 5px;
+    width: 400px;
+    height: 450px;
+    background-color: white;
+}
+/* 아이디로 로그인 문구 */
+#text1{
+    font-size: 25px;
+    padding: 15px 40px;
+    font-weight: 15px;
+    color: rgba(0, 0, 0, 0.753);
+}
+
+.texts{
+    font-size: 20px;
+    padding: 15px 40px;
+    color: rgba(0, 0, 0, 0.733);
+    margin-top: 20px;
+}
+
+.inputarea{
+    padding: 10px 40px;
+
+}
+
+.inputbox{
+    border: 0;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+    width: 300px;
+    height: 20px;
+    outline: 0;
+    font-size: large;
+}
+
+/* 비번찾기 */
+.findPw{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+    color: rgba(0, 0, 0, 0.596);
+}
+#Pwsearch{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+#Pwsearch:hover{
+    text-decoration: underline;
+}
+
+.btnarea{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* 로그인 버튼 */
+#btn{
+    width: 350px;
+    height: 50px;
+    background-color: rgb(78, 73, 73);
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    font-size: large;
+    cursor: pointer;
+}
+
+
