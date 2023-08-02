@@ -12,6 +12,7 @@ import edu.kh.teamPJ.board.model.dao.ThemeDetailDAO;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.BoardDetail;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 
 
@@ -19,16 +20,18 @@ public class ThemeDetailService {
   
 private ThemeDetailDAO dao = new ThemeDetailDAO();
 
-public List<Photo> selectSportsList() throws Exception{
+public List<Theme> selectSportsList() throws Exception{
 	
 	Connection conn = getConnection();
 	
-	List<Photo> sportsList = dao.selectSportsList(conn);
+	List<Theme> sportsList = dao.selectSportsList(conn);
+	
+	
 	
 	close(conn);
 	
 	
-	return null;
+	return sportsList;
 }
   
   
