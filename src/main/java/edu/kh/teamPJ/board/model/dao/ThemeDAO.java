@@ -62,6 +62,9 @@ public class ThemeDAO {
 				Photo photoList = new Photo();
 				
 				photoList.setContentPath(rs.getString("CONTENT_PATH"));
+				
+				System.out.println(photoList);
+				
 				themePhotoList.add(photoList);
 				// 추가 완료!
 				
@@ -70,7 +73,8 @@ public class ThemeDAO {
 				
 				// photo리스트가 추가되어 있는 board리스트 list에 추가
 				list.add(board);
-				
+			
+				System.out.println(list);
 			}
 			
 		}finally {
