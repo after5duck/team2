@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지-나의 게시글 목록</title>
+
+    <link rel="stylesheet" href="../resources/css/mypageContentList.css">
+    <script src="https://kit.fontawesome.com/2b36447307.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <header>
+        <div class="header_container">
+            <div class="main_logo_img_container">
+                <!-- 애니버스 로고 -->
+                <img src="../resources/images/PJ2logo.png" alt="" class="main_logo">
+            </div>
+            <!-- 메뉴 리스트 테마추천, 팬아트 등 -->
+            <div class="menu_list">
+                <div class="menu_text_con"><a href="#" class="a_tag">테마추천</a></div>
+                <div class="menu_text_con"><a href="#" class="a_tag">팬아트</a></div>
+                <div class="menu_text_con"><a href="#" class="a_tag">굿즈</a></div>
+                <div class="menu_text_con"><a href="#" class="a_tag">리뷰</a></div>
+            </div>
+            <!-- 검색창 -->
+            <div class="search_prop_con">
+                <div id="header_btn"><input type="text" class="search_prop"  placeholder="애니 이름을 검색하세요"></div>
+                <button class="fa-solid fa-magnifying-glass" id="slide_header_btn"></button>
+            </div>
+            <!-- 유저 정보 -->
+            <div class="user_con">
+                <div class="user_img"></div>
+                <div class="user_id">닉네임</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- 핵심 내용 부분 -->
+        <section id="content-main">
+
+            <!-- 메인 제목 -->
+            <section id="contentTitle">
+                게시글 목록
+                <article>회원님이 작성한 글을 조회할 수 있습니다. 목록을 누르면 해당 게시글로 이동합니다.</article>
+            </section>
+
+            <section id="contentProfile">
+
+                <!-- 마이페이지 목록 -->
+                <article id="menu">
+                    <ul id="menu-ul">
+                        <li>프로필</li>
+                        <li><a href="mypage(profile).html">프로필 변경</a></li>
+                        <li><a href="mypage(password).html">비밀번호 변경</a></li>
+                        <li><a href="mypage(like).html">좋아요 목록</a></li>
+                        <li><a href="mypage(review).html">게시글 목록</a></li>
+                        <li><a href="mypage(secession).html">회원탈퇴</a></li>
+                    </ul>
+                </article>
+                <article id="main-body">
+                    <article id="dropDown">
+                        <div>
+                            <form>
+                                <input type="date" name="dateStart" class="inputDate">
+                                <span>~</span>
+                                <input type="date" name="dateEnd" class="inputDate">
+                                <button id="btn-submit">조회</button>
+                            </form>
+                        </div>
+
+                        <div class="searcharea">
+                            <input type="search" id="inputSearch" placeholder="게시글 이름, 내용 입력">
+                            <button id="btn-submit">검색</button>
+                        </div>
+                    </article>
+
+                    <article id="contentList">
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                        <nav class="writeContent">
+                            <article class="contentTitle">게시글 이름</article>
+                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentDate">게시글 날짜</article>
+                        </nav>
+                       
+                        
+                    </article>
+                </article>
+            </section>
+
+        </section>
+    </main>
+    
+        <!-- 공용 풋터 -->
+        <footer>
+
+            <div class="footer_first">
+                <div>
+                    <img src="../resources/images/footer_logo.png">
+                </div>
+                <div>
+                    <h5><button id="btn"><strong>(주) 애니버스 사업자 정보</strong></button></h5>
+                    <div id="text_box">
+                        상호 : 주식회사 애니버스 / 대표 : 아이육<br>
+                        주소 : 서울특별시 강남구 테헤란로 10길 9길<br>
+                        사업자등록번호 : 202-30-71018
+                        이메일 : i6@aniverse.net / 대표전화 : 1588-1004
+                    </div>
+                </div>
+    
+            </div>
+            <div class="footer_second">
+                <div>
+                    <a href="#">회사소개</a>
+                    <a href="#">고객센터</a>
+                    <a href="#">공지사항</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">청소년보호정책</a>
+                    <a href="#"><strong>개인정보 처리방침</strong></a>
+                    <a href="#">저작권 표기</a>
+                </div>
+                <p>Copyright &copy; 2023.ANIVERSE.All right.reserved.</p>
+    
+            </div>
+            <div class="footer_third">
+                <i class="fa-brands fa-twitter fa-2xl"></i>
+                <i class="fa-brands fa-instagram fa-2xl"></i>
+                <i class="fa-brands fa-youtube fa-2xl"></i>
+                <i class="fa-brands fa-facebook fa-2xl"></i>
+    
+            </div>
+        </footer>
+</body>
+</html>
