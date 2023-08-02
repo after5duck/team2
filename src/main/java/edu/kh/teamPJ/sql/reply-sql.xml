@@ -6,23 +6,26 @@
 
 	<!-- 이동호 -->
    <entry key="selectReplyList">
-   
-      SELECT REPLY_KEY, REPLY_CONTENT, TO_CHAR(REPLY_CREATE_DATE, 'YYYY-MM-DD')AS REPLY_CREATE_DATE, BOARD_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG
-      FROM REPLY
-      JOIN MEMBER USING (MEMBER_NO)
-      WHERE BOARD_NO = ?
-      ORDER BY REPLY_KEY
-   
+		SELECT REPLY_KEY, REPLY_CONTENT, TO_CHAR(REPLY_CREATE_DATE, 'YYYY-MM-DD')AS REPLY_CREATE_DATE, BOARD_NO, MEMBER_NO, MEMBER_NICK, PROFILE_IMG
+		FROM REPLY
+		JOIN MEMBER USING (MEMBER_NO)
+		WHERE BOARD_NO = ?
+		AND REPLY_ST = 'N'
+		ORDER BY REPLY_KEY
    </entry>
-   
-   
    
       <!-- 댓글 수 조회 --> <!-- 이동호 -->
    <entry key="commentCount">
-      
-      SELECT COUNT(*) FROM REPLY
-      WHERE BOARD_NO = ?
-      
+		SELECT COUNT(*) FROM REPLY
+		WHERE BOARD_NO = ?
+		AND REPLY_ST = 'N'
    </entry>
+
+	<entry key="insertReply">
+		INSERT INTO REPLY VALUES(SEQ_RNO, ?, DEFAULT ,? ,? ,DEFAULT)
+	</entry>
+
+
+
 
 </properties>
