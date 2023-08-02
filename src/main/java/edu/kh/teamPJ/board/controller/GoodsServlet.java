@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.kh.teamPJ.board.model.service.GoodsService;
 import edu.kh.teamPJ.board.model.service.ThemeService;
 import edu.kh.teamPJ.board.model.vo.Board;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 @WebServlet("/board/goods")
 public class GoodsServlet extends HttpServlet{
@@ -22,7 +23,7 @@ public class GoodsServlet extends HttpServlet{
 		try {
 			GoodsService service = new GoodsService();
 			
-			List<Board> goods = service.selectGoodsList();
+			List<Theme> goods = service.selectGoodsList();
 			
 			
 			

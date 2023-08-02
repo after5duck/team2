@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>theme_detail</title>
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/theme_detail_1.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/theme_detail.css">
     <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
 
@@ -71,28 +71,61 @@
 
     <main>
         <div class="main_container">
+            
+            
+            <!-- <section id="fanartTitle2">
+                <div>
+                   <div class="fanartTitle-view">
+                      ${board.boardTitle}
+                      <div id="viewCount">
+                         <i class="fa-solid fa-eye fa-xl"></i>${board.readCount }
+                      </div>
+                   </div>
+                   <div id="fanartDate2">게시일 : ${board.createDate }</div>
+                   <div id="fanart-memberNick">작성자 : ${board.memberNickname}</div>
+                </div>
+       
+                <div id="fanart2">
+                   <c:forEach var="photo" items="${board.photos}">
+                      <img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}">
+                   </c:forEach>
+                   <div>
+                      <textarea id="fanartWriteExplain" cols="80" rows="12">${board.boardContent}</textarea>
+                   </div>
+                </div>
+             </section> -->
+
+
+
 
             <c:forEach var="sportsList" items="${sportsList}">
 
-                <div class="main_first">
-                    <div>${sportsList.boardTitle}</div>
-                    <div>${sportsList.boardContent}</div>
+                
+                        <div class="main_first">
+                             <div><img src=${contextPath}/resources/images/${sportsList.contentPath}></div>
+                             <div>${sportsList.boardTitle}</div>
+                             <div>${sportsList.boardContent}</div>
+                        </div>
+                 
 
-                </div>
+            </c:forEach>
+
+                 
+            <c:forEach var="sportsList" items="${sportsList}">
                 <div class="main_content">
                     
-                        <div><img name="detail_image" src="${contextPath}${detailList.contentPath}"></div>
+                        <div><img name="detail_image" src="${contextPath}/resources/images/${sportsList.contentPath}"></div>
                         <div>
                             <div class="detail_header">
-                                <div class="detail_title">${detailList.boardTitle}</div>
+                                <div class="detail_title">${sportsList.boardTitle}</div>
                                 <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
                             </div>
-                            <div class="detail_genre">${detailList.age} | ${detailList.genre}</div>
+                            <div class="detail_genre">${sportsList.age} | ${sportsList.genre}</div>
                             <div class="detail_explain">
-                                ${detailList.boardContent}
+                                ${sportsList.boardContent}
                                 <!-- 예고편 유튜브 팝업 -->
                                 <div class="popupVideo">
-                                    <a data-video="aKcWy9yPEaE"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
+                                    <a data-video="${sportsList.videoPath}"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
                                     <div class="video-popup">
                                         <div class="video-popup-closer"></div>
                                     </div>

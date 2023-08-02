@@ -14,7 +14,7 @@ import java.util.Properties;
 
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.Photo;
-
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 import java.io.FileInputStream;
 import java.sql.PreparedStatement;
@@ -43,9 +43,9 @@ public class GoodsDAO {
 		}
 	}
 
-	public List<Board> selectGoodsList(Connection conn) throws Exception{
+	public List<Theme> selectGoodsList(Connection conn) throws Exception{
 		
-		List<Board> goods = new ArrayList<>();
+		List<Theme> goods = new ArrayList<>();
 
 		try {
 			String sql = prop.getProperty("selectGoodsList");
@@ -55,23 +55,14 @@ public class GoodsDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Board board = new Board();
+				Theme photo = new Theme();
 				
-				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				photo.setBoardTitle(rs.getString("BOARD_TITLE"));
+				photo.setContentPath(rs.getString("CONTENT_PATH"));
 				
-				List<Photo> goodsPhotoList = new ArrayList<>();
 				
-				Photo goodsList = new Photo();
-				
-				goodsList.setContentPath(rs.getString("CONTENT_PATH"));
-				goodsPhotoList.add(goodsList);
-				// 추가 완료!
-				
-				// 보드에 photo리스트 추가
-				board.setPhotos(goodsPhotoList);
-				
-				// photo리스트가 추가되어 있는 board리스트 list에 추가
-				goods.add(board);
+
+				goods.add(photo);
 				
 			}
 			

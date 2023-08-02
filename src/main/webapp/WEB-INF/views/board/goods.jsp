@@ -54,7 +54,7 @@
                 <c:forEach var="goodsList" items="${goods}">
                     
                     <div class="goods">
-                        <img id="goods_image" src="${contextPath}${goodsList.contentPath}">
+                        <img id="goods_image" src="${contextPath}/resources/images/${goodsList.contentPath}">
                         <i name="icon" class="fa-regular fa-heart"></i></img>
                         <div class="goods_name">${goodsList.boardTitle}</div>
                     </div>
@@ -62,111 +62,6 @@
                     
                 </c:forEach>
             </div>
-                    <!-- <div>
-                        <div id="goods_image2"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                        <div class="goods_name">체인소맨 아키</div>
-                    </div>
-                    <div>
-                        <div id="goods_image3"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                        <div class="goods_name">나루토 사스케</div>
-                    </div>
-                    <div>
-                        <div id="goods_image4"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                        <div class="goods_name">귀멸의 칼날 렌코쿠</div>
-                    </div> -->
-
-                
-           
-            <!-- <div class="main_fourth">
-                <div>
-                    <div id="goods_image5"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">강철의 연금술사 로이 머스탱</div>
-                </div>
-                <div>
-                    <div id="goods_image6"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">원피스 흰수염</div>
-                </div>
-                <div>
-                    <div id="goods_image7"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">에반게리온 초호기</div>
-                </div>
-                <div>
-                    <div id="goods_image8"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">주술회전 고죠 사토루</div>
-                </div>
-            </div>
-            <div class="main_fifth">
-                <div>
-                    <div id="goods_image9"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">도쿄 리벤져스 마이키</div>
-                </div>
-                <div>
-                    <div id="goods_image10"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">하이큐 카게야마</div>
-                </div>
-                <div>
-                    <div id="goods_image11"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">귀멸의칼날 탄지로</div>
-                </div>
-                <div>
-                    <div id="goods_image12"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">진격의 거인 리바이</div>
-                </div>
-            </div>
-            <div class="main_sixth">
-                <div>
-                    <div id="goods_image13"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">나루토 카카시</div>
-                </div>
-                <div>
-                    <div id="goods_image14"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">강철의 연금술사 엘릭형제</div>
-                </div>
-                <div>
-                    <div id="goods_image15"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">도쿄 리벤저스 드라켄</div>
-                </div>
-                <div>
-                    <div id="goods_image16"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">원피스 조로</div>
-                </div>
-            </div>
-            <div class="main_seventh">
-                <div>
-                    <div id="goods_image17"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">체인소맨 덴지</div>
-                </div>
-                <div>
-                    <div id="goods_image18"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">원피스 에이스</div>
-                </div>
-                <div>
-                    <div id="goods_image19"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">나루토</div>
-                </div>
-                <div>
-                    <div id="goods_image20"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">체인소맨 마키마</div>
-                </div>
-            </div>
-            <div class="main_eighth">
-                <div>
-                    <div id="goods_image21"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">에반게리온 2호기</div>
-                </div>
-                <div>
-                    <div id="goods_image22"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">하이큐 히나타</div>
-                </div>
-                <div>
-                    <div id="goods_image23"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">귀멸의칼날 기유</div>
-                </div>
-                <div>
-                    <div id="goods_image24"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    <div class="goods_name">진격의거인 갑옷거인</div>
-                </div>
-            </div> -->
 
         </div>
        

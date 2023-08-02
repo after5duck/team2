@@ -9,17 +9,18 @@ import java.util.List;
 import edu.kh.teamPJ.board.model.dao.GoodsDAO;
 import edu.kh.teamPJ.board.model.dao.ThemeDAO;
 import edu.kh.teamPJ.board.model.vo.Board;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 public class GoodsService {
 	
 	private GoodsDAO dao = new GoodsDAO();
 
 
-	public List<Board> selectGoodsList() throws Exception{
+	public List<Theme> selectGoodsList() throws Exception{
 		
 		Connection conn = getConnection();
 		
-		List<Board> goods = dao.selectGoodsList(conn);
+		List<Theme> goods = dao.selectGoodsList(conn);
 		
 		close(conn);
 		
