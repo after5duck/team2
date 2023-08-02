@@ -100,7 +100,11 @@
 
         const boardNo = "${detail.boardNo}";
 
+        const loginMember = "${loginMember.memberNo}";
+
     </script>
+
+    <script src="${contextPath}/resources/js/reviewReply.js"></script>
 
 </body>
 </html>
