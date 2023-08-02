@@ -54,7 +54,7 @@
 			<div>좋아요</div>
 			<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
 			<!-- 조회수 영역 -->
-			<div id="like-count">${board.readCount }</div>
+			<div id="like-count"></div>
 
 			
 		</section>
@@ -79,51 +79,32 @@
 
 		<section id="fanartList">
 			<div class="fanartList-first">
-				<div>
-					게시글 제목 : <span class="fanartList-title">귀멸의 칼날 - 렌코쿠</span>
-				</div>
-				<div class="fanartListInfo">
-					<div>
-						<img src="${contextPath}/resources/images/profileImg.png">
-					</div>
-					<div>
-						<span>user01*** </span> <i class="fa-solid fa-eye fa-sm"></i> <span>23</span>
-						<span> | 2023.07.01 | 16:23</span>
-					</div>
+				<c:forEach var="board" items="${boardList}" varStatus="boardStatus" begin="0"  end="3">
+					<!-- <c:out value="${board.boardTitle}" />
+					<c:out value="${board.boardContent}" />
+					<c:out value="${board.createDate}" />
+					<c:out value="${board.memberNickname}" /> -->
+					
+					<c:set var="photos" value="${board.photos}" />
+					<c:forEach var="photo" items="${photos}" varStatus="photoStatus" begin="0" end="3">
+						<div>
+							게시글 제목 : <span class="fanartList-title">${board.boardTitle}</span> <i class="fa-solid fa-eye fa-sm"></i> <span>${board.readCount}</span>
+						</div>
+							<div class="fanartListInfo">
+								<div>
+									<a href="fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+										<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}" class="fanart-img">
+									</a>
+								</div>
+								<div>
+									<span>${board.memberNickname}</span>
+									<span>${board.createDate}</span>
+								</div>
+			
+							</div>
+					</c:forEach>
+				</c:forEach>
 
-				</div>
-			</div>
-
-			<div class="fanartList-first">
-				<div>
-					게시글 제목 : <span class="fanartList-title">체인소맨 - 덴지</span>
-				</div>
-				<div class="fanartListInfo">
-					<div>
-						<img src="${contextPath}/resources/images/profileImg.png">
-					</div>
-					<div>
-						<span>user11**** </span> <i class="fa-solid fa-eye fa-sm"></i> <span>43</span>
-						<span> | 2023.07.02 | 12:10</span>
-					</div>
-
-				</div>
-			</div>
-
-			<div class="fanartList-first">
-				<div>
-					게시글 제목 : <span class="fanartList-title">이누야사 - 이누야사</span>
-				</div>
-				<div class="fanartListInfo">
-					<div>
-						<img src="${contextPath}/resources/images/profileImg.png">
-					</div>
-					<div>
-						<span>user33*** </span> <i class="fa-solid fa-eye fa-sm"></i> <span>100</span>
-						<span> | 2023.01.01 | 10:10</span>
-					</div>
-
-				</div>
 			</div>
 
 		</section>
@@ -134,7 +115,7 @@
 
 	<script>
 		const boardNo1 = "${board.boardNo}";
-		const memberNo1 = "${loginMember.memberNo}";
+		const memberNo1 = "${board.memberNo}";
 
 	</script>
 

@@ -59,8 +59,7 @@ fanartHeartClick.addEventListener("click", function(){
 
 
         success : function(data){
-
-            lo
+            document.getElementById("like-count").innerText = data;
 
         },
         error : function(){
