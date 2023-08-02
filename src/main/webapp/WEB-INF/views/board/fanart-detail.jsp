@@ -132,16 +132,17 @@
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+	<script>
+		const boardNo1 = "${board.boardNo}";
+		const memberNo1 = "${loginMember.memberNo}";
+
+	</script>
+
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <script src="${contextPath}/resources/js/fanart.js"></script>
 
-	<script>
-		const boardNo1 = "${board.boardNo}";
-
-	</script>
 	
-	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 	<script src="${contextPath}/resources/js/fanart-detail.js"></script>
 	<script src="${contextPath}/resources/js/footer.js"></script>
 

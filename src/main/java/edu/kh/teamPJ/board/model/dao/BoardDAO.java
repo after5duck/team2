@@ -924,6 +924,68 @@ public class BoardDAO {
 		return boardList;
 	}
 
+	/** 좋아요 수 증가 DAO
+	 * @param boardNo
+	 * @param memberNo
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateLikeCount(int boardNo, int memberNo, Connection conn) throws Exception{
+		
+		int result = 0;
+		
+		
+		try {
+			
+			String sql = prop.getProperty("updateLikeCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/** 좋아요 수 조회 DAO
+	 * @param boardNo
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectLikeCount(int boardNo, Connection conn) throws Exception{
+		
+		int likeCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("selectLikeCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+		} finally {
+			
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		
+		return likeCount;
+	}
+
 
 
 }
