@@ -43,8 +43,10 @@
 
                 <article id="main-body">
                     <article id="dropDown">
+                        
+                        <!-- 날짜로 내가 쓴 글 조회하기 -->
                         <div>
-                            <form action="contentList" method="get">
+                            <form action="contentList" method="get" name="contentList">
                                 <input type="date" name="dateStart" class="inputDate">
                                 <span>~</span>
                                 <input type="date" name="dateEnd" class="inputDate">
@@ -52,10 +54,13 @@
                             </form>
                         </div>
 
-                        <div class="searcharea">
-                            <input type="search" id="inputSearch" placeholder="게시글 이름, 내용 입력">
-                            <button id="btn-submit">검색</button>
-                        </div>
+
+                        <!-- 검색어로 내가 쓴 글 조회하기 -->
+                            <div class="searcharea">
+                                <input type="search" id="inputSearch" placeholder="게시글 이름, 내용 입력">
+                                <button id="btn-submit">검색</button>
+                            </div>
+
                     </article>
 
                     <article id="contentList">
@@ -128,7 +133,13 @@
         </section>
     </main>
     
-        <!-- 공용 풋터 -->
-        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <!-- 공용 풋터 -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script src="${contextPath}/resources/js/mypageContentList.js"></script>
+
+
 </body>
 </html>
