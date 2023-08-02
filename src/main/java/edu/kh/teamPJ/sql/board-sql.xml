@@ -84,6 +84,7 @@
 		m.MEMBER_NO)
 		WHERE BOARD_CD = 2
 		AND BOARD_ST = 'N'
+		ORDER BY CREATE_DT DESC
 	</entry>
 
 	<!-- 팬아트 게시글/이미지 가져오기(BOARD_NO)에 따라 상세 페이지 -->

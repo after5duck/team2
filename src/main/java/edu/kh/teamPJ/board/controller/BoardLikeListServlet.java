@@ -31,13 +31,9 @@ public class BoardLikeListServlet extends HttpServlet{
 				
 				int likeCount = service.selectLikeCount(boardNo);
 				
-				resp.getWriter().print(result);
-				
-			}else {
+				resp.getWriter().print(likeCount);
 				
 			}
-			
-			
 			
 			
 		} catch (Exception e) {
