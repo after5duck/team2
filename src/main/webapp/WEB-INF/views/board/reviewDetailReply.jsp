@@ -9,7 +9,7 @@
         <div class="commentList">
             <p>
                 <c:if test="${empty reply.profileImage}">
-                    <img class="imgBorder" src="${contextPath}/resources/images/profile.png">
+                    <img class="imgBorder" src="${contextPath}/resources/images/user.png">
                 </c:if>
                 <c:if test="${!empty reply.profileImage}">
                     <img class="imgBorder" src="${contextPath}${reply.profileImage}">

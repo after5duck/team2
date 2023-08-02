@@ -93,7 +93,7 @@
     <!-- 공용 풋터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
-    <script src="${contextPath}/resources/js/reviewDetailReply.js"></script>
+    <script src="${contextPath}/resources/js/reviewReply.js"></script>
     <script>
 
         const contextPath = "${contextPath}";
