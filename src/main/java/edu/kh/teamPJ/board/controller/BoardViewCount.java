@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
 
@@ -28,22 +30,18 @@ public class BoardViewCount extends HttpServlet{
 
 			if (updatedViewCount > 0) {
 				
-				Board board = service.selectBoardWithPhotosView(boardNo);;
+				Board board = service.selectBoardWithPhotosView(boardNo);
 				
-				resp.getWriter().write(updatedViewCount);
-
-				req.setAttribute("board", board);
+				
+				new Gson().toJson(board, resp.getWriter());
+				
 			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		String path = "/WEB-INF/views/board/fanart-detail.jsp";
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher(path);
-		
-		dispatcher.forward(req, resp);
 	}
 
 

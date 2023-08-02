@@ -165,7 +165,6 @@ public class FanartWriteServlet extends HttpServlet{
 				session.setAttribute("message", message);
 				resp.sendRedirect(path);
 
-
 			}
 
 		} catch (Exception e) {

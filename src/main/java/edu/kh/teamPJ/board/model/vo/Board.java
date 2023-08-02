@@ -1,6 +1,7 @@
 package edu.kh.teamPJ.board.model.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class Board {
 	private int memberNo;
 	private String memberNickname;
 
-	private List<Photo> photos; 
+	private List<Photo> photos = new ArrayList<>(); 
 	
 	
 	public Board(int boardNo, String boardTitle, String boardContent, String createDate, int readCount, char boardStatus,

@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
 	<main>
 
@@ -71,7 +71,7 @@
 		<section id="fanartList-header">
 			<div>팬아트 게시판 작성글</div>
 			<div>
-				<i class="fa-solid fa-plus"></i><a href="#"> 목록가기</a>
+				<i class="fa-solid fa-plus"></i><button id="fanartGoToBtn">이전으로</button>
 			</div>
 		</section>
 
