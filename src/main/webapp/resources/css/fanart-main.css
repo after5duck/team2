@@ -274,3 +274,11 @@ main{
     border: 2px solid rgb(237, 21, 93);
 
 }
+/* 목록으로 가기 버튼 */
+#fanartGoToBtn{
+    font-family: 'Pretendard-Regular';
+    background-color: white;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
