@@ -9,7 +9,6 @@ public class ModalPhoto {
 
 	public ModalPhoto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ModalPhoto(int boardNo, String contentPath, String type, String videoPath) {
