@@ -47,6 +47,27 @@ public class ReplyController extends HttpServlet{
 				int result = service.insertReply(replyContent, boardNo, memberNo);
 				
 				resp.getWriter().print(result);
+			}
+			
+			// 댓글 삭제
+			if(command.equals("delete")) {
+				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
+				
+				int result = service.deleteReply(replyNo);
+				
+				resp.getWriter().print(result);
+			}
+			
+			// 댓글 수정
+			if(command.equals("update")) {
+				
+				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
+				String replyContent = req.getParameter("replyContent");
+				
+				int result = service.updateReply(replyNo, replyContent);
+				
+				resp.getWriter().print(result);
+				
 				
 			}
 			
