@@ -67,30 +67,8 @@
     
 </head>
 <body>
-    <header>
-        <div class="header_container">
-            <div class="main_logo_img_container">
-                <!-- 애니버스 로고 -->
-                <img src="${contextPath}/resources/images/PJ2logo.png" alt="" class="main_logo">
-            </div>
-            <!-- 메뉴 리스트 테마추천, 팬아트 등 -->
-            <div class="menu_list">
-                <div class="menu_text_con"><a href="#" class="a_tag" id="theme">테마추천</a></div>
-                <div class="menu_text_con"><a href="#" class="a_tag">팬아트</a></div>
-                <div class="menu_text_con"><a href="#" class="a_tag">굿즈</a></div>
-                <div class="menu_text_con"><a href="#" class="a_tag">리뷰</a></div>
-            </div>
-            <!-- 검색창 -->
-            <div class="search_prop_con">
-                <input type="text" class="search_prop" placeholder="애니 이름을 검색하세요">
-            </div>
-            <!-- 유저 정보 -->
-            <div class="user_con">
-                <div class="user_img"></div>
-                <div class="user_id">닉네임</div>
-            </div>
-        </div>
-    </header>
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+
     <main>
         <div class="main_container">
 
@@ -195,43 +173,8 @@
     </main>
 
 
-    <footer>
-
-        <div class="footer_first">
-           <div>
-              <img src="${contextPath}/resources/images/footer_logo.png">
-           </div>
-           <div>
-              <h5>
-                 <button id="footer_btn">
-                    <strong>(주) 애니버스 사업자 정보</strong>
-                 </button>
-              </h5>
-              <div id="text_box">
-                 상호 : 주식회사 애니버스 / 대표 : 아이육<br> 주소 : 서울특별시 강남구 테헤란로 10길 9길<br>
-                 사업자등록번호 : 202-30-71018 이메일 : i6@aniverse.net / 대표전화 : 1588-1004
-              </div>
-           </div>
-  
-        </div>
-        <div class="footer_second">
-           <div>
-              <a href="#">회사소개</a> <a href="#">고객센터</a> <a href="#">공지사항</a> <a
-                 href="#">이용약관</a> <a href="#">청소년보호정책</a> <a href="#"><strong>개인정보
-                    처리방침</strong></a> <a href="#">저작권 표기</a>
-           </div>
-           <p>Copyright &copy; 2023.ANIVERSE.All right.reserved.</p>
-  
-        </div>
-        <div class="footer_third">
-           <i class="fa-brands fa-twitter fa-2xl"></i> <i
-              class="fa-brands fa-instagram fa-2xl"></i> <i
-              class="fa-brands fa-youtube fa-2xl"></i> <i
-              class="fa-brands fa-facebook fa-2xl"></i>
-  
-        </div>
-  
-    </footer>
+    <!-- 공용 풋터 -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
   
 
 
