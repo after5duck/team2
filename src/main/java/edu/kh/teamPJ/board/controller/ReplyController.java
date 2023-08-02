@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import edu.kh.teamPJ.board.model.service.ReplyService;
 import edu.kh.teamPJ.board.model.vo.Reply;
 
-@WebServlet("/member/reply/*")
+@WebServlet("/reply/*")
 public class ReplyController extends HttpServlet{
 
 	@Override
@@ -27,13 +27,11 @@ public class ReplyController extends HttpServlet{
 		ReplyService service = new ReplyService();
 		
 		try {
-			
 			// 댓글 조회
-			if(command.equals("selectReplyList")) {
+			if(command.equals("selectReply")) {
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 				
 				List<Reply> replyList = service.selectReplyList(boardNo); 
-				
 				new Gson().toJson(replyList, resp.getWriter());
 				
 			}
@@ -45,6 +43,8 @@ public class ReplyController extends HttpServlet{
 				int	memberNo = Integer.parseInt(req.getParameter("memberNo"));
 				
 				int result = service.insertReply(replyContent, boardNo, memberNo);
+				
+				System.out.println(result);
 				
 				resp.getWriter().print(result);
 			}

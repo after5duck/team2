@@ -6,21 +6,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
+    <title>${detail.boardName}</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/reviewDetail.css">
     <script src="https://kit.fontawesome.com/2b36447307.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/beforeHeader.jsp"/>
     <main>
         <!-- 핵심 내용 부분 -->
         <section id="content-main">
 
             <!-- 메인 제목 -->
             <article id="aniTitle">
-                <span>${detail.boardTitle}</span> - <span>${detail.boardName}</span>
+                <span>${detail.boardTitle}</span> &nbsp; - &nbsp; <span>${detail.boardName}</span>
             </article>
 
             <!-- 작성자 글 -->
@@ -29,7 +29,7 @@
                 <article id="reviewProfile">
                     <div id="reviewProfileImage">
                         <c:if test="${empty detail.profileImage}">
-                            <img id="contentProfileImg" src="${contextPath}/resources/images/profile.png">
+                            <img id="contentProfileImg" src="${contextPath}/resources/images/user.png">
                         </c:if>
                         <c:if test="${!empty detail.profileImage}">
                             <img id="contentProfileImg" src="${contextPath}${loginMember.profileImage}">
@@ -93,14 +93,15 @@
     <!-- 공용 풋터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
-    <script src="${contextPath}/resources/js/reviewReply.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="${contextPath}/resources/js/review.js"></script>
     <script>
 
         const contextPath = "${contextPath}";
 
         const boardNo = "${detail.boardNo}";
 
-        const loginMember = "${loginMember.memberNo}";
+        const loginMemberNo = "${loginMember.memberNo}";
 
     </script>
 

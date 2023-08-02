@@ -23,13 +23,13 @@
 
 	<!-- 댓글 작성 -->
 	<entry key="insertReply">
-		INSERT INTO REPLY VALUES(SEQ_RNO, ?, DEFAULT ,? ,? ,DEFAULT)
+		INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, ?, SYSDATE, ?, ?, DEFAULT)
 	</entry>
 
 	<!-- 댓글 삭제 -->
 	<entry key="deleteReply">
 		UPDATE REPLY SET REPLY_ST = 'Y'
-		WHERE REPLY_NO = ?
+		WHERE REPLY_KEY = ?
 	</entry>
 	
 	<!-- 댓글 수정 -->

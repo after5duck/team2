@@ -106,7 +106,7 @@ main{
 
 /* 유저 정보 */
 .user_img {
-   background-image: url('../images/profile.png');
+   background-image: url('../images/user.png');
    width: 50px;
    height: 50px;
    background-size: cover;
@@ -390,6 +390,8 @@ main{
 
     margin: 10px 0;
     border-top: 2px solid #a9a9a9;
+
+    list-style-type: none;
 }
 .commentList > p:first-child{
     display: flex;
@@ -407,6 +409,7 @@ main{
 }
 .commentList span:last-child{
     font-size : 12px;
+    color: #a9a9a9;
 }
 
 .commentList > div:first-child{

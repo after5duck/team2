@@ -36,6 +36,7 @@ public class ReplyDAO {
 	}
 
 	/** 이동호 
+	 * 
 	 * 게시글 댓글 목록 조회
 	 * @param conn
 	 * @param boardNo
@@ -128,8 +129,8 @@ public class ReplyDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, replyContent);
-			pstmt.setInt(2, boardNo);
-			pstmt.setInt(3, memberNo);
+			pstmt.setInt(2, memberNo);
+			pstmt.setInt(3, boardNo);
 			
 			result = pstmt.executeUpdate();			
 			

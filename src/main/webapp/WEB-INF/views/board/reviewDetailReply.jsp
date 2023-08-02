@@ -36,7 +36,12 @@
 <!-- 댓글 작성 -->
 <div id="commentPart">
     <div id="commentMain">
-        <textarea id="comment">테스트 댓글 길이 제한을 한번 알아봐야겠다</textarea> 
+        <c:if test="${empty loginMember.memberNo}">
+            <textarea id="comment" placeholder="로그인 후 이용해주세요."></textarea> 
+        </c:if>
+        <c:if test="${!empty loginMember.memberNo}">
+            <textarea id="comment" placeholder="댓글을 입력해주세요."></textarea> 
+        </c:if>
     </div>
     <div id="commentWrite">
         <button id="btn-write">등록</button>
