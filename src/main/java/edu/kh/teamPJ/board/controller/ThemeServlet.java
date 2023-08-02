@@ -12,40 +12,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.kh.teamPJ.board.model.service.ThemeService;
 import edu.kh.teamPJ.board.model.vo.Board;
+import edu.kh.teamPJ.board.model.vo.Photo;
 
 @WebServlet("/board/theme")
-public class ThemeServlet extends HttpServlet{
-	
+public class ThemeServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
-		try{
-			
+
+		try {
+
 			ThemeService service = new ThemeService();
-			
-			List<Board> list = service.selectThemeList();
-			
-			
-			
-			
-			
-			req.setAttribute("list",list);
-			
-			
-			
+
+			List<Photo> list = service.selectThemeList();
+
+			req.setAttribute("list", list);
+
 			String path = "/WEB-INF/views/board/theme.jsp";
-			
-			
+
 			req.getRequestDispatcher(path).forward(req, resp);
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-		
-	
 
 }

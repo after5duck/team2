@@ -13,14 +13,14 @@ public class ThemeService {
 
 	private ThemeDAO dao = new ThemeDAO();
 
-	public List<Board> selectThemeList() throws Exception{
-		
+	public List<Photo> selectThemeList() throws Exception {
+
 		Connection conn = getConnection();
-		
-		List<Board> list = dao.selectThemeList(conn);
-		
+
+		List<Photo> list = dao.selectThemeList(conn);
+
 		close(conn);
-		
+
 		return list;
 	}
 

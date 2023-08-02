@@ -42,7 +42,7 @@
                         <a href="theme_detail" class="a_tag_theme">
                            
                             <div>
-                                <img name="theme_image" src="${contextPath}${themeList.contentPath}">
+                                <img name="theme_image" src="${contextPath}/resources/images/${themeList.contentPath}">
                             </div>
                             <div class="content">${themeList.boardTitle}</div>
                             <div class="content">${themeList.boardContent}</div>
