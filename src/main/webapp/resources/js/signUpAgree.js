@@ -1,38 +1,38 @@
 
 
 /* 첫번째 약관 */
-document.getElementById("agreeContent1").style.display="none";
+/* document.getElementById("agreeContent1").style.display="none";
 
 const pbtn1 = document.getElementById("btn1");
 
 pbtn1.addEventListener("click", function(){
     document.getElementById("agreeContent1").style.display = "block";
-})
+}) */
 
 
 
 
 /* 두번째 약관 */
-document.getElementById("agreeContent2").style.display="none";
+/* document.getElementById("agreeContent2").style.display="none";
 
 const pbtn2 = document.getElementById("btn2");
 
 pbtn2.addEventListener("click", function(){
     document.getElementById("agreeContent2").style.display = "block";
 })
-
+ */
 
 
 /* 세번째 약관 */
 
 
-document.getElementById("agreeContent3").style.display="none";
+/* document.getElementById("agreeContent3").style.display="none";
 
 const pbtn3 = document.getElementById("btn3");
 
 pbtn3.addEventListener("click", function(){
     document.getElementById("agreeContent3").style.display = "block";
-})
+}) */
 
 /* 박스들 얻어오기 */
 const check1 = document.getElementById("check1"); // 전체선택 박스
