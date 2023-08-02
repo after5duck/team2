@@ -28,12 +28,12 @@ function updateViewCount() {
 
             document.getElementById("viewCount").innerText = board.readCount;;
 
-    },
+        },
 
-    error: function () {
+        error: function () {
 
-        console.log("조회수 업데이트에 실패했습니다..");
-    },
+            console.log("조회수 업데이트에 실패했습니다..");
+        },
     });
 }
 (function(){
