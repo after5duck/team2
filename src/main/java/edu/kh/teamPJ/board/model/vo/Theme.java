@@ -1,5 +1,8 @@
 package edu.kh.teamPJ.board.model.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +23,9 @@ public class Theme {
 	private String age;
 	private String genre;
 	private String boardCode;
+	
+	private List<Theme> sportsList = new ArrayList<>();
+
 	
 	
 

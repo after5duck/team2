@@ -48,7 +48,7 @@ body {
 								<img name="theme_image"
 									src="${contextPath}/resources/images/${themeList.contentPath}">
 							</div>
-							<div class="content">${tshemeList.boardTitle}</div>
+							<div class="content">${themeList.boardTitle}</div>
 							<div class="content">${themeList.boardContent}</div>
 
 						</a>
