@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="menu_text_con">
-					<a href="#" class="a_tag">테마추천</a>
+					<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 				</div>
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/fanart" class="a_tag">팬아트</a>
