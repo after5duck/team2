@@ -38,6 +38,24 @@ public class ReplyService {
       
       return commentCount;
    }
+
+	/** 댓글 작성 Service
+	 * @param replyContent
+	 * @param boardNo
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertReply(String replyContent, int boardNo, int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertReply(conn, replyContent, boardNo, memberNo);
+		
+		close(conn);
+		
+		return result;
+	}
    
 	
 }
