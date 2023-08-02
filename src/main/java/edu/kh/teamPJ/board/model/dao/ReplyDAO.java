@@ -108,6 +108,37 @@ public class ReplyDAO {
 
 	      return result;
 	   }
+
+	/** 댓글 작성 DAO
+	 * @param conn
+	 * @param replyContent
+	 * @param boardNo
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertReply(Connection conn, String replyContent, int boardNo, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insertReply");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, replyContent);
+			pstmt.setInt(2, boardNo);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	   
 	
 	
