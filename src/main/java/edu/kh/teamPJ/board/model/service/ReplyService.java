@@ -52,6 +52,9 @@ public class ReplyService {
 		
 		int result = dao.insertReply(conn, replyContent, boardNo, memberNo);
 		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
 		close(conn);
 		
 		return result;

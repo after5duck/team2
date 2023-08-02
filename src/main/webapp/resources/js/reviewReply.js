@@ -1,7 +1,8 @@
 // 댓글 목록 조회
 function selectReplyList(){
+    
     $.ajax({
-        url : context + "reply/selectReply",
+        url : contextPath + "/reply/selectReply",
         data : {"boardNo" : boardNo},
         type : "get",
         dataType : "JSON",
@@ -62,25 +63,28 @@ function selectReplyList(){
             }
 
         },
-        error : function(){
-            console.log("에러 발생")
+        error : function(req, status, error){
+            console.log("실패");
+            console.log(req.responseText);
         }
     });
 }
 
 // 댓글 등록
-const addReply = document.getElementById("btn-write");
+const addComment = document.getElementById("btn-write");
 const comment = document.getElementById("comment");
 
-addReply.addEventListener("click", function(){
+addComment.addEventListener("click", function(){
 
-    if(loginMember == "" ){
+    // 로그인 확인
+    if(loginMemberNo == "" ){
         alert("로그인 후 이용해주세요");
 
         comment.value = "";
         return;
     }
 
+    // 댓글 내용 확인
     if(comment.value.trim().length == 0){
         alert("댓글을 작성해주세요")
 
@@ -109,8 +113,9 @@ addReply.addEventListener("click", function(){
             }
 
         },
-        error : function(){
-            console.log("에러발생");
+        error : function(req, status, error){
+            console.log("댓글 등록 실패");
+            console.log(req.responseText);
         }
     })
 })
@@ -119,10 +124,9 @@ addReply.addEventListener("click", function(){
 function deleteReply(replyNo){
     if(confirm("정말 삭제하시겠습니까?")){
         $.ajax({
-
             url : contextPath + "/reply/delete",
             data : {"replyNo" : replyNo},
-            type : get,
+            type : "get",
             seccess : function(result){
 
                 if(result > 0){
@@ -131,11 +135,11 @@ function deleteReply(replyNo){
                     selectReplyList();
 
                 }else{
-                    alert("댓글 삭제에 실패했습니다.")
+                    alert("댓글 삭제에 실패했습니다.");
                 }
             },
             error : function(){
-                console.log("에러 발생")
+                console.log("에러 발생");
             }
         });
     }
