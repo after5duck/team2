@@ -15,9 +15,12 @@
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     </head>
     <body>
-    <header class="logo">
-        <img src="${contextPath}/resources/images/자른로고.png" id="logo">
-    </header>
+
+    <section class="logo">
+        <a href="${contextPath}">
+            <img src="${contextPath}/resources/images/자른로고.png" id="logo">
+        </a>
+    </section>
 
     <form action="signUp" method="get" name="signUpAgree-form" onsubmit="return agreeValidate()">
         <section class="container">
@@ -39,7 +42,6 @@
                     <div class="one">
                         <div><input type="checkbox" id="check2" name="CHEBOX" class="req" required></div>
                         <div><label>애니버스 이용약관 동의(필수)</label></div>
-                        <div class="pbtn fa-solid fa-square-plus" style="color: #373a3e;" id="btn1"></div>
                     </div>
                     <!-- 약관 박스1 -->
                     <div class="agreeArea">
@@ -94,7 +96,6 @@
                     <div class="one">
                         <div><input type="checkbox" id="check3" name="CHEBOX" class="req" required></div>
                         <div><label>개인정보 수집 및 이용에 대한 안내 (필수)</label></div>
-                        <div class="pbtn fa-solid fa-square-plus" style="color: #373a3e;" id="btn2"></div>
                     </div>
                     <!-- 약관 박스2 -->
                     <div class="agreeArea">
@@ -128,7 +129,6 @@
                     <div class="one">
                         <div><input type="checkbox" id="check4" name="CHEBOX"></div>
                         <div><label>이벤트 소식 메일 수신(선택)</label></div>
-                        <div class="pbtn fa-solid fa-square-plus" style="color: #373a3e;" id="btn3"></div>
                     </div>
                     <!-- 약관 박스3 -->
                     <div class="agreeArea">

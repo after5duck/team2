@@ -11,6 +11,11 @@
     font-family: 'Pretendard-Regular', sans-serif;
   }
 
+  .logo{
+    display: flex;
+    justify-content: center;
+  }
+
   /* 로고 */
   #logo{
     display: flex;
@@ -86,14 +91,15 @@ div>label{
     text-decoration: none;
 }
 
-.pbtn{
+/* .pbtn{
     width: 50px;
     height: 20px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
     font-size: 25px;
-}
+} */
+
 .one{
     display: flex;
     margin: 10px 0;
