@@ -193,7 +193,26 @@ public class BoardDAO {
 				newAnimePhoto.setContentPath(rs.getString("CONTENT_PATH"));
 				newAnimePhoto.setBoardTitle(rs.getString("BOARD_TITLE"));
 				newAnimePhoto.setBoardContent(rs.getString("BOARD_CONTENT"));
-
+				
+				//
+				
+				List<Modal> newAnimeModalList = new ArrayList<Modal>();
+				
+				Modal newAnimemodal = new Modal();
+				
+				newAnimemodal.setVideoPath(rs.getString("VIDEO_PATH"));
+				newAnimemodal.setStory(rs.getString("STORY"));
+				newAnimemodal.setDrawing(rs.getString("DRAWING"));
+				newAnimemodal.setReleaseDate(rs.getString("RELEASE_DT"));
+				newAnimemodal.setAge(rs.getString("AGE"));
+				
+				// modal리스트 추가
+				newAnimeModalList.add(newAnimemodal);
+				
+				// photo에 modal리스트 추가
+				newAnimePhoto.setModals(newAnimeModalList);
+				
+				// newAnimeList에 photo 추가
 				newAnimeList.add(newAnimePhoto);
 			}
 

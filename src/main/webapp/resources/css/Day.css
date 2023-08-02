@@ -88,7 +88,6 @@ body {
 
 /* 모달창 위치 고정 */
 .modal {
-
 	display: none;
 	position: fixed;
 	z-index: 1;
@@ -97,22 +96,23 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4); /* 배경 반투명 */
 }
 
 /* 모달창 전체 div */
 .modal-content {
-
 	background-color: #191b2a !important;
-	margin: 150px auto;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* 중앙 배치 */
 	padding: 20px;
 	border: none;
-	
-/* 너비, 높이 키우려면 max-width 수정 */
-	max-width: 700px;
-	height: 570px;
-	position: fixed;
-
+	/* 너비, 높이 키우려면 max-width 수정 */
+	max-width: 400px;
+	height: 200px;
 }
+
 
 .modal-div {
 	display: flex;
