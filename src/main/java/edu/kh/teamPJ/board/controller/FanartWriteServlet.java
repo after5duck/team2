@@ -144,8 +144,6 @@ public class FanartWriteServlet extends HttpServlet{
 
 				int result = service.updateBoard(boardDetail, photos, deleteList);
 				
-				System.out.println("이미지 가져오나? 서블릿");
-
 				String path = null;
 
 				String message = null;

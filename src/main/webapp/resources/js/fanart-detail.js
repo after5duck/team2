@@ -14,8 +14,8 @@ heartIcon.addEventListener('click', function() {
 /* 조회수 증가 */
 function updateViewCount() {
 
-
     $.ajax({
+
         url: "updateViewCount", 
 
         data: { "boardNo" : boardNo1},
@@ -24,15 +24,15 @@ function updateViewCount() {
     
         dataType : 'JSON',
         
-        success: function (board) {
+        success: function (data) {
 
-            document.getElementById("viewCount").innerText = board.readCount;;
+            document.getElementById("viewCount").textContent = data;
 
         },
 
         error: function () {
 
-            console.log("조회수 업데이트에 실패했습니다..");
+            console.log("조회수 업데이트에 실패했습니다ㅜㅜㅜㅜㅜㅜ");
         },
     });
 }
@@ -41,3 +41,32 @@ function updateViewCount() {
     updateViewCount();
 
 })(); 
+
+
+/* 좋아요 수 증가 */
+const fanartHeartClick = document.getElementById("fanart-heartClick");
+
+fanartHeartClick.addEventListener("click", function(){
+
+    $.ajax({
+
+        url : "likeCount",
+
+        data : {"boardNo" : boardNo1,
+                    "memberNo" : memberNo1},
+
+        type : "get",
+
+
+        success : function(data){
+
+            lo
+
+        },
+        error : function(){
+            console.log("좋아요 수 업데이트에 실패함");
+        }
+
+    });
+
+})
