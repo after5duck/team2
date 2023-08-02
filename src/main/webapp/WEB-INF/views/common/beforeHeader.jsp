@@ -25,13 +25,13 @@
 				</div>
 
 				<div class="menu_text_con">
-					<a href="#" class="a_tag">테마추천</a>
+					<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 				</div>
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/fanart" class="a_tag">팬아트</a>
 				</div>
 				<div class="menu_text_con">
-					<a href="#" class="a_tag">굿즈</a>
+					<a href="${contextPath}/board/goods" class="a_tag">굿즈</a>
 				</div>
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/review?type=6" class="a_tag">리뷰</a>
@@ -51,8 +51,7 @@
 
 				<!-- 정은 언니 주석 -->
 			 <!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
-          		<!-- 정은 언니 주석 -->
-			 <!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
+
             <c:choose>
                
                <c:when test="${ empty sessionScope.loginMember}"> 

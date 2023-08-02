@@ -148,23 +148,6 @@
 					</c:forEach>
 
 
-
-					<!-- 
-				<div class="carousel-item active">
-						<div class="con2">
-							<div class="con2_text"></div>
-							<button class="bannar-btn magin-btn">보러가기 ></button>
-						</div>
-
-					</div>
-					<div class="carousel-item active">
-
-						<div class="con3">
-							<div class="con3_text"></div>
-							<button class="bannar-btn glass-btn">보러가기 ></button>
-						</div>
-
-					</div>  -->
 				</div>
 				<button class="carousel-control-prev" type="button"
 					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -182,62 +165,6 @@
 		<!-- ********************************************************************************************************* -->
 
 		<!-- 요일별 신작 -->
-
-		<%-- <div class="date_container">
-			<div class="day_con">
-
-				<div id="day">요일별 신작</div>
-
-				<div class="bibig-con">
-					<div class="date-con2">
-
-						<div class="date-div">
-							<div class="date-div-text">월</div>
-						</div>
-
-						<div class="date-div">
-							<div class="date-div-text tue">화</div>
-						</div>
-
-						<div class="date-div">
-							<div class="date-div-text wed">수</div>
-						</div>
-
-						<div class="date-div">
-							<div class="date-div-text thu">목</div>
-						</div>
-
-						<div class="date-div">
-							<div class="date-div-text fri">금</div>
-						</div>
-
-					</div>
-
-					<div class="big_con" id="big">
-						<c:forEach var="dayDTO" items="${dayList}" varStatus="status">
-							<div class="mini_con">
-								<div id="photo">
-									<img
-										src="${contextPath}/resources/images/${dayDTO.contentPath}"
-										id="photo_${status.index + 1}">
-								</div>
-								<div class="photo_text" id="photo_text_${status.index + 1}">
-									${dayDTO.boardTitle}</div>
-							</div>
-						</c:forEach>
-
-						<c:if test="${empty dayList}">
-							<p>왜 데이터를 못 가져오니...</p>
-							<img src="${contextPath}/resources/images/i.png">
-						</c:if>
-
-					</div>
-				</div>
-			</div>
-		</div> --%>
-
-
-		<!-- 테스트 -->
 
 		<div class="date_container">
 			<div class="day_con">
@@ -290,10 +217,6 @@
 		</div>
 
 
-
-
-		<!-- 테스트 -->
-
 		<!-- 요일별 신작 끝 -->
 
 
@@ -317,7 +240,7 @@
 
 			<div class="container2">
 
-				<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+		<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
 				<c:forEach var="list" items="${modalList}" varStatus="loop">
 					<div class="list_container">
@@ -404,10 +327,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
 
 
 			<!-- 꼭 봐야할 애니 명장면 끝 -->
@@ -630,6 +549,7 @@
 
 	<!-- 풋터 끝 -->
 	<script src="resources/js/MainPage.js"></script>
+	<script src="resources/js/footer.js"></script>
 </body>
 
 </html>
