@@ -38,18 +38,24 @@ public class ThemeDetailDAO {
 		}
 	}
 
-	public BoardDetail selectBoardThemeDetail(Connection conn, int boardNo) throws Exception{
+	
+	public List<Photo> selectSportsList(Connection conn) throws Exception{
+		
+		List<Photo> sportsList = new ArrayList<Photo>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectSportsList");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			
+		}finally {
+			
+		}
 		
 		
-		
-		
-		
-	  	return null;
-	}
-
-	public List<Photo> selectPhotoList(Connection conn, int boardNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return sportsList;
 	}
 
 }

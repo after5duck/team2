@@ -230,7 +230,8 @@
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
 		FROM BOARD 
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD = 1
+		WHERE BOARD_CD = 1 
+        AND BOARD_NO IN (1,2,3,4,5,6,7,8,9)
 	</entry>
 	
 	<!-- 굿즈조회 -->
@@ -242,12 +243,13 @@
 	</entry>
 	
 	<!-- 테마추천 상세 내용조회 -->
-	<entry key="selectBoardThemeDetail">
-		SELECT BOARD_TITLE, BOARD_CONTENT, AGE, GENRE
+	<entry key="selectSportsList">
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, AGE, GENRE, VIDEO_PATH
 		FROM BOARD
-		WHERE BOARD_CD = 10
-		AND BOARD_NO IN ( ?, ?, ?, ?, ? )
-		ORDER BY BOARD_NO
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD = 1
+		AND BOARD_NO IN ()
+		
 	</entry>
 	
 	<!--  테마추천 상세 이미지조회 -->
