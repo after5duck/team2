@@ -14,7 +14,9 @@ import java.util.Properties;
 
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.BoardDetail;
+import edu.kh.teamPJ.board.model.vo.Modal;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 
 public class ThemeDetailDAO {
@@ -39,9 +41,9 @@ public class ThemeDetailDAO {
 	}
 
 	
-	public List<Photo> selectSportsList(Connection conn) throws Exception{
+	public List<Theme> selectSportsList(Connection conn) throws Exception{
 		
-		List<Photo> sportsList = new ArrayList<Photo>();
+		List<Theme> sportsList = new ArrayList<Theme>();
 		
 		try {
 			
@@ -49,9 +51,29 @@ public class ThemeDetailDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+
+				Theme sports = new Theme();
+
+				sports.setContentPath(rs.getString("CONTENT_PATH"));
+				sports.setBoardTitle(rs.getString("BOARD_TITLE"));
+				sports.setBoardContent(rs.getString("BOARD_CONTENT"));
+				sports.setAge(rs.getString("AGE"));
+				sports.setGenre(rs.getString("GENRE"));
+				sports.setVideoPath(rs.getString("VIDEO_PATH"));
+								
+				
+				sportsList.add(sports);
+
+			}
+
+			
 			
 		}finally {
-			
+			close(rs);
+			close(pstmt);
 		}
 		
 		

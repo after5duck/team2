@@ -72,11 +72,11 @@
     <main>
         <div class="main_container">
 
-            <c:forEach var="detailList" items="${detail}">
+            <c:forEach var="sportsList" items="${sportsList}">
 
                 <div class="main_first">
-                    <div>${detailList.boardTitle}</div>
-                    <div>${detailList.boardContent}</div>
+                    <div>${sportsList.boardTitle}</div>
+                    <div>${sportsList.boardContent}</div>
 
                 </div>
                 <div class="main_content">

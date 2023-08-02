@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.kh.teamPJ.board.model.service.ThemeDetailService;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 @WebServlet("/theme_detail/*")
 public class ThemeDetailServlet extends HttpServlet {
@@ -30,7 +31,10 @@ public class ThemeDetailServlet extends HttpServlet {
 		try {
 			
 			if(command.equals("sports")) {
-				List<Photo> sportsList = service.selectSportsList();
+				List<Theme> sportsList = service.selectSportsList();
+				
+				req.setAttribute("sportsList", sportsList);
+
 			}
 
 		} catch (Exception e) {
