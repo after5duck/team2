@@ -13,98 +13,66 @@
 </head>
 
 <body>
-	<header>
-
-		<div class="header_container">
-			<div class="main_logo_img_container">
-				<!-- 애니버스 로고 -->
-				<a href="${contextPath}/test"> <img
-					src="${contextPath}/resources/images/PJ2logo.png" alt=""
-					class="main_logo">
-				</a>
-			</div>
-			<!-- 메뉴 리스트 테마추천, 팬아트 등 -->
-			<div class="menu_list">
-
-				<div class="menu_text_con">
-					<a href="${contextPath}/board/newAnime" class="a_tag">요일별 애니</a>
-				</div>
-				<div class="menu_text_con">
-					<a href="#" class="a_tag">테마추천</a>
-				</div>
-				<div class="menu_text_con">
-					<a href="board/fanart" class="a_tag">팬아트</a>
-				</div>
-				<div class="menu_text_con">
-					<a href="#" class="a_tag">굿즈</a>
-				</div>
-				<div class="menu_text_con">
-					<a href="${contextPath}/board/review?type=6" class="a_tag">리뷰</a>
-				</div>
-
-				<!-- 검색창 -->
-				<div class="search_prop_con">
-					<input type="text" class="search_prop" placeholder="애니 이름을 검색하세요">
-				</div>
-
-				<c:choose>
-
-					<c:when test="${ empty sessionScope.loginMember}">
-						<!-- 회원가입/로그인 버튼-->
-						<div class="login_con">
-							<div class="login_move">
-								<a href="${contextPath}/member/loginORsignup"><button
-										class="login_move_btn">로그인 / 회원가입</button></a>
-							</div>
-						</div>
-					</c:when>
-
-
-					<c:otherwise>
-						<div class="login_con">
-							<div class="login_move">
-								<button class="login_move_btn">
-									<a href="#">마이페이지</a>
-								</button>
-							</div>
-						</div>
-					</c:otherwise>
-				</c:choose>
-			</div>
-	</header>
+	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
 	<!-- ********************************************************************************************************* -->
 
-	<!-- 	<div class="big-item">
-		<div class="image-container">
-			<img src="../resources/images/modal-bgc.png">
-		</div>
-		<div class="text-container">
-			<h2>애니 제목</h2>
-			<div>
-				<p>
-					<strong>- 나츠메 우인장 1기</strong> 소년 나츠메 타카시는 죽은 할머니 레이코가 남긴 '우인장'을
-					상속받게 됩니다. 이 장부에는 그녀가 영혼을 이용해 제압한 유령 '몬노케'들의 이름이 적혀 있습니다. 나츠메는 몬노케들과
-					상호작용하며 그들의 문제를 해결하고, 각자의 이름을 돌려줍니다.
-				</p>
+
+	<div class="big-con">
+
+		<h1 class="new-title">신작 애니메이션</h1>
+		<hr>
+		<c:forEach var="newAnime" items="${newAnimeList}">
+			<div class="big-item">
+				<div class="image-container">
+					<img src="${contextPath}/resources/images/${newAnime.contentPath}">
+				</div>
+				<div class="text-container">
+					<h2>${newAnime.boardTitle}</h2>
+					<div>
+						<p>${newAnime.boardContent}</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div> -->
-	<h1 class="new-title">신작 애니메이션</h1>
-	<hr>
-	<c:forEach var="newAnime" items="${newAnimeList}">
-		<div class="big-item">
-			<div class="image-container">
-				<img src="${contextPath}/resources/images/${newAnime.contentPath}">
+		</c:forEach>
+	</div>
+
+	<div id="myModal${loop.index+1}" class="modal">
+		<div class="modal-content">
+			<div class="close" onclick="closeModal(${loop.index+1})">&times;
 			</div>
-			<div class="text-container">
-				<h2>${newAnime.boardTitle}</h2>
-				<div>
-					<p>${newAnime.boardContent}</p>
+			<div class="modal-div">
+				<div id="modal-left">
+					<iframe width="650" height="330"
+						src="${newAnimeList.modalPhotoList[0].videoPath}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen></iframe>
+					<div>
+						<div class="modal-right-text">스토리</div>
+						<div class="modal-right-innerText">${newAnimeList.story}</div>
+						<div class="modal-right-text">작화</div>
+						<div class="modal-right-innerText">${newAnimeList.drawing}</div>
+						<div class="modal-right-text">출시</div>
+						<div class="modal-right-innerText">${newAnimeList.releaseDate}</div>
+						<div class="modal-right-text">연령</div>
+						<div class="modal-right-innerText">${newAnimeList.age}</div>
+					</div>
+				</div>
+				<hr>
+				<div id="modal-right">
+					<div class="summary-title">> 줄거리</div>
+					<div class="summary">${newAnimeList.boardContent}</div>
 				</div>
 			</div>
 		</div>
-	</c:forEach>
+	</div>
+
+
+
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<script src="../resources/js/footer.js"></script>
 
 
 </body>
