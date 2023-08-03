@@ -49,7 +49,7 @@
                             <form action="changePw" method="POST" onsubmit="return changePassword(inputPw.value)">
                                 <tr>
                                     <th>현재 비밀번호</th>
-                                    <td class="td1"><input type="password" autocomplete="off" id="inputPw" required maxlength="20"></td>
+                                    <td class="td1"><input type="password" autocomplete="off" name="inputPw" id="inputPw" required maxlength="20"></td>
                                     <td><span id="inputPwSpan"></span></td>
                                 </tr>
                                 <tr>
@@ -57,7 +57,7 @@
                                 </tr>
                                 <tr>
                                     <th>새 비밀번호</th>
-                                    <td class="td1"><input type="password" autocomplete="off" id="newPw" maxlength="20"></td>
+                                    <td class="td1"><input type="password" autocomplete="off" name="newPw" id="newPw" maxlength="20"></td>
                                     <td><span id="newPwSpan"></span></td>
                                 </tr>
                                 <tr>

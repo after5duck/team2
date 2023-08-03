@@ -52,7 +52,7 @@
                                 </tr>
                                 <tr>
                                     <th>닉네임</th>
-                                    <td class="td1"><input id="nickInfo" type="text" name="memberNickname" value="${loginMember.memberNickname}" required></td>
+                                    <td class="td1"><input id="nickInfo" type="text" name="memberNickname" placeholder="${loginMember.memberNickname}" required></td>
                                     <td><button type="button" id="btn-check">중복확인</button></td>
                                 </tr>
                                 <tr>
