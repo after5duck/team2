@@ -12,7 +12,6 @@
 <script src="https://kit.fontawesome.com/9c5650c683.js"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${contextPath}/resources/css/fanart-main.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/fanart-write.css">
 <title>팬아트 게시판 - 작성하기</title>
 </head>

@@ -16,7 +16,6 @@
 
 
 <link rel="stylesheet" href="${contextPath}/resources/css/fanart-main.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 <title>팬아트 게시판</title>
 </head>
 <body>
