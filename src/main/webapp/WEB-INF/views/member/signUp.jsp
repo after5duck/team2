@@ -37,7 +37,6 @@
                             <input type="text" id="memberId" name="memberId" placeholder="아이디를 입력해주세요." maxlength="30"
                                 autocomplete="off" required>
 
-                            <button type="submit">중복확인</button>
                         </div>
 
                         <!-- 아이디 메세지 -->
@@ -74,7 +73,6 @@
                             <input type="text" id="memberNick" name="memberNick" placeholder="닉네임을 입력해주세요."
                                 maxlength="30" autocomplete="off" required>
 
-                            <button type="submit">중복확인</button>
                         </div>
 
                         <!-- 닉네임 메세지 -->
@@ -92,7 +90,7 @@
                                 autocomplete="off" maxlength="11">
 
                             <!-- <form action="sendSms" method="post"> -->
-                                <button type="submit">인증하기</button>
+                                <!-- <button type="submit">인증하기</button> -->
                             <!-- </form>  -->
                         </div>
 

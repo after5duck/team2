@@ -113,6 +113,11 @@
 		WHERE
 		BOARD_NO = ?
 	</entry>
+	
+	<entry key="selectUpdateViewCount">
+		SELECT READ_COUNT FROM BOARD
+		WHERE BOARD_NO = ?
+	</entry>
 
 	<!-- 팬아트 게시판 이미지 삽입 -->
 	<entry key="insertBoardImage">

@@ -29,13 +29,15 @@ public class BoardViewCount extends HttpServlet{
 			
 			int result = service.updateViewCount(boardNo);
 
-			if (result > 0) {
+			if (result == 1) {
 				
 				int viewCount = service.selectBoardWithPhotosView(boardNo);
 				
 				resp.getWriter().print(viewCount);
 				
 			}
+			
+			
 			
 			
 		} catch (Exception e) {

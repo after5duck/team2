@@ -32,8 +32,8 @@
 			<div>
 				<div class="fanartTitle-view">
 					${board.boardTitle}
-					<div id="viewCount">
-						<i class="fa-solid fa-eye fa-xl"></i>${board.readCount }
+					<div>
+						<i class="fa-solid fa-eye fa-xl"></i><span id="viewCount"></span>
 					</div>
 				</div>
 				<div id="fanartDate2">게시일 : ${board.createDate }</div>
@@ -52,9 +52,13 @@
 
 		<section class="fanart-heartClick">
 			<div>좋아요</div>
-
-			<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
-			<div id="like-count"></div>
+			<c:if test="${empty loginMember}">
+				<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i><div id="like-count">${likeCount}</div>
+			</c:if>
+			<c:if test="${!empty loginMember}">
+				<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
+				<div id="like-count"></div>
+			</c:if>
 
 			
 		</section>
@@ -122,6 +126,8 @@
 		const boardNo1 = "${board.boardNo}";
 		const memberNo1 = "${board.memberNo}";
 		const contextPath = "${contextPath}";
+		const loginMemberNo = "${loginMember.memberNo}";
+		
 
 	</script>
 

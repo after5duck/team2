@@ -96,6 +96,47 @@ main{
     margin: auto;
 }
 
+
+
+
+
+
+.scroll-top-btn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 100;
+	font-size: 18px;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #1abc9c;
+	color: white;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: background 0.3s, opacity 0.5s, visibility 0.5s;
+	opacity: 0;
+	visibility: hidden;
+	text-decoration: none;
+	font-weight: bold;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn:hover {
+	background: white;
+	color: #1abc9c;
+}
+
+.scroll-top-btn.show {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
+
+
+
 /* 팬아트 글, 정렬순 부분 */
 .fanArt-text-orderlist{
     display: flex;

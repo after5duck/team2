@@ -22,6 +22,8 @@
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
+	
+	<a href="#" class="scroll-top-btn">Top</a>
 
 
 	<main>
@@ -53,7 +55,7 @@
 									class="fanart-img">
 								<div>
 									
-									<span class="fanart-view" id="viewCount"><i class="fa-solid fa-eye fa-sm"></i>  ${board.readCount} </span>
+									<span class="fanart-view"><i class="fa-solid fa-eye fa-sm"></i><span id="viewCount"></span>
 									<span class="fanart-title">${board.boardTitle}</span>
 									
 								</div>
@@ -92,14 +94,16 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 	<script>
-		const boardNo = "${board.boardNo}";
+		const boardNo1 = "${board.boardNo}";
+		const contextPath = "${contextPath}";
 
 	</script>
 
 	
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-	<script src="../resources/js/fanart.js"></script>
+	<script src="${contextPath}/resources/js/fanart.js"></script>
+	
 
 </body>
 </html>

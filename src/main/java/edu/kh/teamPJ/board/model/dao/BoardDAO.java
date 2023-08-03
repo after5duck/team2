@@ -417,7 +417,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("updateViewCount");
+			String sql = prop.getProperty("selectUpdateViewCount");
 
 			pstmt = conn.prepareStatement(sql);
 
