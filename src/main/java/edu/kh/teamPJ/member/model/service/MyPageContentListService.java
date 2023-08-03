@@ -13,7 +13,6 @@ public class MyPageContentListService {
 	
 	MyPageContentListDAO dao = new MyPageContentListDAO();
 
-	/** 내가쓴 게시글 목록 조회 채정은
 	 * @param boardContent
 	 * @param boardTitle
 	 * @param memberNo

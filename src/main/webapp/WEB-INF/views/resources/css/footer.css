@@ -23,16 +23,11 @@ footer {
 .footer_first {
 	width: 25%;
 	text-align: center;
-	margin-top: -120px;
 }
 
 
-.footer_first>div:last-child {
-	margin-top: -170px;
-}
 
 .footer_first strong {
-	margin-top: -100px;
 	color: white;
 }
 

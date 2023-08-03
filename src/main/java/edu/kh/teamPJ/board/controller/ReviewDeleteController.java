@@ -44,7 +44,6 @@ public class ReviewDeleteController extends HttpServlet{
 			session.setAttribute("message", message);
 			
 			resp.sendRedirect(path); 
-			// -> 이건 언제 쓰는거지?!?!?! req.setAttribute(); 랑은 뭔 차이지???
 			
 			}catch(Exception e) {
 				e.printStackTrace();

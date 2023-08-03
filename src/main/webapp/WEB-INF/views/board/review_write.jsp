@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="main_third">
-                    <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 별점을 매겨주세요</div>
+                    <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 별점을 주세요😉</div>
                     <div>
                         별이 다섯개
                     </div>
@@ -80,8 +80,6 @@
     </main>
 
 
-    <!-- 공용 풋터 -->
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script>
         document.getElementById("btn").addEventListener("click", function(){
@@ -166,17 +164,13 @@
         }
 
         (function(){
-        const deleteBtn = document.getElementById("deleteBtn"); // 존재하지 않으면 null
+        const deleteBtn = document.getElementById("btn-delete"); // 존재하지 않으면 null
 
         if(deleteBtn != null){ // 버튼이 화면에 존재할 때
         deleteBtn.addEventListener("click",function(){
-            // 현재: detail?no=1562&cp=1&type=1
 
-            // 목표: detail?no=1562&type=1
+            let url = "delete"; 
 
-            let url = "delete"; // 상대경로 형식으로 작성
-
-            // 주소에 작성된 쿼리스트링에서 필요한 파라미터만 얻어와서 사용
         
             // 1) 쿼리스트링에 존재하는 파라미터 모두 얻어오기
             const params = new URL(location.href).searchParams;
@@ -195,8 +189,8 @@
             }
         });
 
-    }
-})();
+            }
+        })();
 
     </script>
     
