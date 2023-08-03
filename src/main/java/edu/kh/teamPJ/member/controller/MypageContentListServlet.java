@@ -17,24 +17,31 @@ import edu.kh.teamPJ.member.model.service.MyPageContentListService;
 import edu.kh.teamPJ.member.model.vo.Member;
 
 @WebServlet("/member/mypage/contentList")
-public class MypageContentListServlet extends HttpServlet{
-	
+public class MypageContentListServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		HttpSession session = req.getSession();
-		
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
-		String path= "/WEB-INF/views/member/mypageContentList.jsp";
+
+		Member loginMember = (Member) session.getAttribute("loginMember");
+
+		String path = "/WEB-INF/views/member/myPageContentList.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
-		
+
 	}
-	
+
+	// 마이페이지에서 검색어로 검색했을때.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		
+
+		try {
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 }
