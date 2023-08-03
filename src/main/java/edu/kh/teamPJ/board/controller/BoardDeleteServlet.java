@@ -34,7 +34,7 @@ public class BoardDeleteServlet extends HttpServlet{
 
 			if(result > 0) {
 				message = "게시글이 삭제 되었습니다.";
-				path = req.getContextPath();
+				path = req.getContextPath()+ "/board/fanart?boardCode=4";
 
 			}else {
 
