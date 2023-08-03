@@ -18,22 +18,19 @@ public class BoardLikeListServlet extends HttpServlet{
 		
 		
 		try {
-			System.out.println(req.getParameter("boardNo"));
-			System.out.println(req.getParameter("memberNo"));
 			
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 			
 			int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+			
 			BoardService service = new BoardService();
 			
 			int result = service.updateLikeCount(boardNo, memberNo);
 			
-			System.out.println("result : " + result );
 			
 			if(result == 1) {
 				
 				int likeCount = service.selectLikeCount(boardNo);
-				System.out.println(likeCount);
 				
 				resp.getWriter().print(likeCount);
 				

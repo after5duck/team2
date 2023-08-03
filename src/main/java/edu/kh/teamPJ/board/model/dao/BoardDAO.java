@@ -193,25 +193,25 @@ public class BoardDAO {
 				newAnimePhoto.setContentPath(rs.getString("CONTENT_PATH"));
 				newAnimePhoto.setBoardTitle(rs.getString("BOARD_TITLE"));
 				newAnimePhoto.setBoardContent(rs.getString("BOARD_CONTENT"));
-				
+
 				//
-				
+
 				List<Modal> newAnimeModalList = new ArrayList<Modal>();
-				
+
 				Modal newAnimemodal = new Modal();
-				
+
 				newAnimemodal.setVideoPath(rs.getString("VIDEO_PATH"));
 				newAnimemodal.setStory(rs.getString("STORY"));
 				newAnimemodal.setDrawing(rs.getString("DRAWING"));
 				newAnimemodal.setReleaseDate(rs.getString("RELEASE_DT"));
 				newAnimemodal.setAge(rs.getString("AGE"));
-				
+
 				// modal리스트 추가
 				newAnimeModalList.add(newAnimemodal);
-				
+
 				// photo에 modal리스트 추가
 				newAnimePhoto.setModals(newAnimeModalList);
-				
+
 				// newAnimeList에 photo 추가
 				newAnimeList.add(newAnimePhoto);
 			}
@@ -409,13 +409,13 @@ public class BoardDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Board selectBoardWithPhotosView(Connection conn, int boardNo) throws Exception {
+	public int selectBoardWithPhotosView(Connection conn, int boardNo) throws Exception {
 
-		Board board = null;
+		int viewCount = 0;
 
 		try {
 
-			String sql = prop.getProperty("selectBoardWithPhotos2");
+			String sql = prop.getProperty("updateViewCount");
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -423,38 +423,19 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			while (rs.next()) {
+			if(rs.next()) {
+				viewCount = rs.getInt(1);
 
-				if (board == null) {
-
-					board = new Board();
-
-					board.setBoardNo(rs.getInt("BOARD_NO"));
-					board.setBoardTitle(rs.getString("BOARD_TITLE"));
-					board.setBoardContent(rs.getString("BOARD_CONTENT"));
-					board.setCreateDate(rs.getString("CREATE_DT"));
-					board.setReadCount(rs.getInt("READ_COUNT"));
-					board.setMemberNickname(rs.getString("MEMBER_NICK"));
-				}
-
-				String contentPath = rs.getString("CONTENT_PATH");
-
-				if (contentPath != null) {
-
-					Photo photo = new Photo();
-
-					photo.setContentPath(contentPath);
-
-					board.getPhotos().add(photo);
-				}
 			}
 
 		} finally {
+
 			close(rs);
 			close(pstmt);
+
 		}
 
-		return board;
+		return viewCount;
 	}
 
 
@@ -951,27 +932,27 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public int updateLikeCount(int boardNo, int memberNo, Connection conn) throws Exception{
-		
+
 		int result = 0;
-		
-		
+
+
 		try {
-			
+
 			String sql = prop.getProperty("updateLikeCount");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
 			pstmt.setInt(2, memberNo);
-			
+
 			System.out.println("보드 DAO 가져오나?");
-			
+
 			result = pstmt.executeUpdate();
 			System.out.println(result);
-			
-			
+
+
 		} finally {
-			
+
 			close(pstmt);
 		}
 		return result;
@@ -984,34 +965,34 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public int selectLikeCount(int boardNo, Connection conn) throws Exception{
-		
+
 		int likeCount = 0;
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("selectLikeCount");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, boardNo);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				likeCount = rs.getInt(1);
-				
+
 			}
-			
-			
-			
+
+
+
 		} finally {
-			
+
 			close(rs);
 			close(pstmt);
-			
+
 		}
-		
-		
+
+
 		return likeCount;
 	}
 

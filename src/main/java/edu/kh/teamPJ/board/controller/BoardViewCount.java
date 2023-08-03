@@ -31,10 +31,9 @@ public class BoardViewCount extends HttpServlet{
 
 			if (result > 0) {
 				
-				Board board = service.selectBoardWithPhotosView(boardNo);
+				int viewCount = service.selectBoardWithPhotosView(boardNo);
 				
-				
-				new Gson().toJson(board, resp.getWriter());
+				resp.getWriter().print(viewCount);
 				
 			}
 			
