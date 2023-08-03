@@ -579,12 +579,12 @@ body {
 /* 애니버스 팬아트 */
 .container4 {
 	display: flex;
-	gap: 50px;
+	gap: 100px;
 }
 
 .container5 {
 	display: flex;
-	gap: 50px;
+	gap: 100px;
 }
 
 /* 작성자 컨테이너 */
