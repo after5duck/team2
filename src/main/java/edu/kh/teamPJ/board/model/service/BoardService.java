@@ -32,6 +32,7 @@ public class BoardService {
 
 	public List<Modal> selectModalList() throws Exception {
 
+		System.out.println("service시작");
 		Connection conn = getConnection();
 
 		List<Modal> modalList = dao.selectModalList(conn);

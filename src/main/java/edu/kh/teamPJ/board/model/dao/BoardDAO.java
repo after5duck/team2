@@ -51,11 +51,14 @@ public class BoardDAO {
 		List<Modal> modalList = new ArrayList<>();
 
 		try {
+			System.out.println("try문 시작");
 			String sql = prop.getProperty("selectModalList");
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				
+				System.out.println("while문 시작");
 				Modal modal = new Modal();
 				modal.setBoardTitle(rs.getString("BOARD_TITLE"));
 				modal.setGenre(rs.getString("GENRE"));
@@ -74,16 +77,15 @@ public class BoardDAO {
 				ModalPhoto modalPhoto = new ModalPhoto();
 				modalPhoto.setContentPath(rs.getString("CONTENT_PATH"));
 				modalPhoto.setVideoPath(rs.getString("VIDEO_PATH"));
-				//	                System.out.println("modalPhoto의 값 = " + modalPhoto.getContentPath());
-				//	                System.out.println("modalPhoto의 video Path = " + modalPhoto.getVideoPath());
+
 				modalPhotoList.add(modalPhoto);
 
 				// ModalPhoto 리스트를 Modal 객체에 설정
 				modal.setModalPhotoList(modalPhotoList);
-				System.out.println(modalPhotoList);
-
+				
 				// 모든 ModalPhoto를 추가한 Modal을 modalList에 추가
 				modalList.add(modal);
+				System.out.println(modalList);
 			}
 		} finally {
 			close(rs);
