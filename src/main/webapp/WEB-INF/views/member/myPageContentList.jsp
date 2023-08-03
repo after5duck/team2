@@ -57,7 +57,7 @@
 
                         <!-- 검색어로 내가 쓴 글 조회하기 -->
                             <div class="searcharea">
-                                <form action="contentList" method="post" name="mypageSearchContent">
+                                <form action="#" method="post" name="mypageSearchContent">
                                     <input type="search" id="inputSearch" placeholder="게시글 제목 입력">
                                     <button id="btn-submit">검색</button>
                                 </form>

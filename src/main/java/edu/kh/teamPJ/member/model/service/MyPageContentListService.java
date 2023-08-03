@@ -13,18 +13,7 @@ public class MyPageContentListService {
 	
 	MyPageContentListDAO dao = new MyPageContentListDAO();
 
-	 * @param boardContent
-	 * @param boardTitle
-	 * @param memberNo
-	 * @return cList
-	 * @throws Exception
-	 */
-	
-	
-	
-	
-	
-	
+	 
 	
 	
 	

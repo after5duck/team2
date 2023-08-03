@@ -36,10 +36,7 @@ public class MyPageContentListDAO {
 		
 	}
 
-	/** 내가 쓴 게시글 목록 조회
-	 * @author 채정은
-	 *
-	 */
+	
 	
 	
 	
