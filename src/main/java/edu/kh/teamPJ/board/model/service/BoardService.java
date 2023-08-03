@@ -24,7 +24,6 @@ import edu.kh.teamPJ.board.model.vo.Photo;
  * @throws Exception
  */
 
-
 public class BoardService {
 
 	BoardDAO dao = new BoardDAO();
@@ -116,9 +115,9 @@ public class BoardService {
 		return newAnimeList;
 	}
 
-
-
-	/** 팬아트 모든 게시글 정보를 가져오는 Service
+	/**
+	 * 팬아트 모든 게시글 정보를 가져오는 Service
+	 * 
 	 * @return bList
 	 * @throws Exception
 	 */
@@ -132,7 +131,9 @@ public class BoardService {
 		return bList;
 	}
 
-	/** 팬아트 게시글/이미지 정보 가져오는 Service
+	/**
+	 * 팬아트 게시글/이미지 정보 가져오는 Service
+	 * 
 	 * @return boardList
 	 * @throws Exception
 	 */
@@ -147,15 +148,16 @@ public class BoardService {
 		return boardList;
 	}
 
-
-	/** 팬아트 게시글 상세페이지 이미지 가져오기 Service
+	/**
+	 * 팬아트 게시글 상세페이지 이미지 가져오기 Service
+	 * 
 	 * @param boardNo
-	 * @param boardCode 
-	 * @param type 
+	 * @param boardCode
+	 * @param type
 	 * @return boardPhoto
 	 * @throws Exception
 	 */
-	public Board selectBoardWithPhotos2(int boardNo, int boardCode) throws Exception{
+	public Board selectBoardWithPhotos2(int boardNo, int boardCode) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -166,13 +168,15 @@ public class BoardService {
 		return board;
 	}
 
-	/** 팬아트 조회수 가져오기 Service
+	/**
+	 * 팬아트 조회수 가져오기 Service
+	 * 
 	 * @param boardNo
-	 * @param type 
+	 * @param type
 	 * @return boardPhoto
 	 * @throws Exception
 	 */
-	public int selectBoardWithPhotosView(int boardNo) throws Exception{
+	public int selectBoardWithPhotosView(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -183,33 +187,37 @@ public class BoardService {
 		return viewCount;
 	}
 
-
-	/** 팬아트 조회수 증가 Service
+	/**
+	 * 팬아트 조회수 증가 Service
+	 * 
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateViewCount(int boardNo) throws Exception{
+	public int updateViewCount(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
 
 		int result = dao.updateViewCount(conn, boardNo);
 
-		if(result > 0) commit(conn);
-		else   rollback(conn);
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 
 		return result;
 	}
 
-
-	/** 팬아트 게시글 작성하기
+	/**
+	 * 팬아트 게시글 작성하기
+	 * 
 	 * @param boardDetail
 	 * @param photos
 	 * @param boardCode
 	 * @return
 	 * @throws Exception
 	 */
-	public int insertBoard(Board boardDetail, List<Photo> photos, int boardCode) throws Exception{
+	public int insertBoard(Board boardDetail, List<Photo> photos, int boardCode) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -219,15 +227,15 @@ public class BoardService {
 
 		int result = dao.insertBoard(conn, boardDetail, boardCode);
 
-		if(result > 0) {
+		if (result > 0) {
 
-			for(Photo pho : photos) {
+			for (Photo pho : photos) {
 
 				pho.setBoardNo(boardNo);
 
 				result = dao.insertBoardImage(conn, pho, boardNo);
 
-				if(result == 0) {
+				if (result == 0) {
 					break;
 
 				}
@@ -236,12 +244,12 @@ public class BoardService {
 
 		}
 
-		if(result > 0) {
+		if (result > 0) {
 			commit(conn);
 
-		}else { 
+		} else {
 			rollback(conn);
-			boardNo = 0; 
+			boardNo = 0;
 		}
 
 		close(conn);
@@ -249,80 +257,84 @@ public class BoardService {
 		return boardNo;
 	}
 
-
-	/** 팬아트 게시판 수정하기
+	/**
+	 * 팬아트 게시판 수정하기
+	 * 
 	 * @param boardDetail
 	 * @param photoList
 	 * @param deleteList
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateBoard(Board boardDetail, List<Photo> photos, String deleteList) throws Exception{
+	public int updateBoard(Board boardDetail, List<Photo> photos, String deleteList) throws Exception {
 
 		Connection conn = getConnection();
 
 		int result = dao.updateBoard(conn, boardDetail);
 
-		if(result > 0) {
+		if (result > 0) {
 
-			for(Photo pho : photos) {
+			for (Photo pho : photos) {
 
 				pho.setBoardNo(boardDetail.getBoardNo());
 
 				result = dao.updateBoardImage(conn, pho);
 
-				if(result == 0) {
+				if (result == 0) {
 					result = dao.insertBoardImage(conn, pho, result);
 
 				}
 
 			}
 
-			if(!deleteList.equals("")) {
+			if (!deleteList.equals("")) {
 				result = dao.deleteBoardImage(conn, deleteList, boardDetail.getBoardNo());
 
 			}
 
 		}
 
-		if(result > 0) commit(conn);
-		else         rollback(conn);
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 
 		close(conn);
 
 		return result;
 	}
 
-
-	/** 팬아트 게시글 삭제 Service
+	/**
+	 * 팬아트 게시글 삭제 Service
+	 * 
 	 * @param boardNo
 	 * @return
 	 * @throws Exception
 	 */
-	public int deleteBoard(int boardNo) throws Exception{
+	public int deleteBoard(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
 
 		int result = dao.deleteBoard(conn, boardNo);
 
-		if(result> 0) commit(conn);
-		else    rollback(conn);
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 
 		close(conn);
-
 
 		return result;
 	}
 
-
-
-	/** 이동호 
-	 * 게시판 상세 조회 Service
+	/**
+	 * 이동호 게시판 상세 조회 Service
+	 * 
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
+	public BoardDetail selectBoardDetail(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -333,14 +345,15 @@ public class BoardService {
 		return detail;
 	}
 
-	/**이동호 
-	 * 게시판 목록 조회 Service
+	/**
+	 * 이동호 게시판 목록 조회 Service
+	 * 
 	 * @param type
 	 * @param cp
 	 * @return map
 	 * @throws Exception
 	 */
-	public Map<String, Object> selectBoardList(int type, int cp) throws Exception{
+	public Map<String, Object> selectBoardList(int type, int cp) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -353,7 +366,7 @@ public class BoardService {
 		Pagination pagination = new Pagination(cp, listCount);
 
 		// 3. 게시글 목록 조회
-		List<Board> boardList = dao.selectBoardList(conn, pagination ,type);
+		List<Board> boardList = dao.selectBoardList(conn, pagination, type);
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -366,8 +379,9 @@ public class BoardService {
 		return map;
 	}
 
-	/** 이동호 
-	 * 특정 게시글 목록 조회
+	/**
+	 * 이동호 특정 게시글 목록 조회
+	 * 
 	 * @param type
 	 * @param cp
 	 * @param key
@@ -375,7 +389,7 @@ public class BoardService {
 	 * @return map
 	 * @throws Exception
 	 */
-	public Map<String, Object> searchBoardList(int type, int cp, String key, String query) throws Exception{
+	public Map<String, Object> searchBoardList(int type, int cp, String key, String query) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -385,10 +399,16 @@ public class BoardService {
 		// 2. SQL 조건절에 추가될 구문 가공
 		String condition = null;
 
-		switch(key) {
-		case "date" 	: condition = " AND CREATE_DT '%" + query + "%' ";  break;
-		case "title" 	: condition = " AND BOARD_TITLE LIKE '%" + query + "%' "; break;
-		case "author" 	: condition = " AND MEMBER_NICK LIKE '%" + query + "%' "; break;
+		switch (key) {
+		case "date":
+			condition = " AND CREATE_DT '%" + query + "%' ";
+			break;
+		case "title":
+			condition = " AND BOARD_TITLE LIKE '%" + query + "%' ";
+			break;
+		case "author":
+			condition = " AND MEMBER_NICK LIKE '%" + query + "%' ";
+			break;
 		}
 
 		// 3. 특정 게시판에서 조건을 만족하는 게시글 수 조회
@@ -410,46 +430,69 @@ public class BoardService {
 		return map;
 	}
 
-	/** 좋아요 수 증가
+	/**
+	 * 좋아요 수 증가
+	 * 
 	 * @param boardNo
 	 * @param memberNo
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateLikeCount(int boardNo, int memberNo) throws Exception{
+	public int updateLikeCount(int boardNo, int memberNo) throws Exception {
 
 		Connection conn = getConnection();
 
 		int result = dao.updateLikeCount(boardNo, memberNo, conn);
 
-		if(result> 0) commit(conn);
-		else    rollback(conn);
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 
 		close(conn);
 
-
 		return result;
-
 
 	}
 
-	/** 좋아요 수 조회 Service
+	/**
+	 * 좋아요 수 조회 Service
+	 * 
 	 * @param boardNo
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectLikeCount(int boardNo) throws Exception{
+	public int selectLikeCount(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
 
 		int likeCount = dao.selectLikeCount(boardNo, conn);
-		
+
 		close(conn);
 
 		return likeCount;
 	}
 
+	/**
+	 * 이민주
+	 * 
+	 * 게시글 전체 조회 Service
+	 * 
+	 * @param keyword
+	 * @return
+	 */
+	public List<Board> searchBoard(String keyword) throws Exception {
 
+		Connection conn = getConnection();
 
+		BoardDAO dao = new BoardDAO();
+
+		List<Board> searchResult = dao.searchBoard(conn, keyword);
+
+		// 커넥션 반환
+		conn.close();
+
+		return searchResult;
+	}
 
 }

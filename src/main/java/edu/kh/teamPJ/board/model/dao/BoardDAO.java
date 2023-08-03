@@ -57,7 +57,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				
+
 				System.out.println("while문 시작");
 				Modal modal = new Modal();
 				modal.setBoardTitle(rs.getString("BOARD_TITLE"));
@@ -82,7 +82,7 @@ public class BoardDAO {
 
 				// ModalPhoto 리스트를 Modal 객체에 설정
 				modal.setModalPhotoList(modalPhotoList);
-				
+
 				// 모든 ModalPhoto를 추가한 Modal을 modalList에 추가
 				modalList.add(modal);
 
@@ -170,8 +170,9 @@ public class BoardDAO {
 		return vList;
 	}
 
-
-	/** 이민주
+	/**
+	 * 이민주
+	 * 
 	 * @param conn
 	 * @return
 	 * @throws Exception
@@ -226,10 +227,9 @@ public class BoardDAO {
 		return newAnimeList;
 	}
 
-
 	/**
-	 *  이민주
-	 * 이미지 정보 얻어오는 DAO
+	 * 이민주 이미지 정보 얻어오는 DAO
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return pList
@@ -265,8 +265,9 @@ public class BoardDAO {
 		return pList;
 	}
 
-
-	/** 팬아트 모든 게시글 정보를 가져오는 DAO
+	/**
+	 * 팬아트 모든 게시글 정보를 가져오는 DAO
+	 * 
 	 * @param conn
 	 * @return boardList
 	 * @throws Exception
@@ -299,7 +300,9 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/** 팬아트 게시글/이미지 정보 가져오는 DAO
+	/**
+	 * 팬아트 게시글/이미지 정보 가져오는 DAO
+	 * 
 	 * @param conn
 	 * @return boardList
 	 * @throws Exception
@@ -347,10 +350,12 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/** 팬아트 게시글/이미지 정보 가져오는 DAO(boardNo 가져옴)
-	 * @param conn 
+	/**
+	 * 팬아트 게시글/이미지 정보 가져오는 DAO(boardNo 가져옴)
+	 * 
+	 * @param conn
 	 * @param boardNo
-	 * @param type 
+	 * @param type
 	 * @return board
 	 * @throws Exception
 	 */
@@ -404,8 +409,9 @@ public class BoardDAO {
 		return board;
 	}
 
-
-	/** 팬아트 조회수 증가/게시글 정보 가져오기
+	/**
+	 * 팬아트 조회수 증가/게시글 정보 가져오기
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return
@@ -425,7 +431,7 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				viewCount = rs.getInt(1);
 
 			}
@@ -440,14 +446,15 @@ public class BoardDAO {
 		return viewCount;
 	}
 
-
-	/** 팬아트 조회수 증가 DAO
+	/**
+	 * 팬아트 조회수 증가 DAO
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateViewCount(Connection conn, int boardNo) throws Exception{
+	public int updateViewCount(Connection conn, int boardNo) throws Exception {
 
 		int result = 0;
 
@@ -465,17 +472,17 @@ public class BoardDAO {
 			close(pstmt);
 		}
 
-
 		return result;
 	}
 
-
-	/** 팬아트 게시글 다음번호 얻어오기
+	/**
+	 * 팬아트 게시글 다음번호 얻어오기
+	 * 
 	 * @param conn
 	 * @return
 	 * @throws Exception
 	 */
-	public int nextBoardNo(Connection conn) throws Exception{
+	public int nextBoardNo(Connection conn) throws Exception {
 
 		int boardNo = 0;
 
@@ -487,7 +494,7 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				boardNo = rs.getInt(1);
 
 			}
@@ -500,15 +507,16 @@ public class BoardDAO {
 		return boardNo;
 	}
 
-
-	/** 팬아트 게시판 작성하기
+	/**
+	 * 팬아트 게시판 작성하기
+	 * 
 	 * @param conn
 	 * @param boardDetail
 	 * @param boardCode
 	 * @return
 	 * @throws Exception
 	 */
-	public int insertBoard(Connection conn, Board boardDetail, int boardCode) throws Exception{
+	public int insertBoard(Connection conn, Board boardDetail, int boardCode) throws Exception {
 
 		int result = 0;
 
@@ -526,7 +534,6 @@ public class BoardDAO {
 
 			result = pstmt.executeUpdate();
 
-
 		} finally {
 			close(pstmt);
 		}
@@ -534,14 +541,15 @@ public class BoardDAO {
 
 	}
 
-
-	/** 팬아트 게시판 등록 (이미지)
+	/**
+	 * 팬아트 게시판 등록 (이미지)
+	 * 
 	 * @param conn
 	 * @param photos
 	 * @return
 	 * @throws Exception
 	 */
-	public int insertBoardImage(Connection conn, Photo pho, int boardNo) throws Exception{
+	public int insertBoardImage(Connection conn, Photo pho, int boardNo) throws Exception {
 
 		int result = 0;
 
@@ -556,7 +564,6 @@ public class BoardDAO {
 
 			result = pstmt.executeUpdate();
 
-
 		} finally {
 			close(pstmt);
 		}
@@ -564,14 +571,15 @@ public class BoardDAO {
 
 	}
 
-
-	/** 팬아트 게시판 수정하기
+	/**
+	 * 팬아트 게시판 수정하기
+	 * 
 	 * @param conn
 	 * @param boardDetail
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateBoard(Connection conn, Board boardDetail) throws Exception{
+	public int updateBoard(Connection conn, Board boardDetail) throws Exception {
 
 		int result = 0;
 
@@ -594,14 +602,15 @@ public class BoardDAO {
 
 	}
 
-
-	/** 팬아트 게시판 이미지 수정하기
+	/**
+	 * 팬아트 게시판 이미지 수정하기
+	 * 
 	 * @param conn
 	 * @param pho
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateBoardImage(Connection conn, Photo pho) throws Exception{
+	public int updateBoardImage(Connection conn, Photo pho) throws Exception {
 
 		int result = 0;
 
@@ -618,7 +627,6 @@ public class BoardDAO {
 
 			result = pstmt.executeUpdate();
 
-
 		} finally {
 			close(pstmt);
 		}
@@ -626,8 +634,9 @@ public class BoardDAO {
 		return result;
 	}
 
-
-	/** 팬아트 게시판 이미지 삭제하기
+	/**
+	 * 팬아트 게시판 이미지 삭제하기
+	 * 
 	 * @param conn
 	 * @param deleteList
 	 * @param boardNo
@@ -655,14 +664,15 @@ public class BoardDAO {
 		return result;
 	}
 
-
-	/** 팬아트 게시글 삭제 DAO
+	/**
+	 * 팬아트 게시글 삭제 DAO
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return
 	 * @throws Exception
 	 */
-	public int deleteBoard(Connection conn, int boardNo) throws Exception{
+	public int deleteBoard(Connection conn, int boardNo) throws Exception {
 
 		int result = 0;
 
@@ -683,16 +693,15 @@ public class BoardDAO {
 
 	}
 
-
-
-	/** 이동호 
-	 * 게시글 상세 조회 DAO
+	/**
+	 * 이동호 게시글 상세 조회 DAO
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @return
 	 * @throws Exception
 	 */
-	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception{
+	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception {
 
 		BoardDetail detail = new BoardDetail();
 
@@ -705,7 +714,7 @@ public class BoardDAO {
 			pstmt.setInt(1, boardNo);
 
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 
 				detail.setBoardNo(rs.getInt(1));
 				detail.setBoardTitle(rs.getString(2));
@@ -718,23 +727,23 @@ public class BoardDAO {
 				detail.setBoardName(rs.getString(9));
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
 
-
 		return detail;
 	}
 
-	/** 이동호 
-	 * 게시판 이름 조회
+	/**
+	 * 이동호 게시판 이름 조회
+	 * 
 	 * @param conn
 	 * @param type
 	 * @return result
 	 * @throws Exception
 	 */
-	public String selectBoardName(Connection conn, int type) throws Exception{
+	public String selectBoardName(Connection conn, int type) throws Exception {
 
 		String result = null;
 
@@ -748,11 +757,11 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				result = rs.getString(1);
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
@@ -760,14 +769,15 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 이동호 
-	 * 특정 게시판 게시글 수 조회
+	/**
+	 * 이동호 특정 게시판 게시글 수 조회
+	 * 
 	 * @param conn
 	 * @param type
 	 * @return result
 	 * @throws Exception
 	 */
-	public int getListCount(Connection conn, int type) throws Exception{
+	public int getListCount(Connection conn, int type) throws Exception {
 
 		int result = 0;
 
@@ -781,11 +791,11 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				result = rs.getInt(1);
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
@@ -793,15 +803,16 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 이동호 
-	 * 게시글 목록 조회
+	/**
+	 * 이동호 게시글 목록 조회
+	 * 
 	 * @param conn
 	 * @param pagination
 	 * @param type
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, Pagination pagination, int type) throws Exception{
+	public List<Board> selectBoardList(Connection conn, Pagination pagination, int type) throws Exception {
 
 		List<Board> boardList = new ArrayList<>();
 
@@ -809,7 +820,7 @@ public class BoardDAO {
 
 			String sql = prop.getProperty("selectBoardList");
 
-			int start = (pagination.getCurrentPage()-1) * pagination.getLimit() + 1;
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + (pagination.getLimit()) - 1;
 
 			pstmt = conn.prepareStatement(sql);
@@ -820,7 +831,7 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				Board board = new Board();
 
 				board.setBoardNo(rs.getInt("BOARD_NO"));
@@ -832,7 +843,7 @@ public class BoardDAO {
 				boardList.add(board);
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
@@ -840,16 +851,16 @@ public class BoardDAO {
 		return boardList;
 	}
 
-
-	/** 이동호 
-	 * 특정 게시판에서 조건을 만족하는 게시글 수 조회 DAO
+	/**
+	 * 이동호 특정 게시판에서 조건을 만족하는 게시글 수 조회 DAO
+	 * 
 	 * @param conn
 	 * @param type
 	 * @param condition
 	 * @return result
 	 * @throws Exception
 	 */
-	public int searchListCount(Connection conn, int type, String condition) throws Exception{
+	public int searchListCount(Connection conn, int type, String condition) throws Exception {
 
 		int result = 0;
 
@@ -861,14 +872,13 @@ public class BoardDAO {
 
 			pstmt.setInt(1, type);
 
-
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				result = rs.getInt(1);
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
@@ -876,8 +886,9 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 이동호 
-	 * 특정 조건을 만족하는 게시글 조회
+	/**
+	 * 이동호 특정 조건을 만족하는 게시글 조회
+	 * 
 	 * @param conn
 	 * @param pagination
 	 * @param type
@@ -885,14 +896,13 @@ public class BoardDAO {
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> searchBoardList(Connection conn, Pagination pagination, int type, String condition) throws Exception{
+	public List<Board> searchBoardList(Connection conn, Pagination pagination, int type, String condition)
+			throws Exception {
 
 		List<Board> boardList = new ArrayList<>();
 
-
 		try {
-			String sql = prop.getProperty("searchBoardList1") + condition + 
-					prop.getProperty("searchBoardList2");
+			String sql = prop.getProperty("searchBoardList1") + condition + prop.getProperty("searchBoardList2");
 
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start * pagination.getLimit() - 1;
@@ -905,7 +915,7 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				Board board = new Board();
 
 				board.setBoardNo(rs.getInt("BOARD_NO"));
@@ -918,7 +928,7 @@ public class BoardDAO {
 
 			}
 
-		}finally {
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
@@ -926,17 +936,18 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/** 좋아요 수 증가 DAO
+	/**
+	 * 좋아요 수 증가 DAO
+	 * 
 	 * @param boardNo
 	 * @param memberNo
 	 * @param conn
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateLikeCount(int boardNo, int memberNo, Connection conn) throws Exception{
+	public int updateLikeCount(int boardNo, int memberNo, Connection conn) throws Exception {
 
 		int result = 0;
-
 
 		try {
 
@@ -952,7 +963,6 @@ public class BoardDAO {
 			result = pstmt.executeUpdate();
 			System.out.println(result);
 
-
 		} finally {
 
 			close(pstmt);
@@ -960,13 +970,15 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 좋아요 수 조회 DAO
+	/**
+	 * 좋아요 수 조회 DAO
+	 * 
 	 * @param boardNo
 	 * @param conn
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectLikeCount(int boardNo, Connection conn) throws Exception{
+	public int selectLikeCount(int boardNo, Connection conn) throws Exception {
 
 		int likeCount = 0;
 
@@ -980,12 +992,10 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				likeCount = rs.getInt(1);
 
 			}
-
-
 
 		} finally {
 
@@ -994,10 +1004,51 @@ public class BoardDAO {
 
 		}
 
-
 		return likeCount;
 	}
 
+	/**
+	 * 이민주
+	 * 
+	 * 게시글 전체 조회 DAO
+	 * 
+	 * @param keyword
+	 * @return
+	 */
+	public List<Board> searchBoard(Connection conn, String keyword) throws Exception {
 
+		List<Board> searchResult = new ArrayList<>();
+
+		try {
+
+			String sql = prop.getProperty("searchKeywordBoards");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, "%" + keyword + "%"); // BOARD_TITLE 검색
+			pstmt.setString(2, "%" + keyword + "%"); // BOARD_CONTENT 검색
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				Board board = new Board();
+
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setCreateDate(rs.getString("CREATE_DT"));
+
+				searchResult.add(board);
+
+			}
+
+		} finally {
+
+			close(rs);
+			close(pstmt);
+		}
+
+		return searchResult;
+	}
 
 }
