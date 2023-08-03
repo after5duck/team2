@@ -56,14 +56,15 @@
                                     <td><button type="button" id="btn-check">중복확인</button></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><span id="inputNickSpan"></span></td>
-                                </tr>
-                                <tr>
                                     <th>이메일</th><td class="td1"><input type="email" id="inputEmail" name="memberEmail" value="${loginMember.memberEmail}"></td>
                                     <td><button type="button" id="btn-delEmail">이메일 삭제</button></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><span id="inputEmailSpan"></span></td>
+                                    <form>
+                                        <th>인증번호</th>
+                                        <td><input type="text"></td>
+                                        <td><button></button></td>
+                                    </form>
                                 </tr>
                                 <tr>
                                     <th>핸드폰 번호</th>

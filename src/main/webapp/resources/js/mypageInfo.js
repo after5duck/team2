@@ -29,21 +29,6 @@ function changeProfile(){
 const checkBtn =  document.getElementById("btn-check");
 const nickInfo = document.getElementById("nickInfo"); // 닉네임 input
 
-const inputNickSpan = document.getElementById("inputNick");
-const inputEmailSpan = document.getElementById("inputEmail");
-
-nickInfo.addEventListener("input", function(){
-   const regExp = /^[A-z0-9가-힣]{2,6}$/;
-
-    if(!regExp.test(this.value)){
-        inputNickSpan.innerText = "유효한 형식의 닉네임이 아닙니다.";
-    }
-
-})
-
-
-
-
 
 
 /* 중복확인 눌렀는지 확인 카운트 */
@@ -51,9 +36,7 @@ let count = 0;
 
 /* 버튼이 클릭되었을 때 */
 checkBtn.addEventListener("click", ()=>{
-
-    console.log(nickInfo);
-
+    
     $.ajax({
         url : contextPath + "/member/mypage/checkDupNick",
         data : {"memberNick" : nickInfo.value,
@@ -64,14 +47,21 @@ checkBtn.addEventListener("click", ()=>{
 
         success : function(res){ // 성공했을 때
 
-            if(res != "null"){
-                if(confirm("사용 가능한 닉네임입니다. 사용하시겠습니까?")){
-                    count = 1;
-                }
-            }else{
-                alert("이미 사용중인 닉네임입니다.");
+            if(nickInfo.value.trim().length > 6 || nickInfo.value.trim().length < 2){
+                alert("유효한 닉네임 형식이 아닙니다");
                 nickInfo.value = loginMemberNick;
+            }else{
+
+                if(res != "null"){
+                    if(confirm("사용 가능한 닉네임입니다. 사용하시겠습니까?")){
+                        count = 1;
+                    }
+                }else{
+                    alert("이미 사용중인 닉네임입니다.");
+                    nickInfo.value = loginMemberNick;
+                }
             }
+
         },
         error : function(){
             console.log("에러 발생");
