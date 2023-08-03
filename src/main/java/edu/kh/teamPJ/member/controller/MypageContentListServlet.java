@@ -31,9 +31,29 @@ public class MypageContentListServlet extends HttpServlet{
 		
 	}
 	
+	
+	// 마이페이지에서 검색어로 검색했을때.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String boardName = req.getParameter("boardName");
+		String boardTitle = req.getParameter("boardTitle");
+		String createDate = req.getParameter("createDate");
+		//char boardStatus = req.getParameter("boardStatus");
+		
+		int memberNo;
 	
+		
+		
+		try {
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 
 	}
