@@ -51,19 +51,23 @@ fanartHeartClick.addEventListener("click", function(){
     $.ajax({
 
         url : "likeCount",
+        
+        type : "get",
 
         data : {"boardNo" : boardNo1,
                     "memberNo" : memberNo1},
 
-        type : "get",
 
 
         success : function(data){
             document.getElementById("like-count").innerText = data;
 
         },
-        error : function(){
-            console.log("좋아요 수 업데이트에 실패함");
+        error : function(req, status, error){
+
+            console.log("좋아요 등록 실패");
+            console.log(req.responseText);
+
         }
 
     });
