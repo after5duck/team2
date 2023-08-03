@@ -41,16 +41,18 @@ public class ChangePwServlet extends HttpServlet{
 			MemberService service = new MemberService();
 
 			int result = service.changePw(inputPw, newPw, memberNo);
-
+			System.out.println(result);
 			if (result > 0) {
-				System.out.println("비밀번호 변경 성공");
-
+				
+				session.setAttribute("message", "비밀번호가 변경되었습니다.");
+				
 				loginMember.setMemberPw(newPw);
 
 				path = "info";
 				
 			} else {
-				System.out.println("변경 실패");
+				
+				session.setAttribute("message", "비밀번호가 일치하지않습니다.");
 				
 				path = "changePw";
 			}

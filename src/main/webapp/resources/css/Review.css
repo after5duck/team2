@@ -118,3 +118,24 @@
     display: block;
     /* letter-spacing: -2px; */
 }
+
+#searchPink{
+	background-color : #FFFFFF;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease;
+}
+#searchPink:hover{
+	color : #FFFFFF;
+	background-color: #EC407A;
+}
+
+#writePink{
+	background-color : #FFFFFF;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease;
+}
+
+#writePink:hover{
+	color : #FFFFFF;
+	background-color: #EC407A;
+}

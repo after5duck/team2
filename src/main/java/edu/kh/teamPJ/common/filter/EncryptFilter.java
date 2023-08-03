@@ -20,8 +20,8 @@ import edu.kh.teamPJ.common.wrapper.EncryptWrapper;
 @WebFilter(filterName = "encryptFilter", 
 			urlPatterns = {"/member/login",
 						   "/member/signUp",
-						   "/member/myPage/changePw",
-						   "/member/myPage/secession"})
+						   "/member/mypage/changePw",
+						   "/member/mypage/secession"})
 public class EncryptFilter extends HttpFilter implements Filter {
 	
     public void init(FilterConfig fConfig) throws ServletException {}

@@ -44,10 +44,8 @@ checkBtn.addEventListener("click", ()=>{
          
             console.log(res + "중복확인");
 
-            if(res != "null"){
+            if(res != null){
                 if(confirm("사용 가능한 닉네임입니다. 사용하시겠습니까?")){
-                    // DB업데이트
-                    // return true
                 }
             }else{
                 alert("이미 사용중인 닉네임입니다.")

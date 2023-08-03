@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리뷰 게시판</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/Review.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/Review.css"?after>
     <link rel="stylesheet" href="${contextPath}/resources/css/MAIN.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- 추가: font-awesome 라이브러리 CDN -->
@@ -43,7 +43,7 @@
                     </select>
                     <!-- <input type="date" class="form-control mr-2" placeholder="날짜로 검색"> -->
                     <input type="text" name="query" id="search-query" class="form-control mr-2" placeholder="검색어를 입력해주세요.">
-                    <button class="btn btn-pink">검색</button>
+                    <button class="btn btn-pink" id="searchPink">검색</button>
 
                 </form>
             </div>
@@ -96,7 +96,7 @@
 
         <c:if test="${!empty loginMember}">
             <div class="row justify-content-end">
-                <a href="board/review_write" class="btn btn-pink">글쓰기</a>
+                <a href="review_write" class="btn btn-pink" id="writePink">글쓰기</a>
             </div>
         </c:if>
     </div>
