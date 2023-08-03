@@ -20,7 +20,7 @@
 
             <!-- 메인 제목 -->
             <article id="aniTitle">
-                <span>${detail.boardTitle}</span> &nbsp; - &nbsp; <span>${detail.boardName}</span>
+                <span>${detail.boardTitle}</span> <span id="boardType"> &nbsp; - &nbsp; ${detail.boardName}</span>
             </article>
 
             <!-- 작성자 글 -->
