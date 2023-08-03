@@ -41,8 +41,8 @@
 		<div class="header_container">
 			<div class="main_logo_img_container">
 				<!-- 애니버스 로고 -->
-				<a href="${contextPath}/test"> <img src="resources/images/PJ2logo.png"
-					alt="" class="main_logo">
+				<a href="${contextPath}/test"> <img
+					src="resources/images/PJ2logo.png" alt="" class="main_logo">
 				</a>
 			</div>
 			<!-- 메뉴 리스트 테마추천, 팬아트 등 -->
@@ -78,33 +78,37 @@
 				</div> -->
 
 				<!-- 정은 언니 주석 -->
-			 <!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
-            <c:choose>
-               
-               <c:when test="${ empty sessionScope.loginMember}"> 
-                     <!-- 회원가입/로그인 버튼-->
-                     <div class="login_con">
-                        <div class="login_move">
-                           <a href="${contextPath}/member/loginORsignup"><button class="login_move_btn">로그인 / 회원가입</button></a>
-                        </div>
-                     </div>
-               </c:when>
+				<!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
+				<c:choose>
 
-               <c:otherwise>
-                  <div class="login_con">
-                     <div class="login_move">
-                        <c:if test="${empty loginMember.profileImage}">
-                           <img src="${contextPath}/resources/images/user.png" style="width: 50px;">
-                        </c:if>
-                        <c:if test="${!empty loginMember.profileImage}">
-                           <img src="${contextPath}${loginMember.profileImage}" style="width: 50px;">
-                        </c:if>
-                        <a href="${contextPath}/member/mypage/info"><button class="login_move_btn">${loginMember.memberNickname}</button></a>
-                        
-                     </div>
-                  </div>
-               </c:otherwise>
-            </c:choose>
+					<c:when test="${ empty sessionScope.loginMember}">
+						<!-- 회원가입/로그인 버튼-->
+						<div class="login_con">
+							<div class="login_move">
+								<a href="${contextPath}/member/loginORsignup"><button
+										class="login_move_btn">로그인 / 회원가입</button></a>
+							</div>
+						</div>
+					</c:when>
+
+					<c:otherwise>
+						<div class="login_con">
+							<div class="login_move">
+								<c:if test="${empty loginMember.profileImage}">
+									<img src="${contextPath}/resources/images/user.png"
+										style="width: 50px;">
+								</c:if>
+								<c:if test="${!empty loginMember.profileImage}">
+									<img src="${contextPath}${loginMember.profileImage}"
+										style="width: 50px;">
+								</c:if>
+								<a href="${contextPath}/member/mypage/info"><button
+										class="login_move_btn">${loginMember.memberNickname}</button></a>
+
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 	</header>
 
@@ -240,7 +244,7 @@
 
 			<div class="container2">
 
-		<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+				<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
 				<c:forEach var="list" items="${modalList}" varStatus="loop">
 					<div class="list_container">
@@ -537,7 +541,7 @@
 
 		</div>
 	</footer>
-	
+
 	<c:if test="${ !empty sessionScope.message }">
 		<script>
 			alert("${message}");

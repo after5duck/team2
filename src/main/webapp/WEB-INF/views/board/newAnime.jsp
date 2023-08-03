@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>신작 애니</title>
-<%-- <link rel="stylesheet" href="${contextPath}/resources/css/MAIN.css"> --%>
+
 <link rel="stylesheet" href="${contextPath}/resources/css/Day.css">
 </head>
 
@@ -35,7 +35,7 @@
 
 	<c:forEach var="newAnime" items="${newAnimeList}" varStatus="loop">
 		<div id="myModal${loop.index+1}" class="modal">
-			<div class="modal-content">
+			<div class="modal-content2">
 				<div class="close" onclick="closeModal(${loop.index+1})">&times;</div>
 				<div class="modal-div">
 					<div id="modal-left">
@@ -55,8 +55,9 @@
 							<div class="modal-right-innerText">${newAnime.modals[0].age}</div>
 						</div>
 					</div>
-					<hr>
-					<div id="modal-right">
+					
+					<div id="modal-right">				
+						<div class="line"></div>
 						<div class="summary-title">> 줄거리</div>
 						<div class="summary">${newAnime.boardContent}</div>
 					</div>
@@ -64,14 +65,14 @@
 			</div>
 		</div>
 	</c:forEach>
-
+<!-- 
 	<div id="myModalModal" class="modal">
 		<div class="modal-content">
 			<span class="close" onclick="closeModal()">&times;</span>
 			<p>모달 내용을 여기에 입력하세요.</p>
 		</div>
 	</div>
-
+ -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script src="../resources/js/footer.js"></script>
 	<script src="../resources/js/newAnime.js"></script>
