@@ -177,6 +177,25 @@ public class MemberService {
 		
 		return result;
 	}
+
+	/** 프로필 정보 수정 Service
+	 * @param member
+	 * @return result
+	 * @throws Exception
+	 */
+	public int changeInfo(Member member) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.changeInfo(member);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 	
 	

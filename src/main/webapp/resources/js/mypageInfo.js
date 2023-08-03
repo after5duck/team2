@@ -26,16 +26,15 @@ function changeProfile(){
 /* 닉네임 중복 확인 */
 const checkBtn =  document.getElementById("btn-check");
 const nickInfo = document.getElementById("nickInfo");
-const memberNick = $('#nickInfo').val();
 
 /* 버튼이 클릭되었을 때 */
 checkBtn.addEventListener("click", ()=>{
 
-    console.log(memberNick);
+    console.log(nickInfo);
     // DB에 업데이트는 어떻게 하지??
     $.ajax({
         url : contextPath + "/member/mypage/checkDupNick",
-        data : {"memberNick" : memberNick,
+        data : {"memberNick" : nickInfo.value,
                 "memberNo" : memberNo},
         type : "post",
 
@@ -44,11 +43,12 @@ checkBtn.addEventListener("click", ()=>{
          
             console.log(res + "중복확인");
 
-            if(res != null){
+            if(res != "null"){
                 if(confirm("사용 가능한 닉네임입니다. 사용하시겠습니까?")){
                 }
             }else{
-                alert("이미 사용중인 닉네임입니다.")
+                alert("이미 사용중인 닉네임입니다.");
+                nickInfo.value = "";
             }
         },
         error : function(){
