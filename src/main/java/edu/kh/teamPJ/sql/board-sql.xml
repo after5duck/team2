@@ -265,12 +265,10 @@
 	<!-- db합치면 보드넘버 바뀌니까 그땐 조건 다른걸로 바꿔야함! -->
 	<entry key="selectThemeList">
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
-		FROM
-		BOARD
+		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD = 1
-		AND BOARD_NO IN
-		(1,2,3,4,5,6,7,8,9)
+		WHERE BOARD_CD = 3
+		AND BOARD_NO IN (44,45,46,47,48,49,50,51,52)
 
 	</entry>
 
@@ -278,9 +276,8 @@
 	<entry key="selectGoodsList">
 		SELECT BOARD_TITLE, CONTENT_PATH
 		FROM BOARD
-		JOIN PHOTO
-		USING(BOARD_NO)
-		WHERE BOARD_CD = 3
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD = 5
 	</entry>
 
 	<!-- 테마추천 상세 내용조회 -->
@@ -289,9 +286,8 @@
 		GENRE, VIDEO_PATH
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD =
-		1
-		AND BOARD_NO IN (2, 14, 15, 16, 17)
+		WHERE BOARD_CD = 3
+		AND BOARD_NO IN (44, 53, 54, 55, 56)
 
 	</entry>
 
