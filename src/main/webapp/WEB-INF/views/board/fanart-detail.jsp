@@ -120,6 +120,7 @@
 	<script>
 		const boardNo1 = "${board.boardNo}";
 		const memberNo1 = "${board.memberNo}";
+		const contextPath = "${contextPath}";
 
 	</script>
 

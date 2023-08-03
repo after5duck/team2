@@ -16,7 +16,7 @@ function updateViewCount() {
 
     $.ajax({
 
-        url: "updateViewCount", 
+        url: contextPath + "/board/fanart/detail/updateViewCount", 
 
         data: { "boardNo" : boardNo1},
 
@@ -50,7 +50,7 @@ fanartHeartClick.addEventListener("click", function(){
 
     $.ajax({
 
-        url : "likeCount",
+        url : contextPath + "/board/fanart/detail/likeCount",
         
         type : "get",
 

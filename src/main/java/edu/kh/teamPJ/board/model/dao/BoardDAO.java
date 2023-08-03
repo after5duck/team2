@@ -964,7 +964,10 @@ public class BoardDAO {
 			pstmt.setInt(1, boardNo);
 			pstmt.setInt(2, memberNo);
 			
+			System.out.println("보드 DAO 가져오나?");
+			
 			result = pstmt.executeUpdate();
+			System.out.println(result);
 			
 			
 		} finally {
