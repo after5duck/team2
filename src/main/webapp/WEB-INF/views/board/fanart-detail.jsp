@@ -53,7 +53,6 @@
 		<section class="fanart-heartClick">
 			<div>좋아요</div>
 			<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
-			<!-- 조회수 영역 -->
 			<div id="like-count"></div>
 
 			
@@ -78,8 +77,8 @@
 		</section>
 
 		<section id="fanartList">
-			<div class="fanartList-first">
-				<c:forEach var="board" items="${boardList}" varStatus="boardStatus" begin="0"  end="3">
+			<c:forEach var="board" items="${boardList}" varStatus="boardStatus" begin="0"  end="3">
+					<div class="fanartList-first">
 					<!-- <c:out value="${board.boardTitle}" />
 					<c:out value="${board.boardContent}" />
 					<c:out value="${board.createDate}" />
@@ -88,11 +87,16 @@
 					<c:set var="photos" value="${board.photos}" />
 					<c:forEach var="photo" items="${photos}" varStatus="photoStatus" begin="0" end="3">
 						<div>
-							게시글 제목 : <span class="fanartList-title">${board.boardTitle}</span> <i class="fa-solid fa-eye fa-sm"></i> <span>${board.readCount}</span>
+							게시글 제목 : <span class="fanartList-title">${board.boardTitle}</span>
+
+						</div>
+						<div>
+							<i class="fa-solid fa-eye fa-sm"></i> <span>${board.readCount}</span>
+
 						</div>
 							<div class="fanartListInfo">
 								<div>
-									<a href="fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+									<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
 										<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}" class="fanart-img">
 									</a>
 								</div>
@@ -103,9 +107,9 @@
 			
 							</div>
 					</c:forEach>
-				</c:forEach>
+				</div>
+			</c:forEach>
 
-			</div>
 
 		</section>
 
@@ -125,7 +129,6 @@
 
 	
 	<script src="${contextPath}/resources/js/fanart-detail.js"></script>
-	<script src="${contextPath}/resources/js/footer.js"></script>
 
 </body>
 </html>

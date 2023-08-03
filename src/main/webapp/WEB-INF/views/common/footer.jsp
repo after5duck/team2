@@ -52,6 +52,6 @@
 		</script>
 
 	<c:remove var="message" scope="session" />
-	<script src="resources/js/footer.js"></script>
 </c:if>
 
+	<script src="${contextPath}/resources/js/footer.js"></script>

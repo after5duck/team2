@@ -136,7 +136,6 @@
     <script src="${contextPath}/resources/js/fanart.js"></script>
 
 
-	<script src="${contextPath}/resources/js/footer.js"></script>
 	<script src="${contextPath}/resources/js/fanart-write.js"></script>
 
 </body>

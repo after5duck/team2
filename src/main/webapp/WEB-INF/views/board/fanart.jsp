@@ -71,9 +71,6 @@
 		<section class="fanart-page">
 			<ul class="page-num">
 				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><i class="fa-solid fa-angles-right"></i></li>
 			</ul>
 
 		</section>
@@ -102,7 +99,6 @@
 	
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-	<script src="../resources/js/footer.js"></script>
 	<script src="../resources/js/fanart.js"></script>
 
 </body>

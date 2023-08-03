@@ -994,6 +994,13 @@ public class BoardDAO {
 			
 			rs = pstmt.executeQuery();
 			
+			if(rs.next()) {
+				likeCount = rs.getInt(1);
+				
+			}
+			
+			
+			
 		} finally {
 			
 			close(rs);

@@ -181,8 +181,8 @@
 
 /* 팬아트 게시판 작성글 */
 #fanartList-header{
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-top: 180px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
     font-family: 'Pretendard-Regular';
@@ -211,13 +211,14 @@
     align-items: center;
 }
 
-.fanartListInfo i{
-	margin-left: 20px;
+.fanartList-first > div:first-child{
+	font-size: 30px;
+	
 }
 
 #fanartList{
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
 
     margin-bottom: 100px;
 
@@ -235,8 +236,7 @@
 
 .fanartList-first{
     width: 100%;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 10px;
+    border-bottom: 5px solid #ddd;
 }
 
 .fanartList-first > div{
