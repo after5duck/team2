@@ -56,7 +56,7 @@
 					<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 				</div>
 				<div class="menu_text_con">
-					<a href="${contextPath}/board/fanart?boardCode=2" class="a_tag">팬아트</a>
+					<a href="${contextPath}/board/fanart?boardCode=4" class="a_tag">팬아트</a>
 				</div>
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/goods" class="a_tag">굿즈</a>

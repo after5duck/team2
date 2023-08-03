@@ -26,7 +26,7 @@
 		
 		<form action="write" enctype="multipart/form-data" method="post" onsubmit="return insertValidate()">
 
-			<c:set var="img1" value="/teamPJ/resources/images/fanArt-images/${boardDetail.photos[0].contentPath}" />
+			<c:set var="img1" value="/after5duck/resources/images/fanArt-images/${boardDetail.photos[0].contentPath}" />
 
 			<section id="fanartTitle">
 				<input type="text" id="fanartWriteTitle" placeholder="제목을 작성해주세요." value="${boardDetail.boardTitle}" name="boardTitle">

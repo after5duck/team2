@@ -52,6 +52,7 @@
 
 		<section class="fanart-heartClick">
 			<div>좋아요</div>
+
 			<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
 			<div id="like-count"></div>
 
