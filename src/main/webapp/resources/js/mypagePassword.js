@@ -20,7 +20,7 @@ newPw.addEventListener("input",function(){
         inputPw.focus();
     }
     /* 비밀번호 정규식 */
-    const regExp = /^[0-9A-z]{6,20}$/;
+    const regExp = /^[0-9A-z]|(\!\@\#\_\-){6,20}$/;
     if(regExp.test(newPw.value)){
         newPwSpan.innerText = "올바른 비밀번호 형식입니다.";
         newPwSpan.classList.add("confirm");
@@ -73,6 +73,7 @@ function changePassword() {
         return false;
     }
     if(confirm("비밀번호를 변경하시겠습니까?")){
+
         return true;
     }else{
         newPw.value = "";
