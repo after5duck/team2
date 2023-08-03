@@ -165,21 +165,21 @@ public class BoardService {
 		return board;
 	}
 
-	/** 팬아트 게시글 상사페이지 이미지 가져오기 Service
+	/** 팬아트 조회수 가져오기 Service
 	 * @param boardNo
 	 * @param type 
 	 * @return boardPhoto
 	 * @throws Exception
 	 */
-	public Board selectBoardWithPhotosView(int boardNo) throws Exception{
+	public int selectBoardWithPhotosView(int boardNo) throws Exception{
 
 		Connection conn = getConnection();
 
-		Board board = dao.selectBoardWithPhotosView(conn, boardNo);
+		int viewCount = dao.selectBoardWithPhotosView(conn, boardNo);
 
 		close(conn);
 
-		return board;
+		return viewCount;
 	}
 
 

@@ -83,7 +83,7 @@
 		ON (b.BOARD_NO = p.BOARD_NO)
 		JOIN MEMBER m ON(B.MEMBER_NO =
 		m.MEMBER_NO)
-		WHERE BOARD_CD = 2
+		WHERE BOARD_CD = 4
 		AND BOARD_ST = 'N'
 		ORDER BY CREATE_DT DESC
 	</entry>
@@ -100,6 +100,7 @@
 		JOIN MEMBER m ON(B.MEMBER_NO = m.MEMBER_NO)
 		WHERE b.BOARD_NO
 		= ?
+		AND BOARD_CD = 4
 		AND BOARD_ST = 'N'
 
 	</entry>
@@ -108,8 +109,7 @@
 	<entry key="updateViewCount">
 		UPDATE BOARD
 		SET READ_COUNT = READ_COUNT + 1
-		WHERE
-		BOARD_NO = ?
+		WHERE BOARD_NO = ?
 	</entry>
 
 	<!-- 팬아트 게시판 이미지 삽입 -->

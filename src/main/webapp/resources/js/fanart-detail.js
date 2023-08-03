@@ -26,7 +26,7 @@ function updateViewCount() {
         
         success: function (data) {
 
-            document.getElementById("viewCount").textContent = data;
+            document.getElementById("viewCount").innerText = data;
 
         },
 
