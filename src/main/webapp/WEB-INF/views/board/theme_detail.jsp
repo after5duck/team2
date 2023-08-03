@@ -11,8 +11,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/theme_detail.css">
     <script src="https://kit.fontawesome.com/de9012b52d.js" crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
-
+    
     <style>
         @font-face {
           font-family: 'Pretendard-Regular';
@@ -35,7 +34,7 @@
             bottom: 0;
             justify-content: center;
             align-items: center;
-            z-index:9
+            z-index: 9
         }
 
             .video-popup .video-wrapper {
@@ -51,7 +50,6 @@
             height: 100%;
             border: none;
             border-radius: 30px;
-            
         }
 
             .video-popup.reveal .video-popup-closer {
@@ -209,13 +207,10 @@
     <!-- 공용 풋터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
   
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <script>
-       document.getElementById("footer_btn").addEventListener("click", function(){
-            const show = document.getElementById("text_box");
-            show.style.display = "block";
-        })
+       
         /* 예고편 유튜브 팝업 */
         $(".popupVideo a").click(function() {
             $(".video-popup").addClass("reveal"),
@@ -245,5 +240,7 @@
         }
     </script>
     
+
+
 </body>
 </html>
