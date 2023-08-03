@@ -1,0 +1,29 @@
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+	/*background-color: #f2f2f2;*/
+	background-color: #fff;
+}
+
+.container {
+	margin-top: 40px;
+}
+
+
+.keywordRs {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.title {
+	width: 300px;
+}
+
+.createDt {
+	width: 40px;
+	white-space: nowrap;
+}

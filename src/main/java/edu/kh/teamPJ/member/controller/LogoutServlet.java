@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet()
+@WebServlet("/member/logout")
 public class LogoutServlet extends HttpServlet {
 
 	@Override
@@ -24,7 +24,6 @@ public class LogoutServlet extends HttpServlet {
 		// 메인페이지로 돌아감.
 		resp.sendRedirect(req.getContextPath());
 		
-	
 	
 	}
 }
