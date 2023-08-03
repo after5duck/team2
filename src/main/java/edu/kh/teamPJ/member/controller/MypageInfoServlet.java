@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import edu.kh.teamPJ.member.model.service.MemberService;
 import edu.kh.teamPJ.member.model.vo.Member;
 
 @WebServlet("/member/mypage/changeInfo")
@@ -27,6 +28,8 @@ public class MypageInfoServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		MemberService service = new MemberService();
+		
 		String memberNickname = req.getParameter("memberNickname");
 		String memberEmail = req.getParameter("memberEmail");
 		
@@ -35,6 +38,27 @@ public class MypageInfoServlet extends HttpServlet{
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		
 		int memberNo = loginMember.getMemberNo();
+		
+		try {
+			
+			Member member = new Member();
+			
+			member.setMemberNickname(memberNickname);
+			member.setMemberEmail(memberEmail);
+			member.setMemberNo(memberNo);
+			
+			int result = service.changeInfo(member);{
+				if(result > 0) {
+					session.setAttribute("message", "프로필 변경 완료");
+				}else {
+					session.setAttribute("message", "프로필 변경 실패..");
+				}
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 

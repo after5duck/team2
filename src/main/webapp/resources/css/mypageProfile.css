@@ -10,6 +10,8 @@ table *{
 
 /* 모두를 감싸고 있는 부분 (Header,Body,Footer 공통 적용) */
 
+input::placeholder{color:#444343; font-weight: bold;};
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');

@@ -44,7 +44,7 @@
                 <article id="main-body">
                     <article id="bodyTable">
                         <table class="bodyList">
-                            <form action="info" method="POST" onsubmit="return changeProfile()">
+                            <form action="changeInfo" method="POST" onsubmit="return changeProfile()">
                                 <tr>
                                     <th>아이디</th>
                                     <td class="td1">${loginMember.memberId}</td>
@@ -57,7 +57,7 @@
                                 </tr>
                                 <tr>
                                     <th>이메일</th>
-                                    <td class="td1"><input type="email" id="inputEmail" value="${loginMember.memberEmail}"></td>
+                                    <td class="td1"><input type="email" id="inputEmail" placeholder="${loginMember.memberEmail}"></td>
                                     <td><button type="button" id="btn-delEmail">이메일 삭제</button></td>
                                 </tr>
                                 <tr>

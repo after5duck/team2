@@ -328,6 +328,21 @@ public class MemberDAO {
 		return result;
 	}
 
+	public int changeInfo(Member member) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("changeInfo");
+			
+			
+		}finally {
+			
+		}
+		
+		return result;
+	}
+
 
 
 
