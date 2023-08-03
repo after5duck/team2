@@ -7,6 +7,8 @@
 <!-- 풋터 아이콘 -->
 <script src="https://kit.fontawesome.com/9c5650c683.js"
 	crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 
 </head>
 <footer>
