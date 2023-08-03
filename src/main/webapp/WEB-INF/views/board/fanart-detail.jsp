@@ -58,6 +58,10 @@
 				<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
 				<div id="like-count"></div>
 			</c:if>
+			<!-- <label for="likeCount">
+				♥
+			</label>
+			<input type="checkbox" id="likeCount"> -->
 
 			
 		</section>
