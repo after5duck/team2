@@ -46,8 +46,13 @@
                 <article id="main-body">
                     <article id="bodyProfile">
 
-                        <img src="${contextPath}/resources/images/profile.png" id="bodyProfileImg">
-
+                        <c:if test="${empty loginMember.profileImage}">
+                            <img src="${contextPath}/resources/images/user.png" id="bodyProfileImg">
+                         </c:if>
+                         <c:if test="${!empty loginMember.profileImage}">
+                            <img src="${contextPath}${loginMember.profileImage}" id="bodyProfileImg">
+                         </c:if>
+                         
                         <table id="profile-info">
                             <tr>
                                 <th>아이디</th>

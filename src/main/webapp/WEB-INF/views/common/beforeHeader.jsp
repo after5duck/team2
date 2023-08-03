@@ -23,7 +23,6 @@
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/newAnime" class="a_tag">요일별 애니</a>
 				</div>
-
 				<div class="menu_text_con">
 					<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 				</div>
