@@ -85,7 +85,7 @@ public class BoardDAO {
 				
 				// 모든 ModalPhoto를 추가한 Modal을 modalList에 추가
 				modalList.add(modal);
-				System.out.println(modalList);
+
 			}
 		} finally {
 			close(rs);
