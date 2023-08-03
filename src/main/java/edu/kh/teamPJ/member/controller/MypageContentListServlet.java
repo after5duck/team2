@@ -34,25 +34,7 @@ public class MypageContentListServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		String boardContent = req.getParameter("boardContent");
-		String boardTitle = req.getParameter("boardTitle");
-		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
-		//int boardCode = Integer.parseInt(req.getParameter("boardCode"));
 		
-		try {
-			MyPageContentListService service = new MyPageContentListService();
-			
-			// content list 약자 -mpcList 
-			List<Board> cList = service.MyPageContentList(boardContent, boardTitle, memberNo);
-			
-			new Gson().toJson(cList, resp.getWriter());
-			
-		}catch(Exception e){
-			e.printStackTrace();
-			
-		}
-	
-		
-	}
 
+	}
 }

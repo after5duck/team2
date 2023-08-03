@@ -20,15 +20,15 @@ public class MyPageContentListService {
 	 * @return cList
 	 * @throws Exception
 	 */
-	public List<Board> MyPageContentList(String boardContent, String boardTitle, int memberNo) throws Exception {
-
-		Connection conn = getConnection();
-		
-		List<Board> cList = dao.MyPageContentList(conn, boardContent, boardTitle, memberNo);
-		
-		close(conn);
-		
-		return cList;
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 	
 	
