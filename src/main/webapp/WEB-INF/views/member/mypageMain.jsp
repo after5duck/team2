@@ -64,7 +64,6 @@
 
                     <article id="bodyTable">
                         <table class="bodyList">
-                            <form action="#" onsubmit="return changeProfile()">
                                 <tr>
                                     <th>닉네임</th>
                                     <td class="td1" colspan="2">${loginMember.memberNickname}</td>
@@ -76,7 +75,6 @@
                                     <td class="td1" colspan="2">${loginMember.enrollDate}</td>
                                     <td></td>
                                 </tr>
-                             </form>
                          </table>
                     </article>
                 </article>

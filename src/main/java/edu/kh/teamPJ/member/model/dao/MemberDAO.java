@@ -312,7 +312,6 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, memberNick);
-			pstmt.setInt(2, memberNo);
 
 			rs = pstmt.executeQuery();
 

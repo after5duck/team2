@@ -59,8 +59,7 @@
                                     <td colspan="3"><span id="inputNickSpan"></span></td>
                                 </tr>
                                 <tr>
-                                    <th>이메일</th>
-                                    <td class="td1"><input type="email" id="inputEmail" name="memberEmail" value="${loginMember.memberEmail}"></td>
+                                    <th>이메일</th><td class="td1"><input type="email" id="inputEmail" name="memberEmail" value="${loginMember.memberEmail}"></td>
                                     <td><button type="button" id="btn-delEmail">이메일 삭제</button></td>
                                 </tr>
                                 <tr>
@@ -94,8 +93,10 @@
 
         const memberNo = "${loginMember.memberNo}";
 
-    </script>
+        const loginMemberNick = "${loginMember.memberNickname}";
 
+    </script>
+    
     <script src="${contextPath}/resources/js/mypageInfo.js"></script>
 
     <script src="${contextPath}/resources/js/footer.js"></script>
