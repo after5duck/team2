@@ -65,63 +65,63 @@
 
                     <article id="contentList">
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                         <nav class="writeContent">
-                            <article class="contentTitle">게시글 이름</article>
-                            <article class="contentDetail">게시글 내용</article>
+                            <article class="contentTitle">게시판 이름</article>
+                            <article class="contentDetail">게시글 제목</article>
                             <article class="contentDate">게시글 날짜</article>
                         </nav>
                        

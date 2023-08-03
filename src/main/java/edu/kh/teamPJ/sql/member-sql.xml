@@ -35,6 +35,19 @@
 	
 	<!-- 마이페이지에서 내가 쓴 게시글 목록 조회 1, 2 채정은 -->
 	<entry key="MyPageContentList">
+		SELECT BOARD_CD, BOARD_TITLE, 
+        	TO_CHAR(CREATE_DT, 'YYYY-MM-DD')AS CREATE_DT
+		FROM BOARD
+		WHERE BOARD_CD = ?
+		AND BOARD_ST = 'N'
+		AND MEMBER_NO = ?
+		ORDER BY BOARD_NO DESC
+	</entry>
+	
+	
+	
+	
+	<!-- <entry key="MyPageContentList">
 		SELECT * FROM(
 			SELECT ROWNUM RNUM, A.* FROM(
 				SELECT BOARD_TITLE, BOARD_CONTENT, 
@@ -49,7 +62,14 @@
 		) A
 	)
 	WHERE RNUM BETWEEN ? AND ?
-	</entry>
+	</entry> -->
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	 <!-- 회원 탈퇴 --> <!-- 이동호 -->
