@@ -54,6 +54,26 @@
                     <div><input type="checkbox" name="review_agree"> 보다 나은 리뷰 서비스 제공을 위해 개인 정보 수집∙이용에 동의합니다.(선택)</div>
                 </div>
                 <div class="main_last"><button id="btn_review">등 록</button></div>
+
+
+
+                <!-- 숨겨진 값(hidden) -->
+                <!-- 동작 구분 -->
+                <input type="hidden" name="mode" value="${param.mode}">
+
+                <!-- 게시판 구분 -->
+                <input type="hidden" name="type" value="${param.type}">
+                
+                <!-- 게시글 번호 -->
+                <input type="hidden" name="no" value="${param.no}">
+                
+                <!-- 현재 페이지 -->
+                <input type="hidden" name="cp" value="${param.cp}">
+
+                <!-- 존재하던 이미지가 제거되었음을 기록하여 전달하는 input -->
+                <!-- value에 제거된 이미지의 레벨을 기록 -->
+                <input type="hidden" name="deleteList" id="deleteList" value="">
+                
             </form>
         </div>
        
