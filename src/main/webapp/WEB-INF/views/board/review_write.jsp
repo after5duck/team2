@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="main_third">
-                    <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 별점을 매겨주세요</div>
+                    <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 별점을 주세요😉</div>
                     <div>
                         별이 다섯개
                     </div>
@@ -80,8 +80,6 @@
     </main>
 
 
-    <!-- 공용 풋터 -->
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script>
         document.getElementById("btn").addEventListener("click", function(){
@@ -191,8 +189,8 @@
             }
         });
 
-    }
-})();
+            }
+        })();
 
     </script>
     
