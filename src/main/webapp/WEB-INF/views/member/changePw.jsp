@@ -53,7 +53,6 @@
                                     <td><span id="inputPwSpan"></span></td>
                                 </tr>
                                 <tr>
-
                                 </tr>
                                 <tr>
                                     <th>새 비밀번호</th>
@@ -63,7 +62,6 @@
                                 <tr>
                                     <td colspan="3"><span id="caution"></span></td>
                                 </tr>
-                                
                                 <tr>
                                     <th>비밀번호 확인</th>
                                     <td class="td1"><input type="password" autocomplete="off" id="newPwConfirm" maxlength="20"></td>
@@ -85,51 +83,7 @@
         </section>
     </main>
 
-        <!-- 공용 풋터 -->
-        <footer>
-
-            <div class="footer_first">
-                <div>
-                    <img src="${contextPath}/resources/images/footer_logo.png">
-                </div>
-                <div>
-                    <h5><button id="btn"><strong>(주) 애니버스 사업자 정보</strong></button></h5>
-                    <div id="text_box">
-                        <ul>
-                            <li>상호 : 주식회사 애니버스 / 대표 : 아이육</li>
-                            <li>주소 : 서울특별시 강남구 테헤란로 10길 9길</li>
-                            <li>사업자등록번호 : 202-30-71018</li>
-                            <li>이메일 : i6@aniverse.net / 대표전화 : 1588-1004</li>
-                        </ul>
-                    </div>
-                </div>
-    
-            </div>
-            <div class="footer_second">
-                <div>
-                    <ul>
-                        
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">고객센터</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">이용약관</a></li>
-                        <li><a href="#">청소년보호정책</a></li>
-                        <li><a href="#"><strong>개인정보 처리방침</strong></a></li>
-                        <li><a href="#">저작권 표기</a></li>
-                    </ul>
-                </div>
-                <p>Copyright &copy; 2023.ANIVERSE.All right.reserved.</p>
-    
-            </div>
-            <div class="footer_third">
-                
-                <i class="fa-brands fa-twitter fa-2xl"></i>
-                <i class="fa-brands fa-instagram fa-2xl"></i>
-                <i class="fa-brands fa-youtube fa-2xl"></i>
-                <i class="fa-brands fa-facebook fa-2xl"></i>
-    
-            </div>
-        </footer>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 

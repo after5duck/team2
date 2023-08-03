@@ -195,7 +195,7 @@ main{
 #menu-ul > li{
     height: 30px;
     margin: 20px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid rgb(198, 198, 198);
     cursor: pointer;
 }
 #menu-ul > li:hover{
@@ -269,7 +269,10 @@ main{
 }
 
 #bodyProfileImg{
-    width: 150px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 #bodyTable{
     margin-top: 15px;
@@ -314,55 +317,5 @@ main{
 .bodyList input:focus{
     outline: 0;
     border-bottom: 3px solid rgb(237, 21, 93);
-}
-
-#btn-delEmail{
-    color: white;
-    background-color: rgb(94, 94, 94);
-    font-size: 16px;
-    border: 0;
-    border-radius: 5px;
-
-    cursor: pointer;
-}
-
-#table-btn{
-    display: flex;
-    justify-content: center;
-    border: 0;
-
-    cursor: pointer;
-}
-#table-btn > td{
-    text-align: center;
-}
-
-#td-submit{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-#td-submit > td{
-    text-align: center;
-}
-
-/* ————————————————— 제출 버튼 ————————————————— */
-#btn-submit{
-    width: 200px;
-    height: 40px;
-
-    font-size: 24px;
-    color: white;
-    background-color: rgb(237, 21, 93);
-    border: 0;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-
-/* 비밀번호 부분 */
-.tablePw{
-    display: none;
 }
 

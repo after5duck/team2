@@ -46,31 +46,31 @@ nickInfo.addEventListener("input", function(){
 
 
 
-
+/* 중복확인 눌렀는지 확인 카운트 */
+let count = 0;
 
 /* 버튼이 클릭되었을 때 */
 checkBtn.addEventListener("click", ()=>{
 
     console.log(nickInfo);
-    // DB에 업데이트는 어떻게 하지??
+
     $.ajax({
         url : contextPath + "/member/mypage/checkDupNick",
         data : {"memberNick" : nickInfo.value,
                 "memberEmail" : inputEmail.value,
-                "memberNo" : memberNo},
+                "memberNo" : memberNo,
+                },
         type : "post",
 
         success : function(res){ // 성공했을 때
 
-         
-            console.log(res + "중복확인");
-
             if(res != "null"){
                 if(confirm("사용 가능한 닉네임입니다. 사용하시겠습니까?")){
+                    count = 1;
                 }
             }else{
                 alert("이미 사용중인 닉네임입니다.");
-                nickInfo.value = "";
+                nickInfo.value = loginMemberNick;
             }
         },
         error : function(){
@@ -82,5 +82,16 @@ checkBtn.addEventListener("click", ()=>{
 });
 
 function changeProfile(){
+
+    if(nickInfo.value == loginMemberNick){
+        count = 1;
+    }
+
+    if(count == 0){
+        alert("아이디 중복확인을 먼저 해주세요!");
+        return false;
+    }
+
+    return true;
     
 }
