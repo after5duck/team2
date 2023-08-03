@@ -9,7 +9,11 @@ const delEmail_btn = document.getElementById("btn-delEmail");
 
 delEmail_btn.addEventListener("click",()=>{
     if(confirm("이메일주소를 삭제하시겠습니까?")){
-        inputEmail.value="";
+        if(inputEmail.value.trim().length == 0){
+            alert("이메일이 등록되어 있지 않습니다.")
+        }else{
+            inputEmail.value="";
+        }
     }
 })
 
@@ -22,10 +26,27 @@ function changeProfile(){
     return true;
 }
 
-
-/* 닉네임 중복 확인 */
 const checkBtn =  document.getElementById("btn-check");
-const nickInfo = document.getElementById("nickInfo");
+const nickInfo = document.getElementById("nickInfo"); // 닉네임 input
+
+const inputNickSpan = document.getElementById("inputNick");
+const inputEmailSpan = document.getElementById("inputEmail");
+
+nickInfo.addEventListener("input", function(){
+   const regExp = /^[A-z0-9가-힣]{2,6}$/;
+
+    if(!regExp.test(this.value)){
+        inputNickSpan.innerText = "유효한 형식의 닉네임이 아닙니다.";
+    }
+
+})
+
+
+
+
+
+
+
 
 /* 버튼이 클릭되었을 때 */
 checkBtn.addEventListener("click", ()=>{
@@ -35,6 +56,7 @@ checkBtn.addEventListener("click", ()=>{
     $.ajax({
         url : contextPath + "/member/mypage/checkDupNick",
         data : {"memberNick" : nickInfo.value,
+                "memberEmail" : inputEmail.value,
                 "memberNo" : memberNo},
         type : "post",
 
@@ -59,5 +81,6 @@ checkBtn.addEventListener("click", ()=>{
     
 });
 
-const regExp = /^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/;
-
+function changeProfile(){
+    
+}

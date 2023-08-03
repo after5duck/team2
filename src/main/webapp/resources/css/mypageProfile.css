@@ -145,6 +145,11 @@ main{
 	z-index: 2;
 }
 
+.login_move{
+    display: flex;
+    align-items: center;
+}
+
 
 /* ----------------------------------- 새로운 헤더 끝 ----------------------------------- */
 
@@ -347,6 +352,15 @@ main{
 #td-submit > td{
     text-align: center;
 }
+
+/* #inputNickSpan{
+    
+}
+
+#inputEmailSpan{
+
+} */
+
 
 /* ————————————————— 제출 버튼 ————————————————— */
 #btn-submit{

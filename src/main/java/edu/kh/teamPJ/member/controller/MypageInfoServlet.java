@@ -40,6 +40,7 @@ public class MypageInfoServlet extends HttpServlet{
 		int memberNo = loginMember.getMemberNo();
 		
 		try {
+			String path = null;
 			
 			Member member = new Member();
 			
@@ -50,9 +51,19 @@ public class MypageInfoServlet extends HttpServlet{
 			int result = service.changeInfo(member);{
 				if(result > 0) {
 					session.setAttribute("message", "프로필 변경 완료");
+					
+					loginMember.setMemberNickname(memberNickname);
+					loginMember.setMemberEmail(memberEmail);
+					
+					path = "info"; 
+					
 				}else {
 					session.setAttribute("message", "프로필 변경 실패..");
+					
+					path = "changeInfo";
 				}
+				
+				resp.sendRedirect(path);
 			}
 			
 		}catch(Exception e) {
