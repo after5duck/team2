@@ -26,20 +26,22 @@ public class ReviewWriteController extends HttpServlet{
          // insert는 별도 처리 없이 jsp로 위임
 
          // update는 기존 게시글 내용을 조회하는 처리가 필요함
-         if(mode.equals("update")) {
-            
-         int boardNo = Integer.parseInt(req.getParameter("no"));
-
-         // 게시글 상세 조회 서비스를 이용해서 기존 내용 조회
-         // ( new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용
-         BoardDetail write = new ReviewWriteService().selectBoardDetail(boardNo);
+//         if(mode.equals("update")) {
+//            
+//         int boardNo = Integer.parseInt(req.getParameter("no"));
+//
+//         // 게시글 상세 조회 서비스를 이용해서 기존 내용 조회
+//         // ( new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용
+//         BoardDetail write = new ReviewWriteService().selectBoardDetail(boardNo);
+//         
+//         // 개행 문자 처리 해제(<br> -> \n)
+//         write.setBoardContent(write.getBoardContent().replaceAll("<br>", "\n")); 
+//         
+//         req.setAttribute("write", write); // jsp에서 사용할 수 있도록 req에 값 세팅   
+//
+//         }
          
-         // 개행 문자 처리 해제(<br> -> \n)
-         write.setBoardContent(write.getBoardContent().replaceAll("<br>", "\n")); 
-         
-         req.setAttribute("write", write); // jsp에서 사용할 수 있도록 req에 값 세팅   
-
-         }
+         System.out.println();
 
          String path = "/WEB-INF/views/board/review_write.jsp";
          req.getRequestDispatcher(path).forward(req, resp);

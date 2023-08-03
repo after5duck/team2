@@ -62,7 +62,6 @@ public class ReviewWriteDAO {
 	               write.setMemberNickname(rs.getString(6));
 	               write.setProfileImage(rs.getString(7));
 	               write.setMemberNo(rs.getInt(8));
-	               write.setBoardName(rs.getString(9));
 	         }
 	      }finally {
 	         close(rs);
@@ -110,20 +109,21 @@ public class ReviewWriteDAO {
 		int result = 0;
 	      
 	      try {
-	         String sql = prop.getProperty("insertBoard");
+	    	  	String sql = prop.getProperty("insertBoard");
 	         
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setInt(1, write.getBoardNo());
-	           pstmt.setString(2, write.getBoardTitle());
-	           pstmt.setString(3, write.getBoardContent());
-	           pstmt.setInt(4, write.getMemberNo());
-	           pstmt.setInt(5, boardCode);
+	         	pstmt = conn.prepareStatement(sql);
+	         	pstmt.setInt(1, write.getBoardNo());
+	         	pstmt.setString(2, write.getBoardTitle());
+	          	pstmt.setString(3, write.getBoardContent());
+	          	pstmt.setInt(4, write.getMemberNo());
 	           
-	           result = pstmt.executeUpdate();
+	          	result = pstmt.executeUpdate();
+	          	
 	      }finally {
-	         close(pstmt);
+	    	  	close(pstmt);
 	      }
-		return result;
+		
+	      return result;
 	}
 
 	/** 게시글 수정 dao
