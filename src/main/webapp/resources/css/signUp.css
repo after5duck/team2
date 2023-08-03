@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     width: 600px;
-    height: 900px;
+    height: 1000px;
     margin: auto;
     margin-top: 0px;
 
@@ -77,15 +77,20 @@ form[name="signUp-form"] > label{
 
 /* input박스들 */
 .signUp-input-area > input{
-    width: 300px;
-    height: 40px;
+    width: 400px;
+    height: 35px;
     border-radius: 5px;
     border: 1px solid gray;
+    padding : 10px;
+    font-size: large;
 }
 
 #memberPw{ /* 비번 input박스 사이 공간 */
     margin-bottom: 7px;
 }
+
+
+
 
 /* 버튼 */
 .signUp-input-area > button {
