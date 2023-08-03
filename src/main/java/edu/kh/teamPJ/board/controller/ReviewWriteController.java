@@ -77,11 +77,11 @@ public class ReviewWriteController extends HttpServlet{
          int memberNo = loginMember.getMemberNo(); // 회원 번호
 
          // 게시글 관련 정보를 하나의 객체(BoardDetail)에 담기
-         BoardDetail detail = new BoardDetail();
+         BoardDetail write = new BoardDetail();
 
-         detail.setBoardTitle(boardTitle);
-         detail.setBoardContent(boardContent);
-         detail.setMemberNo(memberNo);
+         write.setBoardTitle(boardTitle);
+         write.setBoardContent(boardContent);
+         write.setMemberNo(memberNo);
          // boardCode는 별도 매개변수로 전달 예정
 
          // ---------------------- 게시글 작성에 필요한 기본 파라미터 얻어오기 끝 --------------------
@@ -129,7 +129,7 @@ public class ReviewWriteController extends HttpServlet{
             String deleteList = req.getParameter("deleteList"); // 1,2,3
             
             // 게시글 수정 서비스 호출 후 결과 반환 받기
-            detail.setBoardNo(boardNo);
+            write.setBoardNo(boardNo);
             
             // detail, imageList, deleteList
             int result = service.updateBoard(write, deleteList);
