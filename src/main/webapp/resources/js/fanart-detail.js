@@ -12,7 +12,7 @@ heartIcon.addEventListener('click', function() {
 });
 
 /* 조회수 증가 */
-function updateViewCount() {
+/* function updateViewCount() {
 
     $.ajax({
 
@@ -22,12 +22,9 @@ function updateViewCount() {
 
         type: "get",
     
-        dataType : 'JSON',
-        
         success: function (data) {
 
             document.getElementById("viewCount").innerText = data;
-
         },
 
         error: function () {
@@ -40,7 +37,7 @@ function updateViewCount() {
 
     updateViewCount();
 
-})(); 
+})();  */
 
 
 /* 좋아요 수 증가 */
