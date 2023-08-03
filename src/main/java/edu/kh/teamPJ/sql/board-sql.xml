@@ -9,7 +9,7 @@
 		FROM PHOTO
 		JOIN BOARD
 		USING(BOARD_NO)
-		WHERE BOARD_NO IN (69, 70, 71)
+		WHERE BOARD_NO IN (26, 27, 28)
 	</entry>
 
 	<!-- 메인페이지 요일별 애니리스트 조회 -->
@@ -18,7 +18,7 @@
 		FROM PHOTO
 		JOIN BOARD
 		USING(BOARD_NO)
-		WHERE BOARD_CD = '5'
+		WHERE BOARD_NO BETWEEN 1 AND 25
 	</entry>
 
 	<!-- 이미지, 모달창 동영상 가져오기 -->
@@ -29,9 +29,8 @@
 		FROM BOARD
 		JOIN PHOTO
 		USING(BOARD_NO)
-		WHERE
-		GENRE IS NOT NULL
-		AND TYPE = 'V'
+		WHERE BOARD_NO BETWEEN 29 AND 34
+		AND TYPE = 'M'
 	</entry>
 	<!-- 명장면 동영상 조회 -->
 	<entry key="selectVideoList">
@@ -39,17 +38,18 @@
 		FROM PHOTO
 		JOIN BOARD
 		USING (BOARD_NO)
-		WHERE BOARD_NO IN (63, 64, 65, 66, 67, 68)
+		WHERE BOARD_NO BETWEEN 35 AND 40
 	</entry>
 
 	<!-- 신작 에니메이션 조회 -->
 	<entry key="selectNewAnimeList">
-		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, VIDEO_PATH,
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH,
+		VIDEO_PATH,
 		STORY, DRAWING, RELEASE_DT, AGE
 		FROM BOARD
-		JOIN PHOTO USING (BOARD_NO)
-		WHERE BOARD_NO
-		BETWEEN 32 AND 56
+		JOIN PHOTO USING
+		(BOARD_NO)
+		WHERE BOARD_NO BETWEEN 1 AND 25
 	</entry>
 
 	<!-- 이민주 이미지 정보 얻어오기 -->
@@ -85,7 +85,8 @@
 		m.MEMBER_NO)
 		WHERE BOARD_CD = 4
 		AND BOARD_ST = 'N'
-		ORDER BY CREATE_DT DESC
+		ORDER BY CREATE_DT
+		DESC
 	</entry>
 
 	<!-- 팬아트 게시글/이미지 가져오기(BOARD_NO)에 따라 상세 페이지 -->
@@ -109,7 +110,8 @@
 	<entry key="updateViewCount">
 		UPDATE BOARD
 		SET READ_COUNT = READ_COUNT + 1
-		WHERE BOARD_NO = ?
+		WHERE
+		BOARD_NO = ?
 	</entry>
 
 	<!-- 팬아트 게시판 이미지 삽입 -->
@@ -167,7 +169,8 @@
 	<entry key="selectLikeCount">
 		SELECT COUNT(*)
 		FROM LIKE_LIST
-		JOIN BOARD USING(BOARD_NO)
+		JOIN BOARD
+		USING(BOARD_NO)
 		WHERE BOARD_NO = ?
 	</entry>
 
@@ -266,7 +269,8 @@
 		BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = 1
-		AND BOARD_NO IN (1,2,3,4,5,6,7,8,9)
+		AND BOARD_NO IN
+		(1,2,3,4,5,6,7,8,9)
 
 	</entry>
 
@@ -274,7 +278,8 @@
 	<entry key="selectGoodsList">
 		SELECT BOARD_TITLE, CONTENT_PATH
 		FROM BOARD
-		JOIN PHOTO USING(BOARD_NO)
+		JOIN PHOTO
+		USING(BOARD_NO)
 		WHERE BOARD_CD = 3
 	</entry>
 
