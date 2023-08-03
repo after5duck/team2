@@ -187,7 +187,7 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.changeInfo(member);
+		int result = dao.changeInfo(conn, member);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);

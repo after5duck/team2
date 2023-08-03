@@ -328,16 +328,28 @@ public class MemberDAO {
 		return result;
 	}
 
-	public int changeInfo(Member member) throws Exception{
+	/** 프로필 정보 수정 DAO
+	 * @param member
+	 * @return result
+	 * @throws Exception
+	 */
+	public int changeInfo(Connection conn, Member member) throws Exception{
 		
 		int result = 0;
 		
 		try {
 			String sql = prop.getProperty("changeInfo");
 			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getMemberNickname());
+			pstmt.setString(2, member.getMemberEmail());
+			pstmt.setInt(3, member.getMemberNo());
+			
+			result = pstmt.executeUpdate();
 			
 		}finally {
-			
+			close(pstmt);
 		}
 		
 		return result;
