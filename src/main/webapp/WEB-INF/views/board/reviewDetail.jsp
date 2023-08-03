@@ -32,7 +32,7 @@
                             <img id="contentProfileImg" src="${contextPath}/resources/images/user.png">
                         </c:if>
                         <c:if test="${!empty detail.profileImage}">
-                            <img id="contentProfileImg" src="${contextPath}${loginMember.profileImage}">
+                            <img id="contentProfileImg" src="${contextPath}${detail.profileImage}">
                         </c:if>
                     </div>
 
@@ -58,6 +58,16 @@
                                 <input type="radio" name="reviewStar" value="5" id="rate1"><label
                                     for="rate1">★</label>
                             </form>
+                        </div>
+                    </div>
+                    <div id="reviewCount">
+                        <div>
+                            <i class="fa-solid fa-eye fa-sm"></i>
+                            &nbsp;
+                            ${detail.readCount}
+                        </div>
+                        <div>
+
                         </div>
                     </div>
                 </article>

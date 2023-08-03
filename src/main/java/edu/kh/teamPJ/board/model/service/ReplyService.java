@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.kh.teamPJ.board.model.dao.ReplyDAO;
 import edu.kh.teamPJ.board.model.vo.Reply;
+import edu.kh.teamPJ.common.Util;
 
 public class ReplyService {
 	public ReplyDAO dao = new ReplyDAO();
@@ -46,11 +47,14 @@ public class ReplyService {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int insertReply(String replyContent, int boardNo, int memberNo) throws Exception{
+	public int insertReply(Reply reply) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		int result = dao.insertReply(conn, replyContent, boardNo, memberNo);
+		reply.setReplyContent(Util.XSSHandling(reply.getReplyContent()));
+		reply.setReplyContent(Util.newLineHandling(reply.getReplyContent()));
+		
+		int result = dao.insertReply(conn, reply);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);

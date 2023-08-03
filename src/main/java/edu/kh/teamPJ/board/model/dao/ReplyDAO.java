@@ -118,7 +118,7 @@ public class ReplyDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int insertReply(Connection conn, String replyContent, int boardNo, int memberNo) throws Exception{
+	public int insertReply(Connection conn, Reply reply) throws Exception{
 		
 		int result = 0;
 		
@@ -128,9 +128,9 @@ public class ReplyDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, replyContent);
-			pstmt.setInt(2, memberNo);
-			pstmt.setInt(3, boardNo);
+			pstmt.setString(1, reply.getReplyContent());
+			pstmt.setInt(2, reply.getMemberNo());
+			pstmt.setInt(3, reply.getBoardNo());
 			
 			result = pstmt.executeUpdate();			
 			

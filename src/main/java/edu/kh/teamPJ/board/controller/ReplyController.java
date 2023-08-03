@@ -28,10 +28,11 @@ public class ReplyController extends HttpServlet{
 		
 		try {
 			// 댓글 조회
-			if(command.equals("selectReply")) {
+			if(command.equals("selectReplyList")) {
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 				
 				List<Reply> replyList = service.selectReplyList(boardNo); 
+				
 				new Gson().toJson(replyList, resp.getWriter());
 				
 			}
@@ -42,7 +43,12 @@ public class ReplyController extends HttpServlet{
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 				int	memberNo = Integer.parseInt(req.getParameter("memberNo"));
 				
-				int result = service.insertReply(replyContent, boardNo, memberNo);
+				Reply reply = new Reply();
+				reply.setReplyContent(replyContent);
+				reply.setBoardNo(boardNo);
+				reply.setMemberNo(memberNo);
+				
+				int result = service.insertReply(reply);
 				
 				System.out.println(result);
 				
