@@ -14,7 +14,6 @@ import edu.kh.teamPJ.board.model.vo.BoardDetail;
 import edu.kh.teamPJ.member.model.vo.Member;
 
 
-// 컨트롤러 : 요청에 따라 알맞은 Service를 호출하고 결과에 따라 응답을 제어
 @WebServlet("/board/review_write")
 public class ReviewWriteController extends HttpServlet{
 

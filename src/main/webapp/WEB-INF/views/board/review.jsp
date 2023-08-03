@@ -96,7 +96,7 @@
 
         <c:if test="${!empty loginMember}">
             <div class="row justify-content-end">
-                <a href="review_write" class="btn btn-pink" id="writePink">글쓰기</a>
+                <a class="btn btn-pink" id="writePink" onclick="location.href='review_write?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</a>
             </div>
         </c:if>
     </div>
