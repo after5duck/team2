@@ -13,7 +13,11 @@
             </head>
 
             <body>
-                <img src="${contextPath}/resources/images/자른로고.png" id="logo">
+            	<section class="logo">
+        			<a href="${contextPath}">
+            			<img src="${contextPath}/resources/images/자른로고.png" id="logo">
+        			</a>
+    			</section>
 
                 <section class="signUp-content">
                     <form action="signUp" method="POST" name="signUp-form" onsubmit="return signUpValidate()">
@@ -87,9 +91,9 @@
                             <input type="text" id="memberTel" name="memberTel" placeholder="(-없이 숫자만 입력해주세요.)"
                                 autocomplete="off" maxlength="11">
 
-                            <form action="sendSms" method="post">
+                            <!-- <form action="sendSms" method="post"> -->
                                 <button type="submit">인증하기</button>
-                            </form>
+                            <!-- </form>  -->
                         </div>
 
                         <!-- 핸드폰 메세지 -->
