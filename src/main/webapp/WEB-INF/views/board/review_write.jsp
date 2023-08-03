@@ -73,7 +73,7 @@
                 <!-- 존재하던 이미지가 제거되었음을 기록하여 전달하는 input -->
                 <!-- value에 제거된 이미지의 레벨을 기록 -->
                 <input type="hidden" name="deleteList" id="deleteList" value="">
-                
+
             </form>
         </div>
        
@@ -162,9 +162,41 @@
 
 
 
-
             return true;
         }
+
+        (function(){
+        const deleteBtn = document.getElementById("deleteBtn"); // 존재하지 않으면 null
+
+        if(deleteBtn != null){ // 버튼이 화면에 존재할 때
+        deleteBtn.addEventListener("click",function(){
+            // 현재: detail?no=1562&cp=1&type=1
+
+            // 목표: detail?no=1562&type=1
+
+            let url = "delete"; // 상대경로 형식으로 작성
+
+            // 주소에 작성된 쿼리스트링에서 필요한 파라미터만 얻어와서 사용
+        
+            // 1) 쿼리스트링에 존재하는 파라미터 모두 얻어오기
+            const params = new URL(location.href).searchParams;
+
+            // 2) 원하는 파라미터만 얻어와 변수에 저장
+            const no = "?no=" + params.get("no"); // ?no=1562
+
+            const type = "&type=" + params.get("type"); // &type=1
+
+            // url에 쿼리스트링 추가
+            url += no + type; // delete?no=1562&type=1
+
+            if(confirm("정말로 삭제 하시겠습니까?")){
+                
+                location.href = url;
+            }
+        });
+
+    }
+})();
 
     </script>
     
