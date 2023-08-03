@@ -1,8 +1,6 @@
 package edu.kh.teamPJ.board.model.dao;
 
 import static edu.kh.teamPJ.common.JDBCTemplate.close;
-import static edu.kh.teamPJ.common.JDBCTemplate.close;
-import static edu.kh.teamPJ.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -150,6 +148,35 @@ public class ReviewWriteDAO {
 			result = pstmt.executeUpdate();
 			
 		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+	/** 게시글 삭제 dao
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteBoard(Connection conn, int boardNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("deleteBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			
 			close(pstmt);
 		}
 		

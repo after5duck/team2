@@ -10,9 +10,7 @@ import static edu.kh.teamPJ.common.JDBCTemplate.close;
 
 import edu.kh.teamPJ.common.Util;
 import edu.kh.teamPJ.board.model.dao.ReviewWriteDAO;
-import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.BoardDetail;
-import edu.kh.teamPJ.board.model.vo.Pagination;
 
 public class ReviewWriteService {
 
@@ -102,6 +100,26 @@ public class ReviewWriteService {
 	      
 	      close(conn);
 	      
+		
+		return result;
+	}
+
+	/** 게시글 삭제 서비스 
+	 * @param boardNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int deleteBoard(int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.deleteBoard(conn, boardNo);
+		
+		if(result>0) commit(conn);
+		else		 rollback(conn);
+		
+		close(conn);
+		
 		
 		return result;
 	}
