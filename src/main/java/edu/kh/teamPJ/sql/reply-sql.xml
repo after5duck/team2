@@ -35,7 +35,7 @@
 	<!-- 댓글 수정 -->
 	<entry key="updateReply">
 		UPDATE REPLY SET REPLY_CONTENT = ?
-		WHERE REPLY_NO = ?
+		WHERE REPLY_KEY = ?
 	</entry>
 
 

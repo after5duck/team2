@@ -188,6 +188,24 @@ main{
     display: flex;
     flex-basis: 50%;
 }
+
+#reviewCount{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+#reviewCount > div{
+    display: flex;
+    flex-basis: 50%;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    color: #a9a9a9;
+    font-size: 20px;
+}
+
+
 /* 별점 */
 #reviewContent fieldset{
     height: 100%;
@@ -441,6 +459,15 @@ main{
     color: black;
     resize: none;
 }
+.update-textarea{
+    width: 100%;
+    min-height: 100px;
+
+    margin-top: 10px;
+    
+    color: black;
+    resize: none;
+}
 
 /* 작성 댓글 수정 삭제 버튼 */
 .btn-comment{
@@ -450,7 +477,7 @@ main{
 .btn-modify-comment{
     width: 50px;
 
-    margin-right: 5px;
+    margin-left: 5px;
 
     border: 1px solid rgb(94, 94, 94);
     border-radius: 5px;
@@ -462,14 +489,16 @@ main{
 }
 
 .btn-modify-comment:hover{
-
     color: white;
+
+    border: 1px solid rgb(94, 94, 94);
+    
     background-color: rgb(94, 94, 94);
 }
 .btn-delete-comment{
     width: 50px;
 
-    margin-right: 5px;
+    margin-left: 5px;
 
     border: 1px solid rgb(94, 94, 94);
     border-radius: 5px;
@@ -480,6 +509,25 @@ main{
     cursor: pointer;
 }
 .btn-delete-comment:hover{
+
+    color: white;
+    border: 1px solid rgb(237, 21, 93);
+    background-color: rgb(237, 21, 93);
+}
+.btn-cancel-comment{
+    width: 50px;
+
+    margin-left: 5px;
+
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+
+    color: rgb(94, 94, 94);
+    background-color: white;
+
+    cursor: pointer;
+}
+.btn-cancel-comment:hover{
 
     color: white;
     border: 1px solid rgb(237, 21, 93);

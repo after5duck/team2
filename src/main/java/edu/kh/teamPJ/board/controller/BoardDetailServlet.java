@@ -44,7 +44,7 @@ public class BoardDetailServlet extends HttpServlet{
          
          String path = "/WEB-INF/views/board/reviewDetail.jsp";
          
-         req.getRequestDispatcher(path).forward(req, resp);
+         req.getRequestDispatcher(path).forward(req, resp); // 여기서 오류나는 듯
          
       }catch(Exception e) {
          e.printStackTrace();
