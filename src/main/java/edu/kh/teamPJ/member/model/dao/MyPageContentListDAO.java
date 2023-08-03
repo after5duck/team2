@@ -40,13 +40,15 @@ public class MyPageContentListDAO {
 	 * @author 채정은
 	 *
 	 */
-	public List<Board> MyPageContentList(Connection conn, String boardContent, String boardTitle, int memberNo) {
+	public List<Board> MyPageContentList(Connection conn, String boardContent, String boardTitle, int memberNo) throws Exception{
 		List<Board> cList = new ArrayList<Board>();
 		
 		try {
 			String sql = prop.getProperty("MyPageContentList");
 			
-			//pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
+			
+			
 			
 			
 			

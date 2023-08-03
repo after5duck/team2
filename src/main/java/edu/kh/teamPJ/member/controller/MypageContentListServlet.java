@@ -37,6 +37,7 @@ public class MypageContentListServlet extends HttpServlet{
 		String boardContent = req.getParameter("boardContent");
 		String boardTitle = req.getParameter("boardTitle");
 		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		//int boardCode = Integer.parseInt(req.getParameter("boardCode"));
 		
 		try {
 			MyPageContentListService service = new MyPageContentListService();
