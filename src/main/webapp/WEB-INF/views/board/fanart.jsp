@@ -54,7 +54,6 @@
 									class="fanart-img">
 								<div>
 									
-									<span class="fanart-view"><i class="fa-solid fa-eye fa-sm"></i><span id="viewCount"></span>
 									<span class="fanart-title">${board.boardTitle}</span>
 									
 								</div>

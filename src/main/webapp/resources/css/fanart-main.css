@@ -92,7 +92,7 @@ body{
 /* ————————————————— 새로운 헤더 끝 ————————————————— */
 
 main{
-    width: 1200px;
+    width: 1250px;
     margin: auto;
 }
 
@@ -139,6 +139,7 @@ main{
 
 /* 팬아트 글, 정렬순 부분 */
 .fanArt-text-orderlist{
+	margin-top: 50px;
     display: flex;
     height: 130px;
 
@@ -147,28 +148,22 @@ main{
 .fanArt-text-orderlist > div:first-child{
     width: 50%;
     font-size: 35px;
-    padding-left: 20px;
-    padding-top: 20px;
     color: rgb(237, 21, 93);
     font-family: 'Pretendard-Regular';
-    font-weight: 500;
+    font-weight: bold;
 
 }
 
 .fanArt-text-orderlist > div:last-child{
     width: 50%;
-    text-align: end;
-    padding-top: 20px;
-    padding-right: 20px;
     font-size: 26px;
 }
 
 #orderlist{
-    margin-left: 10px;
     width: 120px;
     height: 40px;
     border-radius: 10px;
-
+	margin-left : 400px;
     cursor: pointer;
 
 }
@@ -191,13 +186,14 @@ main{
 	display : flex;
 	flex-direction : column;
 	margin-bottom: 50px;
-	width: 300px;
+	width: auto;
     text-align: start;
 }
 
 .grid-item > img{
-    width: 100%;
+    width: 320px;
     height : 400px;
+    
     border: 5px solid pink;
     margin-bottom: 20px;
 

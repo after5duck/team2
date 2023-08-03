@@ -86,3 +86,20 @@ if(loginMemberNo != null){
 
 
 }
+
+
+function is_checked() {
+
+    const checkbox = document.getElementById("likeCount");
+    const isChecked = checkbox.checked;
+
+    if(isChecked){
+
+        alert("좋아요 체크됨");
+
+
+
+    }
+
+
+}
