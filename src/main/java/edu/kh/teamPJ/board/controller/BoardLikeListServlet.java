@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.kh.teamPJ.board.model.service.BoardService;
 
-@WebServlet("/likeCount")
+@WebServlet("/board/fanart/detail/likeCount")
 public class BoardLikeListServlet extends HttpServlet{
 	
 	@Override
@@ -27,6 +27,8 @@ public class BoardLikeListServlet extends HttpServlet{
 			BoardService service = new BoardService();
 			
 			int result = service.updateLikeCount(boardNo, memberNo);
+			
+			System.out.println("result : " + result );
 			
 			if(result == 1) {
 				

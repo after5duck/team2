@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
 
-@WebServlet("/updateViewCount")
+@WebServlet("/board/fanart/detail/updateViewCount")
 public class BoardViewCount extends HttpServlet{
 
 	@Override

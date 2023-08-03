@@ -164,7 +164,7 @@
 	</entry>
 
 	<!-- 팬아트 좋아요수 조회 -->
-	<entry key="">
+	<entry key="selectLikeCount">
 		SELECT COUNT(*)
 		FROM LIKE_LIST
 		JOIN BOARD USING(BOARD_NO)
