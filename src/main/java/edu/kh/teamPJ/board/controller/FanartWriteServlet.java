@@ -78,18 +78,17 @@ public class FanartWriteServlet extends HttpServlet{
 			while(files.hasMoreElements()) { 
 				String name = files.nextElement(); 
 
-				String original = mpReq.getOriginalFileName(name);
+				String rename = mpReq.getFilesystemName(name);
 
-				if(original != null) {
+				if(rename != null) {
 
 					Photo photo = new Photo();
 
-					photo.setContentPath(original);
-
+					photo.setContentPath(rename);
+					
 					photos.add(photo);
 
 				}
-
 			}
 
 			String boardTitle = mpReq.getParameter("boardTitle");
