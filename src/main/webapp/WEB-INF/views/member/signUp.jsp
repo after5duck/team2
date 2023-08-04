@@ -108,16 +108,24 @@
                         <div class="signUp-input-area">
                             <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일(선택 입력)"
                                 maxlength="30" autocomplete="off">
-                            <button id="emailBtn">인증번호 받기</button>
-                        </div>
-
-                        <!-- 이메일 인증 -->
-                        <div class="signUp-input-area">
-                            <input type="text" id="email2" placeholder="인증번호 입력" autocomplete="off">
+                            <button id="emailBtn">인증번호 발송</button>
                         </div>
 
                         <!-- 이메일 메세지 -->
-                        <span class="signUp-message" id="emailm">메일을 받으실 이메일을 입력해주세요.</span>
+                        <span class="signUp-message" id="emailm">메일을 받을 이메일을 입력해주세요.</span>
+
+
+                        <!-- 이메일 인증 영역 -->
+                        <div class="signUp-input-area">
+                            <input type="text" id="email2" placeholder="인증번호 입력" autocomplete="off">
+                            <button id="email2Btn">인증번호 확인</button>
+                        </div>
+
+                        <!-- 이메일 인증 메세지 -->
+                        <span class="signUp-message" id="emailm">인증번호를 입력해주세요.</span>
+
+
+                        
 
 
                         <button id="btn">버튼만 누르면 가입완료!</button>

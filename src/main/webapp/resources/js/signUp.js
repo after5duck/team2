@@ -5,6 +5,8 @@ const checkObj = {
     "memberNick" :false,
     "memberTel" : false,
 };
+
+
 /* 인풋들 */
 const memberId = document.getElementById("memberId");
 const memberPw = document.getElementById("memberPw");
@@ -69,6 +71,8 @@ memberId.addEventListener("input", function(){
     }
 });
 
+
+
 /* 비밀번호 */
 
 memberPw.addEventListener("input", function(){
@@ -121,6 +125,8 @@ function checkPw(){
         checkObj.memberPwConfirm = false;
     }
 }
+
+
 
 /* 닉네임 */
 memberNick.addEventListener("input", function(){
@@ -200,8 +206,8 @@ memberTel.addEventListener("input", function(){
 
 /* 이메일 */
 
-/* 
-memberEmail.addEventListener("input", function(){
+
+/* memberEmail.addEventListener("input", function(){
 
     if(memberEmail.value.trim().length == 0){
         emailm.innerText = "이메일을 입력해주세요.";
