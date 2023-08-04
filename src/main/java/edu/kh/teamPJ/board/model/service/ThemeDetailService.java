@@ -20,6 +20,12 @@ public class ThemeDetailService {
   
 private ThemeDetailDAO dao = new ThemeDetailDAO();
 
+
+
+/**
+ * @return
+ * @throws Exception
+ */
 public List<Theme> selectSportsList() throws Exception{
 	
 	Connection conn = getConnection();
@@ -32,6 +38,24 @@ public List<Theme> selectSportsList() throws Exception{
 	
 	
 	return sportsList;
+}
+
+/**
+ * @param boardNo
+ * @param boardCode
+ * @return
+ * @throws Exception
+ */
+public Theme selectDetail(int boardNo, int boardCode) throws Exception{
+	
+	Connection conn = getConnection();
+
+	Theme detail = dao.selectDetail(conn, boardNo, boardCode);
+	
+	close(conn);
+	
+	
+	return detail;
 }
   
   
