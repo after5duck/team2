@@ -68,8 +68,8 @@
                     <!-- 게시글 조회 스크롤 -->
                     <article id="contentList">
 
-                        <c:if test="${!empty board}">
-                            <c:forEach var="board" item="${board}">
+                        <c:if test="${!empty bList}">
+                            <c:forEach var="board" items="${bList}">
     
                                 <nav class="writeContent">
                                     <article class="contentTitle">${board.boardName}</article>
@@ -80,7 +80,7 @@
                             </c:forEach>
                         </c:if >
 
-                        <c:if test="${empty board}">
+                        <c:if test="${empty bList}">
                             <p>게시글이 없습니다</p>
                         </c:if>
                         
@@ -97,10 +97,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <script>
-
         const loginMemberNo = "${loginMemberNo}";
-
-
     </script>
 
 

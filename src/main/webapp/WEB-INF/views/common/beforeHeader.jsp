@@ -67,9 +67,9 @@
 									<c:if test="${!empty loginMember.profileImage}">
 										<img src="${contextPath}${loginMember.profileImage}" style="width: 50px;">
 									</c:if>
-									<a href="${contextPath}/member/mypage/info"><button
-											class="after_login_btn ">${loginMember.memberNickname}</button></a>
-
+									<a href="${contextPath}/member/mypage/info">
+										<button class="after_login_btn ">${loginMember.memberNickname}</button>
+									</a>
 								</div>
 							</div>
 						</c:otherwise>

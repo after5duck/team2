@@ -12,7 +12,7 @@
 							<meta charset="UTF-8">
 							<meta http-equiv="X-UA-Compatible" content="IE=edge">
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<title>메인페이</title>
+							<title>ANIVERSE</title>
 
 							<!-- 메인 css -->
 							<link rel="stylesheet" href="resources/css/MAIN.css">
@@ -90,20 +90,23 @@
 													<div class="login_move">
 														<c:if test="${empty loginMember.profileImage}">
 															<img src="${contextPath}/resources/images/user.png"
-																style="width: 50px;">
+															id="login_profile">
 														</c:if>
 														<c:if test="${!empty loginMember.profileImage}">
 															<img src="${contextPath}${loginMember.profileImage}"
-																style="width: 50px;">
+															id="login_profile">
 
 														</c:if>
-														<a href="${contextPath}/member/mypage/info"><button
-																class="after_login_btn">${loginMember.memberNickname}</button></a>
-														<a href="${contextPath}/member/logout" class="logout-btn">
-															로그아웃
-															<img src="${contextPath}/resources/images/logout-icon.png"
-																class="logout-icon" width="12px" height="12px">
-														</a>
+														<div class="login_logout">
+															
+															<a href="${contextPath}/member/mypage/info"><button
+																	class="after_login_btn">${loginMember.memberNickname}</button></a>
+															<a href="${contextPath}/member/logout" class="logout-btn">
+																로그아웃
+																<img src="${contextPath}/resources/images/logout-icon.png"
+																	class="logout-icon" width="12px" height="12px">
+															</a>
+														</div>
 
 													</div>
 												</div>
