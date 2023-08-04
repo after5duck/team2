@@ -30,10 +30,7 @@ function updateViewCount() {
 
 
 
-
-
-
-/* const heartIcon = document.getElementById('fanart-heartClick');
+const heartIcon = document.getElementById('fanart-heartClick');
 heartIcon.addEventListener('click', function() {
 
     if (heartIcon.classList.contains('fa-regular')) {
@@ -45,10 +42,10 @@ heartIcon.addEventListener('click', function() {
     }
 
 });
- */
+ 
 
 /* 좋아요 수 증가 */
-/*const fanartHeartClick = document.getElementById("fanart-heartClick");
+const fanartHeartClick = document.getElementById("fanart-heartClick");
 
 fanartHeartClick.addEventListener("click", function(){
 
@@ -66,8 +63,7 @@ fanartHeartClick.addEventListener("click", function(){
 
             if(data == 1){
 
-                this.classList.remove('fa-regular');
-                this.classList.add('fa-solid');
+                
                 document.getElementById("like-count").innerText = data;
             }
 
@@ -97,35 +93,26 @@ function is_checked() {
     }
 
 
-}*/
+}
 
 /* 이민주 test */
+/* 좋아요 수 증가 + 하트 채워짐  */
 
-const fanartHeartClick = document.getElementById("fanart-heartClick");
+/*const heartIcon = document.getElementById('fanart-heartClick');
+heartIcon.addEventListener('click', function() {
 
-fanartHeartClick.addEventListener("click", function(event){
-	
-    $.ajax({
-      
-        url : contextPath + "/board/fanart/detail/likeCount",
-        type : "get",
-        data : {
-            "boardNo" : boardNo1,
-            "memberNo" : memberNo1
-        },
-        success : function(data){
-            if(data == 1){
-                fanartHeartClick.classList.remove('fa-regular');
-                fanartHeartClick.classList.add('fa-solid');
-                document.getElementById("like-count").innerText = data;
-            }
-        },
-        error : function(req, status, error){
-            console.log("좋아요 등록 실패");
-            console.log(req.responseText);
-        }
-    });
-});
+    if (heartIcon.classList.contains('fa-regular')) {
+        heartIcon.classList.remove('fa-regular');
+        heartIcon.classList.add('fa-solid');
+    } else {
+        heartIcon.classList.remove('fa-solid');
+        heartIcon.classList.add('fa-regular');
+    }
+
+});*/
+
+
+
 
 
 /* test 끝 */
