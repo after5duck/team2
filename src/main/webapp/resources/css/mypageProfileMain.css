@@ -23,7 +23,7 @@ body{
     font-family: 'Pretendard-Regular', sans-serif;
 }
 main{
-    width: 1100px;
+    width: 1300px;
     margin: auto;
     box-sizing: border-box;
 }
@@ -238,6 +238,9 @@ main{
     align-items: center;
     justify-content: center;
     background-color: white;
+
+    border-radius: 5px;
+
     font-weight: bold;
     font-size: 16px;
 }
@@ -253,7 +256,6 @@ main{
 .profile-btn-area > *{
     width: 120px;
     height: 40px;
-    padding: 5px 10px;
     border: 1px solid black;
     font-size: 14px;
     cursor: pointer;
@@ -264,6 +266,9 @@ main{
 #btn-changeProfile{
     color: white;
     background-color: #444343;
+
+    border-radius: 5px;
+
     font-weight: bold;
     font-size: 14px;
 }
@@ -283,6 +288,7 @@ main{
 
 #search-image{
     display: none;
+
 }
 
 .bodyList{
