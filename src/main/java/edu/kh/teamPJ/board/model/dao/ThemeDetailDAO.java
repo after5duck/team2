@@ -99,7 +99,7 @@ public class ThemeDetailDAO {
 		
 		try {
 
-			String sql = prop.getProperty("selectDetail");
+			String sql = prop.getProperty("selectThemeDetail");
 
 			pstmt = conn.prepareStatement(sql);
 
