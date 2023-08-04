@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 public class ThemeDAO {
 
@@ -36,9 +37,9 @@ public class ThemeDAO {
 		}
 	}
 
-	public List<Photo> selectThemeList(Connection conn) throws Exception {
+	public List<Theme> selectThemeList(Connection conn) throws Exception {
 
-		List<Photo> list = new ArrayList<>();
+		List<Theme> list = new ArrayList<>();
 
 		try {
 			String sql = prop.getProperty("selectThemeList");
@@ -49,13 +50,15 @@ public class ThemeDAO {
 
 			while (rs.next()) {
 
-				Photo themePhoto = new Photo();
+				Theme theme = new Theme();
 
-				themePhoto.setContentPath(rs.getString("CONTENT_PATH"));
-				themePhoto.setBoardTitle(rs.getString("BOARD_TITLE"));
-				themePhoto.setBoardContent(rs.getString("BOARD_CONTENT"));
+				theme.setContentPath(rs.getString("CONTENT_PATH"));
+				theme.setBoardTitle(rs.getString("BOARD_TITLE"));
+				theme.setBoardContent(rs.getString("BOARD_CONTENT"));
+				theme.setBoardNo(rs.getInt("BOARD_NO"));
+				theme.setBoardCode(rs.getInt("BOARD_CD"));
 
-				list.add(themePhoto);
+				list.add(theme);
 
 			}
 

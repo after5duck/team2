@@ -8,16 +8,17 @@ import java.util.List;
 import edu.kh.teamPJ.board.model.dao.ThemeDAO;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 public class ThemeService {
 
 	private ThemeDAO dao = new ThemeDAO();
 
-	public List<Photo> selectThemeList() throws Exception {
+	public List<Theme> selectThemeList() throws Exception {
 
 		Connection conn = getConnection();
 
-		List<Photo> list = dao.selectThemeList(conn);
+		List<Theme> list = dao.selectThemeList(conn);
 
 		close(conn);
 

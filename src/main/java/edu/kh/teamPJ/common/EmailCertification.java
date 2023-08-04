@@ -1,5 +1,4 @@
-package edu.kh.teamPJ.common.wrapper;
-
+package edu.kh.teamPJ.common;
 import java.security.MessageDigest;
 
 public class EmailCertification {

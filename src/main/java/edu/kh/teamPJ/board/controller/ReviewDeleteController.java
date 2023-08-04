@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import edu.kh.teamPJ.board.model.service.ReviewWriteService;
 
 
-@WebServlet("/board/delete")
+@WebServlet("/board/review/delete")
 public class ReviewDeleteController extends HttpServlet{
 	
 	@Override

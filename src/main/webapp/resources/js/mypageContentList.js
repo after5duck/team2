@@ -5,6 +5,7 @@ function selectContent(){
     $.ajax({
 
         url : "member/mypage/contentList",
+        type : "post",
         success : function(bList){
 
             for( let b of bList){
@@ -28,7 +29,5 @@ function selectContent(){
 
 (()=>{
     selectContent();
-
-    window.setInterval(selectContent, 10000); // 10초
 })()
 

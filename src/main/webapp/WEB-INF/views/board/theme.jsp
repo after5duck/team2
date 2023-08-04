@@ -42,7 +42,7 @@ body {
 				<c:forEach var="themeList" items="${list}">
 
 					<div class="second">
-						<a href="theme_detail" class="a_tag_theme">
+						<a href="theme_detail?boardNo=${themeList.boardNo}&boardCode=${themeList.boardCode}" class="a_tag_theme">
 
 							<div>
 								<img name="theme_image"
