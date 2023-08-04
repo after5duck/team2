@@ -61,12 +61,7 @@
 							<div id="like-count"></div>
 						</c:if>
 							</section>
-						<!-- <label for="likeCount">
-				♥
-			</label>
-			<input type="checkbox" id="likeCount"> -->
-
-
+					
 					
 					
 						<!-- 민주 test -->
