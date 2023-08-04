@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import edu.kh.teamPJ.board.model.dao.DayDAO;
 import edu.kh.teamPJ.board.model.dao.ModalPhotoDAO;
 import edu.kh.teamPJ.board.model.service.BoardService;
+import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.DayDTO;
 import edu.kh.teamPJ.board.model.vo.Modal;
 import edu.kh.teamPJ.board.model.vo.ModalPhoto;
@@ -40,10 +41,14 @@ public class DayController2 extends HttpServlet {
 	        // 명장면 동영상
 	        List<Modal> bestVideoList = service.selectVideoList();
 	        
+	        // 팬아트 사진
+	        List<Board> boardList = service.selectBoardWithPhotos();
+	        
 	        req.setAttribute("mainPhotoList", mainPhotoList);
 	        req.setAttribute("dayList", dayList);
 	        req.setAttribute("modalList", modalList);
 	        req.setAttribute("bestVideoList", bestVideoList);
+	        req.setAttribute("boardList", boardList);
 
 	        // 로그인 정보를 가져와 세션에 저장
 	        Member loginMember = (Member) req.getAttribute("loginMember");

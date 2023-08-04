@@ -144,6 +144,9 @@ main{
     height: 130px;
 
 }
+.fanArt-text-orderlist button{
+	margin-top : 20px;
+}
 
 .fanArt-text-orderlist > div:first-child{
     width: 50%;
@@ -157,6 +160,32 @@ main{
 .fanArt-text-orderlist > div:last-child{
     width: 50%;
     font-size: 26px;
+}
+
+
+#fanart-write-btn{
+
+    padding : 10px 0;
+    
+    width: 150px;
+    height: 50px;
+    
+    font-size: 25px;
+    background-color: rgb(237, 21, 93);
+    text-decoration: none;
+    color: white;
+    border: 0;
+    font-family: 'Pretendard-Regular';
+
+    cursor: pointer;
+}
+
+#fanart-write-btn:hover{
+    background-color: white;
+    animation: jelly 0.5s;
+    color: rgb(237, 21, 93);
+    border: 2px solid rgb(237, 21, 93);
+
 }
 
 #orderlist{
@@ -284,32 +313,7 @@ main{
 
 
 
-#fanart-write-btn{
 
-    padding : 10px 0;
-    
-    top : 200px;
-    right : 100px;
-    
-    width: 150px;
-    height: 50px;
-    
-    font-size: 25px;
-    background-color: rgb(237, 21, 93);
-    text-decoration: none;
-    color: white;
-    border: 0;
-    font-family: 'Pretendard-Regular';
-
-    cursor: pointer;
-}
-
-#fanart-write-btn:hover{
-    background-color: white;
-    color: rgb(237, 21, 93);
-    border: 2px solid rgb(237, 21, 93);
-
-}
 /* 목록으로 가기 버튼 */
 #fanartGoToBtn{
     font-family: 'Pretendard-Regular';

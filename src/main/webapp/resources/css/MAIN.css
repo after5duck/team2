@@ -645,10 +645,14 @@ body {
 /* 팬아트 시작 */
 
 /* 애니버스 팬아트 */
+
+
 .container4 {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 	gap: 100px;
 }
+
 
 .container5 {
 	display: flex;

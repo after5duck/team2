@@ -32,17 +32,12 @@
 		<section class="fanArt-text-orderlist">
 			<div class="fanArt-text">
 				<div>팬아트</div>
-				<div></div>
-			</div>
-			<c:if test="${!empty loginMember}">
-	
-				<div class="fanart-write">
+				<c:if test="${!empty loginMember}">
 					<button id='fanart-write-btn' onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
 						글쓰기
 					</button>
-				</div>
-		
-			</c:if>
+				</c:if>
+			</div>
 
 			<div>
 				<select name="orderlist" id="orderlist">

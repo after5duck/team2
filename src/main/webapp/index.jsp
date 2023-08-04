@@ -344,150 +344,39 @@
 										<div class="fanArt_text">
 											<span id="fan_sp">인기 팬아트</span>
 										</div>
+										
 										<div class="container4">
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user01</div>
+										
+											<!-- 정연수 팬아트 사진 불러오기 ~~ -->
+											
+											<c:forEach var="fanart" items="${boardList }" begin="0" end="9">
+											<c:set var="photos" value="${fanart.photos}" />
+												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0" end="9">
+												
+													<div class="list_container">
+														<div class="img_con">
+															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}" class="img_size"
+																id="fanArt_img">
+														</div>
+														<div class="fanArt_text_con">
+															<div class="title_2">${fanart.boardTitle }</div>
+															<div class="writer_con">
+																<div class="writer">작성자 :</div>
+																<div class="writerId">유저</div>
+															</div>
+														</div>
+													
 													</div>
-												</div>
-											</div>
-
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user02</div>
-													</div>
-												</div>
-											</div>
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user03</div>
-													</div>
-												</div>
-											</div>
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user04</div>
-													</div>
-												</div>
-											</div>
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
-
+												
+												</c:forEach>
+											</c:forEach>
+												
+										
 										</div>
 
 										<!-- 팬아트 첫번째 리스트 끝 -->
 
 										<div class="container5">
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
-											<div class="list_container">
-												<div class="img_con">
-													<img src="resources/images/fanArt_3.png" class="img_size"
-														id="fanArt_img">
-												</div>
-												<div class="fanArt_text_con">
-													<div class="title_2">제목입니다.</div>
-													<div class="writer_con">
-														<div class="writer">작성자 :</div>
-														<div class="writerId">user05</div>
-													</div>
-												</div>
-											</div>
-
 
 										</div>
 									</div>
