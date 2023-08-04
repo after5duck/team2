@@ -78,7 +78,7 @@ form[name="signUp-form"] > label{
 /* input박스들 */
 .signUp-input-area > input{
     width: 400px;
-    height: 35px;
+    height: 25px;
     border-radius: 5px;
     border: 1px solid gray;
     padding : 10px;
@@ -87,30 +87,34 @@ form[name="signUp-form"] > label{
 
 /* 이메일 인풋 박스 */
 #memberEmail{
-    width: 270px;
+    width: 285px;
 }
-
-
 
 #memberPw{ /* 비번 input박스 사이 공간 */
     margin-bottom: 7px;
 }
 
 
-
-
-/* 버튼 */
-.signUp-input-area > button {
-    margin-left: 20px;
+/* 이메일 인증 버튼 */
+#emailBtn{
+    margin-left: 15px;
     width: 100px;
-    height: 35px;
-    background-color: gray;
-    border: 1px solid white;
-    color: white;
+    height: 40px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.719);
+    color: rgba(0, 0, 0, 0.664);
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 3px;
     font-weight: bold;
+    margin-top: 4px;
 }
+
+/* 이메일 인증번호 인풋창 */
+#email2{
+    margin-top: 7px;
+
+}
+
 
 /* 가입 버튼 */
 #btn{
