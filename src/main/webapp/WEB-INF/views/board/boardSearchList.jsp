@@ -34,12 +34,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="board" items="${map.searchResult}">
+
+                            <!-- <c:forEach var="board" items="${map.searchResult}">
                                 <tr>
                                     <td class="title">${board.boardTitle}</td>
                                     <c:choose>
+                                        <c:when test="${empty board.boardTitle and empty board.boardContent}">
+                                            <td class="content">검색결과가 없습니다.</td>
+                                        </c:when>
                                         <c:when test="${empty board.boardContent}">
                                             <td class="content">내용이 없습니다.</td>
+                                            <td class="createDt">${fn:substring(board.createDate, 0, 10)}</td>
                                         </c:when>
                                         <c:otherwise>
                                             <c:set var="contentLength" value="${fn:length(board.boardContent)}" />
@@ -52,13 +57,50 @@
                                                     <c:set var="shortContent" value="${board.boardContent}" />
                                                 </c:otherwise>
                                             </c:choose>
-                                            <td>${shortContent}</td>
+                                            <td class="content">${shortContent}</td>
+                                            <td class="createDt">${fn:substring(board.createDate, 0, 10)}</td>
                                         </c:otherwise>
                                     </c:choose>
-
-                                    <td class="createDt">${fn:substring(board.createDate, 0, 10)}</td>
                                 </tr>
-                            </c:forEach>
+                            </c:forEach> -->
+
+                            <c:choose>
+                                <c:when test="${fn:length(map.searchResult) == 0}">
+                                    <tr>
+                                        <td colspan="3" class="content">검색결과가 없습니다.</td>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="board" items="${map.searchResult}">
+                                        <tr>
+                                            <td class="title">${board.boardTitle}</td>
+                                            <c:choose>
+                                                <c:when test="${empty board.boardContent}">
+                                                    <td class="content">내용이 없습니다.</td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:set var="contentLength"
+                                                        value="${fn:length(board.boardContent)}" />
+                                                    <c:choose>
+                                                        <c:when test="${contentLength > 55}">
+                                                            <c:set var="shortContent"
+                                                                value="${fn:substring(board.boardContent, 0, 55)}..." />
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <c:set var="shortContent" value="${board.boardContent}" />
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <td class="content">${shortContent}</td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <td class="createDt">${fn:substring(board.createDate, 0, 10)}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+
+
+
                         </tbody>
                     </table>
 
