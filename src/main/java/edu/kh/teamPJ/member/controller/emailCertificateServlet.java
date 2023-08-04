@@ -28,7 +28,11 @@ public class emailCertificateServlet extends HttpServlet{
 		String from = "hwabyreTest@gmail.com";
 		String to = req.getParameter("memberEmail");
 		String subject = "이메일 인증 메일";
-		String content = "이메일 인증을 진행해주세요";		
+		String content = "이메일 인증을 진행해주세요";	
+		
+		
+		
+		
 		// 이메일 전송 : SMTP 이용을 위함
 		Properties p = new Properties();
 		p.put("mail.smtp.user", from);
