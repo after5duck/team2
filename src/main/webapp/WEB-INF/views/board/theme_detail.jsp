@@ -96,11 +96,11 @@
 
 
 
-            <c:forEach var="sportsList" items="${sportsList}">
+            <c:forEach var="sportsList" items="${sportsList}" varStatus="status" end="0">
 
                 
                         <div class="main_first">
-                             <div><img src=${contextPath}/resources/images/${sportsList.contentPath}></div>
+                             <div></div>
                              <div>${sportsList.boardTitle}</div>
                              <div>${sportsList.boardContent}</div>
                         </div>
@@ -109,7 +109,7 @@
             </c:forEach>
 
                  
-            <c:forEach var="sportsList" items="${sportsList}">
+            <c:forEach var="sportsList" items="${sportsList}" varStatus="status" begin="1">
                 <div class="main_content">
                     
                         <div><img name="detail_image" src="${contextPath}/resources/images/${sportsList.contentPath}"></div>

@@ -22,9 +22,10 @@ public class Theme {
 	private String videoPath;
 	private String age;
 	private String genre;
-	private String boardCode;
+	private int boardCode;
 	
 	private List<Theme> sportsList = new ArrayList<>();
+
 
 	
 	

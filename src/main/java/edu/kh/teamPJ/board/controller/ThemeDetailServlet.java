@@ -14,7 +14,7 @@ import edu.kh.teamPJ.board.model.service.ThemeDetailService;
 import edu.kh.teamPJ.board.model.vo.Photo;
 import edu.kh.teamPJ.board.model.vo.Theme;
 // /board/theme_detail
-@WebServlet("/board/theme_detail")
+@WebServlet("/board/theme/theme_detail")
 public class ThemeDetailServlet extends HttpServlet {
 
 	@Override
@@ -27,6 +27,13 @@ public class ThemeDetailServlet extends HttpServlet {
 //
 //		String command = uri.substring((contextPath + "/theme_detail/").length());
 //
+		
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		
+		int boardCode = Integer.parseInt(req.getParameter("boardCode"));
+		
+		
+		
 		ThemeDetailService service = new ThemeDetailService();
 
 		try {
@@ -34,6 +41,9 @@ public class ThemeDetailServlet extends HttpServlet {
 //			if(command.equals("sports")) {
 //				
 //			}
+			
+			Theme detail = service.selectDetail(boardNo, boardCode);
+			
 			List<Theme> sportsList = service.selectSportsList();
 			
 			req.setAttribute("sportsList", sportsList);
