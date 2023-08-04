@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.member.model.service.MyPageContentListService;
 import edu.kh.teamPJ.member.model.vo.Member;
@@ -21,15 +22,28 @@ public class MypageContentListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		HttpSession session = req.getSession();
-
-		Member loginMember = (Member) session.getAttribute("loginMember");
-
-		String path = "/WEB-INF/views/member/myPageContentList.jsp";
-		req.getRequestDispatcher(path).forward(req, resp);
-
+		
+		BoardService service = new BoardService();
+		
+		try {
+			
+			String memberNo = req.getParameter("memberNo");
+			
+			List<Board> boardList = service.selectMyContent(memberNo);
+			
+			if(boardList != null) {
+				resp.getWriter().print(boardList);
+			}
+			
+ 			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
+	
+	
 
 	// 마이페이지에서 검색어로 검색했을때.
 	@Override
@@ -37,8 +51,13 @@ public class MypageContentListServlet extends HttpServlet {
 
 		try {
 			
-			
-			
+			HttpSession session = req.getSession();
+
+			Member loginMember = (Member)session.getAttribute("loginMember");
+
+			String path = "/WEB-INF/views/member/myPageContentList.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
