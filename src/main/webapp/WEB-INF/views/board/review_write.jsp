@@ -36,7 +36,7 @@
                 <div class="main_second">
                     <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 애니 제목</div>
                     <div>
-                        <input id="ani_name" type="text" placeholder="제목을 입력해 주세요." value="${write.boardTitle}">
+                       <input id="ani_name" name="boardTitle" type="text" placeholder="제목을 입력해 주세요." value="${write.boardTitle}">
                     </div>
                 </div>
                 <div class="main_third">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="main_fourth"><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i>&nbsp;작성란</div>
-                <div class="main_fifth"><textarea id="review_content" placeholder="내용을 입력해 주세요">${write.boardContent}</textarea></div>
+                <div class="main_fifth"><textarea id="review_content" name="boardContent" placeholder="내용을 입력해 주세요">${write.boardContent}</textarea></div>
                 <br>
                 <div class="main_sixth">
                     <div><input type="checkbox" id="review_all"> 전체 동의하기</div><br>

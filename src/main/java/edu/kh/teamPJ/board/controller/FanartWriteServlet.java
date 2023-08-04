@@ -32,6 +32,7 @@ public class FanartWriteServlet extends HttpServlet{
 			String mode = req.getParameter("mode");
 
 			if(mode.equals("update")) {
+				
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 
 				int boardCode = Integer.parseInt(req.getParameter("boardCode"));
