@@ -89,6 +89,7 @@
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = 4
+		AND BOARD_ST = 'N'
 		ORDER BY
 		CREATE_DT DESC
 	</entry>
@@ -149,20 +150,20 @@
 	</entry>
 
 	<!-- 팬아트 게시글 이미지 수정 -->
-	<entry key="updateBoardImage">
+	<entry key="fanartUpdateBoardImage">
 		UPDATE PHOTO SET
 		CONTENT_PATH = ?
 		WHERE BOARD_NO = ?
 	</entry>
 
 	<!-- 팬아트 게시글 이미지 삭제 -->
-	<entry key="deleteBoardImage">
+	<entry key="fanartDeleteBoardImage">
 		DELETE FROM PHOTO
 		WHERE BOARD_NO = ?
 	</entry>
 
 	<!-- 팬아트 게시글 삭제 -->
-	<entry key="deleteBoard">
+	<entry key="fanartDeleteBoard">
 		UPDATE BOARD
 		SET BOARD_ST = 'Y'
 		WHERE BOARD_NO = ?
@@ -285,7 +286,7 @@
 
 	<!-- db합치면 보드넘버 바뀌니까 그땐 조건 다른걸로 바꿔야함! -->
 	<entry key="selectThemeList">
-		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, BOARD_NO, BOARD_CD
 		FROM
 		BOARD
 		JOIN PHOTO USING(BOARD_NO)
@@ -312,8 +313,8 @@
 		p.CONTENT_PATH, b.BOARD_CD
 		FROM BOARD b
 		LEFT JOIN PHOTO p ON (b.BOARD_NO = p.BOARD_NO)
-		WHERE b.BOARD_NO = ?
-		AND BOARD_CD = 3;
+		WHERE b.BOARD_NO BETWEEN 99 AND 107
+		AND BOARD_CD = 3
 	</entry>
 	
 	<!-- 테마추천 상세 내용조회 -->
@@ -324,15 +325,15 @@
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = 3
-		AND BOARD_NO BETWEEN 53 AND 98
-        ORDER BY BOARD_NO;
+		AND BOARD_NO = ?
+        ORDER BY BOARD_NO
 
 	</entry>
 	
 	
 
 	<!-- 게시글 상세 조회 -->
-	<entry key="selectBoardDetail">
+	<entry key="selectReviewDetail">
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
 		TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
 		READ_COUNT, MEMBER_NICK, PROFILE_IMG, MEMBER_NO
@@ -345,13 +346,10 @@
 		BOARD_ST = 'N'
 	</entry>
 
-	<!-- 다음 게시글 번호 조회 -->
-	<entry key="nextBoardNo">
-		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
-	</entry>
+	
 
 	<!-- 게시글 삽입 -->
-	<entry key="insertBoard">
+	<entry key="insertReview">
 		INSERT INTO BOARD
 		VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ? ,
 		DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 6, DEFAULT)
@@ -361,7 +359,7 @@
 	</entry>
 
 	<!-- 게시글 수정 -->
-	<entry key="updateBoard">
+	<entry key="updateReview">
 		UPDATE BOARD SET
 		BOARD_TITLE = ?,
 		BOARD_CONTENT = ?,
@@ -370,7 +368,7 @@
 	</entry>
 
 	<!-- 게시글 삭제 -->
-	<entry key="deleteBoard">
+	<entry key="deleteReview">
 		UPDATE BOARD SET
 		BOARD_ST = 'Y'
 		WHERE BOARD_NO = ?
