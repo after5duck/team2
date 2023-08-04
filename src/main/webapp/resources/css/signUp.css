@@ -30,7 +30,6 @@
     display: flex;
     margin: auto;
     margin-top: 0px;
-    
 }
 
 /* 딱 이것만 작성하면 가입 완료! 문구 */
@@ -57,8 +56,8 @@
 }
 
 .required{
-    color: rgba(255, 0, 0, 0.781);
-    padding: 0 5px;
+    color: rgba(255, 0, 0, 0.733);
+    padding: 0px 8px;
 }
 
 /* 각 제목들 (아이디, 이메일, 비밀번호 등등) */
@@ -85,33 +84,47 @@ form[name="signUp-form"] > label{
     font-size: large;
 }
 
-/* 이메일 인풋 박스 */
-#memberEmail{
-    width: 285px;
-}
-
 #memberPw{ /* 비번 input박스 사이 공간 */
     margin-bottom: 7px;
 }
 
+/* 이메일 인풋 박스 */
+#memberEmail{
+    width: 290px;
+}
+
+/* 이메일 인증번호 인풋창 */
+#email2{
+    width: 290px;
+    margin-top: 15px;
+}
 
 /* 이메일 인증 버튼 */
 #emailBtn{
-    margin-left: 15px;
+    margin-left: 10px;
     width: 100px;
-    height: 40px;
+    height: 46px;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.719);
     color: rgba(0, 0, 0, 0.664);
     cursor: pointer;
     border-radius: 3px;
     font-weight: bold;
-    margin-top: 4px;
+    margin-top: 1px;
 }
 
-/* 이메일 인증번호 인풋창 */
-#email2{
-    margin-top: 7px;
+/* 이메일 인증 확인 버튼 */
+#email2Btn{
+    margin-left: 10px;
+    width: 100px;
+    height: 46px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.719);
+    color: rgba(0, 0, 0, 0.664);
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-top: 16px;
 
 }
 
