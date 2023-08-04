@@ -645,26 +645,28 @@ body {
 /* 팬아트 시작 */
 
 /* 애니버스 팬아트 */
-
+.container3{
+	width : 1800px;
+}
 
 .container4 {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	gap: 100px;
+	gap : 20px;
 }
 
 
-.container5 {
-	display: flex;
-	gap: 100px;
+
+.container4 a{
+	text-decoration: none;
+    color: black;
+    font-size : 17px;
+}
+.container4 a:hover{
+	color : black;
 }
 
-/* 작성자 컨테이너 */
-.writer_con {
-	display: flex;
-	gap: 6px;
-	font-size: 20px;
-}
+
 
 /* 팬아트 사진 사이즈 */
 #fanArt_img {
