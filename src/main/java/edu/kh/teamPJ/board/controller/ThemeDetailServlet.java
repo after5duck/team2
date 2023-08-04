@@ -32,9 +32,30 @@ public class ThemeDetailServlet extends HttpServlet {
 		try {
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 			
-			int boardCode = Integer.parseInt(req.getParameter("boardCode"));
+			int boardCode = 0;
 			
+			switch(boardNo) {
 			
+			case 44: boardCode = 7; break;
+			case 45: boardCode = 8; break;
+			case 46: boardCode = 9; break;
+			case 47: boardCode = 10; break;
+			case 48: boardCode = 11; break;
+			case 49: boardCode = 12; break;
+			case 50: boardCode = 13; break;
+			case 51: boardCode = 14; break;
+			case 52: boardCode = 15; break;
+			
+			case 99: boardCode = 7; break;
+			case 100: boardCode = 8; break;
+			case 101: boardCode = 9; break;
+			case 102: boardCode = 10; break;
+			case 103: boardCode = 11; break;
+			case 104: boardCode = 12; break;
+			case 105: boardCode = 13; break;
+			case 106: boardCode = 14; break;
+			case 107: boardCode = 15; break;
+			}
 			
 			ThemeDetailService service = new ThemeDetailService();
 			
@@ -42,17 +63,19 @@ public class ThemeDetailServlet extends HttpServlet {
 //				
 //			}
 			
-			List<Theme> detail = service.selectDetail();
+			List<Theme> detail = service.selectDetail(boardCode);
 			
-			List<Theme> sportsList = service.selectSportsList(boardNo);
-			
+			if(44<=boardNo && boardNo <= 52) {
+				
+			}
+			List<Theme> sportsList = service.selectSportsList(boardNo, boardCode);
 			
 			req.setAttribute("detail", detail);
 			req.setAttribute("sportsList", sportsList);
 			
 			
-			System.out.println(detail);
-			System.out.println(sportsList);
+			
+			
 			
 			String path = "/WEB-INF/views/board/theme_detail.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);

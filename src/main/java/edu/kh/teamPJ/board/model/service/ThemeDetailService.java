@@ -24,14 +24,15 @@ private ThemeDetailDAO dao = new ThemeDetailDAO();
 
 /**
  * @param boardNo 
+ * @param boardCode 
  * @return sportsList
  * @throws Exception
  */
-public List<Theme> selectSportsList(int boardNo) throws Exception{
+public List<Theme> selectSportsList(int boardNo, int boardCode) throws Exception{
 	
 	Connection conn = getConnection();
 	
-	List<Theme> sportsList = dao.selectSportsList(conn, boardNo);
+	List<Theme> sportsList = dao.selectSportsList(conn, boardNo, boardCode);
 	
 	
 	
@@ -42,16 +43,17 @@ public List<Theme> selectSportsList(int boardNo) throws Exception{
 }
 
 /**
+ * @param boardNo 
  * @param boardNo
  * @param boardCode
  * @return detail
  * @throws Exception
  */
-public List<Theme> selectDetail() throws Exception{
+public List<Theme> selectDetail(int boardCode) throws Exception{
 	
 	Connection conn = getConnection();
 
-	List<Theme> detail = dao.selectDetail(conn);
+	List<Theme> detail = dao.selectDetail(conn, boardCode);
 	
 	close(conn);
 	
