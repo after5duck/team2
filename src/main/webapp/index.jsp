@@ -104,7 +104,7 @@
 															<a href="${contextPath}/member/logout" class="logout-btn">
 																로그아웃
 																<img src="${contextPath}/resources/images/logout-icon.png"
-																	class="logout-icon" width="12px" height="12px">
+																	class="logout-icon">
 															</a>
 														</div>
 
