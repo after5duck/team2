@@ -79,7 +79,7 @@ public class ReviewWriteService {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateBoard(BoardDetail write, String deleteList) throws Exception{
+	public int updateBoard(BoardDetail write) throws Exception{
 		
 		Connection conn = getConnection();
 	      

@@ -98,13 +98,13 @@ public class ReviewWriteController extends HttpServlet{
             if(boardNo > 0) { // 성공
                session.setAttribute("message", "게시글이 등록되었습니다.");
                // detail?no=2000&type=2
-               path = "write?no=" + boardNo + "&type" + boardCode;
+               path = "review?no=" + boardNo + "&type" + boardCode;
                
             }else { // 실패
                session.setAttribute("message", "게시글 등록 실패");
                
                // write?mode=insert&type=2
-               path = "write?mode=" + mode + "&type=" + boardCode;
+               path = "review_write?mode=" + mode + "&type=" + boardCode;
             }
             
             resp.sendRedirect(path); // 리다이렉트
@@ -117,18 +117,15 @@ public class ReviewWriteController extends HttpServlet{
             // + update일 때 추가된 내용
             // 어떤 게시글 수정 -> 파라미터 no
             // 나중에 목록으로 버튼 만들 때 사용할 현재 페이지 -> 파라미터 cp
-            // 이미지 중 x버튼을 눌러서 삭제할 이미지 레벨 목록 -> 파라미터 deleteList
             int boardNo = Integer.parseInt( req.getParameter("no"));
             
             int cp = Integer.parseInt( req.getParameter("cp"));
             
-            String deleteList = req.getParameter("deleteList"); // 1,2,3
             
             // 게시글 수정 서비스 호출 후 결과 반환 받기
             write.setBoardNo(boardNo);
             
-            // detail, imageList, deleteList
-            int result = service.updateBoard(write, deleteList);
+            int result = service.updateBoard(write);
            
             String path = null;
             String message = null;
@@ -136,7 +133,7 @@ public class ReviewWriteController extends HttpServlet{
             if(result > 0) { // 성공
                
               // detail?no=1000&type=1&cp=20
-            path = "write?no=" + boardNo + "&type=" + boardCode + "&cp=" + cp; // 상세조회 페이지 요청 주소
+            path = "detail?no=" + boardNo + "&type=" + boardCode + "&cp=" + cp; // 상세조회 페이지 요청 주소
 
             message = "게시글이 수정되었습니다.";
                

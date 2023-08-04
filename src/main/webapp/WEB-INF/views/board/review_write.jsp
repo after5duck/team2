@@ -70,10 +70,6 @@
                 <!-- 현재 페이지 -->
                 <input type="hidden" name="cp" value="${param.cp}">
 
-                <!-- 존재하던 이미지가 제거되었음을 기록하여 전달하는 input -->
-                <!-- value에 제거된 이미지의 레벨을 기록 -->
-                <input type="hidden" name="deleteList" id="deleteList" value="">
-
             </form>
         </div>
        
