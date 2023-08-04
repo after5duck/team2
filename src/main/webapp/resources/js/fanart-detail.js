@@ -32,50 +32,55 @@ function updateViewCount() {
 
 
 
-if(loginMemberNo != null){
 
-    const heartIcon = document.getElementById('fanart-heartClick');
-    heartIcon.addEventListener('click', function() {
+/* const heartIcon = document.getElementById('fanart-heartClick');
+heartIcon.addEventListener('click', function() {
 
-        if (heartIcon.classList.contains('fa-regular')) {
-            heartIcon.classList.remove('fa-regular');
-            heartIcon.classList.add('fa-solid');
-        } else {
-            heartIcon.classList.remove('fa-solid');
-            heartIcon.classList.add('fa-regular');
-        }
+    if (heartIcon.classList.contains('fa-regular')) {
+        heartIcon.classList.remove('fa-regular');
+        heartIcon.classList.add('fa-solid');
+    } else {
+        heartIcon.classList.remove('fa-solid');
+        heartIcon.classList.add('fa-regular');
+    }
 
-    });
+});
+ */
+
+/* 좋아요 수 증가 */
+const fanartHeartClick = document.getElementById("fanart-heartClick");
+
+fanartHeartClick.addEventListener("click", function(){
+
+    $.ajax({
+
+        url : contextPath + "/board/fanart/detail/likeCount",
+        
+        type : "get",
+
+        data : {"boardNo" : boardNo1,
+                    "memberNo" : memberNo1},
 
 
-    /* 좋아요 수 증가 */
-    const fanartHeartClick = document.getElementById("fanart-heartClick");
+        success : function(data){
 
-    fanartHeartClick.addEventListener("click", function(){
+            if(data == 1){
 
-        $.ajax({
-
-            url : contextPath + "/board/fanart/detail/likeCount",
-            
-            type : "get",
-
-            data : {"boardNo" : boardNo1,
-                        "memberNo" : memberNo1},
-
-
-            success : function(data){
+                this.classList.remove('fa-regular');
+                this.classList.add('fa-solid');
                 document.getElementById("like-count").innerText = data;
-
-            },
-            error : function(req, status, error){
-
-                console.log("좋아요 등록 실패");
-                console.log(req.responseText);
-
             }
-        });
-    })
-}
+
+        },
+        error : function(req, status, error){
+
+            console.log("좋아요 등록 실패");
+            console.log(req.responseText);
+
+        }
+    });
+})
+
 
 
 function is_checked() {
