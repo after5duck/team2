@@ -41,7 +41,6 @@ public class ReviewWriteController extends HttpServlet{
 //
 //         }
          
-         System.out.println();
 
          String path = "/WEB-INF/views/board/review_write.jsp";
          req.getRequestDispatcher(path).forward(req, resp);

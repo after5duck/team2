@@ -31,7 +31,7 @@
 
     <main>
         <div class="main_container">
-            <form action="review_write" method="POST" name="review_form" onsubmit="return reviewValidate()">
+            <form action="$review_write" method="POST" name="review_form" onsubmit="return reviewValidate()">
                 <div class="main_first">리뷰작성</div>
                 <div class="main_second">
                     <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i> 애니 제목</div>
