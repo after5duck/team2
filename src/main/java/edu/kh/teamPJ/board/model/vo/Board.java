@@ -1,6 +1,5 @@
 package edu.kh.teamPJ.board.model.vo;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +21,7 @@ public class Board {
 	private int boardCode;
 	private int memberNo;
 	private String memberNickname;
+	private String boardName;
 
 	private List<Photo> photos = new ArrayList<>(); 
 	
@@ -51,9 +51,6 @@ public class Board {
 				+ ", createDate=" + createDate + ", readCount=" + readCount + ", boardStatus=" + boardStatus
 				+ ", boardCode=" + boardCode + ", memberNo=" + memberNo + ", memberNickname=" + memberNickname + "]";
 	}
-
-
-
 
 
 	public int getBoardNo() {
@@ -205,13 +202,18 @@ public class Board {
 	}
 
 
-
-
-
 	public void setPhotos(List<Photo> photos) {
 		this.photos = photos;
 	}
 
+	public String getBoardName() {
+		return boardName;
+		
+	}
+	
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
+	}
 
 
 

@@ -495,4 +495,20 @@ public class BoardService {
 		return searchResult;
 	}
 
+	/** 내가 쓴 게시글 조회
+	 * @param memberNo
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> selectMyContent(int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.selectMyContent(conn, memberNo);
+		
+		close(conn);
+		
+		return boardList;
+	}
+
 }
