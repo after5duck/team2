@@ -522,7 +522,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("insertBoard");
+			String sql = prop.getProperty("fanartInsertBoard");
 
 			pstmt = conn.prepareStatement(sql);
 

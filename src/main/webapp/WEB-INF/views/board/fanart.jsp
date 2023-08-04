@@ -23,6 +23,9 @@
 	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 	
 	<a href="#" class="scroll-top-btn">Top</a>
+	
+	
+
 
 
 	<main>
@@ -31,6 +34,15 @@
 				<div>팬아트</div>
 				<div></div>
 			</div>
+			<c:if test="${!empty loginMember}">
+	
+				<div class="fanart-write">
+					<button id='fanart-write-btn' onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
+						글쓰기
+					</button>
+				</div>
+		
+			</c:if>
 
 			<div>
 				<select name="orderlist" id="orderlist">
@@ -76,7 +88,7 @@
 		</section>
 
 		<!-- 로그인한 회원만 보이게 하기 -->
-		<c:if test="${!empty loginMember}">
+		<!-- <c:if test="${!empty loginMember}">
 	
 			<div class="fanart-write">
 				<button id='fanart-write-btn' onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
@@ -84,7 +96,7 @@
 				</button>
 			</div>
 	
-		</c:if>
+		</c:if> -->
 
 
 	</main>
