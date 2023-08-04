@@ -148,7 +148,7 @@
 	</entry>
 
 	<!-- 팬아트 게시글 수정 -->
-	<entry key="updateBoard">
+	<entry key="fanartUpdateBoard">
 		UPDATE BOARD SET BOARD_TITLE = ?, BOARD_CONTENT = ?
 		WHERE BOARD_NO = ?
 	</entry>
