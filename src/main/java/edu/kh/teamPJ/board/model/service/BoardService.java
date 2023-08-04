@@ -512,5 +512,127 @@ public class BoardService {
 
 		return boardList;
 	}
+	
+	/** 이민주
+	 *  리뷰게시판 이미지 가져오기 Service
+	 * @param boardNo
+	 * @param boardCode
+	 * @return
+	 */
+	public Board selectReviewWithPhotos(int boardNo, int type) throws Exception {
+		
+		
+		Connection conn = getConnection();
+		
+		Board reviewBoardImg = dao. selectReviewWithPhotos(conn, boardNo, type);
+		
+		close(conn);
+		
+		return reviewBoardImg;
+	}
+	
+	/** 이민주
+	 * 리뷰 게시글 작성
+	 * 
+	 * @param reviewWrite
+	 * @param photos
+	 * @param type
+	 * @return
+	 */
 
+	public int insertReviewBoard(Board reviewWrite, List<Photo> photos, int type) throws Exception{
+	
+		Connection conn = getConnection();
+		
+		int boardNo = dao.nextReviewNo(conn);
+		
+		reviewWrite.setBoardNo(boardNo);
+		
+		int result = dao.insertReviewBoard(conn,reviewWrite, type);
+		
+		if(result > 0) {
+			
+			for(Photo reviewPh : photos) {
+				reviewPh.setBoardNo(boardNo);
+				result = dao.insertReviewBoardImg(conn, reviewPh, boardNo);
+				if (result == 0) {
+					break;
+
+				}
+
+			}
+
+		}
+		
+		if (result > 0) {
+			commit(conn);
+
+		} else {
+			rollback(conn);
+			boardNo = 0;
+		}
+
+		close(conn);
+
+		return boardNo;
+	}
+	/** 이민주
+	 * 
+	 * 리뷰 게시판 수정하기
+	 * @param reviewWrite
+	 * @param photos
+	 * @param deleteReviewList
+	 * @return
+	 */
+
+	public int updateReviewBoard(Board reviewWrite, List<Photo> photos, String deleteReviewList) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int result = dao.updateReviewBoard(conn, reviewWrite);
+		
+		if(result > 0) {
+			for(Photo reviewPh : photos) {
+			
+				reviewPh.setBoardNo(reviewWrite.getBoardNo());
+				
+				result = dao.updateReviewImg(conn, reviewPh);
+				
+				if(result == 0) {
+					result = dao.insertReviewBoardImg(conn, reviewPh, result);
+				}
+			}
+			if(!deleteReviewList.equals("")) {
+				result = dao.deleteReviewBoardImg(conn, deleteReviewList, reviewWrite.getBoardNo());
+			}
+		}
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);	
+		
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

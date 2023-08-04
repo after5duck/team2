@@ -935,70 +935,72 @@ public class BoardDAO {
 
 		return boardList;
 	}
+
 	/**
-	    * 좋아요 수 증가 DAO
-	    * 
-	    * @param boardNo
-	    * @param memberNo
-	    * @param conn
-	    * @return
-	    * @throws Exception
-	    */
-	   public int updateLikeCount(Connection conn, int boardNo, int memberNo) throws Exception {
-	      
-	      int result = 0;
+	 * 좋아요 수 증가 DAO
+	 * 
+	 * @param boardNo
+	 * @param memberNo
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+	public int updateLikeCount(Connection conn, int boardNo, int memberNo) throws Exception {
 
-	      try {
-	         String sql = prop.getProperty("updateLikeCount");
+		int result = 0;
 
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setInt(1, boardNo);
-	         pstmt.setInt(2, memberNo);
+		try {
+			String sql = prop.getProperty("updateLikeCount");
 
-	         result = pstmt.executeUpdate();
-	      } finally {
-	         close(pstmt);
-	      }
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
 
-	      return result;
-	   }
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
 
-	   /**
-	    * 좋아요 수 조회 DAO
-	    * 
-	    * @param boardNo
-	    * @param conn
-	    * @return
-	    * @throws Exception
-	    */
-	   public int selectLikeCount(int boardNo, Connection conn) throws Exception {
+		return result;
+	}
 
-	      int likeCount = 0;
+	/**
+	 * 좋아요 수 조회 DAO
+	 * 
+	 * @param boardNo
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+	public int selectLikeCount(int boardNo, Connection conn) throws Exception {
 
-	      try {
+		int likeCount = 0;
 
-	         String sql = prop.getProperty("selectLikeCount");
+		try {
 
-	         pstmt = conn.prepareStatement(sql);
+			String sql = prop.getProperty("selectLikeCount");
 
-	         pstmt.setInt(1, boardNo);
+			pstmt = conn.prepareStatement(sql);
 
-	         rs = pstmt.executeQuery();
+			pstmt.setInt(1, boardNo);
 
-	         if (rs.next()) {
-	            likeCount = rs.getInt(1);
+			rs = pstmt.executeQuery();
 
-	         }
+			if (rs.next()) {
+				likeCount = rs.getInt(1);
 
-	      } finally {
+			}
 
-	         close(rs);
-	         close(pstmt);
+		} finally {
 
-	      }
+			close(rs);
+			close(pstmt);
 
-	      return likeCount;
-	   }
+		}
+
+		return likeCount;
+	}
+
 	/**
 	 * 이민주
 	 * 
@@ -1081,6 +1083,250 @@ public class BoardDAO {
 		}
 
 		return boardList;
+	}
+
+	/***
+	 * 이민주
+	 * 
+	 * @param conn2
+	 * @param boardNo
+	 * @param type
+	 * @return
+	 */
+	public Board selectReviewWithPhotos(Connection conn, int boardNo, int type) throws Exception {
+
+		Board reviewBoardImg = null;
+
+		try {
+
+			String sql = prop.getProperty("selectReviewWithPhotos");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				if (reviewBoardImg == null) {
+
+					reviewBoardImg = new Board();
+
+					reviewBoardImg.setBoardNo(rs.getInt("BOARD_NO"));
+					reviewBoardImg.setBoardTitle(rs.getString("BOARD_TITLE"));
+					reviewBoardImg.setBoardContent(rs.getString("BOARD_CONTENT"));
+					reviewBoardImg.setCreateDate(rs.getString("CREATE_DT"));
+					reviewBoardImg.setMemberNickname(rs.getString("MEMBER_NICK"));
+					reviewBoardImg.setBoardCode(rs.getInt("BOARD_CD"));
+					reviewBoardImg.setMemberNo(rs.getInt("MEMBER_NO"));
+
+				}
+
+				String reviewContentPath = rs.getString("CONTENT_PATH");
+
+				if (reviewContentPath != null) {
+
+					Photo reviewPhoto = new Photo();
+
+					reviewPhoto.setContentPath(reviewContentPath);
+
+					reviewBoardImg.getPhotos().add(reviewPhoto);
+				}
+
+			}
+
+		} finally {
+
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return reviewBoardImg;
+
+	}
+
+	/**
+	 * 이민주 리뷰게시판 다음번호 얻어오기
+	 * 
+	 * @param conn
+	 * @return
+	 */
+	public int nextReviewNo(Connection conn) throws Exception {
+
+		int boardNo = 0;
+
+		try {
+
+			String sql = prop.getProperty("nextReviewNo");
+
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				boardNo = rs.getInt(1);
+
+			}
+		} finally {
+
+			close(rs);
+			close(pstmt);
+		}
+
+		return boardNo;
+	}
+
+	/**
+	 * 이민주 리뷰게시판 게시글 작성하기
+	 * 
+	 * @param conn
+	 * @param reviewWrite
+	 * @param type
+	 * @return
+	 */
+
+	public int insertReviewBoard(Connection conn, Board reviewWrite, int type) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("reviewInsertBoard");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, reviewWrite.getBoardNo());
+			pstmt.setString(2, reviewWrite.getBoardTitle());
+			pstmt.setString(3, reviewWrite.getBoardContent());
+			pstmt.setInt(4, reviewWrite.getMemberNo());
+			pstmt.setInt(5, type);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+
+		}
+		return result;
+	}
+
+	/**
+	 * 이민주 리뷰게시판 이미지 등록
+	 * 
+	 * @param conn2
+	 * @param reviewPh
+	 * @param boardNo
+	 * @return result
+	 */
+	public int insertReviewBoardImg(Connection conn, Photo reviewPh, int boardNo) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("insertReviewImage");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+			pstmt.setString(2, reviewPh.getContentPath());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+
+		}
+
+		return result;
+
+	}
+
+	/**
+	 * 이민주 리뷰게시판 수정하기
+	 * 
+	 * @param conn
+	 * @param reviewWrite
+	 * @return result
+	 */
+
+	public int updateReviewBoard(Connection conn, Board reviewWrite) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("reviewUpdateBoard");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, reviewWrite.getBoardTitle());
+			pstmt.setString(2, reviewWrite.getBoardContent());
+			pstmt.setInt(3, reviewWrite.getBoardNo());
+
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰게시판 이미지 수정하기
+	 * 
+	 * @param conn
+	 * @param reviewPh
+	 * @return
+	 */
+	public int updateReviewImg(Connection conn, Photo reviewPh) throws Exception {
+
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("reviewUpdateBoardImg");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, reviewPh.getContentPath());
+			pstmt.setInt(2, reviewPh.getBoardNo());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+
+		}
+
+		return result;
+	}
+
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰 게시판 이미지 삭제하기
+	 * 
+	 * @param conn
+	 * @param deleteReviewList
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteReviewBoardImg(Connection conn, String deleteReviewList, int boardNo) throws Exception {
+
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("reviewDeleteBoardImg");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
 	}
 
 }
