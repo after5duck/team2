@@ -134,7 +134,7 @@
 	</entry>
 
 	<!-- 팬아트 게시판 작성하기 -->
-	<entry key="insertBoard">
+	<entry key="fanartInsertBoard">
 		INSERT INTO BOARD VALUES(?,?,?,DEFAULT,DEFAULT,
 		DEFAULT, ?, DEFAULT,
 		DEFAULT, DEFAULT, DEFAULT, DEFAULT, ?, DEFAULT)
@@ -169,7 +169,7 @@
 	<!-- 팬아트 좋아요 증가 -->
 	<entry key="updateLikeCount">
 
-		INSERT INTO LIKE_LIST VALUES(?, ?)
+		INSERT INTO LIKE_LIST VALUES(?, ?, 3)
 	</entry>
 
 	<!-- 팬아트 좋아요수 조회 -->
