@@ -68,8 +68,6 @@
                     <!-- 게시글 조회 스크롤 -->
                     <article id="contentList">
 
-                        ..
-<!-- 
                         <c:if test="${!empty board}">
                             <c:forEach var="board" item="${board}">
     
@@ -84,7 +82,7 @@
 
                         <c:if test="${empty board}">
                             <p>게시글이 없습니다</p>
-                        </c:if> -->
+                        </c:if>
                         
                     </article>
                 </article>

@@ -49,9 +49,11 @@ public class MypageContentListServlet extends HttpServlet {
 			
 			if(boardList != null) {
 				resp.getWriter().print(boardList);
+			}else {
+				session.setAttribute("message", "오류발생");
+				String path = "/WEB-INF/views/myPageContentList.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
 			}
-			
- 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
