@@ -43,10 +43,11 @@ public class ThemeDetailDAO {
 	
 	/**
 	 * @param conn
+	 * @param boardNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Theme> selectSportsList(Connection conn) throws Exception{
+	public List<Theme> selectSportsList(Connection conn, int boardNo) throws Exception{
 		
 		List<Theme> sportsList = new ArrayList<Theme>();
 		
@@ -55,6 +56,8 @@ public class ThemeDetailDAO {
 			String sql = prop.getProperty("selectSportsList");
 			
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
 			
 			rs = pstmt.executeQuery();
 			
@@ -93,9 +96,9 @@ public class ThemeDetailDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Theme selectDetail(Connection conn, int boardNo, int boardCode) throws Exception{
+	public List<Theme> selectDetail(Connection conn) throws Exception{
 		
-		Theme detail = null;
+		List<Theme> detail = new ArrayList<Theme>();
 		
 		try {
 
@@ -103,7 +106,7 @@ public class ThemeDetailDAO {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, boardNo);
+//			pstmt.setInt(1, boardNo);
 
 			rs = pstmt.executeQuery();
 
@@ -116,9 +119,10 @@ public class ThemeDetailDAO {
 				theme.setBoardNo(rs.getInt("BOARD_NO"));
 				theme.setBoardTitle(rs.getString("BOARD_TITLE"));
 				theme.setBoardContent(rs.getString("BOARD_CONTENT"));
+				theme.setContentPath(rs.getString("CONTENT_PATH"));
 				theme.setBoardCode(rs.getInt("BOARD_CD"));
 			
-
+				detail.add(theme);
 			}
 
 		} finally {

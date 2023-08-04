@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.kh.teamPJ.board.model.service.ThemeService;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.board.model.vo.Photo;
+import edu.kh.teamPJ.board.model.vo.Theme;
 
 @WebServlet("/board/theme")
 public class ThemeServlet extends HttpServlet {
@@ -24,7 +25,7 @@ public class ThemeServlet extends HttpServlet {
 
 			ThemeService service = new ThemeService();
 
-			List<Photo> list = service.selectThemeList();
+			List<Theme> list = service.selectThemeList();
 
 			req.setAttribute("list", list);
 

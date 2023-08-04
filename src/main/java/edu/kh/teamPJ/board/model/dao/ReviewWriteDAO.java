@@ -45,7 +45,7 @@ public class ReviewWriteDAO {
 	      
 	      try {
 	         
-	         String sql = prop.getProperty("selectBoardDetail");
+	         String sql = prop.getProperty("selectReviewDetail");
 	         
 	         pstmt = conn.prepareStatement(sql);
 	         pstmt.setInt(1, boardNo);
@@ -109,7 +109,7 @@ public class ReviewWriteDAO {
 		int result = 0;
 	      
 	      try {
-	    	  	String sql = prop.getProperty("insertBoard");
+	    	  	String sql = prop.getProperty("insertReview");
 	         
 	         	pstmt = conn.prepareStatement(sql);
 	         	
@@ -138,7 +138,7 @@ public class ReviewWriteDAO {
 		int result = 0;
 		
 		try {
-			String sql = prop.getProperty("updateBoard");
+			String sql = prop.getProperty("updateReview");
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -168,7 +168,7 @@ public class ReviewWriteDAO {
 		
 		try {
 			
-			String sql = prop.getProperty("deleteBoard");
+			String sql = prop.getProperty("deleteReview");
 			
 			pstmt = conn.prepareStatement(sql);
 			

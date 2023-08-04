@@ -616,7 +616,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("updateBoardImage");
+			String sql = prop.getProperty("fanartUpdateBoardImage");
 
 			System.out.println("이미지 DAO");
 
@@ -649,7 +649,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("deleteBoardImage");
+			String sql = prop.getProperty("fanartDeleteBoardImage");
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -677,7 +677,7 @@ public class BoardDAO {
 		int result = 0;
 
 		try {
-			String sql = prop.getProperty("deleteBoard");
+			String sql = prop.getProperty("fanartDeleteBoard");
 
 			pstmt = conn.prepareStatement(sql);
 

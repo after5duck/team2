@@ -14,7 +14,7 @@ import edu.kh.teamPJ.board.model.service.ThemeDetailService;
 import edu.kh.teamPJ.board.model.vo.Photo;
 import edu.kh.teamPJ.board.model.vo.Theme;
 // /board/theme_detail
-@WebServlet("/board/theme/theme_detail")
+@WebServlet("/board/theme_detail")
 public class ThemeDetailServlet extends HttpServlet {
 
 	@Override
@@ -28,26 +28,31 @@ public class ThemeDetailServlet extends HttpServlet {
 //		String command = uri.substring((contextPath + "/theme_detail/").length());
 //
 		
-		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-		
-		int boardCode = Integer.parseInt(req.getParameter("boardCode"));
-		
-		
-		
-		ThemeDetailService service = new ThemeDetailService();
 
 		try {
+			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+			
+			int boardCode = Integer.parseInt(req.getParameter("boardCode"));
+			
+			
+			
+			ThemeDetailService service = new ThemeDetailService();
 			
 //			if(command.equals("sports")) {
 //				
 //			}
 			
-			Theme detail = service.selectDetail(boardNo, boardCode);
+			List<Theme> detail = service.selectDetail();
 			
-			List<Theme> sportsList = service.selectSportsList();
+			List<Theme> sportsList = service.selectSportsList(boardNo);
 			
+			
+			req.setAttribute("detail", detail);
 			req.setAttribute("sportsList", sportsList);
 			
+			
+			System.out.println(detail);
+			System.out.println(sportsList);
 			
 			String path = "/WEB-INF/views/board/theme_detail.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
