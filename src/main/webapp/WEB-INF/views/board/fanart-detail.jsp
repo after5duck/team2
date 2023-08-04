@@ -43,13 +43,14 @@
 							<c:forEach var="photo" items="${board.photos}">
 								<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}">
 							</c:forEach>
-							<div>
-								<textarea id="fanartWriteExplain" cols="80" rows="12">${board.boardContent}</textarea>
+							<div class="fanartCom">
+								<div>COMMENT</div>
+								<textarea id="fanartWriteExplain" cols="20" rows="10">${board.boardContent}</textarea>
+
 							</div>
 						</div>
 					</section>
-
-					<!-- 연수 원래 코드 주석! -->
+						<!-- 연수 원래 코드 주석! -->
 					<section class="fanart-heartClick">
 						<div>좋아요</div>
 						<c:if test="${empty loginMember}">
@@ -60,7 +61,8 @@
 							<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
 							<div id="like-count"></div>
 						</c:if>
-							</section>
+					</section>
+					
 					
 					
 					
