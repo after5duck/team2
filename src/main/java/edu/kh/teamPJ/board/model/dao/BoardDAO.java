@@ -1051,4 +1051,42 @@ public class BoardDAO {
 		return searchResult;
 	}
 
+	/** 마이페이지 내가 쓴 게시글 조회 DAO
+	 * @param conn2
+	 * @param memberNo
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> selectMyContent(Connection conn, int memberNo) throws Exception{
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectMyContent");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardName(rs.getString(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setCreateDate(rs.getString(3));
+				
+				boardList.add(board);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return boardList;
+	}
+
 }

@@ -1,11 +1,6 @@
 // 검색어로 게시글 조회
-
-
-document.getElementById("btn-submit").addEventListener("click", function(){
-
+(()=>{
     const inputSearch = document.getElementById("inputSearch");
-    const contentList = document.getElementById("contentList");
-
     $.ajax({
 
         url : "member/mypage/contentList",
@@ -14,16 +9,11 @@ document.getElementById("btn-submit").addEventListener("click", function(){
                 "memberNo" : memberNo},
         type : "POST",
         dataType : "JSON",
-
         success : function(bList){
 
-            if(bList != null){
-                
-            }
-
+            console.log(bList);
 
         },
-
         error : function(request, status, error){
             console.log("AJAX 에러 발생");
 
@@ -36,8 +26,15 @@ document.getElementById("btn-submit").addEventListener("click", function(){
         }
 
     });
+})();
 
-});
+// document.getElementById("btn-submit").addEventListener("click", function(){
+
+//     const contentList = document.getElementById("contentList");
+    
+    
+
+// });
 
 
 

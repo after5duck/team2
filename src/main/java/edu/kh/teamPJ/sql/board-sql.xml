@@ -84,18 +84,11 @@
 
 	<!-- 팬아트 게시글/이미지 가져오기 -->
 	<entry key="selectBoardWithPhotos">
-		SELECT b.BOARD_NO, b.BOARD_TITLE, b.BOARD_CONTENT,
-		p.CONTENT_PATH ,
-		b.READ_COUNT, b.BOARD_CD
-		FROM BOARD b
-		LEFT JOIN PHOTO p
-		ON (b.BOARD_NO = p.BOARD_NO)
-		JOIN MEMBER m ON(B.MEMBER_NO =
-		m.MEMBER_NO)
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CONTENT_PATH,READ_COUNT,BOARD_CD
+		FROM BOARD
+		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = 4
-		AND BOARD_ST = 'N'
-		ORDER BY CREATE_DT
-		DESC
+		ORDER BY CREATE_DT DESC
 	</entry>
 
 	<!-- 팬아트 게시글/이미지 가져오기(BOARD_NO)에 따라 상세 페이지 -->
@@ -269,6 +262,17 @@
 		(BOARD_CD)
 		WHERE BOARD_NO = ?
 	</entry>
+	
+	<!-- 마이페이지 게시글 전체 조회 -->
+	<entry key="selectMyContent">
+		SELECT BOARD_NM, BOARD_TITLE, CREATE_DT
+		FROM BOARD_TYPE
+		JOIN BOARD USING(BOARD_CD)
+		WHERE MEMBER_NO = ?
+	
+	</entry>
+	
+	
 	<!-- 이동호 sql끝 -->
 
 
