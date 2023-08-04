@@ -34,7 +34,7 @@ public class ReviewWriteService {
 		return write;
 	}
 
-	/** 게시글 등록
+	/** 게시글 등록(삽입)
 	 * @param write
 	 * @param boardCode
 	 * @return boardNo
@@ -42,13 +42,12 @@ public class ReviewWriteService {
 	 */
 	public int insertBoard(BoardDetail write, int boardCode) throws Exception{
 		
-		Connection conn = getConnection();
+		  Connection conn = getConnection();
 	      
 	      // 1. 다음 작성할 게시글 번호 얻어오기
-	      // -> BOARD 테이블 INSERT / BOARD_IMG 테이블 INSERT / 반환값 (상세조회 번호)
+	      // -> BOARD 테이블 INSERT / 반환값 (상세조회 번호)
 	      int boardNo = dao.nextBoardNo(conn);
 	      
-	      // 2. 게시글 부분만 삽입(detail, boardCode 사용)
 	      write.setBoardNo(boardNo); // 조회된 다음 게시글 번호 세팅
 	      
 	      // 1) XSS 방지 처리(제목/내용)
@@ -64,11 +63,12 @@ public class ReviewWriteService {
 	      
 	      if(result > 0) {
 	         commit(conn);
-	      }else { // 2, 3번에서 한 번이라도 실패한 경우
+	      }else { 
 	         rollback(conn);
 	         boardNo = 0; // 게시글 번호를 0으로 바꿔서 실패했음을 컨트롤러로 전달
 	      }
 	      
+	      close(conn);
 		
 		return boardNo;
 	}

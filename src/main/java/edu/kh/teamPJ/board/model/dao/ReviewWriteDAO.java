@@ -112,11 +112,12 @@ public class ReviewWriteDAO {
 	    	  	String sql = prop.getProperty("insertBoard");
 	         
 	         	pstmt = conn.prepareStatement(sql);
+	         	
 	         	pstmt.setInt(1, write.getBoardNo());
 	         	pstmt.setString(2, write.getBoardTitle());
 	          	pstmt.setString(3, write.getBoardContent());
 	          	pstmt.setInt(4, write.getMemberNo());
-	           
+	          	
 	          	result = pstmt.executeUpdate();
 	          	
 	      }finally {
