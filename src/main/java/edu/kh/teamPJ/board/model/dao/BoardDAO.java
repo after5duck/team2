@@ -585,7 +585,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("updateBoard");
+			String sql = prop.getProperty("fanartUpdateBoard");
 
 			pstmt = conn.prepareStatement(sql);
 

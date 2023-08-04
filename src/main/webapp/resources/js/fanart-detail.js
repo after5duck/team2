@@ -53,8 +53,6 @@ if(loginMemberNo != null){
 
     fanartHeartClick.addEventListener("click", function(){
 
-        
-
         $.ajax({
 
             url : contextPath + "/board/fanart/detail/likeCount",
@@ -63,7 +61,6 @@ if(loginMemberNo != null){
 
             data : {"boardNo" : boardNo1,
                         "memberNo" : memberNo1},
-
 
 
             success : function(data){
@@ -76,15 +73,8 @@ if(loginMemberNo != null){
                 console.log(req.responseText);
 
             }
-
         });
-
-    
-
-
     })
-
-
 }
 
 
