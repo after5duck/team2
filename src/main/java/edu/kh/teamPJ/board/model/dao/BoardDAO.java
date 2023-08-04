@@ -935,72 +935,70 @@ public class BoardDAO {
 
 		return boardList;
 	}
-
 	/**
-	 * 좋아요 수 증가 DAO
-	 * 
-	 * @param boardNo
-	 * @param memberNo
-	 * @param conn
-	 * @return
-	 * @throws Exception
-	 */
-	public int updateLikeCount(Connection conn, int boardNo, int memberNo) throws Exception {
-		
-		int result = 0;
+	    * 좋아요 수 증가 DAO
+	    * 
+	    * @param boardNo
+	    * @param memberNo
+	    * @param conn
+	    * @return
+	    * @throws Exception
+	    */
+	   public int updateLikeCount(Connection conn, int boardNo, int memberNo) throws Exception {
+	      
+	      int result = 0;
 
-		try {
-			String sql = prop.getProperty("updateLikeCount");
+	      try {
+	         String sql = prop.getProperty("updateLikeCount");
 
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			pstmt.setInt(2, memberNo);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.setInt(2, memberNo);
 
-			result = pstmt.executeUpdate();
-		} finally {
-			close(pstmt);
-		}
+	         result = pstmt.executeUpdate();
+	      } finally {
+	         close(pstmt);
+	      }
 
-		return result;
-	}
+	      return result;
+	   }
 
-	/**
-	 * 좋아요 수 조회 DAO
-	 * 
-	 * @param boardNo
-	 * @param conn
-	 * @return
-	 * @throws Exception
-	 */
-	public int selectLikeCount(int boardNo, Connection conn) throws Exception {
+	   /**
+	    * 좋아요 수 조회 DAO
+	    * 
+	    * @param boardNo
+	    * @param conn
+	    * @return
+	    * @throws Exception
+	    */
+	   public int selectLikeCount(int boardNo, Connection conn) throws Exception {
 
-		int likeCount = 0;
+	      int likeCount = 0;
 
-		try {
+	      try {
 
-			String sql = prop.getProperty("selectLikeCount");
+	         String sql = prop.getProperty("selectLikeCount");
 
-			pstmt = conn.prepareStatement(sql);
+	         pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, boardNo);
+	         pstmt.setInt(1, boardNo);
 
-			rs = pstmt.executeQuery();
+	         rs = pstmt.executeQuery();
 
-			if (rs.next()) {
-				likeCount = rs.getInt(1);
+	         if (rs.next()) {
+	            likeCount = rs.getInt(1);
 
-			}
+	         }
 
-		} finally {
+	      } finally {
 
-			close(rs);
-			close(pstmt);
+	         close(rs);
+	         close(pstmt);
 
-		}
+	      }
 
-		return likeCount;
-	}
-
+	      return likeCount;
+	   }
 	/**
 	 * 이민주
 	 * 
