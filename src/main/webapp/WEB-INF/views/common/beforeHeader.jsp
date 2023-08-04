@@ -36,16 +36,12 @@
 					</div>
 
 					<!-- 검색창 -->
-					<div class="search_prop_con">
-						<input type="text" class="search_prop" placeholder="애니 이름을 검색하세요">
-					</div>
-
-					<!-- 회원가입/로그인 버튼-->
-					<!-- 		<div class="login_con">
-					<div class="login_move">
-						<button class="login_move_btn">로그인 / 회원가입</button>
-					</div>
-				</div> -->
+					<form action="${contextPath}/board/search" method="get" name="search-form">
+						<div class="search_prop_con">
+							<input type="text" name="keyword" class="search_prop" placeholder="이름, 제목을 검색하세요">
+							<input type="submit" value="검색" class="search-input">
+						</div>
+					</form>
 
 					<!-- 정은 언니 주석 -->
 					<!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
