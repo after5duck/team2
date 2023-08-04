@@ -108,7 +108,7 @@
                         <div class="signUp-input-area">
                             <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일(선택 입력)"
                                 maxlength="30" autocomplete="off">
-                            <button id="emailBtn">인증번호 발송</button>
+                            <button type="button" id="emailBtn">인증번호 발송</button>
                         </div>
 
                         <!-- 이메일 메세지 -->
@@ -145,6 +145,13 @@
 
                 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
                     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+
+                <script>
+
+                    const contextPath = "${contextPath}";
+
+                </script>
 
                 <script src="${contextPath}/resources/js/signUp.js"></script>
 

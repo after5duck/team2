@@ -5,7 +5,6 @@ function selectContent(){
     $.ajax({
 
         url : "member/mypage/contentList",
-        dataType : "json",
         success : function(bList){
 
             for( let b of bList){

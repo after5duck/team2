@@ -261,5 +261,34 @@ function signUpValidate(){
     return true;
 }
 
+/* 이메일 인증 */
+
+const emailCertificateBtn = document.getElementById("emailBtn");
+
+emailCertificateBtn.addEventListener("click", ()=>{
+    if(memberEmail.value.trim().length == 0){
+        alert("이메일을 입력해주세요");
+    }else{
+        $.ajax({
+
+            url: contextPath + "/member/signUp/certificate",
+            data : {"inputEmail" : memberEmail.value},
+            type : "POST",
+            success: function(res){
+
+                if(res>0){
+                    alert("이메일 인증에 성공했습니다.")
+                }
+
+            },
+            error : function(){
+
+            }
+
+
+
+        })
+    }
+})
 
 
