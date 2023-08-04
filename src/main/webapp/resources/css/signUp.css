@@ -85,6 +85,13 @@ form[name="signUp-form"] > label{
     font-size: large;
 }
 
+/* 이메일 인풋 박스 */
+#memberEmail{
+    width: 270px;
+}
+
+
+
 #memberPw{ /* 비번 input박스 사이 공간 */
     margin-bottom: 7px;
 }
