@@ -34,7 +34,7 @@
 
                         <!-- 아이디 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="memberId" name="memberId" placeholder="아이디를 입력해주세요." maxlength="30"
+                            <input type="text" id="memberId" name="memberId" placeholder="아이디" maxlength="30"
                                 autocomplete="off" required>
 
                         </div>
@@ -50,12 +50,12 @@
                         </label>
                         <!-- 비밀번호 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="password" id="memberPw" name="memberPw" placeholder="비밀번호를 입력해 주세요."
+                            <input type="password" id="memberPw" name="memberPw" placeholder="비밀번호"
                                 maxlength="30">
                         </div>
                         <!-- 비밀번호 확인 영역 -->
                         <div class="signUp-input-area">
-                            <input type="password" id="memberPwConfirm" placeholder="비밀번호를 한번 더 입력해 주세요."
+                            <input type="password" id="memberPwConfirm" placeholder="비밀번호 확인"
                                 maxlength="30">
                         </div>
 
@@ -70,7 +70,7 @@
                         </label>
                         <!-- 아이디 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="memberNick" name="memberNick" placeholder="닉네임을 입력해주세요."
+                            <input type="text" id="memberNick" name="memberNick" placeholder="닉네임"
                                 maxlength="30" autocomplete="off" required>
 
                         </div>
@@ -84,9 +84,10 @@
                         <label for="memberTel">
                             <span class="required">*</span>핸드폰 번호
                         </label>
+
                         <!-- 핸드폰 번호 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="memberTel" name="memberTel" placeholder="(-없이 숫자만 입력해주세요.)"
+                            <input type="text" id="memberTel" name="memberTel" placeholder="핸드폰 번호 입력"
                                 autocomplete="off" maxlength="11">
 
                             <!-- <form action="sendSms" method="post"> -->
@@ -102,10 +103,17 @@
 
                         <!-- ============================ 이메일 영역 =================================-->
                         <label for="memberEmail">이메일</label>
+
                         <!-- 이메일 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일을 입력해주세요."
+                            <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일(선택 입력)"
                                 maxlength="30" autocomplete="off">
+                            <button id="emailBtn">인증번호 받기</button>
+                        </div>
+
+                        <!-- 이메일 인증 -->
+                        <div class="signUp-input-area">
+                            <input type="text" id="email2" placeholder="인증번호 입력" autocomplete="off">
                         </div>
 
                         <!-- 이메일 메세지 -->
