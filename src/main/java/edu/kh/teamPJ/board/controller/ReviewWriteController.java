@@ -26,20 +26,19 @@ public class ReviewWriteController extends HttpServlet{
          // insert는 별도 처리 없이 jsp로 위임
 
          // update는 기존 게시글 내용을 조회하는 처리가 필요함
-//         if(mode.equals("update")) {
-//            
-//         int boardNo = Integer.parseInt(req.getParameter("no"));
-//
-//         // 게시글 상세 조회 서비스를 이용해서 기존 내용 조회
-//         // ( new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용
-//         BoardDetail write = new ReviewWriteService().selectBoardDetail(boardNo);
-//         
-//         // 개행 문자 처리 해제(<br> -> \n)
-//         write.setBoardContent(write.getBoardContent().replaceAll("<br>", "\n")); 
-//         
-//         req.setAttribute("write", write); // jsp에서 사용할 수 있도록 req에 값 세팅   
-//
-//         }
+         if(mode.equals("update")) {            
+         int boardNo = Integer.parseInt(req.getParameter("no"));
+
+         // 게시글 상세 조회 서비스를 이용해서 기존 내용 조회
+         // ( new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용
+         BoardDetail write = new ReviewWriteService().selectBoardDetail(boardNo);
+         
+         // 개행 문자 처리 해제(<br> -> \n)
+         write.setBoardContent(write.getBoardContent().replaceAll("<br>", "\n")); 
+         
+         req.setAttribute("write", write); // jsp에서 사용할 수 있도록 req에 값 세팅   
+
+         }
          
 
          String path = "/WEB-INF/views/board/review_write.jsp";
@@ -99,7 +98,7 @@ public class ReviewWriteController extends HttpServlet{
             if(boardNo > 0) { // 성공
                session.setAttribute("message", "게시글이 등록되었습니다.");
                // detail?no=2000&type=2
-               path = "detail?no=" + boardNo + "&type" + boardCode;
+               path = "write?no=" + boardNo + "&type" + boardCode;
                
             }else { // 실패
                session.setAttribute("message", "게시글 등록 실패");
@@ -137,7 +136,7 @@ public class ReviewWriteController extends HttpServlet{
             if(result > 0) { // 성공
                
               // detail?no=1000&type=1&cp=20
-            path = "detail?no=" + boardNo + "&type=" + boardCode + "&cp=" + cp; // 상세조회 페이지 요청 주소
+            path = "write?no=" + boardNo + "&type=" + boardCode + "&cp=" + cp; // 상세조회 페이지 요청 주소
 
             message = "게시글이 수정되었습니다.";
                
