@@ -22,7 +22,7 @@ import edu.kh.teamPJ.common.MyRenamePolicy;
 import edu.kh.teamPJ.member.model.vo.Member;
 
 @WebServlet("/board/fanart/write")
-public class FanartWriteServlet extends HttpServlet{
+public class FanartWriteServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,8 +31,8 @@ public class FanartWriteServlet extends HttpServlet{
 
 			String mode = req.getParameter("mode");
 
-			if(mode.equals("update")) {
-				
+			if (mode.equals("update")) {
+
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 
 				int boardCode = Integer.parseInt(req.getParameter("boardCode"));
@@ -43,15 +43,13 @@ public class FanartWriteServlet extends HttpServlet{
 
 			}
 
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		String path = "/WEB-INF/views/board/fanart-writer.jsp";
-		
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher(path);
-		
+
 		dispatcher.forward(req, resp);
 	}
 
@@ -61,14 +59,14 @@ public class FanartWriteServlet extends HttpServlet{
 		try {
 
 			// 사진 작은것만 가능...
-			int maxSize = 1024 * 1024 * 100; 
+			int maxSize = 1024 * 1024 * 100;
 
-			HttpSession session = req.getSession(); 
+			HttpSession session = req.getSession();
 			String root = session.getServletContext().getRealPath("/");
-			String folderPath ="resources/images/fanArt-images/"; 
+			String folderPath = "resources/images/fanArt-images/";
 			String filePath = root + folderPath;
 
-			String encoding = "UTF-8"; 
+			String encoding = "UTF-8";
 
 			MultipartRequest mpReq = new MultipartRequest(req, filePath, maxSize, encoding, new MyRenamePolicy());
 
@@ -76,17 +74,18 @@ public class FanartWriteServlet extends HttpServlet{
 
 			List<Photo> photos = new ArrayList<Photo>();
 
-			while(files.hasMoreElements()) { 
-				String name = files.nextElement(); 
+			while (files.hasMoreElements()) {
+				
+				String name = files.nextElement();
 
 				String rename = mpReq.getFilesystemName(name);
 
-				if(rename != null) {
+				if (rename != null) {
 
 					Photo photo = new Photo();
 
 					photo.setContentPath(rename);
-					
+
 					photos.add(photo);
 
 				}
@@ -95,10 +94,10 @@ public class FanartWriteServlet extends HttpServlet{
 			String boardTitle = mpReq.getParameter("boardTitle");
 
 			String boardContent = mpReq.getParameter("boardContent");
-			
+
 			int boardCode = Integer.parseInt(mpReq.getParameter("boardCode"));
 
-			Member loginMember = (Member)session.getAttribute("loginMember");
+			Member loginMember = (Member) session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
 
 			Board boardDetail = new Board();
@@ -107,23 +106,22 @@ public class FanartWriteServlet extends HttpServlet{
 			boardDetail.setBoardContent(boardContent);
 			boardDetail.setMemberNo(memberNo);
 
-
 			BoardService service = new BoardService();
 
 			String mode = mpReq.getParameter("mode");
 
-			if(mode.equals("insert")) {
+			if (mode.equals("insert")) {
 
 				int boardNo = service.insertBoard(boardDetail, photos, boardCode);
-				
+
 				String path = null;
 
-				if(boardNo > 0) {
+				if (boardNo > 0) {
 					session.setAttribute("message", "게시글이 등록되었습니다.");
 
-					path=req.getContextPath()+"/board/fanart/detail?boardNo=" + boardNo + "&boardCode=" + boardCode;
+					path = req.getContextPath() + "/board/fanart/detail?boardNo=" + boardNo + "&boardCode=" + boardCode;
 
-				}else {
+				} else {
 					session.setAttribute("message", "게시글 등록 실패 ㅠㅠ");
 
 					path = "fanart/write?mode=" + mode + "&boardCode=" + boardCode;
@@ -134,7 +132,7 @@ public class FanartWriteServlet extends HttpServlet{
 
 			}
 
-			if(mode.equals("update")) {
+			if (mode.equals("update")) {
 
 				int boardNo = Integer.parseInt(mpReq.getParameter("boardNo"));
 
@@ -143,19 +141,19 @@ public class FanartWriteServlet extends HttpServlet{
 				boardDetail.setBoardNo(boardNo);
 
 				int result = service.updateBoard(boardDetail, photos, deleteList);
-				
+
 				String path = null;
 
 				String message = null;
 
-				if(result > 0) { // 성공
+				if (result > 0) { // 성공
 
 					path = "detail?boardNo=" + boardNo + "&boardCode=" + boardCode;
 					message = "게시글이 수정되었습니다.";
 
-				}else {
+				} else {
 
-					path = req.getHeader("referer"); 
+					path = req.getHeader("referer");
 
 					message = "게시글 수정 실패";
 				}
@@ -168,7 +166,6 @@ public class FanartWriteServlet extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 	}
 }
