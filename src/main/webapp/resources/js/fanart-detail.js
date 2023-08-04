@@ -48,7 +48,7 @@ heartIcon.addEventListener('click', function() {
  */
 
 /* 좋아요 수 증가 */
-const fanartHeartClick = document.getElementById("fanart-heartClick");
+/*const fanartHeartClick = document.getElementById("fanart-heartClick");
 
 fanartHeartClick.addEventListener("click", function(){
 
@@ -97,4 +97,41 @@ function is_checked() {
     }
 
 
-}
+}*/
+
+/* 이민주 test */
+
+const fanartHeartClick = document.getElementById("fanart-heartClick");
+
+fanartHeartClick.addEventListener("click", function(event){
+	
+    $.ajax({
+      
+        url : contextPath + "/board/fanart/detail/likeCount",
+        type : "get",
+        data : {
+            "boardNo" : boardNo1,
+            "memberNo" : memberNo1
+        },
+        success : function(data){
+            if(data == 1){
+                fanartHeartClick.classList.remove('fa-regular');
+                fanartHeartClick.classList.add('fa-solid');
+                document.getElementById("like-count").innerText = data;
+            }
+        },
+        error : function(req, status, error){
+            console.log("좋아요 등록 실패");
+            console.log(req.responseText);
+        }
+    });
+});
+
+
+/* test 끝 */
+
+
+
+
+
+

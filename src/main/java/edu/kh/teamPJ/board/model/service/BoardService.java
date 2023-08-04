@@ -442,7 +442,7 @@ public class BoardService {
 
 		Connection conn = getConnection();
 
-		int result = dao.updateLikeCount(boardNo, memberNo, conn);
+		int result = dao.updateLikeCount(conn, boardNo, memberNo);
 
 		if (result > 0)
 			commit(conn);
