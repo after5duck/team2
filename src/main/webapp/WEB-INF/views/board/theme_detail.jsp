@@ -70,23 +70,15 @@
     <main>
         <div class="main_container">
             
-            
-            
-
-
-
-
-            <c:forEach var="detail" items="${detail}">
-
                 
-                        <div class="main_first">
-                             <div>${detail.contentPath}</div>
-                             <div>${detail.boardTitle}</div>
-                             <div>${detail.boardContent}</div>
-                        </div>
-            ${detail}
+            
+                <div class="main_first">
+                    <div>${detail.contentPath}</div>
+                    <div>${detail.boardTitle}</div>
+                    <div>${detail.boardContent}</div>
+                </div>
 
-            </c:forEach>
+           
                     
             <c:forEach var="sportsList" items="${sportsList}">
                 <div class="main_content">
@@ -98,7 +90,7 @@
                             <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
                         </div>
                         <div class="detail_genre">${sportsList.age} | ${sportsList.genre}</div>
-                        <div class="detail_explain">
+                        <div class="detail_explain">${sportsList.boardContent}
                             <!-- 예고편 유튜브 팝업 -->
                             <div class="popupVideo">
                                 <a data-video="${sportsList.videoPath}"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>

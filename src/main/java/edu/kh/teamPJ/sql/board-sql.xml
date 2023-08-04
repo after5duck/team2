@@ -309,24 +309,19 @@
 
 	<!-- 테마추천 상세조회 위쪽 -->
 	<entry key="selectThemeDetail">
-		SELECT b.BOARD_NO, b.BOARD_TITLE, b.BOARD_CONTENT,
-		p.CONTENT_PATH, b.BOARD_CD
-		FROM BOARD b
-		LEFT JOIN PHOTO p ON (b.BOARD_NO = p.BOARD_NO)
-		WHERE b.BOARD_NO BETWEEN 99 AND 107
-		AND BOARD_CD = 3
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
+		FROM BOARD
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD = ?
 	</entry>
 	
 	<!-- 테마추천 상세 내용조회 -->
-	<!-- 수정중 이무니다... -->
 	<entry key="selectSportsList">
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, AGE,
 		GENRE, VIDEO_PATH
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD = 3
-		AND BOARD_NO = ?
-        ORDER BY BOARD_NO
+		WHERE BOARD_CD = ?
 
 	</entry>
 	
