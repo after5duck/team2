@@ -11,10 +11,6 @@
 
 
 /* 모두를 감싸고 있는 부분 (Header,Body,Footer 공통 적용) */
-main{
-    box-sizing: border-box;
-}
-
 body{
     overflow-x: hidden;
     margin: 0;
@@ -23,75 +19,12 @@ body{
 
 
 /* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
-.header_container {
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-}
 
-.main_logo_img_container {
-   position: relative;
-   bottom: 70px;
-   height: 130px;
-}
-
-
-/* 애니버스 로고 */
-.main_logo {
-   width: 270px;
-   height: 270px;
-}
-
-/* 메뉴 리스트 테마추천, 팬아트 등  */
-.menu_list {
-   display: flex;
-   gap: 70px;
-}
-
-.a_tag {
-   text-decoration-line: none;
-   color: black;
-   font-weight: bold;
-   font-size: 1.2em;
-}
-
-.a_tag:hover {
-   color: rgb(237, 21, 93);
-   transform: scale(1.1);
-   transition: 0.2s;
-   cursor: pointer;
-}
-
-
-/* 검색창 */
-.search_prop {
-   margin-right: 10px;
-   height: 30px;
-   border-radius: 10px;
-   background-image: url(../images/search.png);
-   background-repeat: no-repeat;
-   background-size: 20px;
-   padding-left: 30px;
-   font-size: 16px;
-}
-
-/* 유저 정보 */
-.user_img {
-   background-image: url('../images/profileImg.png');
-   width: 50px;
-   height: 50px;
-   background-size: cover;
-   background-repeat: no-repeat;
-}
-
-.user_id {
-   text-align: center;
-   font-weight: bold;
-}
 
 /* ————————————————— 새로운 헤더 끝 ————————————————— */
 
 main{
+	box-sizing: border-box;
     width: 1250px;
     margin: auto;
 }

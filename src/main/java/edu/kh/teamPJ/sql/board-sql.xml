@@ -304,6 +304,18 @@
 		WHERE BOARD_CD = 5
 	</entry>
 
+
+
+	<!-- 테마추천 상세조회 위쪽 -->
+	<entry key="selectThemeDetail">
+		SELECT b.BOARD_NO, b.BOARD_TITLE, b.BOARD_CONTENT,
+		p.CONTENT_PATH, b.BOARD_CD
+		FROM BOARD b
+		LEFT JOIN PHOTO p ON (b.BOARD_NO = p.BOARD_NO)
+		WHERE b.BOARD_NO = ?
+		AND BOARD_CD = 3;
+	</entry>
+	
 	<!-- 테마추천 상세 내용조회 -->
 	<!-- 수정중 이무니다... -->
 	<entry key="selectSportsList">
@@ -311,11 +323,13 @@
 		GENRE, VIDEO_PATH
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD =
-		3
-		AND BOARD_NO IN (44, 53, 54, 55, 56)
+		WHERE BOARD_CD = 3
+		AND BOARD_NO BETWEEN 53 AND 98
+        ORDER BY BOARD_NO;
 
 	</entry>
+	
+	
 
 	<!-- 게시글 상세 조회 -->
 	<entry key="selectBoardDetail">
