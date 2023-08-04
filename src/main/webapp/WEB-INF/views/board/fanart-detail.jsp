@@ -13,15 +13,17 @@
 <script src="https://kit.fontawesome.com/9c5650c683.js"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="${contextPath}/resources/css/fanart-main.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/fanart-detail.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/fanart-main.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/fanart-detail.css">
 <title>팬아트 게시판</title>
 </head>
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
-	
+
 
 	<main>
 
@@ -41,7 +43,8 @@
 
 			<div id="fanart2">
 				<c:forEach var="photo" items="${board.photos}">
-					<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}">
+					<img
+						src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}">
 				</c:forEach>
 				<div>
 					<textarea id="fanartWriteExplain" cols="80" rows="12">${board.boardContent}</textarea>
@@ -49,7 +52,8 @@
 			</div>
 		</section>
 
-		<section class="fanart-heartClick">
+		<!-- 연수 원래 코드 주석! -->
+		<%-- <section class="fanart-heartClick">
 			<div>좋아요</div>
 			<c:if test="${empty loginMember}">
 				<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i><div id="like-count">${likeCount}</div>
@@ -65,35 +69,71 @@
 
 			
 		</section>
+ --%>
+ 
+ 
+ 
+ 
+		<!-- 민주 test -->
+		<section class="fanart-heartClick">
+			<div>좋아요</div>
+			<c:if test="${empty loginMember}">
+				<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
+				<div id="like-count">${likeCount}</div>
+			</c:if>
+			<c:if test="${!empty loginMember}">
+				<c:set var="liked" value="false" />
+				<c:forEach var="likeInfo" items="${likeInfoList}">
+					<c:if test="${likeInfo.boardNo == boardNo}">
+						<c:set var="liked" value="true" />
+					</c:if>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${liked}">
+						<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
+					</c:when>
+					<c:otherwise>
+						<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
+					</c:otherwise>
+				</c:choose>
+				<div id="like-count">${likeCount}</div>
+			</c:if>
+		</section>
+		<!-- 민주 test 끝-->
+
 
 		<c:if test="${loginMember.memberNo == board.memberNo}">
 
 			<div class="update-delete">
-				<button id="fanartUpdateBtn" onclick="location.href='write?mode=update&boardNo=${param.boardNo}&boardCode=${param.boardCode}'">수정</button>
+				<button id="fanartUpdateBtn"
+					onclick="location.href='write?mode=update&boardNo=${param.boardNo}&boardCode=${param.boardCode}'">수정</button>
 				<button id="fanartDeleteBtn">삭제</button>
 			</div>
 
 		</c:if>
-		
+
 
 
 		<section id="fanartList-header">
 			<div>팬아트 게시판 작성글</div>
 			<div>
-				<i class="fa-solid fa-plus"></i><button id="fanartGoToBtn">목록으로</button>
+				<i class="fa-solid fa-plus"></i>
+				<button id="fanartGoToBtn">목록으로</button>
 			</div>
 		</section>
 
 		<section id="fanartList">
-			<c:forEach var="board" items="${boardList}" varStatus="boardStatus" begin="0"  end="3">
-					<div class="fanartList-first">
+			<c:forEach var="board" items="${boardList}" varStatus="boardStatus"
+				begin="0" end="3">
+				<div class="fanartList-first">
 					<!-- <c:out value="${board.boardTitle}" />
 					<c:out value="${board.boardContent}" />
 					<c:out value="${board.createDate}" />
 					<c:out value="${board.memberNickname}" /> -->
-					
+
 					<c:set var="photos" value="${board.photos}" />
-					<c:forEach var="photo" items="${photos}" varStatus="photoStatus" begin="0" end="3">
+					<c:forEach var="photo" items="${photos}" varStatus="photoStatus"
+						begin="0" end="3">
 						<div>
 							게시글 제목 : <span class="fanartList-title">${board.boardTitle}</span>
 
@@ -102,18 +142,20 @@
 							<i class="fa-solid fa-eye fa-sm"></i> <span>${board.readCount}</span>
 
 						</div>
-							<div class="fanartListInfo">
-								<div>
-									<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
-										<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}" class="fanart-img">
-									</a>
-								</div>
-								<div>
-									<span>${board.memberNickname}</span>
-									<span>${board.createDate}</span>
-								</div>
-			
+						<div class="fanartListInfo">
+							<div>
+								<a
+									href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+									<img
+									src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}"
+									class="fanart-img">
+								</a>
 							</div>
+							<div>
+								<span>${board.memberNickname}</span> <span>${board.createDate}</span>
+							</div>
+
+						</div>
 					</c:forEach>
 				</div>
 			</c:forEach>
@@ -134,11 +176,13 @@
 
 	</script>
 
-	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+		crossorigin="anonymous"></script>
 
-    <script src="${contextPath}/resources/js/fanart.js"></script>
+	<script src="${contextPath}/resources/js/fanart.js"></script>
 
-	
+
 	<script src="${contextPath}/resources/js/fanart-detail.js"></script>
 
 </body>

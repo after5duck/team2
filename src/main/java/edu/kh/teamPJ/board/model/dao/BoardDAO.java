@@ -945,28 +945,22 @@ public class BoardDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public int updateLikeCount(int boardNo, int memberNo, Connection conn) throws Exception {
-
+	public int updateLikeCount(Connection conn, int boardNo, int memberNo) throws Exception {
+		
 		int result = 0;
 
 		try {
-
 			String sql = prop.getProperty("updateLikeCount");
 
 			pstmt = conn.prepareStatement(sql);
-
 			pstmt.setInt(1, boardNo);
 			pstmt.setInt(2, memberNo);
 
-			System.out.println("보드 DAO 가져오나?");
-
 			result = pstmt.executeUpdate();
-			System.out.println(result);
-
 		} finally {
-
 			close(pstmt);
 		}
+
 		return result;
 	}
 
@@ -1051,41 +1045,43 @@ public class BoardDAO {
 		return searchResult;
 	}
 
-	/** 마이페이지 내가 쓴 게시글 조회 DAO
+	/**
+	 * 마이페이지 내가 쓴 게시글 조회 DAO
+	 * 
 	 * @param conn2
 	 * @param memberNo
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectMyContent(Connection conn, int memberNo) throws Exception{
-		
+	public List<Board> selectMyContent(Connection conn, int memberNo) throws Exception {
+
 		List<Board> boardList = new ArrayList<>();
-		
+
 		try {
-			
+
 			String sql = prop.getProperty("selectMyContent");
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, memberNo);
-			
+
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Board board = new Board();
-				
+
 				board.setBoardName(rs.getString(1));
 				board.setBoardTitle(rs.getString(2));
 				board.setCreateDate(rs.getString(3));
-				
+
 				boardList.add(board);
 			}
-			
-		}finally {
+
+		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return boardList;
 	}
 
