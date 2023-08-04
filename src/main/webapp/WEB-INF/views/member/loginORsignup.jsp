@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/loginORsignup.css">
 </head>
 <body>
+    <!--  -->
+    <main class="infinite-photo-grid">
+    <!--  -->
     <section id="body">
 
         <article id="loginORsignup">
@@ -31,6 +34,7 @@
 
         </article>
     </section>
+</main>
 
     <c:if test="${ !empty sessionScope.message }">
 		<script>
