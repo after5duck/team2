@@ -39,8 +39,9 @@
 
             .video-popup .video-wrapper {
             position: relative;
-            width: 80%;
+            width: 70%;
             padding-bottom: 45%;
+
             z-index: 10
         }
 
@@ -65,18 +66,16 @@
     
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
+
+    <a href="#" class="scroll-top-btn">Top</a>
+
 
     <main>
         <div class="main_container">
             
                 
             
-                <div class="main_first">
-                    <div>${detail.contentPath}</div>
-                    <div>${detail.boardTitle}</div>
-                    <div>${detail.boardContent}</div>
-                </div>
 
            
                     
@@ -208,6 +207,27 @@
                 }
             });
         }
+
+        /* 스크롤 함수 */
+        document.addEventListener('DOMContentLoaded', function () {
+            var scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 500) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
     
 

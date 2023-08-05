@@ -43,10 +43,9 @@ body {
 
 					<div class="second">
 						<a href="theme_detail?boardNo=${themeList.boardNo}&boardCode=${themeList.boardCode}" class="a_tag_theme">
-
+							
 							<div>
-								<img name="theme_image"
-									src="${contextPath}/resources/images/${themeList.contentPath}">
+								<img name="theme_image" src="${contextPath}/resources/images/${themeList.contentPath}">
 							</div>
 							<div class="content">${themeList.boardTitle}</div>
 							<div class="content">${themeList.boardContent}</div>

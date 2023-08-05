@@ -31,6 +31,8 @@
 <body>
    <jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
+   <a href="#" class="scroll-top-btn">Top</a>
+
     <main>
         <div class="main_container">
             <div class="main_first">
@@ -48,14 +50,16 @@
                     <div>원피스</div>
                 </div>
             </div>
-            <div class="main_second">좋아하는 작품의 굿즈들을 구경해보세요~!</div>
+            <div class="main_second"><i class="fa-solid fa-play" style="color:rgb(195, 82, 244)"></i> &nbsp;좋아하는 애니메이션의 굿즈들을 구경해 보세요~! 😆 😚 😝</div>
 
             <div class="main_third">
                 <c:forEach var="goodsList" items="${goods}">
                     
                     <div class="goods">
-                        <img id="goods_image" src="${contextPath}/resources/images/${goodsList.contentPath}">
-                        <i name="icon" class="fa-regular fa-heart"></i></img>
+                        <div>
+                            <img id="goods_image" src="${contextPath}/resources/images/${goodsList.contentPath}">
+                        </div>    
+                        <i name="icon" class="fa-regular fa-heart"></i>
                         <div class="goods_name">${goodsList.boardTitle}</div>
                     </div>
                     

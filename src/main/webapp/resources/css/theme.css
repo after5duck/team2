@@ -5,6 +5,8 @@
 }
 
 main{
+    width:1250px;
+    margin: auto;
 }
 
 .main_container{
@@ -78,7 +80,7 @@ main{
 
 [name=theme_image]{
     width: 370px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 
