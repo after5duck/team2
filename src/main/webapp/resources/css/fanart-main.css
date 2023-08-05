@@ -92,6 +92,11 @@ hr {
 .fanArt-text-orderlist > div:last-child{
     width: 50%;
     font-size: 26px;
+    margin-top: 20px;
+    text-align: end;
+}
+.fanartBtnArea{
+    text-align: end;
 }
 
 
@@ -140,7 +145,8 @@ hr {
 
 .fanart-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 0fr);
+    justify-content: space-between;
 }
 
 .grid-item{
