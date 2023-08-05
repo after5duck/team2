@@ -94,9 +94,8 @@ public class ReviewWriteController extends HttpServlet {
 				}
 			}
 
-			String boardTitle = req.getParameter("boardTitle");
-
-			String boardContent = req.getParameter("boardContent");
+			String boardTitle = mpReq.getParameter("boardTitle");
+			String boardContent = mpReq.getParameter("boardContent");
 
 			int type = Integer.parseInt(mpReq.getParameter("type"));
 
@@ -121,8 +120,7 @@ public class ReviewWriteController extends HttpServlet {
 
 				if (boardNo > 0) {
 					session.setAttribute("message", "리뷰가 등록되었습니다");
-					path = req.getContextPath() + "/board/review_write?boardNo=" + boardNo + "&type=" + type;
-
+					resp.sendRedirect(req.getContextPath() + "/board/review?type=" + type);
 				} else {
 
 					session.setAttribute("message", "리뷰 작성 실패ㅠㅠ");

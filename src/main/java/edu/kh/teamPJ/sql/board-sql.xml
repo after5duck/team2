@@ -65,6 +65,75 @@
 		FROM BOARD
 		WHERE BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ?
 	</entry>
+	
+	<!-- 게시글 상세 조회 -->
+	<!-- <entry key="selectReviewDetail">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
+		TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
+		READ_COUNT, MEMBER_NICK, PROFILE_IMG, MEMBER_NO
+		FROM BOARD
+		JOIN MEMBER
+		USING(MEMBER_NO)
+		JOIN BOARD_TYPE USING(BOARD_CD)
+		WHERE BOARD_NO = ?
+		AND
+		BOARD_ST = 'N'
+	</entry>
+	 -->
+
+	<!-- 리뷰 게시글/이미지 정보 가져오는 DAO -->
+	<entry key="selectReviewWithPhotos">
+		SELECT
+		BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CONTENT_PATH,READ_COUNT,BOARD_CD
+		FROM BOARD
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD = 6
+		AND BOARD_ST =
+		'N'
+		ORDER BY
+		CREATE_DT DESC
+	</entry>
+
+	<!-- 리뷰게시판 게시글 다음번호 얻어오기 -->
+	<entry key="nextReviewNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+
+	<!-- 리뷰게시판 작성 -->
+	<entry key="reviewInsertBoard">
+		INSERT INTO BOARD VALUES(?,?,?,DEFAULT,DEFAULT,
+		DEFAULT, ?, DEFAULT,
+		DEFAULT,
+		DEFAULT, DEFAULT, DEFAULT, ?, DEFAULT)
+	</entry>
+
+	<!-- 리뷰 게시판 등록 (이미지) -->
+	<entry key="insertReviewImage">
+		INSERT INTO PHOTO
+		VALUES(?, ?,DEFAULT,DEFAULT)
+	</entry>
+
+	<!-- 리뷰 게시판 수정 -->
+	<entry key="reviewUpdateBoard">
+		UPDATE BOARD
+		SET BOARD_TITLE = ?, BOARD_CONTENT = ?
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<!-- 리뷰 게시판 이미지 수정 -->
+	<entry key="reviewUpdateBoardImg">
+		UPDATE PHOTO SET
+		CONTENT_PATH = ?
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<!-- 리뷰 게시판 이미지 삭제 -->
+	<entry key="reviewDeleteBoardImg">
+		DELETE FROM PHOTO
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- *************************************************************** -->
 
 
 	<!-- 정연수 sql -->
@@ -89,7 +158,8 @@
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = 4
-		AND BOARD_ST = 'N'
+		AND BOARD_ST =
+		'N'
 		ORDER BY
 		CREATE_DT DESC
 	</entry>
@@ -172,19 +242,19 @@
 
 
 	<!-- 팬아트 좋아요 증가 -->
-   <entry key="updateLikeCount">
+	<entry key="updateLikeCount">
 
-      INSERT INTO LIKE_LIST VALUES(?, ?, 3)
-   </entry>
+		INSERT INTO LIKE_LIST VALUES(?, ?, 3)
+	</entry>
 
-   <!-- 팬아트 좋아요수 조회 -->
-   <entry key="selectLikeCount">
-      SELECT COUNT(*)
-      FROM LIKE_LIST
-      JOIN BOARD
-      USING(BOARD_NO)
-      WHERE BOARD_NO = ?
-   </entry>
+	<!-- 팬아트 좋아요수 조회 -->
+	<entry key="selectLikeCount">
+		SELECT COUNT(*)
+		FROM LIKE_LIST
+		JOIN BOARD
+		USING(BOARD_NO)
+		WHERE BOARD_NO = ?
+	</entry>
 	<!-- 정연수 SQL 끝 -->
 
 
@@ -286,11 +356,13 @@
 
 	<!-- db합치면 보드넘버 바뀌니까 그땐 조건 다른걸로 바꿔야함! -->
 	<entry key="selectThemeList">
-		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, BOARD_NO, BOARD_CD
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH,
+		BOARD_NO, BOARD_CD
 		FROM
 		BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD = 3
+		WHERE BOARD_CD =
+		3
 		AND BOARD_NO IN
 		(44,45,46,47,48,49,50,51,52)
 
@@ -310,65 +382,22 @@
 	<!-- 테마추천 상세조회 위쪽 -->
 	<entry key="selectThemeDetail">
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
-		FROM BOARD
+		FROM
+		BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_CD = ?
 	</entry>
-	
+
 	<!-- 테마추천 상세 내용조회 -->
 	<entry key="selectSportsList">
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, AGE,
 		GENRE, VIDEO_PATH
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
-		WHERE BOARD_CD = ?
+		WHERE BOARD_CD =
+		?
 
 	</entry>
-	
-	
-
-	<!-- 게시글 상세 조회 -->
-	<entry key="selectReviewDetail">
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
-		TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
-		READ_COUNT, MEMBER_NICK, PROFILE_IMG, MEMBER_NO
-		FROM BOARD
-		JOIN MEMBER
-		USING(MEMBER_NO)
-		JOIN BOARD_TYPE USING(BOARD_CD)
-		WHERE BOARD_NO = ?
-		AND
-		BOARD_ST = 'N'
-	</entry>
-
-	
-
-	<!-- 게시글 삽입 -->
-	<entry key="insertReview">
-		INSERT INTO BOARD
-		VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ? ,
-		DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 6, DEFAULT)
-
-		<!-- BOARD_NO, BOARD_TITLE ,BOARD_CONTENT, CREATE_DT ,READ_COUNT, BOARD_ST, 
-			MEMBER_NO ,STORY ,DRAWING ,RELEASE_DT , AGE ,GENRE,BOARD_CD ,SCORE -->
-	</entry>
-
-	<!-- 게시글 수정 -->
-	<entry key="updateReview">
-		UPDATE BOARD SET
-		BOARD_TITLE = ?,
-		BOARD_CONTENT = ?,
-		UPDATE_DT = SYSDATE
-		WHERE BOARD_NO = ?
-	</entry>
-
-	<!-- 게시글 삭제 -->
-	<entry key="deleteReview">
-		UPDATE BOARD SET
-		BOARD_ST = 'Y'
-		WHERE BOARD_NO = ?
-	</entry>
-
 
 
 	<!-- 박정흠 sql 끝 -->
