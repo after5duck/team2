@@ -40,25 +40,29 @@ hr {
 .main_first{
     display:flex;
     margin-top: 50px;
-
 }
 
 .main_first > div:nth-child(1){
-    width: 350px;
-    font-weight: bold;
+    display: flex;
+    flex-basis: 20%;
+
 }
 #goods_kind{
     display: flex;
     color: gray;
     font-size: 15px;
-    
+    margin-top:  15px;
+    justify-content: flex-end;
+    flex-basis: 80%;
+
 }
 #goods_kind > div:hover{
     cursor: pointer;
 }
 #goods_kind > div{
-    padding: 20px;
+    padding: 15px;
 }
+
 .main_second{
     padding: 50px 0 50px 0;
     font-size: 25px;

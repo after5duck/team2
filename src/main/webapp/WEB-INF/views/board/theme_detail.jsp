@@ -34,7 +34,11 @@
             bottom: 0;
             justify-content: center;
             align-items: center;
-            z-index: 9
+            z-index: 9;
+
+            display: flex;
+            
+
         }
 
             .video-popup .video-wrapper {
@@ -74,7 +78,10 @@
     <main>
         <div class="main_container">
             
-                
+            <div class="main_first">
+                <div>${sportsList.contentPath}</div>
+                <div>${sportsList.boardTitle}</div>
+                <div>${sportsList.boardContent}</div>
             
 
            
@@ -101,72 +108,7 @@
                     </div>
                 </div>
             </c:forEach>
-            <!-- <div class="main_content">
-                <div><img name="detail_image" src="${contextPath}/resources/images/theme_detail_image2.png"></div>
-                <div>
-                    <div class="detail_header">
-                        <div class="detail_title">짱구는 못말려 더 비기닝</div>
-                        <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    </div>
-                    <div class="detail_genre">일상·개그 | TVA·12세·완결</div>
-                    <div class="detail_explain">
-                        어린이든 어른이든 눈물을 흘릴 수 있는
-                        공감할 수 있는 부분이 있는 작품.<br>
-
-                        재미와 감동 두 마리 토끼를 모두 잡은<br>
-                        유쾌한 짱구의 일상에 다시 한 번 동참해보시겠어요?
-                        <div class="popupVideo">
-                            <a data-video="XHMdIA6bEOE"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
-                            <div class="video-popup">
-                                <div class="video-popup-closer"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main_content"> 
-                <div><img name="detail_image" src="${contextPath}/resources/images/theme_detail_image3.png"></div>
-                <div>
-                    <div class="detail_header">
-                        <div class="detail_title">슈가슈가룬 part 1</div>
-                        <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    </div>
-                    <div class="detail_genre">판타지·액션 | TVA·12세·완결</div>
-                    <div class="detail_explain">
-                        슈가슈가 룬~ 쇼코쇼코 룬~
-                        피에르 하트
-                        <div class="popupVideo">
-                            <a data-video="Z10UMD-0RbY"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
-                            <div class="video-popup">
-                                <div class="video-popup-closer"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main_content">
-                <div><img name="detail_image" src="${contextPath}/resources/images/theme_detail_image4.png"></div>
-                <div>
-                    <div class="detail_header">
-                        <div class="detail_title">아기공룡 둘리 : 얼음별 대모험</div>
-                        <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
-                    </div>
-                    <div class="detail_genre">판타지·개그 | 극장판·전체</div>
-                    <div class="detail_explain">
-                        아아, 이 서늘하고도<br>
-                        묵직한 감각. 2년만이구만.<br>
-                        기나긴 모멸과 핍박의 시간.<br>
-                        지긋지긋하던 차였다.<br>
-                        이제 '검성' 고길동으로 돌아갈 때다.
-                        <div class="popupVideo">
-                            <a data-video="z1fOHi3y60U"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
-                            <div class="video-popup">
-                                <div class="video-popup-closer"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
         </div>
             
        
@@ -228,6 +170,7 @@
                 });
             });
         });
+
     </script>
     
 
