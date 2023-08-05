@@ -28,13 +28,18 @@ public class MyPageSearchServlet extends HttpServlet{
 			
 			if(command.equals("contentList")) {
 				
-				// List<Board> boardList = service.searchContentList();
+				//List<Board> boardList = service.searchContentList();
 				
-				
+				/*
+				 * if(boardList != null) {
+				 * 
+				 * }else {
+				 */
 				
 			}
 			
-			if(command.equals("searcharea")) {
+			if(command.equals("searchArea")) {
+				//List<Board> boardList = service.searchSearchArea();
 				
 			}
 			

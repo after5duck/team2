@@ -56,8 +56,8 @@
 
 
                         <!-- 검색어로 내가 쓴 글 조회하기 -->
-                            <div class="/search/searcharea">
-                                <form action="#" method="post" name="mypageSearchContent">
+                            <div class="searcharea">
+                                <form action="/search/searchArea" method="post" name="mypageSearchContent" onsubmit="return searchValidate()">
                                     <input type="search" id="inputSearch" placeholder="게시글 제목 입력">
                                     <button id="btn-submit">검색</button>
                                 </form>
@@ -72,9 +72,9 @@
                             <c:forEach var="board" items="${bList}">
     
                                 <nav class="writeContent">
-                                    <article class="contentTitle">${board.boardName}</article>
-                                    <article class="contentDetail"><a href="#"> ${board.boardTitle} </a></article>
-                                    <article class="contentDate">${board.createDate}</article>
+                                    <article id="contentTitle" class="contentTitle">${board.boardName}</article>
+                                    <article id="contentDetail" class="contentDetail"><a href="#"> ${board.boardTitle} </a></article>
+                                    <article id="contentDate" class="contentDate">${board.createDate}</article>
                                 </nav>
     
                             </c:forEach>
@@ -97,6 +97,9 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <script>
+
+        const contextPath = "${contextPath}";
+
         const loginMemberNo = "${loginMemberNo}";
     </script>
 
