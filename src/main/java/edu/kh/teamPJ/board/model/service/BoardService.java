@@ -514,7 +514,8 @@ public class BoardService {
 	}
 	
 	/** 이민주
-	 *  리뷰게시판 이미지 가져오기 Service
+	 * 
+	 *  리뷰게시판 가져오기 Service
 	 * @param boardNo
 	 * @param boardCode
 	 * @return
@@ -524,7 +525,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		Board reviewBoardImg = dao. selectReviewWithPhotos(conn, boardNo, type);
+		Board reviewBoardImg = dao.selectReviewWithPhotos(conn, boardNo, type);
 		
 		close(conn);
 		
@@ -585,7 +586,7 @@ public class BoardService {
 	 * @return
 	 */
 
-	public int updateReviewBoard(Board reviewWrite, List<Photo> photos, String deleteReviewList) throws Exception {
+	public int updateReviewBoard(Board reviewWrite, List<Photo> photos) throws Exception {
 
 		Connection conn = getConnection();
 		
@@ -602,10 +603,9 @@ public class BoardService {
 					result = dao.insertReviewBoardImg(conn, reviewPh, result);
 				}
 			}
-			if(!deleteReviewList.equals("")) {
-				result = dao.deleteReviewBoardImg(conn, deleteReviewList, reviewWrite.getBoardNo());
-			}
+			
 		}
+		
 		if(result > 0) commit(conn);
 		else rollback(conn);
 		
@@ -628,6 +628,18 @@ public class BoardService {
 		close(conn);
 		
 		return boardList;
+	}
+	
+	/** 이민주
+	 * 
+	 * 리뷰게시판 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteReviewBoard(int boardNo) throws Exception {
+		
+		Connection conn = getConnection();
+		return 0;
 	}
 }
 

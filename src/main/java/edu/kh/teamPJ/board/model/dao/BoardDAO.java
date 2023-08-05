@@ -1119,7 +1119,8 @@ public class BoardDAO {
 					reviewBoardImg.setMemberNickname(rs.getString("MEMBER_NICK"));
 					reviewBoardImg.setBoardCode(rs.getInt("BOARD_CD"));
 					reviewBoardImg.setMemberNo(rs.getInt("MEMBER_NO"));
-
+					
+				
 				}
 
 				String reviewContentPath = rs.getString("CONTENT_PATH");
@@ -1264,6 +1265,9 @@ public class BoardDAO {
 			pstmt.setInt(3, reviewWrite.getBoardNo());
 
 			result = pstmt.executeUpdate();
+			
+			System.out.println("result의 값 : " + result);
+			
 		} finally {
 			close(pstmt);
 		}

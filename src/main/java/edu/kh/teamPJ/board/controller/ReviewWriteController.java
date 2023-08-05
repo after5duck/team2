@@ -44,7 +44,7 @@ public class ReviewWriteController extends HttpServlet {
 				reviewWrite.setBoardContent(reviewWrite.getBoardContent().replaceAll("<br>", "\n"));
 
 				req.setAttribute("reviewWrite", reviewWrite);
-
+			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,26 +119,34 @@ public class ReviewWriteController extends HttpServlet {
 				String path = null;
 
 				if (boardNo > 0) {
+					
 					session.setAttribute("message", "리뷰가 등록되었습니다");
-					resp.sendRedirect(req.getContextPath() + "/board/review?type=" + type);
+					
+					resp.sendRedirect(req.getContextPath() + "/board/detail?boardNo="+boardNo+"&type=" + type);
+			
 				} else {
 
 					session.setAttribute("message", "리뷰 작성 실패ㅠㅠ");
 
 					path = req.getHeader("referer");
+					
+					resp.sendRedirect(path);
 				}
-				resp.sendRedirect(path);
 			}
 
 			if (mode.equals("update")) {
 
 				int boardNo = Integer.parseInt(mpReq.getParameter("boardNo"));
-
-				String deleteReviewList = mpReq.getParameter("deleteReviewList");
+				
+				System.out.println(reviewWrite);
+				System.out.println("update로 넘어옴");
+				System.out.println(boardNo);
+				
+			
 
 				reviewWrite.setBoardNo(boardNo);
 
-				int result = service.updateReviewBoard(reviewWrite, photos, deleteReviewList);
+				int result = service.updateReviewBoard(reviewWrite, photos);
 
 				String path = null;
 
@@ -146,8 +154,9 @@ public class ReviewWriteController extends HttpServlet {
 
 				if (result > 0) {
 
-					path = req.getContextPath() + "/board/review?type=" + type;
-					message = "리뷰게시글이 수정되었습니다";
+					path = req.getContextPath() +"/board/detail?boardNo="+boardNo+"&type=" + type;
+				
+					message = "리뷰게시글이 수정되었습니다.";
 
 				} else {
 

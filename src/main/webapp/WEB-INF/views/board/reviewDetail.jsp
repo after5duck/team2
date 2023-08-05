@@ -43,6 +43,7 @@
                                 <div id="reviewWriter">
                                     <div>${detail.memberNickname}</div>
                                     <div>${detail.createDate}</div>
+                                    ${reviewWrite}
                                     <c:if test="${loginMember.memberNo == detail.memberNo}">
                                         <button id="btn-modify"
                                             onclick="location.href='review_write?mode=update&boardNo=${param.boardNo}&type=${param.type}'">수정</button>
@@ -103,7 +104,19 @@
                     </section>
 
                 </section>
+                <!-- 동작 구분 -->
+                <input type="hidden" name="mode" value="${param.mode}">
+
+                <!-- 게시판 구분 -->
+                <input type="hidden" name="type" value="${param.type}">
+
+                <!-- 게시글 번호 -->
+                <input type="hidden" name="boardNo" value="${param.boardNo}">
+
+                <!-- 현재 페이지 -->
+                <input type="hidden" name="cp" value="${param.cp}">
             </main>
+
 
             <!-- 공용 풋터 -->
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />

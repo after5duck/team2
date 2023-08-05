@@ -9,46 +9,47 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import edu.kh.teamPJ.board.model.service.ReviewWriteService;
-
+import edu.kh.teamPJ.board.model.service.BoardService;
 
 @WebServlet("/board/review/delete")
-public class ReviewDeleteController extends HttpServlet{
-	
+public class ReviewDeleteController extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+
 		try {
+
+			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+
 			int type = Integer.parseInt(req.getParameter("type"));
-			int boardNo = Integer.parseInt(req.getParameter("no"));
-			
-			int result = new ReviewWriteService().deleteBoard(boardNo);
-			
+
+			int result = new BoardService().deleteReviewBoard(boardNo);
+
 			HttpSession session = req.getSession();
+
 			String path = null;
+
 			String message = null;
-			
-			if(result > 0) { //성공
-				message = "게시글이 삭제되었습니다.";
-				path = "list?type=" + type; // 해당 게시판 목록 1페이지
-					// list?type=2
-						
-			}else {// 실패
+
+			if(result > 0) {
+				message = "게시글이 삭제 되었습니다.";
+				path = req.getContextPath()+ "/board/review?boardCode=6";
+
+			}else {
+
 				message = "게시글 삭제에 실패했습니다.";
-				path = req.getHeader("referer");
-				// 상세 페이지 == 이전 요청 페이지 주소 == referer
-				
+				path = req.getContextPath(); 
 			}
-			
+
 			session.setAttribute("message", message);
-			
-			resp.sendRedirect(path); 
-			
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		
+
+			resp.sendRedirect(path);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+	}
 
 }

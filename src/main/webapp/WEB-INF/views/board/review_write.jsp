@@ -33,8 +33,7 @@
 
             <main>
                 <div class="main_container">
-                    <form action="/after5duck/board/review_write" enctype="multipart/form-data" method="post"
-                        onsubmit="return reviewValidate()">
+                    <form action="/after5duck/board/review_write" enctype="multipart/form-data" method="post" onsubmit="return reviewValidate()">
                         <div class="main_first">리뷰작성</div>
                         <div class="main_second">
                             <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i></div>
@@ -72,6 +71,7 @@
                                 <div class="main_fifth">
                                     <textarea id="review_content" name="boardContent"
                                         placeholder="내용을 입력해 주세요">${reviewWrite.boardContent}</textarea>
+                    
                                 </div>
                                 <br>
                                 <div class="main_sixth">
@@ -93,7 +93,7 @@
                                 <input type="hidden" name="type" value="${param.type}">
 
                                 <!-- 게시글 번호 -->
-                                <input type="hidden" name="no" value="${param.no}">
+                                <input type="hidden" name="boardNo" value="${param.boardNo}">
 
                                 <!-- 현재 페이지 -->
                                 <input type="hidden" name="cp" value="${param.cp}">
