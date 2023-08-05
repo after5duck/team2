@@ -27,7 +27,7 @@
 						<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 					</div>
 					<div class="menu_text_con">
-						<a href="${contextPath}/board/fanart" class="a_tag">팬아트</a>
+						<a href="${contextPath}/board/fanart?boardCode=4" class="a_tag">팬아트</a>
 					</div>
 					<div class="menu_text_con">
 						<a href="${contextPath}/board/goods" class="a_tag">굿즈</a>
@@ -40,7 +40,7 @@
 					<form action="${contextPath}/board/search" method="get" name="search-form">
 						<div class="search_prop_con">
 							<input type="text" name="keyword" class="search_prop" placeholder="이름, 제목을 검색하세요">
-							<input type="submit" value="검색" class="search-input">
+							<input type="submit" value="" class="search-input">
 						</div>
 					</form>
 
@@ -63,14 +63,23 @@
 							<div class="login_con">
 								<div class="login_move">
 									<c:if test="${empty loginMember.profileImage}">
-										<img src="${contextPath}/resources/images/user.png" style="width: 50px;">
+										<img src="${contextPath}/resources/images/user.png" id="login_profile">
 									</c:if>
 									<c:if test="${!empty loginMember.profileImage}">
-										<img src="${contextPath}${loginMember.profileImage}" style="width: 50px;">
+										<img src="${contextPath}${loginMember.profileImage}" id="login_profile">
+
 									</c:if>
-									<a href="${contextPath}/member/mypage/info">
-										<button class="after_login_btn ">${loginMember.memberNickname}</button>
-									</a>
+									<div class="login_logout">
+
+										<a href="${contextPath}/member/mypage/info"><button
+												class="after_login_btn">${loginMember.memberNickname}</button></a>
+										<a href="${contextPath}/member/logout" class="logout-btn">
+											로그아웃
+											<img src="${contextPath}/resources/images/logout-icon.png"
+												class="logout-icon">
+										</a>
+									</div>
+
 								</div>
 							</div>
 						</c:otherwise>

@@ -15,7 +15,9 @@
 
 
 			<div class="big-con">
-				<h1 class="new-title">신작 애니메이션</h1>
+				<div class="new-title">
+					<h1>신작 애니메이션</h1>
+				</div>
 				<hr>
 				<c:forEach var="newAnime" items="${newAnimeList}" varStatus="loop">
 					<div class="big-item">
@@ -73,6 +75,7 @@
 		</div>
 	</div>
  -->
+
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<script src="../resources/js/footer.js"></script>
 			<script src="../resources/js/newAnime.js"></script>

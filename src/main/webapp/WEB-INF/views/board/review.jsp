@@ -26,111 +26,111 @@
             <!-- 공용 헤더 -->
 
             <jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <h2 class="mr-auto">${boardName}</h2>
+                        <div class="form-inline mb-3">
 
-            <div class="container">
-                <div class="row">
-                    <h2 class="mr-auto">${boardName}</h2>
-                    <div class="form-inline mb-3">
+                            <!-- <label for="sortSelect" class="mr-2">정렬:</label> -->
+                            <form action="review" onsubmit="return searchValidate()">
+                                <input type="hidden" name="type" value="${param.type}">
 
-                        <!-- <label for="sortSelect" class="mr-2">정렬:</label> -->
-                        <form action="review" onsubmit="return searchValidate()">
-                            <input type="hidden" name="type" value="${param.type}">
+                                <select id="sortSelect" name="key" class="form-control mr-2">
+                                    <option value="date">작성일</option>
+                                    <option value="title">제목</option>
+                                    <option value="author">작성자</option>
+                                </select>
+                                <!-- <input type="date" class="form-control mr-2" placeholder="날짜로 검색"> -->
+                                <input type="text" name="query" id="search-query" class="form-control mr-2"
+                                    placeholder="검색어를 입력해주세요.">
+                                <button class="btn btn-pink" id="searchPink">검색</button>
 
-                            <select id="sortSelect" name="key" class="form-control mr-2">
-                                <option value="date">작성일</option>
-                                <option value="title">제목</option>
-                                <option value="author">작성자</option>
-                            </select>
-                            <!-- <input type="date" class="form-control mr-2" placeholder="날짜로 검색"> -->
-                            <input type="text" name="query" id="search-query" class="form-control mr-2"
-                                placeholder="검색어를 입력해주세요.">
-                            <button class="btn btn-pink" id="searchPink">검색</button>
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조회수</th>
-                                <th>추천수</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:choose>
-                                <c:when test="${!empty boardList}">
-                                    <c:forEach var="board" items="${boardList}">
+                    <div class="row mt-3">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성자</th>
+                                    <th>작성일</th>
+                                    <th>조회수</th>
+                                    <th>추천수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:choose>
+                                    <c:when test="${!empty boardList}">
+                                        <c:forEach var="board" items="${boardList}">
 
+                                            <tr>
+                                                <td>${board.boardNo}</td>
+                                                <td>
+                                                    <a
+                                                        href="${contextPath}/board/detail?boardNo=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
+                                                        ${board.boardTitle}
+                                                    </a>
+                                                </td>
+                                                <td>${board.memberNickname}</td>
+                                                <td>${board.createDate}</td>
+                                                <td>${board.readCount}</td>
+                                                <td>50</td>
+                                            </tr>
+
+                                        </c:forEach>
+
+                                    </c:when>
+
+                                    <c:otherwise>
                                         <tr>
-                                            <td>${board.boardNo}</td>
-                                            <td>
-                                                <a
-                                                    href="${contextPath}/board/detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
-                                                    ${board.boardTitle}
-                                                </a>
-                                            </td>
-                                            <td>${board.memberNickname}</td>
-                                            <td>${board.createDate}</td>
-                                            <td>${board.readCount}</td>
-                                            <td>50</td>
+                                            <th colspan="6">게시글이 존재하지 않습니다.</th>
                                         </tr>
 
-                                    </c:forEach>
+                                    </c:otherwise>
 
+                                </c:choose>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <c:if test="${!empty loginMember}">
+                        <div class="row justify-content-end">
+                            <a class="btn btn-pink" id="writePink"
+                                onclick="location.href='review_write?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</a>
+                        </div>
+                    </c:if>
+                </div>
+
+                <div class="pagination-area">
+
+                    <c:set var="url" value="review?type=${param.type}&cp=" />
+
+                    <ul class="pagination">
+                        <li><a href=${url}1${sURL}>&lt;&lt;</a></li>
+                        <li><a href=${url}${pagination.prevPage}${sURL}>&lt;</a></li>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                            <c:choose>
+                                <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
                                 </c:when>
 
                                 <c:otherwise>
-                                    <tr>
-                                        <th colspan="6">게시글이 존재하지 않습니다.</th>
-                                    </tr>
-
+                                    <li><a href="${url}${i}${sURL}">${i}</a></li>
                                 </c:otherwise>
-
                             </c:choose>
-                        </tbody>
-                    </table>
+
+                        </c:forEach>
+
+                        <li><a href=${url}${pagination.nextPage}${sURL}>&gt;</a></li>
+                        <li><a href=${url}${pagination.maxPage}${sURL}>&gt;&gt;</a></li>
+                    </ul>
+
                 </div>
-
-                <c:if test="${!empty loginMember}">
-                    <div class="row justify-content-end">
-                        <a class="btn btn-pink" id="writePink"
-                            onclick="location.href='review_write?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</a>
-                    </div>
-                </c:if>
-            </div>
-
-            <div class="pagination-area">
-
-                <c:set var="url" value="review?type=${param.type}&cp=" />
-
-                <ul class="pagination">
-                    <li><a href=${url}1${sURL}>&lt;&lt;</a></li>
-                    <li><a href=${url}${pagination.prevPage}${sURL}>&lt;</a></li>
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-
-                        <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
-                            </c:when>
-
-                            <c:otherwise>
-                                <li><a href="${url}${i}${sURL}">${i}</a></li>
-                            </c:otherwise>
-                        </c:choose>
-
-                    </c:forEach>
-
-                    <li><a href=${url}${pagination.nextPage}${sURL}>&gt;</a></li>
-                    <li><a href=${url}${pagination.maxPage}${sURL}>&gt;&gt;</a></li>
-                </ul>
-
-            </div>
-
+            </main>
             <!-- Footer -->
 
             <%-- <jsp:include page="/WEB-INF/views/common/footer.jsp" /> --%>

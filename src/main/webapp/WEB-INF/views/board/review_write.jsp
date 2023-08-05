@@ -69,8 +69,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="main_fifth">
                                     <textarea id="review_content" name="boardContent"
                                         placeholder="내용을 입력해 주세요">${reviewWrite.boardContent}</textarea>
