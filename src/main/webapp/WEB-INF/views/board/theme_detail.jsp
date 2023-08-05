@@ -78,11 +78,7 @@
     <main>
         <div class="main_container">
             
-            <div class="main_first">
-                <div>${sportsList.contentPath}</div>
-                <div>${sportsList.boardTitle}</div>
-                <div>${sportsList.boardContent}</div>
-            
+           
 
            
                     

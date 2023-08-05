@@ -34,7 +34,7 @@ hr {
 }
 .main_container{
 
- width: 100%;
+
 }
 
 .main_first{
@@ -93,8 +93,8 @@ hr {
 #goods_image{
     /* padding-top: 20px; */
 
-    width: 300px;
-    height: 300px;
+    width: 290px;
+    height: 290px;
     /* background-image: url(../images/goods_image1.png);
     background-size: cover;
     background-repeat: no-repeat; */
@@ -104,6 +104,8 @@ hr {
     border-radius:10px;
 
     transition: all 0.2s linear;
+
+
     
     
 
@@ -169,10 +171,12 @@ hr {
 }
 
 .goods > div:first-child{
-    width: 300px;
-    height: 300px;
+    width: 290px;
+    height: 290px;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+
 
 }
 

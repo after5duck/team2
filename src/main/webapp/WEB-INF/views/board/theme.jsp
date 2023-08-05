@@ -22,15 +22,13 @@
 	font-style: normal;
 }
 
-/* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
-body {
-	font-family: 'Pretendard-Regular';
-}
 </style>
 
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
+
+	<a href="#" class="scroll-top-btn">Top</a>
 
 	<main>
 		<div class="main_container">
@@ -67,10 +65,27 @@ body {
 
 
 	<script>
-        document.getElementById("footbtn").addEventListener("click", function(){
-            const show = document.getElementById("text_box");
-            show.style.display = "block";
-        })
+
+		/* 스크롤 함수 */
+        document.addEventListener('DOMContentLoaded', function () {
+            var scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 500) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 
 </body>
