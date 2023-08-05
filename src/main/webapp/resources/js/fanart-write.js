@@ -25,7 +25,6 @@ inputImage.addEventListener("change", function(){
         preview.removeAttribute("src");
     }
 
-
 })
 
 deleteImage.addEventListener("click", function(){

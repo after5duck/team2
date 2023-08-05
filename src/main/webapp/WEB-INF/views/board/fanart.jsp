@@ -13,7 +13,6 @@
 
 				<script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
 
-				<link rel="stylesheet" href="${contextPath}/resources/css/MAIN.css">
 				<link rel="stylesheet" href="${contextPath}/resources/css/fanart-main.css">
 				<title>팬아트 게시판</title>
 			</head>
@@ -46,10 +45,13 @@
 
 					
 					<c:if test="${!empty loginMember}">
-						<button id='fanart-write-btn'
-							onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
-							글쓰기
-						</button>
+						<div class="fanartBtnArea">
+							<button id='fanart-write-btn'
+								onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
+								글쓰기
+							</button>
+
+						</div>
 					</c:if>
 
 					<!-- 팬아트 사진 가져오기~~!!! -->
