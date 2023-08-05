@@ -1,116 +1,47 @@
-/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
-.header_container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
- }
- 
- .main_logo_img_container {
-    position: relative;
-    bottom: 70px;
-    height: 130px;
- }
- 
- 
- /* 애니버스 로고 */
- .main_logo {
-    width: 270px;
-    height: 270px;
- }
- 
- /* 메뉴 리스트 테마추천, 팬아트 등  */
- .menu_list {
-    display: flex;
-    gap: 70px;
- }
- 
- .a_tag {
-    text-decoration-line: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.2em;
- }
- 
- .a_tag:hover {
-    color: rgb(237, 21, 93);
-    transform: scale(1.1);
-    transition: 0.2s;
-    cursor: pointer;
- }
- 
- 
- /* 검색창 */
- .search_prop {
-    margin-right: 10px;
-    height: 30px;
-    border-radius: 10px;
-    background-image: url(../images/search.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 16px;
- }
- 
- /* 유저 정보 */
- .user_img {
-    background-image: url('../images/profile.png');
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-repeat: no-repeat;
- }
- 
- .user_id {
-    text-align: center;
-    font-weight: bold;
- }
- 
- /* ————————————————— 새로운 헤더 끝 ————————————————— */
-
-#review{
-    color:rgb(237, 21, 93);
+.main_container {
+    margin-left: 200px;
+    margin-top: 50px;
 }
 
-.main_first{
+#review {
+    color: rgb(237, 21, 93);
+}
+
+.main_first {
     width: 350px;
     font-size: 40px;
     font-weight: bold;
     padding: 33px;
 }
-.main_second{
+
+.main_second {
     display: flex;
     font-size: 25px;
     padding: 33px;
 }
-.main_second > div:last-child{
-    padding-left : 120px;
-}
-#ani_name{
-    width:300px;
-    height: 35px;
-    border-color:rgb(237, 21, 93);
-    border-radius: 10px;
-    outline-color: rgb(237, 21, 93);
+
+.main_second>div:last-child {
+    padding-left: 120px;
 }
 
-.main_third{
+.main_third {
     display: flex;
     font-size: 25px;
     padding: 33px;
-
-
 }
-.main_third > div:last-child{
+
+.main_third>div:last-child {
     padding-left: 30px;
 }
-.main_fourth{
+
+.main_fourth {
     display: flex;
-    font-size : 25px;
+    font-size: 25px;
     padding: 33px 0 10px 33px;
 
-
 }
-.main_fifth{
+
+.main_fifth {
     display: flex;
     padding: 33px;
     border-top: 1px solid gray;
@@ -118,27 +49,56 @@
 
 
 }
-#review_content{
-    
+
+.main_second,
+.main_third {
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+
+}
+
+.inputTitle input {
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    padding: 10px 0;
+    width: 350px;
+    /* 원하는 너비로 조절 */
+}
+
+#review_content {
+
     width: 100%;
     height: 200px;
     resize: none;
     border: none;
     outline-color: rgb(237, 21, 93);
 }
-.main_sixth{
-    padding-left: 33px;
+
+.main_sixth {
+    padding-left: 10px;
     color: gray;
 
 
 }
-.main_last{
+
+.main_last {
     display: flex;
     justify-content: center;
-    padding : 100px;
+    padding: 100px;
 }
 
-#btn_review{
+
+
+.imgFile {
+    font-size: 15px;
+}
+
+#btn_review {
     font-size: 30px;
     width: 400px;
     height: 80px;
@@ -147,21 +107,111 @@
     background-color: rgb(251, 228, 232);
     color: rgb(237, 21, 93);
 }
-#btn_review:hover{
+
+#btn_review:hover {
     background-color: rgb(248, 198, 206);
     cursor: pointer;
 }
 
-#btn_review:active{
+#btn_review:active {
     background-color: rgb(186, 144, 151);
 
 }
 
 
+/* 항목 간의 간격 */
 
 
+.imgFile {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
 
+.imgFile:hover {
+    background-color: #e0e0e0;
+}
 
+.inputImg {
+    display: none;
+}
 
+#deleteImage {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
 
+#deleteImage:hover {
+    background-color: #e0e0e0;
+}
 
+.image-box {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    margin: 10px auto;
+}
+
+.inputImg {
+    display: none;
+}
+
+.imgFile {
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.imgFile:hover {
+    background-color: #e0e0e0;
+}
+
+#deleteImage {
+    font-size: 14.5px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+.insertContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* 아이콘과 텍스트 사이의 간격 조절 */
+}
+
+.image-upload-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}

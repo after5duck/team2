@@ -1,11 +1,21 @@
-body {
+/* body {
 	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Arial', sans-serif;
-	/*background-color: #f2f2f2;*/
+
 	background-color: #fff;
+} */
+main {
+	box-sizing: border-box;
+	padding-bottom: 170px;
+}
+
+body {
+
+	font-family: 'Pretendard-Regular', sans-serif;
+	overflow-x: hidden;
 }
 
 .big-con {

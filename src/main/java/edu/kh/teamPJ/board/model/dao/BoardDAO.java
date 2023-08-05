@@ -1048,7 +1048,7 @@ public class BoardDAO {
 	/**
 	 * 마이페이지 내가 쓴 게시글 조회 DAO
 	 * 
-	 * @param conn2
+	 * @param conn
 	 * @param memberNo
 	 * @return boardList
 	 * @throws Exception
@@ -1085,10 +1085,11 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/***
+	/**
 	 * 이민주
 	 * 
-	 * @param conn2
+	 * 리뷰 게시글/이미지 정보 가져오는 DAO
+	 * @param conn
 	 * @param boardNo
 	 * @param type
 	 * @return
@@ -1212,7 +1213,7 @@ public class BoardDAO {
 	/**
 	 * 이민주 리뷰게시판 이미지 등록
 	 * 
-	 * @param conn2
+	 * @param conn
 	 * @param reviewPh
 	 * @param boardNo
 	 * @return result
@@ -1322,7 +1323,9 @@ public class BoardDAO {
 			pstmt.setInt(1, boardNo);
 
 			result = pstmt.executeUpdate();
+			
 		} finally {
+			
 			close(pstmt);
 		}
 
