@@ -1,74 +1,12 @@
-/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
-.header_container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
- }
- 
- .main_logo_img_container {
-    position: relative;
-    bottom: 70px;
-    height: 130px;
- }
- 
- 
- /* 애니버스 로고 */
- .main_logo {
-    width: 270px;
-    height: 270px;
- }
- 
- /* 메뉴 리스트 테마추천, 팬아트 등  */
- .menu_list {
-    display: flex;
-    gap: 70px;
- }
- 
- .a_tag {
-    text-decoration-line: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.2em;
- }
- 
- .a_tag:hover {
-    color: rgb(237, 21, 93);
-    transform: scale(1.1);
-    transition: 0.2s;
-    cursor: pointer;
- }
- 
- 
- /* 검색창 */
- .search_prop {
-    margin-right: 10px;
-    height: 30px;
-    border-radius: 10px;
-    background-image: url(../images/search.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    padding-left: 30px;
-    font-size: 16px;
- }
- 
- /* 유저 정보 */
- .user_img {
-    background-image: url('../images/profile.png');
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-repeat: no-repeat;
- }
- 
- .user_id {
-    text-align: center;
-    font-weight: bold;
- }
- 
- /* ————————————————— 새로운 헤더 끝 ————————————————— */
+
 
 #goods{
     color:rgb(237, 21, 93);
+}
+
+main{
+    width:1250px;
+    margin: auto;
 }
 
 .main_container{
@@ -78,7 +16,7 @@
 
 .main_first{
     display:flex;
-    padding: 33px;
+    padding: 33px 0 33px 0 ;
 }
 
 .main_first > div:nth-child(1){
@@ -89,7 +27,7 @@
 #goods_kind{
     display: flex;
     color: gray;
-    font-size: 10px;
+    font-size: 15px;
     
 }
 #goods_kind > div:hover{
@@ -99,14 +37,14 @@
     padding: 20px;
 }
 .main_second{
-    padding: 33px;
-    font-size: 20px;
+    padding: 50px 0 50px 0;
+    font-size: 25px;
+    color: gray;
 }
 .main_third{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     justify-content: space-evenly;
-    padding-bottom: 100px;
 
 }
 .main_third > div:first-child{
@@ -117,36 +55,7 @@
 
 
 
-/* .main_fourth{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 100px;
 
-}
-.main_fifth{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 100px;
-
-}
-.main_sixth{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 100px;
-
-}
-.main_seventh{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 100px;
-
-}
-.main_eighth{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 100px;
-
-} */
 .goods_name{
     text-align: center;
     font-size: 20px;
@@ -167,283 +76,78 @@
     align-items: flex-start;
     border-radius:10px;
 
-   
-}
-/* #goods_image2{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image2.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-
-}
-
-#goods_image3{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image3.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image4{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image4.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image5{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image5.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image6{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image6.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image7{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image7.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
+    transition: all 0.2s linear;
     
+    
+
 }
-#goods_image8{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image8.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
+
+#goods_image:hover{
+    transform: scale(1.4);
+
 }
-#goods_image9{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image9.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: #1abc9c;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
-#goods_image10{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image10.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
+
+.scroll-top-btn:hover {
+    background: white;
+    color: #1abc9c;
 }
-#goods_image11{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image11.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
+
+.scroll-top-btn.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
-#goods_image12{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image12.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image13{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image13.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image14{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image14.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image15{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image15.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image16{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image16.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image17{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image17.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image18{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image18.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image19{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image19.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image20{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image20.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image21{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image21.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image22{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image22.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image23{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image23.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-}
-#goods_image24{
-    width: 300px;
-    height: 300px;
-    background-image: url(../images/goods_image24.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    border-radius: 10px;
-} */
+
+   
+
+
 
 
 [name=icon]{
 
-    color: red;
+    color: rgb(237, 21, 93);
     font-size: 25px;
 
     position: absolute;
-    top: 0;
-    right: 15px;
+    top: 1px;
+    right: 17px;
     cursor: pointer;
     
 }
 
 .goods{
     position: relative;
-  
+    padding: 0 15px 0 15px;
 }
 
+.goods > div:first-child{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
 
 
 

@@ -94,43 +94,45 @@ public class ThemeDetailDAO {
 	 * @param boardNo 
 	 * @param boardNo
 	 * @param boardCode
+	 * @param boardNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Theme> selectDetail(Connection conn, int boardCode) throws Exception{
-		
-		List<Theme> detail = new ArrayList<Theme>();
-		
-		try {
-
-			String sql = prop.getProperty("selectThemeDetail");
-
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setInt(1, boardCode);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-
-				
-				Theme theme = new Theme();
-					
-
-				theme.setBoardTitle(rs.getString("BOARD_TITLE"));
-				theme.setBoardContent(rs.getString("BOARD_CONTENT"));
-				theme.setContentPath(rs.getString("CONTENT_PATH"));
-			
-				detail.add(theme);
-			}
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		
-		return detail;
-	}
+//	public List<Theme> selectDetail(Connection conn, int boardCode, int boardNo) throws Exception{
+//		
+//		List<Theme> head = new ArrayList<Theme>();
+//		
+//		try {
+//
+//			String sql = prop.getProperty("selectThemeDetail");
+//
+//			pstmt = conn.prepareStatement(sql);
+//
+//			pstmt.setInt(1, boardCode);
+//
+//			rs = pstmt.executeQuery();
+//
+//			while (rs.next()) {
+//
+//				
+//				Theme theme = new Theme();
+//					
+//
+//				theme.setBoardTitle(rs.getString("BOARD_TITLE"));
+//				theme.setBoardContent(rs.getString("BOARD_CONTENT"));
+//				theme.setContentPath(rs.getString("CONTENT_PATH"));
+//			
+//				head.add(theme);
+//			}
+//
+//			
+//		} finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//
+//		
+//		return head;
+//	}
 
 }
