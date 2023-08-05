@@ -13,6 +13,7 @@
 		<body>
 			<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
+
 			<div class="big-con">
 				<h1 class="new-title">신작 애니메이션</h1>
 				<hr>
@@ -63,6 +64,7 @@
 					</div>
 				</div>
 			</c:forEach>
+
 			<!-- 
 	<div id="myModalModal" class="modal">
 		<div class="modal-content">
