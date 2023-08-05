@@ -14,25 +14,15 @@
 body{
     overflow-x: hidden;
     margin: 0;
+    font-family: 'Pretendard-Regular', sans-serif;
 }
-
-
-
-/* ----------------------------------- 새로운 헤더 div 순서대로 작성할 것 ----------------------------------- */
-
-
-/* ————————————————— 새로운 헤더 끝 ————————————————— */
 
 main{
 	box-sizing: border-box;
     width: 1250px;
     margin: auto;
+    padding-bottom: 100px;
 }
-
-
-
-
-
 
 .scroll-top-btn {
 	position: fixed;
@@ -74,7 +64,6 @@ main{
 .fanArt-text-orderlist{
 	margin-top: 50px;
     display: flex;
-    height: 130px;
 
 }
 .fanArt-text-orderlist button{
@@ -83,11 +72,21 @@ main{
 
 .fanArt-text-orderlist > div:first-child{
     width: 50%;
-    font-size: 35px;
-    color: rgb(237, 21, 93);
-    font-family: 'Pretendard-Regular';
-    font-weight: bold;
+}
 
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+hr {
+	margin-bottom: 70px;
 }
 
 .fanArt-text-orderlist > div:last-child{
@@ -197,8 +196,6 @@ main{
     list-style: none;
     justify-content: center;
     margin-top: 100px;
-    margin-bottom: 200px;
-   
 }
 
 .page-num a{
