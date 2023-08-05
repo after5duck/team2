@@ -70,7 +70,7 @@
                                             <td>${board.boardNo}</td>
                                             <td>
                                                 <a
-                                                    href="detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
+                                                    href="${contextPath}/board/detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
                                                     ${board.boardTitle}
                                                 </a>
                                             </td>
