@@ -36,8 +36,8 @@ body {
 		<div class="main_container">
 
 
-			<div class="main_first">테마추천</div>
-
+			<div class="main_first"><h1>테마추천</h1></div>
+			<hr>
 			<div class="main_second">
 				<c:forEach var="themeList" items="${list}">
 

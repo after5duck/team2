@@ -36,7 +36,7 @@
     <main>
         <div class="main_container">
             <div class="main_first">
-                <div>굿즈</div>
+                <div><h1>굿즈</h1></div>
                 <div id="goods_kind">
                     <div>전체</div>
                     <div>진격의 거인</div>
@@ -50,6 +50,7 @@
                     <div>원피스</div>
                 </div>
             </div>
+            <hr>
             <div class="main_second"><i class="fa-solid fa-play" style="color:rgb(195, 82, 244)"></i> &nbsp;좋아하는 애니메이션의 굿즈들을 구경해 보세요~! 😆 😚 😝</div>
 
             <div class="main_third">

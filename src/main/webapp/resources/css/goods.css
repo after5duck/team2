@@ -1,14 +1,37 @@
 
 
+body {
+
+	font-family: 'Pretendard-Regular', sans-serif;
+	overflow-x: hidden;
+    margin : 0;
+}
+
 #goods{
     color:rgb(237, 21, 93);
 }
 
 main{
+    box-sizing: border-box;
+
     width:1250px;
     margin: auto;
+    padding-bottom: 100px;
+
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
+hr {
+	margin-bottom: 70px;
+}
 .main_container{
 
  width: 100%;
@@ -16,12 +39,12 @@ main{
 
 .main_first{
     display:flex;
-    padding: 33px 0 33px 0 ;
+    margin-top: 50px;
+
 }
 
 .main_first > div:nth-child(1){
     width: 350px;
-    font-size: 40px;
     font-weight: bold;
 }
 #goods_kind{
