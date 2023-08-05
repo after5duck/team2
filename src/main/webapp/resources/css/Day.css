@@ -1,47 +1,32 @@
-/* body {
-	overflow-x: hidden;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Arial', sans-serif;
-
-	background-color: #fff;
-} */
-main {
-	box-sizing: border-box;
-	padding-bottom: 170px;
-}
-
 body {
-
+	margin: 0;
 	font-family: 'Pretendard-Regular', sans-serif;
 	overflow-x: hidden;
 }
 
 .big-con {
+	box-sizing: border-box;
+	width: 1250px;
+	margin: auto;
 	padding-bottom: 100px;
 }
 
-.container {
-	max-width: 700px;
-	/* 1200px에서 800px로 변경 */
-	margin: 0 auto;
-	padding: 0 15px;
+.new-title {
+	margin-top: 50px;
 }
 
-.new-title,
 hr {
-	margin-left: 170px;
-	margin-right: 150px;
+	margin-bottom: 70px;
 }
 
 .big-item {
 	display: flex;
 	align-items: start;
 	gap: 20px;
-	margin: 20px auto;
+	margin-bottom: 20px;
+
 	/* 위 아래 마진은 20px, 좌우 마진은 자동으로 설정 */
-	width: 80%;
+
 	height: 140px;
 	/* 브라우저 창 너비의 80%를 너비로 설정 */
 	background-color: #ffffff;
