@@ -1332,4 +1332,35 @@ public class BoardDAO {
 		return result;
 	}
 
+	public List<Board> searchSearchArea(Connection conn, String inputSearch, int memberNo) throws Exception{
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectMyContent") + " AND BOARD_TITLE = '" + inputSearch + "'";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardName(rs.getString(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setCreateDate(rs.getString(3));
+				
+			}
+			
+		}finally {
+			
+		}
+		
+		
+		return boardList;
+	}
+
 }

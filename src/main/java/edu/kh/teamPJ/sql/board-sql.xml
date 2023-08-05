@@ -90,6 +90,7 @@
 		WHERE BOARD_CD = 6
 		AND BOARD_ST =
 		'N'
+		AND BOARD_NO = ?
 		ORDER BY
 		CREATE_DT DESC
 	</entry>
@@ -344,6 +345,15 @@
 		JOIN BOARD USING(BOARD_CD)
 		WHERE MEMBER_NO = ?
 
+	</entry>
+	
+	
+	<!-- 마이페이지 특정 게시글 검색 -->
+	<entry key="searchArea">
+		SELECT BOARD_NM, BOARD_TITLE, CREATE_DT
+		FROM BOARD_TYPE
+		JOIN BOARD USING(BOARD_CD)
+		WHERE MEMBER_NO = ?
 	</entry>
 
 

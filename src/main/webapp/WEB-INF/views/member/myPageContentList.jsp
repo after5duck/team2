@@ -46,7 +46,7 @@
                         
                         <!-- 날짜로 내가 쓴 글 조회하기 -->
                         <div>
-                            <form action="/search/contentList" method="post" name="contentList">
+                            <form action="/search/contentList" method="post" name="contentList" onsubmit="return listValidate()">
                                 <input type="date" name="dateStart" class="inputDate">
                                 <span>~</span>
                                 <input type="date" name="dateEnd" class="inputDate">
@@ -58,7 +58,7 @@
                         <!-- 검색어로 내가 쓴 글 조회하기 -->
                             <div class="searcharea">
                                 <form action="/search/searchArea" method="post" name="mypageSearchContent" onsubmit="return searchValidate()">
-                                    <input type="search" id="inputSearch" placeholder="게시글 제목 입력">
+                                    <input typ  e="search" id="inputSearch" placeholder="게시글 제목 입력">
                                     <button id="btn-submit">검색</button>
                                 </form>
                             </div>
@@ -72,7 +72,7 @@
                             <c:forEach var="board" items="${bList}">
     
                                 <nav class="writeContent">
-                                    <article id="contentTitle" class="contentTitle">${board.boardName}</article>
+                                    <article class="contentTitle">${board.boardName}</article>
                                     <article id="contentDetail" class="contentDetail"><a href="#"> ${board.boardTitle} </a></article>
                                     <article id="contentDate" class="contentDate">${board.createDate}</article>
                                 </nav>
