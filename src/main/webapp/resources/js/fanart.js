@@ -34,7 +34,7 @@
 
         fanartDeleteBtn.addEventListener("click", function(){
 
-            let url = "delete";
+            let url = contextPath + "/board/fanart/delete";
 
             const params = new URL(location.href).searchParams;
 
