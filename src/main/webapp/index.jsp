@@ -17,6 +17,7 @@
 							<!-- 메인 css -->
 							<link rel="stylesheet" href="resources/css/MAIN.css">
 
+
 							<!-- 부트스트랩 -->
 							<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 								rel="stylesheet">
@@ -31,89 +32,7 @@
 						</head>
 
 						<body>
-
-							<header>
-
-								<div class="header_container">
-									<div class="main_logo_img_container">
-										<!-- 애니버스 로고 -->
-										<a href="${contextPath}/test"> <img src="resources/images/PJ2logo.png" alt=""
-												class="main_logo">
-										</a>
-									</div>
-									<!-- 메뉴 리스트 테마추천, 팬아트 등 -->
-									<div class="menu_list">
-
-										<div class="menu_text_con">
-											<a href="${contextPath}/board/newAnime" class="a_tag">요일별 애니</a>
-										</div>
-
-										<div class="menu_text_con">
-											<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
-										</div>
-										<div class="menu_text_con">
-											<a href="${contextPath}/board/fanart?boardCode=4" class="a_tag">팬아트</a>
-										</div>
-										<div class="menu_text_con">
-											<a href="${contextPath}/board/goods" class="a_tag">굿즈</a>
-										</div>
-										<div class="menu_text_con">
-											<a href="${contextPath}/board/review?type=6" class="a_tag">리뷰</a>
-										</div>
-
-										<!-- 검색창 -->
-										<form action="${contextPath}/board/search" method="get" name="search-form">
-											<div class="search_prop_con">
-												<input type="text" name="keyword" class="search_prop"
-													placeholder="이름, 제목을 검색하세요">
-												<input type="submit" value="검색" class="search-input">
-											</div>
-										</form>
-
-
-										<!-- 정은 언니 주석 -->
-										<!-- 조건문 걸어줄거임 로그인 안했을때와 했을때 -->
-										<c:choose>
-
-											<c:when test="${ empty sessionScope.loginMember}">
-												<!-- 회원가입/로그인 버튼-->
-												<div class="login_con">
-													<div class="login_move">
-														<a href="${contextPath}/member/loginORsignup"><button
-																class="login_move_btn">로그인 / 회원가입</button></a>
-													</div>
-												</div>
-											</c:when>
-
-											<c:otherwise>
-												<div class="login_con">
-													<div class="login_move">
-														<c:if test="${empty loginMember.profileImage}">
-															<img src="${contextPath}/resources/images/user.png"
-															id="login_profile">
-														</c:if>
-														<c:if test="${!empty loginMember.profileImage}">
-															<img src="${contextPath}${loginMember.profileImage}"
-															id="login_profile">
-
-														</c:if>
-														<div class="login_logout">
-															
-															<a href="${contextPath}/member/mypage/info"><button
-																	class="after_login_btn">${loginMember.memberNickname}</button></a>
-															<a href="${contextPath}/member/logout" class="logout-btn">
-																로그아웃
-																<img src="${contextPath}/resources/images/logout-icon.png"
-																	class="logout-icon">
-															</a>
-														</div>
-
-													</div>
-												</div>
-											</c:otherwise>
-										</c:choose>
-									</div>
-							</header>
+							<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
 							<!-- ********************************************************************************************************* -->
 
@@ -347,19 +266,20 @@
 										<div class="fanArt_text">
 											<span id="fan_sp">인기 팬아트</span>
 										</div>
-										
+
 										<div class="container4">
-										
+
 											<!-- 정연수 팬아트 사진 불러오기 ~~ -->
-											
+
 											<c:forEach var="fanart" items="${boardList }" begin="0" end="9">
-											<c:set var="photos" value="${fanart.photos}" />
-												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0" end="9">
-												
+												<c:set var="photos" value="${fanart.photos}" />
+												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0"
+													end="9">
+
 													<div class="list_container">
 														<div class="img_con">
-															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}" class="img_size"
-																id="fanArt_img">
+															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}"
+																class="img_size" id="fanArt_img">
 														</div>
 														<div class="fanArt_text_con">
 															<div class="title_2">${fanart.boardTitle }</div>
@@ -368,13 +288,13 @@
 																<div class="writerId">유저</div>
 															</div>
 														</div>
-													
+
 													</div>
-												
+
 												</c:forEach>
 											</c:forEach>
-												
-										
+
+
 										</div>
 
 										<!-- 팬아트 첫번째 리스트 끝 -->
