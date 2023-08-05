@@ -8,9 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
+import edu.kh.teamPJ.member.model.vo.Member;
 
 @WebServlet("/search/*")
 public class MyPageSearchServlet extends HttpServlet{
@@ -39,7 +43,23 @@ public class MyPageSearchServlet extends HttpServlet{
 			}
 			
 			if(command.equals("searchArea")) {
-				//List<Board> boardList = service.searchSearchArea();
+				
+				try {
+					HttpSession session = req.getSession();		
+					
+					Member loginMember = (Member)session.getAttribute("loginMember"); 
+					
+					int memberNo = loginMember.getMemberNo();
+					
+					String inputSearch = req.getParameter("inputSearch");
+					
+					List<Board> boardList = service.searchSearchArea(inputSearch, memberNo);
+					
+					new Gson().toJson(boardList, resp.getWriter());
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 				
 			}
 			

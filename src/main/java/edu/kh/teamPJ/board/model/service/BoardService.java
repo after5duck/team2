@@ -613,6 +613,22 @@ public class BoardService {
 		
 		return result;
 	}
+
+	/** 마이페이지 특정 게시글 검색
+	 * @param inputSearch
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> searchSearchArea( String inputSearch, int memberNo) throws Exception{
+			
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.searchSearchArea(conn, inputSearch, memberNo);
+		
+		close(conn);
+		
+		return boardList;
+	}
 }
 
 

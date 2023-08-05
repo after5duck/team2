@@ -27,17 +27,13 @@ function selectContent(){
     });
 }
 
-(()=>{
-    selectContent();
-})()
-
-
 const inputSearch = document.getElementById("inputSearch");
 const contentList = document.getElementById("contentList");
 
 function searchValidate(){
-    if(inputSearch.ariaValueMax.trim().length == 0){
+    if(inputSearch.value.trim().length == 0){
         alert("검색어를 입력해주세요");
+        inputSearch.focus();
         return false;
     }
     return true;
@@ -55,14 +51,34 @@ function searchArea(){
         success : function(sList){
             contentList.innerHTML = "";
 
-            for(let i of sList){
-                const writeContent = document.createElement("nav");
-                writeContent.classList.add("writeContent");
+            if(sList != null){
 
-                cosnt
+                for(let i of sList){
+                    const writeContent = document.createElement("nav");
+                    writeContent.classList.add("writeContent");
+    
+                    const writeArticle1 = document.createElement("article");
+                    writeArticle1.classList.add("contentTitle");
+                    writeArticle1.innerHTML = i.boardname;
+    
+                    const writeArticle2 = document.createElement("article");
+                    writeArticle2.classList.add("contentDetail");
+                    writeArticle2.innerHTML = i.boardTitle;
+    
+                    const writeArticle3 = document.createElement("article");
+                    writeArticle3.classList.add("contentDate");
+                    writeArticle3.innerHTML = i.createDate;
+                    
+                    writeContent.append(writeArticle1, writeArticle2, writeArticle3);
+                }
+
+                contentList.append(writeContent);
+
+            }else{
+                const writePtag = document.createElement("p")
+                writePtag.innerText = "게시글이 없습니다."
 
             }
-
 
         },
         error : function(){
