@@ -31,13 +31,8 @@
 				<main>
 					<section class="fanArt-text-orderlist">
 						<div class="fanArt-text">
-							<div>팬아트</div>
-							<c:if test="${!empty loginMember}">
-								<button id='fanart-write-btn'
-									onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
-									글쓰기
-								</button>
-							</c:if>
+							<h1>팬아트</h1>
+							
 						</div>
 
 						<div>
@@ -47,6 +42,15 @@
 							</select>
 						</div>
 					</section>
+					<hr>
+
+					
+					<c:if test="${!empty loginMember}">
+						<button id='fanart-write-btn'
+							onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
+							글쓰기
+						</button>
+					</c:if>
 
 					<!-- 팬아트 사진 가져오기~~!!! -->
 					<c:set var="maxPhotos" value="18" />
