@@ -46,7 +46,7 @@
                         
                         <!-- 날짜로 내가 쓴 글 조회하기 -->
                         <div>
-                            <form action="contentList" method="get" name="contentList">
+                            <form action="/search/contentList" method="post" name="contentList">
                                 <input type="date" name="dateStart" class="inputDate">
                                 <span>~</span>
                                 <input type="date" name="dateEnd" class="inputDate">
@@ -56,7 +56,7 @@
 
 
                         <!-- 검색어로 내가 쓴 글 조회하기 -->
-                            <div class="searcharea">
+                            <div class="/search/searcharea">
                                 <form action="#" method="post" name="mypageSearchContent">
                                     <input type="search" id="inputSearch" placeholder="게시글 제목 입력">
                                     <button id="btn-submit">검색</button>
