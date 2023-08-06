@@ -534,8 +534,6 @@ public class BoardService {
 		return boardList;
 	}
 
-
-
 	/**
 	 * 이민주
 	 * 
@@ -560,7 +558,6 @@ public class BoardService {
 	 * 이민주 리뷰 게시글 작성
 	 * 
 	 * @param reviewWrite
-	 * @param photos
 	 * @param type
 	 * @return
 	 */
@@ -593,8 +590,8 @@ public class BoardService {
 	 * 리뷰 게시판 수정하기
 	 * 
 	 * @param reviewWrite
-	 * @param photos
-	 * @return
+	 * @return result
+	 * @throws Exception
 	 */
 	public int updateReviewBoard(Board reviewWrite) throws Exception {
 
@@ -638,6 +635,7 @@ public class BoardService {
 	 * 
 	 * @param boardNo
 	 * @return result
+	 * @throws Exception
 	 */
 	public int deleteReviewBoard(int boardNo) throws Exception {
 
@@ -653,5 +651,48 @@ public class BoardService {
 		close(conn);
 
 		return result;
+	}
+
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰게시판 조회수 관련
+	 * 
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateReadCount(int boardNo) throws Exception {
+
+		Connection conn = getConnection();
+
+		int result = dao.updateReadCount(conn, boardNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		return result;
+	}
+	
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰게시판 조회수 관련
+	 * 
+	 * @param boardNo
+	 * @return readCount
+	 * @throws Exception
+	 */
+	public int selectReview(int boardNo) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int readCount = dao.selectReview(conn, boardNo);
+		
+		close(conn);
+		
+		return readCount;
 	}
 }

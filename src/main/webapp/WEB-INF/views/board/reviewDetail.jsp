@@ -11,7 +11,7 @@
 
             <link rel="stylesheet" href="${contextPath}/resources/css/reviewDetail.css">
             <script src="https://kit.fontawesome.com/2b36447307.js" crossorigin="anonymous"></script>
-        </head> 
+        </head>
 
         <body>
 
@@ -67,9 +67,10 @@
                             </div>
                             <div id="reviewCount">
                                 <div>
-                                    <i class="fa-solid fa-eye fa-sm"></i>
-                                    &nbsp;
-                                    ${detail.readCount}
+                                    <i class="fa-solid fa-eye fa-sm">
+                                        <span id="readCount"></span>
+                                    </i>
+
                                 </div>
                                 <div>
 

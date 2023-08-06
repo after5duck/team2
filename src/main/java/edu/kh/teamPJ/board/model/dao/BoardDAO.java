@@ -1437,5 +1437,63 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	
+	/** 리뷰게시판 조회수
+	 * 
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+
+	public int updateReadCount(Connection conn, int boardNo) throws Exception{
+
+		int result = 0;
+		
+		try {
+			
+	
+			String sql = prop.getProperty("updateReadCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally{
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int selectReview(Connection conn, int boardNo) throws Exception{
+		
+		int readCount = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("selectUpdateReadCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				readCount = rs.getInt(1);
+			}
+			
+		}finally{
+		
+			close(rs);
+			close(pstmt);
+		}
+		return readCount;
+	}
 
 }
