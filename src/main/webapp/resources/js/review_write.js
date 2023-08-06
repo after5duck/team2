@@ -38,112 +38,70 @@ this.addEventListener("click", function (e) {
 
     }
 
-})
-function reviewValidate() {
-    const essential = document.getElementById("essential");
+    // })
+    // function reviewValidate() {
+    //     const essential = document.getElementById("essential");
 
-    if (essential.checked == false) {
+    //     if (essential.checked == false) {
 
-        alert("필수 항목을 체크 해주세요!");
+    //         alert("필수 항목을 체크 해주세요!");
 
-        return false;
+    //         return false;
+    //     }
+
+    //     return true;
+    // }
+
+    //게시글 작성 유효성 검사
+    function reviewValidate() {
+        const reviewTitle = document.getElementById("reviewTitle");
+        const review_content = document.getElementById("review_content")
+
+
+        if (reviewTitle.value.trim().length == 0) {
+            alert("제목을 입력해주세요!");
+            reviewTitle.value = "";
+            reviewTitle.focus();
+            return false;
+        }
+        if (review_content.value.trim().length == 0) {
+            alert("내용을 입력해주세요!");
+            review_content.value = "";
+            review_content.focus();
+            return false;
+        }
+
+
+
+        return true;
     }
 
-    return true;
-}
+    (function () {
+        const deleteBtn = document.getElementById("btn-delete"); // 존재하지 않으면 null
 
-// 게시글 작성 유효성 검사
-function reviewValidate() {
-    const reviewTitle = document.getElementById("reviewTitle");
-    const review_content = document.getElementById("review_content")
+        if (deleteBtn != null) { // 버튼이 화면에 존재할 때
+            deleteBtn.addEventListener("click", function () {
 
-
-    if (reviewTitle.value.trim().length == 0) {
-        alert("제목을 입력해주세요!");
-        reviewTitle.value = "";
-        reviewTitle.focus();
-        return false;
-    }
-    if (review_content.value.trim().length == 0) {
-        alert("내용을 입력해주세요!");
-        review_content.value = "";
-        review_content.focus();
-        return false;
-    }
+                let url = "delete";
 
 
+                // 1) 쿼리스트링에 존재하는 파라미터 모두 얻어오기
+                const params = new URL(location.href).searchParams;
 
-    return true;
-}
+                // 2) 원하는 파라미터만 얻어와 변수에 저장
+                const no = "?no=" + params.get("no"); // ?no=1562
 
-(function () {
-    const deleteBtn = document.getElementById("btn-delete"); // 존재하지 않으면 null
+                const type = "&type=" + params.get("type"); // &type=1
 
-    if (deleteBtn != null) { // 버튼이 화면에 존재할 때
-        deleteBtn.addEventListener("click", function () {
+                // url에 쿼리스트링 추가
+                url += no + type; // delete?no=1562&type=1
 
-            let url = "delete";
+                if (confirm("정말로 삭제 하시겠습니까?")) {
 
+                    location.href = url;
+                }
+            });
 
-            // 1) 쿼리스트링에 존재하는 파라미터 모두 얻어오기
-            const params = new URL(location.href).searchParams;
+        }
+    })();
 
-            // 2) 원하는 파라미터만 얻어와 변수에 저장
-            const no = "?no=" + params.get("no"); // ?no=1562
-
-            const type = "&type=" + params.get("type"); // &type=1
-
-            // url에 쿼리스트링 추가
-            url += no + type; // delete?no=1562&type=1
-
-            if (confirm("정말로 삭제 하시겠습니까?")) {
-
-                location.href = url;
-            }
-        });
-
-    }
-})();
-
-// const inputImage = document.getElementById('img1');
-// const preview = document.getElementById('preview_img'); // ID를 'preview_img'로 변경
-// const deleteImage = document.getElementById('deleteImage');
-// const deleteSet = new Set();
-
-// inputImage.addEventListener("change", function () {
-//     if (this.files[0] != undefined) {
-//         const reader = new FileReader();
-
-//         reader.readAsDataURL(this.files[0]);
-
-//         reader.onload = function (e) {
-//             preview.setAttribute("src", e.target.result);
-//             deleteSet.delete(0);
-//         };
-//     } else {
-//         preview.removeAttribute("src");
-//     }
-// });
-
-// deleteImage.addEventListener("click", function () {
-//     if (preview.getAttribute("src") != "") {
-//         preview.removeAttribute("src");
-//         inputImage.value = "";
-//         deleteSet.add(0);
-//     }
-// });
-function previewImage() {
-    const preview = document.getElementById('preview_img');
-    const fileInput = document.getElementById('img1');
-    const file = fileInput.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-        preview.src = e.target.result;
-        preview.style.display = 'block'; // 이미지 첨부하면 보이게 함
-    }
-
-    if (file) {
-        reader.readAsDataURL(file);
-    }
-}

@@ -1,23 +1,54 @@
+body {
+    margin: 0;
+    font-family: 'Pretendard-Regular', sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    box-sizing: border-box;
+    width: 1250px;
+    margin: auto;
+    margin-right: 350px;
+    padding-bottom: 100px;
+}
+
 .main_container {
     margin-left: 200px;
     margin-top: 50px;
+}
+
+fieldset {
+    margin-top: 100px;
+    width: 900px;
+    height: 800px;
+}
+
+legend {
+    display: flex;
+    text-align: center;
+
+}
+
+h1 {
+    margin: 30px;
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 #review {
     color: rgb(237, 21, 93);
 }
 
-.main_first {
-    width: 350px;
-    font-size: 40px;
-    font-weight: bold;
-    padding: 33px;
-}
-
 .main_second {
     display: flex;
     font-size: 25px;
-    padding: 33px;
+
 }
 
 .main_second>div:last-child {
@@ -25,9 +56,9 @@
 }
 
 .main_third {
-    display: flex;
+    /* display: flex; */
     font-size: 25px;
-    padding: 33px;
+    /* padding: 33px; */
 }
 
 .main_third>div:last-child {
@@ -37,7 +68,6 @@
 .main_fourth {
     display: flex;
     font-size: 25px;
-    padding: 33px 0 10px 33px;
 
 }
 
@@ -52,7 +82,7 @@
 
 .main_second,
 .main_third {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     flex-direction: row;
     align-items: center;
     display: flex;
@@ -66,8 +96,14 @@
     border-bottom: 2px solid #ccc;
     outline: none;
     padding: 10px 0;
-    width: 350px;
-    /* 원하는 너비로 조절 */
+    width: 250px;
+
+}
+
+#reviewTitle {
+    width: 500px;
+    font-size: 20px;
+
 }
 
 #review_content {
@@ -77,6 +113,9 @@
     resize: none;
     border: none;
     outline-color: rgb(237, 21, 93);
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 18px;
 }
 
 .main_sixth {
@@ -92,11 +131,6 @@
     padding: 100px;
 }
 
-
-
-.imgFile {
-    font-size: 15px;
-}
 
 #btn_review {
     font-size: 30px;
@@ -118,100 +152,15 @@
 
 }
 
-
-/* 항목 간의 간격 */
-
-
-.imgFile {
-    cursor: pointer;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: inline-block;
-}
-
-.imgFile:hover {
-    background-color: #e0e0e0;
-}
-
-.inputImg {
-    display: none;
-}
-
-#deleteImage {
-    cursor: pointer;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: inline-block;
-}
-
-#deleteImage:hover {
-    background-color: #e0e0e0;
-}
-
-.image-box {
-    width: 200px;
-    height: 200px;
-    border: 2px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.preview {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-    margin: 10px auto;
-}
-
-.inputImg {
-    display: none;
-}
-
-.imgFile {
-    cursor: pointer;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: inline-block;
-}
-
-.imgFile:hover {
-    background-color: #e0e0e0;
-}
-
-#deleteImage {
-    font-size: 14.5px;
-    cursor: pointer;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    display: inline-block;
-}
-
-.insertContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
 .left-content {
     display: flex;
     align-items: center;
     gap: 30px;
-    /* 아이콘과 텍스트 사이의 간격 조절 */
+    margin-bottom: 25px;
 }
 
-.image-upload-wrap {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
+#review_all,
+#essential,
+#check {
+    font-size: 15px;
 }

@@ -23,7 +23,7 @@ public class ReviewDeleteController extends HttpServlet {
 
 			int type = Integer.parseInt(req.getParameter("type"));
 
-			int result = new BoardService().deleteReviewBoard(boardNo);
+			int result = new BoardService().deleteBoard(boardNo);
 
 			HttpSession session = req.getSession();
 
@@ -31,20 +31,18 @@ public class ReviewDeleteController extends HttpServlet {
 
 			String message = null;
 
-			if(result > 0) {
+			if (result > 0) {
 				message = "게시글이 삭제 되었습니다.";
-				path = req.getContextPath()+ "/board/review?boardCode=6";
+				path = req.getContextPath() + "/board/review?type=6";
 
-			}else {
+			} else {
 
 				message = "게시글 삭제에 실패했습니다.";
-				path = req.getContextPath(); 
+				path = req.getContextPath();
 			}
-
 			session.setAttribute("message", message);
 
 			resp.sendRedirect(path);
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
