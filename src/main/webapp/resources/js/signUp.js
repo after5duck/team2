@@ -15,6 +15,7 @@ const memberNick = document.getElementById("memberNick");
 const memberTel = document.getElementById("memberTel");
 const memberEmail = document.getElementById("memberEmail");
 
+const email2 = document.getElementById("email2");
 /* 메세지들 */
 const idm = document.getElementById("idm");
 const pwm = document.getElementById("pwm");
@@ -276,19 +277,46 @@ emailCertificateBtn.addEventListener("click", ()=>{
             type : "POST",
             success: function(res){
 
-                if(res>0){
-                    alert("이메일 인증에 성공했습니다.")
+                if(res > 0){
+                    alert("이미 사용중인 아이디 입니다.")
+                }else{
+                    alert("해당 이메일로 인증번호를 전송했습니다.");
+                    emailm.innerText = "인증번호 수신을 확인해주세요";
                 }
-
             },
             error : function(){
-
+                console.log("에러 발생");   
             }
-
-
-
         })
     }
 })
 
+const email2Btn = document.getElementById("email2Btn");
 
+email2Btn.addEventListener("click", function(){
+
+    if(email2.value.trim().length == 0 ){
+        alert("인증번호를 입력해주세요");
+    }else{
+
+        $.ajax({
+            url : contextPath + "/member/signUp/checkCode",
+            data : {"inputCode": email2.value},
+            type : "post",
+            success : function(res){
+
+                if(res > 0){
+                    emailm.innerText = "인증되었습니다."
+                }else{
+                    alert("인증번호가 일치하지 않습니다.");
+                    email2.value = "";
+                    email2.focus();
+                }
+
+            },
+            error : function(){
+                console.log("에러 발생");
+            }
+        })
+    }
+})

@@ -106,7 +106,7 @@
 
                         <!-- 이메일 입력 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일(선택 입력)"
+                            <input type="email" id="memberEmail" name="memberEmail" placeholder="이메일(선택 입력)"
                                 maxlength="30" autocomplete="off">
                             <button type="button" id="emailBtn">인증번호 발송</button>
                         </div>
@@ -117,8 +117,8 @@
 
                         <!-- 이메일 인증 영역 -->
                         <div class="signUp-input-area">
-                            <input type="text" id="email2" placeholder="인증번호 입력" autocomplete="off">
-                            <button id="email2Btn">인증번호 확인</button>
+                            <input type="text" id="email2" name="email2" placeholder="인증번호 입력" autocomplete="off">
+                            <button type="button" id="email2Btn">인증번호 확인</button>
                         </div>
 
                         <!-- 이메일 인증 메세지 -->
@@ -134,6 +134,7 @@
                 </section>
                 <!-- 가입하기 버튼 -->
 
+                
                 <c:if test="${ !empty sessionScope.message }">
                     <script>
                         alert("${message}");

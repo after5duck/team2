@@ -11,7 +11,7 @@
 
             <link rel="stylesheet" href="${contextPath}/resources/css/reviewDetail.css">
             <script src="https://kit.fontawesome.com/2b36447307.js" crossorigin="anonymous"></script>
-        </head>
+        </head> 
 
         <body>
 

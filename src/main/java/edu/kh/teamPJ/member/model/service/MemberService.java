@@ -196,6 +196,21 @@ public class MemberService {
 		
 		return result;
 	}
+
+	/** 이메일 중복 확인 Service
+	 * @param inputEmail
+	 * @return
+	 */
+	public int searchEmail(String inputEmail) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.searchEmail(conn, inputEmail);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 	
 	

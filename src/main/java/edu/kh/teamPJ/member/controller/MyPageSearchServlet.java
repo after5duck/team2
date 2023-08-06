@@ -1,6 +1,7 @@
 package edu.kh.teamPJ.member.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.member.model.vo.Member;
 
-@WebServlet("/search/*")
+@WebServlet("/searchList/*")
 public class MyPageSearchServlet extends HttpServlet{
 	
 	@Override
@@ -24,42 +25,41 @@ public class MyPageSearchServlet extends HttpServlet{
 		
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
-		String command = uri.substring((contextPath + "/search/").length());
+		String command = uri.substring((contextPath + "/searchList/").length());
 		
 		BoardService service = new BoardService();
 		
+		HttpSession session = req.getSession();		
+		
+		Member loginMember = (Member)session.getAttribute("loginMember"); 
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		
 		try {
 			
-			if(command.equals("contentList")) {
+			if(command.equals("list")) {
 				
-				//List<Board> boardList = service.searchContentList();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 				
-				/*
-				 * if(boardList != null) {
-				 * 
-				 * }else {
-				 */
+				String inputArea1 = req.getParameter("dateStart");
+				String inputArea2 = req.getParameter("dateEnd");
+				
+				List<Board> boardList = service.searchInputDate(inputArea1, inputArea2);
+				
+				resp.getWriter().print(boardList);
 				
 			}
 			
-			if(command.equals("searchArea")) {
+			if(command.equals("area")) {
 				
-				try {
-					HttpSession session = req.getSession();		
-					
-					Member loginMember = (Member)session.getAttribute("loginMember"); 
-					
-					int memberNo = loginMember.getMemberNo();
-					
-					String inputSearch = req.getParameter("inputSearch");
-					
-					List<Board> boardList = service.searchSearchArea(inputSearch, memberNo);
-					
-					new Gson().toJson(boardList, resp.getWriter());
-					
-				}catch(Exception e) {
-					e.printStackTrace();
-				}
+				
+				String inputSearch = req.getParameter("inputSearch");
+				
+				List<Board> boardList = service.searchSearchArea(inputSearch, memberNo);
+				
+				new Gson().toJson(boardList, resp.getWriter());
+				
 				
 			}
 			

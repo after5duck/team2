@@ -512,28 +512,52 @@ public class BoardService {
 
 		return boardList;
 	}
-	
-	/** 이민주
+
+	/**
+	 * 이동호
 	 * 
-	 *  리뷰게시판 가져오기 Service
+	 * 날짜 검색 Service
+	 * 
+	 * @param inputArea1
+	 * @param inputArea2
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> searchInputDate(String inputArea1, String inputArea2) throws Exception {
+
+		Connection conn = getConnection();
+
+		List<Board> boardList = dao.searchInputDate(conn, inputArea1, inputArea2);
+
+		close(conn);
+
+		return boardList;
+	}
+
+
+
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰게시판 가져오기 Service
+	 * 
 	 * @param boardNo
 	 * @param boardCode
 	 * @return
 	 */
 	public Board selectReviewWithPhotos(int boardNo, int type) throws Exception {
-		
-		
+
 		Connection conn = getConnection();
-		
+
 		Board reviewBoardImg = dao.selectReviewWithPhotos(conn, boardNo, type);
-		
+
 		close(conn);
-		
+
 		return reviewBoardImg;
 	}
-	
-	/** 이민주
-	 * 리뷰 게시글 작성
+
+	/**
+	 * 이민주 리뷰 게시글 작성
 	 * 
 	 * @param reviewWrite
 	 * @param photos
@@ -541,33 +565,18 @@ public class BoardService {
 	 * @return
 	 */
 
-	public int insertReviewBoard(Board reviewWrite, List<Photo> photos, int type) throws Exception{
-	
+	public int insertReviewBoard(Board reviewWrite, int type) throws Exception {
+
 		Connection conn = getConnection();
-		
+
 		int boardNo = dao.nextReviewNo(conn);
-		
+
 		reviewWrite.setBoardNo(boardNo);
-		
-		int result = dao.insertReviewBoard(conn,reviewWrite, type);
-		
-		if(result > 0) {
-			
-			for(Photo reviewPh : photos) {
-				reviewPh.setBoardNo(boardNo);
-				result = dao.insertReviewBoardImg(conn, reviewPh, boardNo);
-				if (result == 0) {
-					break;
 
-				}
+		int result = dao.insertReviewBoard(conn, reviewWrite, type);
 
-			}
-
-		}
-		
 		if (result > 0) {
 			commit(conn);
-
 		} else {
 			rollback(conn);
 			boardNo = 0;
@@ -577,90 +586,72 @@ public class BoardService {
 
 		return boardNo;
 	}
-	/** 이민주
+
+	/**
+	 * 이민주
 	 * 
 	 * 리뷰 게시판 수정하기
+	 * 
 	 * @param reviewWrite
 	 * @param photos
-	 * @param deleteReviewList
 	 * @return
 	 */
-
-	public int updateReviewBoard(Board reviewWrite, List<Photo> photos) throws Exception {
+	public int updateReviewBoard(Board reviewWrite) throws Exception {
 
 		Connection conn = getConnection();
-		
+
 		int result = dao.updateReviewBoard(conn, reviewWrite);
-		
-		if(result > 0) {
-			for(Photo reviewPh : photos) {
-			
-				reviewPh.setBoardNo(reviewWrite.getBoardNo());
-				
-				result = dao.updateReviewImg(conn, reviewPh);
-				
-				if(result == 0) {
-					result = dao.insertReviewBoardImg(conn, reviewPh, result);
-				}
-			}
-			
+
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
 		}
-		
-		if(result > 0) commit(conn);
-		else rollback(conn);
-		
-		close(conn);	
-		
+
+		close(conn);
+
 		return result;
 	}
 
-	/** 마이페이지 특정 게시글 검색
+	/**
+	 * 마이페이지 특정 게시글 검색
+	 * 
 	 * @param inputSearch
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> searchSearchArea( String inputSearch, int memberNo) throws Exception{
-			
+	public List<Board> searchSearchArea(String inputSearch, int memberNo) throws Exception {
+
 		Connection conn = getConnection();
-		
+
 		List<Board> boardList = dao.searchSearchArea(conn, inputSearch, memberNo);
-		
+
 		close(conn);
-		
+
 		return boardList;
 	}
-	
-	/** 이민주
+
+	/**
+	 * 이민주
 	 * 
 	 * 리뷰게시판 삭제
+	 * 
 	 * @param boardNo
-	 * @return
+	 * @return result
 	 */
 	public int deleteReviewBoard(int boardNo) throws Exception {
-		
+
 		Connection conn = getConnection();
-		return 0;
+
+		int result = dao.deleteReviewBoard(conn, boardNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+
+		return result;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

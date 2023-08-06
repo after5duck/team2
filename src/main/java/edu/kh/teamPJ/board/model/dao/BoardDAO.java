@@ -1001,6 +1001,76 @@ public class BoardDAO {
 		return likeCount;
 	}
 
+	public List<Board> searchSearchArea(Connection conn, String inputSearch, int memberNo) throws Exception {
+
+		List<Board> boardList = new ArrayList<>();
+
+		try {
+
+			String sql = prop.getProperty("selectMyContent") + " AND BOARD_TITLE = '" + inputSearch + "'";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, memberNo);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+
+				board.setBoardName(rs.getString(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setCreateDate(rs.getString(3));
+			}
+
+		} finally {
+
+		}
+		return boardList;
+	}
+
+	/**
+	 * 날짜 검색 DAO
+	 * 
+	 * @param conn
+	 * @param inputArea1
+	 * @param inputArea2
+	 * @return boardList
+	 */
+	public List<Board> searchInputDate(Connection conn, String inputArea1, String inputArea2) throws Exception {
+
+		List<Board> boardList = new ArrayList<>();
+
+		try {
+
+			String sql = prop.getProperty("searchInputDate");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, inputArea1);
+			pstmt.setString(2, inputArea2);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+
+				board.setBoardName(rs.getString(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setCreateDate(rs.getString(3));
+
+				boardList.add(board);
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return boardList;
+	}
+
+	
+
 	/**
 	 * 이민주
 	 * 
@@ -1089,6 +1159,7 @@ public class BoardDAO {
 	 * 이민주
 	 * 
 	 * 리뷰 게시글/이미지 정보 가져오는 DAO
+	 * 
 	 * @param conn
 	 * @param boardNo
 	 * @param type
@@ -1119,8 +1190,7 @@ public class BoardDAO {
 					reviewBoardImg.setMemberNickname(rs.getString("MEMBER_NICK"));
 					reviewBoardImg.setBoardCode(rs.getInt("BOARD_CD"));
 					reviewBoardImg.setMemberNo(rs.getInt("MEMBER_NO"));
-					
-				
+
 				}
 
 				String reviewContentPath = rs.getString("CONTENT_PATH");
@@ -1265,9 +1335,9 @@ public class BoardDAO {
 			pstmt.setInt(3, reviewWrite.getBoardNo());
 
 			result = pstmt.executeUpdate();
-			
+
 			System.out.println("result의 값 : " + result);
-			
+
 		} finally {
 			close(pstmt);
 		}
@@ -1327,44 +1397,44 @@ public class BoardDAO {
 			pstmt.setInt(1, boardNo);
 
 			result = pstmt.executeUpdate();
-			
+
 		} finally {
-			
+
 			close(pstmt);
 		}
 
 		return result;
 	}
 
-	public List<Board> searchSearchArea(Connection conn, String inputSearch, int memberNo) throws Exception{
-		
-		List<Board> boardList = new ArrayList<>();
-		
+	
+	/**
+	 * 이민주
+	 * 
+	 * 리뷰 게시판 삭제
+	 * 
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 */
+
+	public int deleteReviewBoard(Connection conn, int boardNo) throws Exception {
+
+		int result = 0;
+
 		try {
-			
-			String sql = prop.getProperty("selectMyContent") + " AND BOARD_TITLE = '" + inputSearch + "'";
-			
+			String sql = prop.getProperty("deleteReviewBoard");
+
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, memberNo);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Board board = new Board();
-				
-				board.setBoardName(rs.getString(1));
-				board.setBoardTitle(rs.getString(2));
-				board.setCreateDate(rs.getString(3));
-				
-			}
-			
-		}finally {
-			
+
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+
+			close(pstmt);
 		}
-		
-		
-		return boardList;
+		return result;
 	}
 
 }

@@ -49,7 +49,7 @@ function selectReplyList(){
 
                     const updateBtn = document.createElement("button");
                     updateBtn.classList.add("btn-modify-comment");
-                    updateBtn.setAttribute("onclick","showUpdateReply(" + reply.replyNo + " , this");
+                    updateBtn.setAttribute("onclick","showUpdateReply(" + reply.replyNo + " \, this)");
                     updateBtn.innerText = "수정";
 
                     const deleteBtn = document.createElement("button");
@@ -224,7 +224,7 @@ function updateReply(replyNo, btn){
                 alert("댓글 수정 성공");
                 selectReplyList();
             }else{
-                alert("댓글 수정 실패")
+                alert("댓글 수정 실패");
             }
         },
         error : function(req, status, error){
