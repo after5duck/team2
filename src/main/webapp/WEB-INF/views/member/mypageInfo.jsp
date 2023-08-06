@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/mypageProfile.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypageProfile.css"?after>
     <script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -63,7 +63,7 @@
                                     <form>
                                         <th>인증번호</th>
                                         <td><input type="text"></td>
-                                        <td><button></button></td>
+                                        <td><button type="button">인증하기</button></td>
                                     </form>
                                 </tr>
                                 <tr>

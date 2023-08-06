@@ -295,6 +295,9 @@ emailCertificateBtn.addEventListener("click", ()=>{
     }
 })
 
+
+/* 이메일 인증 확인 */
+
 const email2Btn = document.getElementById("email2Btn");
 
 email2Btn.addEventListener("click", function(){
@@ -311,7 +314,7 @@ email2Btn.addEventListener("click", function(){
             success : function(res){
 
                 if(res > 0){
-                    emailm.innerText = "인증되었습니다."
+                    alert("인증이 완료되었습니다.");
                 }else{
                     alert("인증번호가 일치하지 않습니다.");
                     email2.value = "";
