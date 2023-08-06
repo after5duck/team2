@@ -33,6 +33,8 @@ if( searchImage != null){
 
                 bodyProfileImg.setAttribute("src",e.target.result);
                 // -> setAttribute() 호출 시 중복되는 속성이 존재하면 덮어쓰기
+
+                document.getElementById("delete").value = 0;
             }
         }
     })
@@ -48,3 +50,18 @@ function profileValidate(){
     }
     return true;
 }
+
+document.getElementById("delete-image").addEventListener("click", function(){
+
+    const del = document.getElementById("delete");
+
+    if(del.value == 0){
+        document.getElementById("bodyProfileImg").setAttribute("src", contextPath + "/resources/images/user.png");
+    
+        document.getElementById("search-image").value = "";
+    
+        del.value = 1;
+    }
+
+
+})

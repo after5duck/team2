@@ -17,11 +17,15 @@ public class EmailCheckServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		int result = 0;
+		int inputCheckNumber = Integer.parseInt(req.getParameter("inputCode"));
+		int checkCode = Integer.parseInt(req.getParameter("ranCode")); 
+
+		System.out.println("체크 난수 " +	checkCode);
+		System.out.println(inputCheckNumber);
 		
-		String inputCheckNumber = req.getParameter("email2");
-		String code = req.getParameter("code");
+		boolean isRight = (checkCode == inputCheckNumber ? true : false);
 		
-		boolean isRight = new SHA256().getSHA256(inputCheckNumber).equals(code) ? true : false;
+		System.out.println("확인" + isRight);
 		
 		if(isRight == true) {
 			result = 1;

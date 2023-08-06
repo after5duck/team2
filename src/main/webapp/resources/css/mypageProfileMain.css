@@ -120,6 +120,22 @@ main {
     font-size: 16px;
 }
 
+/* 이미지 삭제 버튼 */
+
+.profile-image-area{
+    position: relative;
+}
+
+#delete-image{
+    position: absolute;
+    font-size: 30px;
+    top: 5px;
+
+    cursor: pointer;
+}
+
+
+
 .profile-btn-area {
     width: 250px;
     margin: 20px 0;

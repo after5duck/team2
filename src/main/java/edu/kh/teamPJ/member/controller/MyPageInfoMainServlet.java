@@ -53,11 +53,11 @@ public class MyPageInfoMainServlet extends HttpServlet{
 			
 			// 조합된 이미지 경로
 			String profileImage = folderPath + mpReq.getFilesystemName("profileImage");
-//			int delete = Integer.parseInt(mpReq.getParameter("delete"));
-//			
-//			if(delete == 1) {
-//				profileImage = null;
-//			}
+			int delete = Integer.parseInt(mpReq.getParameter("delete"));
+			
+			if(delete == 1) {
+				profileImage = null;
+			}
 			
 			MemberService service = new MemberService();
 			

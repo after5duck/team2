@@ -38,16 +38,22 @@ public class emailCertificateServlet extends HttpServlet{
 		    
 		    int result = service.searchEmail(inputEmail);
 		    
+		    int ranConfirm = 0;
+		    
 		    if( result > 0) {
 		    	
+		    	ranConfirm = 0;
+		    	
 		    }else {
+		    	
+		    	int ranCode = new SHA256().getSHA256();
 				
 				String host = "http://localhost:8080/after5duck-ldh/";
 				String from = "hwabyreTest@gmail.com";
 				String to = req.getParameter("inputEmail");
 				String subject = "ANIVERSE 이메일 인증 메일입니다";
 				String content = "해당 코드를 입력하여 이메일 확인을 진행하세요." +
-								  new SHA256().getSHA256(to);
+								  "<br>" + ranCode;
 				
 				
 				System.out.println("메일 전송 주소 : " + to);
@@ -79,25 +85,18 @@ public class emailCertificateServlet extends HttpServlet{
 				msg.addRecipient(Message.RecipientType.TO, toAddr);
 				msg.setContent(content, "text/html;charset=UTF8");
 				Transport.send(msg);
+			
+				System.out.println("인증번호 난수 전 " + ranCode);
 				
-				String code = req.getParameter("code");
+				ranConfirm = ranCode;
 				
-				if( code != null) {
-					boolean isRight = new SHA256().getSHA256(inputEmail).equals(code) ? true : false;
-					
-					if(isRight == true) {
-						System.out.println("인증성공");
-					}else {
-						System.out.println("인증실패");
-					}
-					
-				}
+				System.out.println("인증번호 난수 후" + ranCode);
 				
-
 				
 		    }
 		    
-		    resp.getWriter().print(result);
+		    
+		    resp.getWriter().print(ranConfirm);
 		    
 		    
 		    
