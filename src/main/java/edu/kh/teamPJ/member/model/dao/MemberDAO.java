@@ -354,6 +354,39 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 이메일 중복 확인 DAO
+	 * @param conn
+	 * @param inputEmail
+	 * @return result
+	 */
+	public int searchEmail(Connection conn, String inputEmail) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("searchEmail");
+			
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, inputEmail);
+			
+			rs = pstmt.executeQuery();
+		
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 
 
 

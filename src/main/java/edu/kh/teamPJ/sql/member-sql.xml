@@ -106,7 +106,12 @@
 	  UPDATE MEMBER SET MEMBER_NICK = ?, MEMBER_EMAIL = ?
 	  WHERE MEMBER_NO = ?
    </entry>
-
+   
+   <!-- 이메일 중복 검사 -->
+	<entry key="searchEmail">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = ?	
+	</entry>
 	
 	
 	

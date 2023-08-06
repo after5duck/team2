@@ -17,31 +17,41 @@ delEmail_btn.addEventListener("click",()=>{
     }
 })
 
-function listValidate(){
-    const dateStart = document.getElementsByClassName("dateStart")[0];
-    const dateEnd = document.getElementsByClassName("dateEnd")[0];
+const dateStart = document.getElementsByClassName("dateStart")[0];
+const dateEnd = document.getElementsByClassName("dateEnd")[0];
 
-    if(dateStart.value == "" || dateEnd.value == ""){
-        alert("날짜를 설정해주세요");
-        return false;
-    }
+dateStart.addEventListener("change",()=>{
+    console.log(dateStart.value);
+})
 
-    if(dateStart.value > dateEnd.value){
-        alert("범위를 다시 설정해주세요");
-        return false;
-    }
 
-    return true;
-}
+// function listValidate(){
 
-function changeProfile(){
+//     console.log(dateStart.value);
+//     console.log(dateEnd.value);
 
-    if(!confirm("변경하시겠습니까?")){
-        return false;
-    }
 
-    return true;
-}
+//     if(dateStart.value == "" || dateEnd.value == ""){
+//         alert("날짜를 설정해주세요");
+//         return false;
+//     }
+
+//     if(dateStart.value > dateEnd.value){
+//         alert("범위를 다시 설정해주세요");
+//         return false;
+//     }
+
+//     return true;
+// }
+
+// function changeProfile(){
+
+//     if(!confirm("변경하시겠습니까?")){
+//         return false;
+//     }
+
+//     return true;
+// }
 
 const checkBtn =  document.getElementById("btn-check");
 const nickInfo = document.getElementById("nickInfo"); // 닉네임 input
