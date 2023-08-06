@@ -35,7 +35,7 @@
                         <li><a href="${contextPath}/member/mypage/changeInfo">프로필 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/changePw">비밀번호 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/likeList">좋아요 목록</a></li>
-                        <li><a href="${contextPath}/member/mypage/contentList">게시글 목록</a></li>
+                        <li><a href="${contextPath}/member/mypage/contentList/all">게시글 목록</a></li>
             			<li><a href="${contextPath}/member/mypage/secession">회원탈퇴</a></li>
                     </ul>
                 </article>

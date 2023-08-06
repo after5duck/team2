@@ -1005,7 +1005,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("selectMyContent") + " AND BOARD_TITLE = '" + inputSearch + "'";
+			String sql = prop.getProperty("selectMyContent") + " AND BOARD_TITLE LIKE %'" + inputSearch + "'%";
 
 			pstmt = conn.prepareStatement(sql);
 
