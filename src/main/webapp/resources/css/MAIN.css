@@ -7,10 +7,12 @@
 	font-style: normal;
 }
 
+
 /* 모두를 감싸고 있는 부분 (Header,Body 공통 적용) */
 main {
 	box-sizing: border-box;
 	padding-bottom: 170px;
+	margin: auto;
 }
 
 body {

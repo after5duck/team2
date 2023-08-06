@@ -48,17 +48,11 @@ public class DayDAO {
 
 			Connection conn = getConnection();
 
-			System.out.println("커넥션 연결 성공!");
-
 			String sql = prop.getProperty("getDayList");
-
-			System.out.println("sql문 수행");
 
 			pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
-
-			System.out.println("결과 반환 받음");
 
 			while (rs.next()) {
 
@@ -68,12 +62,11 @@ public class DayDAO {
 				dayDTO.setBoardTitle(rs.getString("BOARD_TITLE"));
 
 				imageList.add(dayDTO);
-				System.out.println("DTO 객체 추가");
-				
-				if(imageList == null) {
-					System.out.println("비어있습니다..ㅠㅠ");
-				}else {
-					System.out.println("값이 있다...");
+
+				if (imageList == null) {
+
+				} else {
+
 				}
 			}
 		} catch (Exception e) {
@@ -82,10 +75,8 @@ public class DayDAO {
 			closeResources();
 		}
 
-		System.out.println("이미지리스트 반환함");
+		return imageList; // imageList 반환
 
-		return imageList; // imageList 반환	
-		
 	}
 
 	// 자원반환 메소드

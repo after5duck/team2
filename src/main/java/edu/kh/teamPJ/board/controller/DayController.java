@@ -27,7 +27,7 @@ public class DayController extends HttpServlet {
             		
             // resp.sendRedirect(req.getContextPath() + "/index.jsp");
             resp.sendRedirect("test");
-            System.out.println("리다이렉트 해줌");
+          
             
 
         } catch (Exception e) {
