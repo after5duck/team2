@@ -31,11 +31,11 @@
 	<a href="#" class="scroll-top-btn">Top</a>
 
 	<main>
+		<div class="main_first"><h1>테마추천</h1></div>
+		<hr>
 		<div class="main_container">
 
 
-			<div class="main_first"><h1>테마추천</h1></div>
-			<hr>
 			<div class="main_second">
 				<c:forEach var="themeList" items="${list}" end="8">
 

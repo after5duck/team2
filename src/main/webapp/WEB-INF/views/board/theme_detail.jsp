@@ -80,9 +80,12 @@
             
 
                 <div class="main_first">
-                    <div><img src="${contextPath}/resources/images/${sportsList[0].contentPath}"></div>
-                    <div>${sportsList[0].boardTitle}</div>
-                    <div>${sportsList[0].boardContent}</div>
+                    <div><img id="head_img" src="${contextPath}/resources/images/${sportsList[0].contentPath}"></div>
+                    <div id="head_content">
+
+                        <div>${sportsList[0].boardTitle}</div>
+                        <div><i class="fa-solid fa-play" style="color:rgb(195, 82, 244)"></i> &nbsp;${sportsList[0].boardContent}</div>
+                    </div>
     
                 </div>
                     

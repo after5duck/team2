@@ -20,7 +20,8 @@ body {
 
 
 .main_container{
-  
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -33,7 +34,6 @@ body {
 .main_second{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-
 }
 h1 {
     display: block;
@@ -61,7 +61,13 @@ hr {
 } */
 .second{
     width: 380px;
-    padding-bottom: 40px;
+    display: flex;
+    padding: 28px;
+}
+
+.second:hover{
+    background-color: whitesmoke;
+    border-radius: 10px;
 }
 .content{
     text-align: left;
