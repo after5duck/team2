@@ -37,10 +37,10 @@
 			<div class="main_first"><h1>테마추천</h1></div>
 			<hr>
 			<div class="main_second">
-				<c:forEach var="themeList" items="${list}">
+				<c:forEach var="themeList" items="${list}" end="8">
 
 					<div class="second">
-						<a href="theme_detail?boardNo=${themeList.boardNo}&boardCode=${themeList.boardCode}" class="a_tag_theme">
+						<a href="theme_detail?boardNo=${themeList.boardNo}" class="a_tag_theme">
 							
 							<div>
 								<img name="theme_image" src="${contextPath}/resources/images/${themeList.contentPath}">

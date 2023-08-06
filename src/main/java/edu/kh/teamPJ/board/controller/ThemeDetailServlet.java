@@ -46,15 +46,15 @@ public class ThemeDetailServlet extends HttpServlet {
 			case 51: boardCode = 14; break;
 			case 52: boardCode = 15; break;
 			
-			case 99 : boardCode = 16; break;
-			case 100: boardCode = 17; break;
-			case 101: boardCode = 18; break;
-			case 102: boardCode = 19; break;
-			case 103: boardCode = 20; break;
-			case 104: boardCode = 21; break;
-			case 105: boardCode = 22; break;
-			case 106: boardCode = 23; break;
-			case 107: boardCode = 24; break;
+//			case 99 : boardCode = 16; break;
+//			case 100: boardCode = 17; break;
+//			case 101: boardCode = 18; break;
+//			case 102: boardCode = 19; break;
+//			case 103: boardCode = 20; break;
+//			case 104: boardCode = 21; break;
+//			case 105: boardCode = 22; break;
+//			case 106: boardCode = 23; break;
+//			case 107: boardCode = 24; break;
 			}
 			
 			ThemeDetailService service = new ThemeDetailService();

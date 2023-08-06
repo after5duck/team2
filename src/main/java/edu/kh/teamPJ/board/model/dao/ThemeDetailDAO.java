@@ -31,7 +31,7 @@ public class ThemeDetailDAO {
 		try {
 			prop = new Properties();
 			
-			String filePath = ThemeDAO.class.getResource("/edu/kh/teamPJ/sql/board-sql.xml").getPath();
+			String filePath = ThemeDAO.class.getResource("/edu/kh/teamPJ/sql/PJH-sql.xml").getPath();
 			
 			prop.loadFromXML(new FileInputStream(filePath));
 			
@@ -45,7 +45,7 @@ public class ThemeDetailDAO {
 	 * @param conn
 	 * @param boardNo 
 	 * @param boardCode 
-	 * @return
+	 * @return sportsList
 	 * @throws Exception
 	 */
 	public List<Theme> selectSportsList(Connection conn, int boardNo, int boardCode) throws Exception{
@@ -89,50 +89,50 @@ public class ThemeDetailDAO {
 	}
 
 
-	/**
-	 * @param conn
-	 * @param boardNo 
-	 * @param boardNo
-	 * @param boardCode
-	 * @param boardNo 
-	 * @return
-	 * @throws Exception
-	 */
-//	public List<Theme> selectDetail(Connection conn, int boardCode, int boardNo) throws Exception{
+//	/**
+//	 * @param conn
+//	 * @param boardNo
+//	 * @param boardCode
+//	 * @return head
+//	 * @throws Exception
+//	 */
+//	public List<Theme> selectHeadList(Connection conn, int boardNo, int boardCode) throws Exception{
 //		
 //		List<Theme> head = new ArrayList<Theme>();
 //		
 //		try {
-//
-//			String sql = prop.getProperty("selectThemeDetail");
-//
+//			
+//			String sql = prop.getProperty("selectHeadList");
+//			
 //			pstmt = conn.prepareStatement(sql);
-//
+//			
 //			pstmt.setInt(1, boardCode);
-//
+//			
 //			rs = pstmt.executeQuery();
-//
+//			
 //			while (rs.next()) {
 //
+//				Theme hd = new Theme();
+//
+//				hd.setContentPath(rs.getString("CONTENT_PATH"));
+//				hd.setBoardTitle(rs.getString("BOARD_TITLE"));
+//				hd.setBoardContent(rs.getString("BOARD_CONTENT"));
 //				
-//				Theme theme = new Theme();
-//					
+//								
+//				
+//				head.add(hd);
 //
-//				theme.setBoardTitle(rs.getString("BOARD_TITLE"));
-//				theme.setBoardContent(rs.getString("BOARD_CONTENT"));
-//				theme.setContentPath(rs.getString("CONTENT_PATH"));
-//			
-//				head.add(theme);
 //			}
-//
 //			
-//		} finally {
+//			
+//		}finally {
 //			close(rs);
 //			close(pstmt);
 //		}
-//
 //		
 //		return head;
 //	}
+//
+//
 
 }

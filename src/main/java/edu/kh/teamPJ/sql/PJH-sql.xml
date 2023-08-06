@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>PJH-sql.xml</comment>
+
+<!-- 박정흠 sql -->
+
+	<!-- db합치면 보드넘버 바뀌니까 그땐 조건 다른걸로 바꿔야함! -->
+	<entry key="selectThemeList">
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH,
+		BOARD_NO, BOARD_CD
+		FROM
+		BOARD
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD =
+		3
+		AND BOARD_NO IN
+		(44,45,46,47,48,49,50,51,52,99,100,101,102,103,104,105,106,107)
+
+	</entry>
+
+	<!-- 굿즈조회 -->
+	<entry key="selectGoodsList">
+		SELECT BOARD_TITLE, CONTENT_PATH
+		FROM BOARD
+		JOIN PHOTO
+		USING(BOARD_NO)
+		WHERE BOARD_CD = 5
+	</entry>
+
+
+
+	
+
+	<!-- 테마추천 상세 내용조회 -->
+	<entry key="selectSportsList">
+		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH, AGE, GENRE, VIDEO_PATH
+		FROM BOARD
+		JOIN PHOTO USING(BOARD_NO)
+		WHERE BOARD_CD = ?
+
+	</entry>
+
+
+	<!-- 박정흠 sql 끝 -->
+
+</properties>

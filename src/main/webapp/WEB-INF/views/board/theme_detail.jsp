@@ -78,11 +78,15 @@
     <main>
         <div class="main_container">
             
-           
 
-           
+                <div class="main_first">
+                    <div><img src="${contextPath}/resources/images/${sportsList[0].contentPath}"></div>
+                    <div>${sportsList[0].boardTitle}</div>
+                    <div>${sportsList[0].boardContent}</div>
+    
+                </div>
                     
-            <c:forEach var="sportsList" items="${sportsList}">
+            <c:forEach var="sportsList" items="${sportsList}" begin="1">
                 <div class="main_content">
                             
                     <div><img name="detail_image" src="${contextPath}/resources/images/${sportsList.contentPath}"></div>

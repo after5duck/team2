@@ -42,26 +42,29 @@ public List<Theme> selectSportsList(int boardNo, int boardCode) throws Exception
 	return sportsList;
 }
 
-/**
- * @param boardNo 
- * @param boardNo
- * @param boardCode
- * @param boardNo 
- * @return head
- * @throws Exception
- */
-//public List<Theme> selectDetail(int boardCode, int boardNo) throws Exception{
+
+
+///**
+// * @param boardNo
+// * @param boardCode
+// * @return head
+// * @throws Exception
+// */
+//public List<Theme> selectHeadList(int boardNo, int boardCode) throws Exception{
 //	
 //	Connection conn = getConnection();
-//
-//	List<Theme> head = dao.selectDetail(conn, boardCode, boardNo);
+//	
+//	List<Theme> head = dao.selectHeadList(conn, boardNo, boardCode);
+//	
+//	
 //	
 //	close(conn);
 //	
 //	
+//	
 //	return head;
 //}
-  
+
   
   
 }
