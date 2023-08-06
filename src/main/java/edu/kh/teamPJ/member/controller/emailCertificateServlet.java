@@ -45,9 +45,9 @@ public class emailCertificateServlet extends HttpServlet{
 				String host = "http://localhost:8080/after5duck-ldh/";
 				String from = "hwabyreTest@gmail.com";
 				String to = req.getParameter("inputEmail");
-				String subject = "이메일 인증 메일";
-				String content = "다음 링크에 접속하여 이메일 확인을 진행하세요." +
-						"<a href='" + host + "member/signUp?code=" + new SHA256().getSHA256(to) + "'>이메일 인증하기</a>";
+				String subject = "ANIVERSE 이메일 인증 메일입니다";
+				String content = "해당 코드를 입력하여 이메일 확인을 진행하세요." +
+								  new SHA256().getSHA256(to);
 				
 				
 				System.out.println("메일 전송 주소 : " + to);
