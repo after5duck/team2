@@ -22,9 +22,12 @@
                 <div class="container">
 
                     <div class="keywordRs">
+
                         <h2>"${map.keyword}"</h2>
                         <h2>검색 결과</h2>
+
                     </div>
+
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
@@ -46,29 +49,101 @@
                                 <c:otherwise>
                                     <c:forEach var="board" items="${map.searchResult}">
                                         <tr>
-                                            <td class="boardCd">${board.boardName}&nbsp;게시판</td>
+                                            <td class="boardCd">
+                                                <c:choose>
+                                                    <c:when test="${board.boardName == '메인'}">
+                                                        <a href="${contextPath}/test">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                    <c:when test="${board.boardName == '신작애니'}">
+                                                        <a
+                                                            href="${contextPath}/board/newAnime">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                    <c:when test="${board.boardName == '테마추천'}">
+                                                        <a
+                                                            href="${contextPath}/board/theme">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                    <c:when test="${board.boardName == '팬아트'}">
+                                                        <a
+                                                            href="${contextPath}/board/fanart?boardCode=4">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                    <c:when test="${board.boardName == '굿즈'}">
+                                                        <a
+                                                            href="${contextPath}/board/goods">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                    <c:when test="${board.boardName == '리뷰'}">
+                                                        <a
+                                                            href="${contextPath}/board/review?type=6">${board.boardName}&nbsp;게시판</a>
+                                                    </c:when>
+                                                </c:choose>
+
+                                            </td>
+
+                                            <!-- **************** **************** **************** **************** **************** **************** -->
+
                                             <td class="No">${board.boardNo}</td>
 
                                             <c:choose>
+                                                <c:when test="${board.boardCode == 1}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/test">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
                                                 <c:when test="${board.boardCode == 2}">
                                                     <td class="title">
                                                         <a
-                                                            href="${contextPath}/board/newAnime?boardNo=${board.boardNo}">${board.boardTitle}</a>
+                                                            href="${contextPath}/board/newAnime?boardNo=${board.boardNo}">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
                                                     </td>
                                                 </c:when>
                                                 <c:when test="${board.boardCode == 4}">
                                                     <td class="title">
                                                         <a
-                                                            href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">${board.boardTitle}</a>
+                                                            href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
                                                     </td>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <td class="title">
                                                         <a
-                                                            href="${contextPath}/board/detail?boardNo=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
+                                                            href="${contextPath}/board/detail?boardNo=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
                                                     </td>
                                                 </c:otherwise>
                                             </c:choose>
+
 
                                             <!-- **************** **************** **************** **************** **************** **************** -->
 
