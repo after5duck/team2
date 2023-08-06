@@ -66,12 +66,6 @@
 		WHERE BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ?
 	</entry>
 
-	<!-- 게시글 상세 조회 -->
-	<!-- <entry key="selectReviewDetail"> SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, 
-		TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT, READ_COUNT, 
-		MEMBER_NICK, PROFILE_IMG, MEMBER_NO FROM BOARD JOIN MEMBER USING(MEMBER_NO) 
-		JOIN BOARD_TYPE USING(BOARD_CD) WHERE BOARD_NO = ? AND BOARD_ST = 'N' </entry> -->
-
 	<!-- 리뷰 게시글/이미지 정보 가져오는 DAO -->
 	<entry key="selectReviewWithPhotos">
 		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT, CREATE_DT,
@@ -93,17 +87,12 @@
 	</entry>
 
 	<!-- 리뷰게시판 작성 -->
+
 	<entry key="reviewInsertBoard">
 		INSERT INTO BOARD VALUES(?,?,?,DEFAULT,DEFAULT,
 		DEFAULT, ?, DEFAULT,
 		DEFAULT,
 		DEFAULT, DEFAULT, DEFAULT, ?, DEFAULT)
-	</entry>
-
-	<!-- 리뷰 게시판 등록 (이미지) -->
-	<entry key="insertReviewImage">
-		INSERT INTO PHOTO
-		VALUES(?, ?,DEFAULT,DEFAULT)
 	</entry>
 
 	<!-- 리뷰 게시판 수정 -->
@@ -113,19 +102,13 @@
 		WHERE BOARD_NO = ?
 	</entry>
 
-	<!-- 리뷰 게시판 이미지 수정 -->
-	<entry key="reviewUpdateBoardImg">
-		UPDATE PHOTO SET
-		CONTENT_PATH = ?
+	<!-- 리뷰게시글 삭제 -->
+
+	<entry key="deleteReviewBoard">
+		UPDATE BOARD
+		SET BOARD_ST = 'Y'
 		WHERE BOARD_NO = ?
 	</entry>
-
-	<!-- 리뷰 게시판 이미지 삭제 -->
-	<entry key="reviewDeleteBoardImg">
-		DELETE FROM PHOTO
-		WHERE BOARD_NO = ?
-	</entry>
-
 	<!-- *************************************************************** -->
 
 
@@ -319,12 +302,14 @@
 	</entry>
 
 	<entry key="selectBoardDetail">
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
-		CREATE_DT, READ_COUNT,
+
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, READ_COUNT,
 		MEMBER_NO, MEMBER_NICK,
 		PROFILE_IMG, BOARD_NM
 		FROM BOARD
-		JOIN MEMBER USING (MEMBER_NO)
+		JOIN
+		MEMBER USING
+		(MEMBER_NO)
 		JOIN BOARD_TYPE USING
 		(BOARD_CD)
 		WHERE BOARD_NO = ?
@@ -393,10 +378,12 @@
 	<!-- 테마추천 상세 내용조회 -->
 	<entry key="selectSportsList">
 		SELECT BOARD_TITLE, BOARD_CONTENT, CONTENT_PATH
-		FROM BOARD
+		FROM
+		BOARD
 		JOIN PHOTO USING(BOARD_NO)
 		WHERE BOARD_NO BETWEEN 44 AND 107
-		AND BOARD_CD = ?
+		AND
+		BOARD_CD = ?
 
 	</entry>
 

@@ -19,13 +19,19 @@
             <!-- 추가: font-awesome 라이브러리 CDN -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
             <script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
+
+            <c:if test="${not empty sessionScope.message}">
+                <script>alert('${sessionScope.message}');</script>
+                <c:remove var="message" scope="session" /> <!-- 세션에서 메시지 제거 -->
+            </c:if>
+
         </head>
 
 
         <body>
             <!-- 공용 헤더 -->
-
             <jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
+
             <main>
                 <div class="container">
                     <div class="row">
@@ -49,16 +55,19 @@
                             </form>
                         </div>
                     </div>
+
+
                     <div class="row mt-3">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>번호</th>
+
+                                    <th>글번호</th>
                                     <th>제목</th>
                                     <th>작성자</th>
                                     <th>작성일</th>
                                     <th>조회수</th>
-                                    <th>추천수</th>
+                                    <!-- <th>추천수</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,17 +76,19 @@
                                         <c:forEach var="board" items="${boardList}">
 
                                             <tr>
+
                                                 <td>${board.boardNo}</td>
                                                 <td>
-                                                    <a
+                                                    <a class="my-link"
                                                         href="${contextPath}/board/detail?boardNo=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}${sURL}">
                                                         ${board.boardTitle}
                                                     </a>
+
                                                 </td>
                                                 <td>${board.memberNickname}</td>
                                                 <td>${board.createDate}</td>
                                                 <td>${board.readCount}</td>
-                                                <td>50</td>
+                                                <!-- <td>50</td> -->
                                             </tr>
 
                                         </c:forEach>

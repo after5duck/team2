@@ -62,46 +62,16 @@ public class ReviewWriteController extends HttpServlet {
 
 		try {
 
-			int maxSize = 1024 * 1024 * 100;
+			
+			String boardTitle = req.getParameter("boardTitle");
+	        String boardContent = req.getParameter("boardContent");
 
-			HttpSession session = req.getSession();
-			String root = session.getServletContext().getRealPath("/");
-			String folderPath = "resources/images/review-images/";
-			String filePath = root + folderPath;
+	        int type = Integer.parseInt(req.getParameter("type"));
 
-			String encoding = "UTF-8";
+	        HttpSession session = req.getSession();
 
-			MultipartRequest mpReq = new MultipartRequest(req, filePath, maxSize, encoding, new MyRenamePolicy());
-
-			Enumeration<String> files = mpReq.getFileNames();
-
-			List<Photo> photos = new ArrayList<Photo>();
-
-			while (files.hasMoreElements()) {
-
-				String name = files.nextElement();
-
-				String rename = mpReq.getFilesystemName(name);
-
-				if (rename != null) {
-
-					Photo photo = new Photo();
-
-					photo.setContentPath(rename);
-
-					photos.add(photo);
-
-				}
-			}
-
-			String boardTitle = mpReq.getParameter("boardTitle");
-			String boardContent = mpReq.getParameter("boardContent");
-
-			int type = Integer.parseInt(mpReq.getParameter("type"));
-
-			Member loginMember = (Member) session.getAttribute("loginMember");
-			int memberNo = loginMember.getMemberNo(); // 회원 번호
-
+	        Member loginMember = (Member) session.getAttribute("loginMember");
+	        int memberNo = loginMember.getMemberNo(); // 회원 번호
 			Board reviewWrite = new Board();
 
 			reviewWrite.setBoardTitle(boardTitle);
@@ -110,63 +80,57 @@ public class ReviewWriteController extends HttpServlet {
 
 			BoardService service = new BoardService();
 
-			String mode = mpReq.getParameter("mode");
+			 String mode = req.getParameter("mode");
+			 if (mode.equals("insert")) {
 
-			if (mode.equals("insert")) {
+		            int boardNo = service.insertReviewBoard(reviewWrite, type);
 
-				int boardNo = service.insertReviewBoard(reviewWrite, photos, type);
+		            String path = null;
 
-				String path = null;
+		            if (boardNo > 0) {
+		                
+		                session.setAttribute("message", "리뷰가 등록되었습니다");
+		                
+		                resp.sendRedirect(req.getContextPath() + "/board/detail?boardNo="+boardNo+"&type=" + type);
+		        
+		            } else {
 
-				if (boardNo > 0) {
-					
-					session.setAttribute("message", "리뷰가 등록되었습니다");
-					
-					resp.sendRedirect(req.getContextPath() + "/board/detail?boardNo="+boardNo+"&type=" + type);
-			
-				} else {
+		                session.setAttribute("message", "리뷰 작성 실패ㅠㅠ");
 
-					session.setAttribute("message", "리뷰 작성 실패ㅠㅠ");
-
-					path = req.getHeader("referer");
-					
-					resp.sendRedirect(path);
-				}
+		                path = req.getHeader("referer");
+		                
+		                resp.sendRedirect(path);
+		            }
 			}
 
-			if (mode.equals("update")) {
+			 if (mode.equals("update")) {
 
-				int boardNo = Integer.parseInt(mpReq.getParameter("boardNo"));
-				
-				System.out.println(reviewWrite);
-				System.out.println("update로 넘어옴");
-				System.out.println(boardNo);
-				
-			
+				    int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 
-				reviewWrite.setBoardNo(boardNo);
+				    reviewWrite.setBoardNo(boardNo);
 
-				int result = service.updateReviewBoard(reviewWrite, photos);
+				    int result = service.updateReviewBoard(reviewWrite);
 
-				String path = null;
+				    String path = null;
 
-				String message = null;
+				    String message = null;
 
-				if (result > 0) {
+				    if (result > 0) {
 
-					path = req.getContextPath() +"/board/detail?boardNo="+boardNo+"&type=" + type;
-				
-					message = "리뷰게시글이 수정되었습니다.";
+				        path = req.getContextPath() +"/board/detail?boardNo="+boardNo+"&type=" + type;
 
-				} else {
+				        message = "리뷰게시글이 수정되었습니다.";
 
-					path = req.getHeader("referer");
+				    } else {
 
-					message = "리뷰 수정 실패ㅠㅠ";
+				        path = req.getHeader("referer");
+
+				        message = "리뷰 수정 실패ㅠㅠ";
+				    }
+				    session.setAttribute("message", message);
+				    resp.sendRedirect(path);
 				}
-				session.setAttribute("message", message);
-				resp.sendRedirect(path);
-			}
+
 		}
 
 		catch (Exception e) {

@@ -135,7 +135,7 @@
             </script>
 
             <script src="${contextPath}/resources/js/reviewReply.js"></script>
-
+            <script src="${contextPath}/resources/js/reviewDetail.js"></script>
         </body>
 
         </html>
