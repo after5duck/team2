@@ -52,27 +52,24 @@
                                             <td class="boardCd">
                                                 <c:choose>
                                                     <c:when test="${board.boardName == '메인'}">
-                                                        <a href="${contextPath}/test">${board.boardName}&nbsp;게시판</a>
+                                                        <a href="${contextPath}/test">${board.boardName}</a>
                                                     </c:when>
                                                     <c:when test="${board.boardName == '신작애니'}">
-                                                        <a
-                                                            href="${contextPath}/board/newAnime">${board.boardName}&nbsp;게시판</a>
+                                                        <a href="${contextPath}/board/newAnime">${board.boardName}</a>
                                                     </c:when>
                                                     <c:when test="${board.boardName == '테마추천'}">
-                                                        <a
-                                                            href="${contextPath}/board/theme">${board.boardName}&nbsp;게시판</a>
+                                                        <a href="${contextPath}/board/theme">${board.boardName}</a>
                                                     </c:when>
                                                     <c:when test="${board.boardName == '팬아트'}">
                                                         <a
-                                                            href="${contextPath}/board/fanart?boardCode=4">${board.boardName}&nbsp;게시판</a>
+                                                            href="${contextPath}/board/fanart?boardCode=4">${board.boardName}</a>
                                                     </c:when>
                                                     <c:when test="${board.boardName == '굿즈'}">
-                                                        <a
-                                                            href="${contextPath}/board/goods">${board.boardName}&nbsp;게시판</a>
+                                                        <a href="${contextPath}/board/goods">${board.boardName}</a>
                                                     </c:when>
                                                     <c:when test="${board.boardName == '리뷰'}">
                                                         <a
-                                                            href="${contextPath}/board/review?type=6">${board.boardName}&nbsp;게시판</a>
+                                                            href="${contextPath}/board/review?type=6">${board.boardName}</a>
                                                     </c:when>
                                                 </c:choose>
 

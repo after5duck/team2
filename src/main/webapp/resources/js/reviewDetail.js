@@ -25,3 +25,34 @@
 		});
 	}
 })();
+
+
+/* 조회수 증가 */
+function updateReadCount() {
+
+	$.ajax({
+
+		url: contextPath + "/board/detail/updateReadCount",
+
+		data: { "boardNo": boardNo },
+
+		type: "get",
+
+		success: function (data) {
+
+			document.getElementById("readCount").innerText = data;
+		},
+
+		error: function () {
+
+			console.log("조회수 업데이트 실패");
+		},
+	});
+}
+(function () {
+
+	updateReadCount();
+
+})();
+
+
