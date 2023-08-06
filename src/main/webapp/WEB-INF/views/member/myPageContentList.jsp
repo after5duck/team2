@@ -35,7 +35,7 @@
                         <li><a href="${contextPath}/member/mypage/changeInfo">프로필 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/changePw">비밀번호 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/likeList">좋아요 목록</a></li>
-                        <li><a href="${contextPath}/member/mypage/contentList">게시글 목록</a></li>
+                        <li><a href="${contextPath}/member/mypage/contentList/all">게시글 목록</a></li>
                         <li><a href="${contextPath}/member/mypage/secession">회원탈퇴</a></li>
                     </ul>
                 </article>
@@ -57,7 +57,7 @@
 
                         <!-- 검색어로 내가 쓴 글 조회하기 -->
                             <div class="searcharea">
-                                <form action="searchList/area" name="mypageSearchContent" onsubmit="return searchValidate()">
+                                <form action="searchList/searcharea" name="mypageSearchContent" onsubmit="return searchValidate()">
                                     <input type="search" name="inputSearch" id="inputSearch" placeholder="게시글 제목 입력">
                                     <button id="btn-submit">검색</button>
                                 </form>

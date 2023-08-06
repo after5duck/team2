@@ -44,7 +44,7 @@ function searchArea(){
 
     $.ajax({
 
-        url : contextPath + "member/search/searchArea",
+        url : contextPath + "/member/searchList/searchArea",
         data : {"inputSearch" : inputSearch},
         type : "post",
         dataType : "JSON",
@@ -82,7 +82,7 @@ function searchArea(){
 
         },
         error : function(){
-
+            console.log("에러발생");
         }
     })
 }
