@@ -9,13 +9,28 @@ body {
 }
 
 .container {
+	max-width: 1300px !important;
+	padding-bottom: 200px;
 	margin-top: 40px;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.No {
+	text-align: center;
 }
 
 .keywordRs {
 	display: flex;
 	gap: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 .title {
@@ -25,4 +40,14 @@ body {
 .createDt {
 	width: 40px;
 	white-space: nowrap;
+}
+
+a {
+	text-decoration: none !important;
+	color: black !important;
+}
+
+a:hover {
+	text-decoration: none !important;
+	color: black !important;
 }

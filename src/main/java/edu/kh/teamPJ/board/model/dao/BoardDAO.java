@@ -51,14 +51,13 @@ public class BoardDAO {
 		List<Modal> modalList = new ArrayList<>();
 
 		try {
-			System.out.println("try문 시작");
+		
 			String sql = prop.getProperty("selectModalList");
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 
-				System.out.println("while문 시작");
 				Modal modal = new Modal();
 				modal.setBoardTitle(rs.getString("BOARD_TITLE"));
 				modal.setGenre(rs.getString("GENRE"));
@@ -117,7 +116,7 @@ public class BoardDAO {
 				mainPhoto.setBoardContent(rs.getString("BOARD_CONTENT"));
 
 				mainPhotoList.add(mainPhoto);
-				System.out.println("mainPhotoList 값 : " + mainPhotoList);
+				
 			}
 		} finally {
 			close(rs);
@@ -157,8 +156,7 @@ public class BoardDAO {
 
 				vList.add(videoModal);
 
-				System.out.println("vList의 값 : " + vList);
-				System.out.println("제목 : " + videoModal);
+				
 			}
 
 		} finally {
@@ -1098,10 +1096,13 @@ public class BoardDAO {
 
 				Board board = new Board();
 
+				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
-
+				board.setBoardCode(rs.getInt("BOARD_CD"));
+				board.setBoardName(rs.getString("BOARD_NM"));
+				
 				searchResult.add(board);
 
 			}
