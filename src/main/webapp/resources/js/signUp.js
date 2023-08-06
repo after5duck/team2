@@ -264,6 +264,8 @@ function signUpValidate(){
 
 /* 이메일 인증 */
 
+let ranCode;
+
 const emailCertificateBtn = document.getElementById("emailBtn");
 
 emailCertificateBtn.addEventListener("click", ()=>{
@@ -277,11 +279,13 @@ emailCertificateBtn.addEventListener("click", ()=>{
             type : "POST",
             success: function(res){
 
-                if(res > 0){
-                    alert("이미 사용중인 아이디 입니다.")
+                if(res == 0){
+                    alert("이미 사용중인 아이디 입니다.");
                 }else{
                     alert("해당 이메일로 인증번호를 전송했습니다.");
                     emailm.innerText = "인증번호 수신을 확인해주세요";
+                    
+                    ranCode = res;
                 }
             },
             error : function(){
@@ -301,7 +305,8 @@ email2Btn.addEventListener("click", function(){
 
         $.ajax({
             url : contextPath + "/member/signUp/checkCode",
-            data : {"inputCode": email2.value},
+            data : {"inputCode" : email2.value,
+                    "ranCode" : ranCode},
             type : "post",
             success : function(res){
 
@@ -312,7 +317,6 @@ email2Btn.addEventListener("click", function(){
                     email2.value = "";
                     email2.focus();
                 }
-
             },
             error : function(){
                 console.log("에러 발생");

@@ -120,12 +120,8 @@
                             <input type="text" id="email2" name="email2" placeholder="인증번호 입력" autocomplete="off">
                             <button type="button" id="email2Btn">인증번호 확인</button>
                         </div>
-
                         <!-- 이메일 인증 메세지 -->
                         <span class="signUp-message" id="emailm">인증번호를 입력해주세요.</span>
-
-
-                        
 
 
                         <button id="btn">버튼만 누르면 가입완료!</button>

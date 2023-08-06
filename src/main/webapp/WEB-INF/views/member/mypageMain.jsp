@@ -34,7 +34,7 @@
                         <li><a href="${contextPath}/member/mypage/changeInfo">프로필 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/changePw">비밀번호 변경</a></li>
                         <li><a href="${contextPath}/member/mypage/likeList">좋아요 목록</a></li>
-                        <li><a href="${contextPath}/member/mypage/contentList/all">게시글 목록</a></li>
+                        <li><a href="${contextPath}/member/mypage/contentList">게시글 목록</a></li>
             			<li><a href="${contextPath}/member/mypage/secession">회원탈퇴</a></li>
                     </ul>
                 </article>
@@ -51,14 +51,16 @@
                                 <c:if test="${!empty loginMember.profileImage}">
                                     <img src="${contextPath}${loginMember.profileImage}" id="bodyProfileImg">
                                 </c:if>
-                             
+                                <!-- 프로필 이미지 삭제 버튼 -->
+                                <span id="delete-image">x</span>
                             </div>
                             <div class="profile-btn-area">
                                 <label for="search-image">이미지 찾기</label>
                                 <input type="file" name="profileImage" id="search-image">
                                 <button id="btn-changeProfile">프로필 변경</button>
+                                
                             </div>
-
+                            <input type="hidden" name="delete" id="delete" value="0">
                         </form>
                     </article>  
 
@@ -88,6 +90,10 @@
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        const contextPath = "${contextPath}"; 
+    </script>
     <script src="${contextPath}/resources/js/mypageProfileMain.js"></script>
     <script src="${contextPath}/resources/js/footer.js"></script>
 </body>
