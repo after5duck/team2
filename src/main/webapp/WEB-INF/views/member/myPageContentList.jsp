@@ -73,7 +73,18 @@
     
                                 <nav class="writeContent">
                                     <article class="contentTitle">${board.boardName}</article>
-                                    <article id="contentDetail" class="contentDetail"><a href="#"> ${board.boardTitle} </a></article>
+                                    <c:when test="${board.boardCode == 4}">
+                                        <a href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                            <c:choose>
+                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${board.boardTitle}
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </a>
+                                    </c:when>
                                     <article id="contentDate" class="contentDate">${board.createDate}</article>
                                 </nav>
     

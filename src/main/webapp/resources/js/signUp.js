@@ -234,9 +234,91 @@ memberTel.addEventListener("input", function(){
 
 }); */
 
+
+/* 이메일 인증 */
+
+let ranCode;
+
+
+const emailCertificateBtn = document.getElementById("emailBtn");
+
+emailCertificateBtn.addEventListener("click", ()=>{
+    if(memberEmail.value.trim().length == 0){
+        alert("이메일을 입력해주세요");
+    }else{
+        $.ajax({
+
+            url: contextPath + "/member/signUp/certificate",
+            data : {"inputEmail" : memberEmail.value},
+            type : "POST",
+            success: function(res){
+
+                if(res == 0){
+                    alert("이미 사용중인 아이디 입니다.");
+                   
+                }else{
+                    alert("해당 이메일로 인증번호를 전송했습니다.");
+                    emailm.innerText = "인증번호 수신을 확인해주세요";
+                    
+                    ranCode = res;
+                   
+                }
+            },
+            error : function(){
+                console.log("에러 발생");   
+            }
+        })
+    }
+})
+
+
+/* 이메일 인증 확인 */
+
+let count = 0;
+const email2Btn = document.getElementById("email2Btn");
+
+email2Btn.addEventListener("click", function(){
+
+
+    if(email2.value.trim().length == 0 ){
+        alert("인증번호를 입력해주세요");
+    }else{
+
+        $.ajax({
+            url : contextPath + "/member/signUp/checkCode",
+            data : {"inputCode" : email2.value,
+                    "ranCode" : ranCode},
+            type : "post",
+            success : function(res){
+
+                if(res > 0){
+                    alert("인증이 완료되었습니다.");
+                    count = 1;
+                }else{
+                    alert("인증번호가 일치하지 않습니다.");
+                    email2.value = "";
+                    email2.focus();
+                    count = 0;
+                }
+            },
+            error : function(){
+                console.log("에러 발생");
+            }
+        })
+    }
+})
+
+
 function signUpValidate(){
 
     let str;
+
+    if(memberEmail.value.trim().length != 0){
+        if(count == 0){
+            alert("이메일 등록 시 이메일 인증을 진행해주세요.");
+            return false;
+        }
+    }
 
     for( let key in checkObj){
 
@@ -261,69 +343,3 @@ function signUpValidate(){
     }
     return true;
 }
-
-/* 이메일 인증 */
-
-let ranCode;
-
-const emailCertificateBtn = document.getElementById("emailBtn");
-
-emailCertificateBtn.addEventListener("click", ()=>{
-    if(memberEmail.value.trim().length == 0){
-        alert("이메일을 입력해주세요");
-    }else{
-        $.ajax({
-
-            url: contextPath + "/member/signUp/certificate",
-            data : {"inputEmail" : memberEmail.value},
-            type : "POST",
-            success: function(res){
-
-                if(res == 0){
-                    alert("이미 사용중인 아이디 입니다.");
-                }else{
-                    alert("해당 이메일로 인증번호를 전송했습니다.");
-                    emailm.innerText = "인증번호 수신을 확인해주세요";
-                    
-                    ranCode = res;
-                }
-            },
-            error : function(){
-                console.log("에러 발생");   
-            }
-        })
-    }
-})
-
-
-/* 이메일 인증 확인 */
-
-const email2Btn = document.getElementById("email2Btn");
-
-email2Btn.addEventListener("click", function(){
-
-    if(email2.value.trim().length == 0 ){
-        alert("인증번호를 입력해주세요");
-    }else{
-
-        $.ajax({
-            url : contextPath + "/member/signUp/checkCode",
-            data : {"inputCode" : email2.value,
-                    "ranCode" : ranCode},
-            type : "post",
-            success : function(res){
-
-                if(res > 0){
-                    alert("인증이 완료되었습니다.");
-                }else{
-                    alert("인증번호가 일치하지 않습니다.");
-                    email2.value = "";
-                    email2.focus();
-                }
-            },
-            error : function(){
-                console.log("에러 발생");
-            }
-        })
-    }
-})
