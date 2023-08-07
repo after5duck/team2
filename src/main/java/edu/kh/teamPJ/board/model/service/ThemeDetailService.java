@@ -1,7 +1,5 @@
 package edu.kh.teamPJ.board.model.service;
 
-import static edu.kh.teamPJ.common.JDBCTemplate.close;
-import static edu.kh.teamPJ.common.JDBCTemplate.getConnection;
 import static edu.kh.teamPJ.common.JDBCTemplate.*;
 
 import java.sql.Connection;
@@ -42,6 +40,36 @@ public List<Theme> selectSportsList(int boardNo, int boardCode) throws Exception
 	return sportsList;
 	
 }
+
+
+
+/**
+ * @param boardNo
+ * @param memberNo
+ * @return result
+ * @throws Exception
+ */
+public int updateThemeLikeCount(int boardNo, int memberNo) throws Exception{
+	
+	Connection conn = getConnection();
+
+	int result = dao.updateThemeLikeCount(conn, boardNo, memberNo);
+
+	if (result > 0)
+		commit(conn);
+	else
+		rollback(conn);
+
+	close(conn);
+
+
+	
+	return result;
+}
+
+
+
+	
 
 
 
