@@ -39,7 +39,7 @@
                 <div><h1>굿즈</h1></div>
                 <div id="goods_kind">
                     <div>전체</div>
-                    <div id="select1">진격의 거인</div>
+                    <div>진격의 거인</div>
                     <div>귀멸의 칼날</div>
                     <div>체인소맨</div>
                     <div>에반게리온</div>
@@ -76,7 +76,13 @@
     <!-- 공용 풋터 -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    
+    <!-- jQuery 라이브러리 추가 (CDN) -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- <script>
+        const contextPath = "${contextPath}";
+    </script> -->
+
     <script src="${contextPath}/resources/js/goods.js"></script>
 </body>
 </html>
