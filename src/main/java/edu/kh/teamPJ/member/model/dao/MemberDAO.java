@@ -179,7 +179,7 @@ public class MemberDAO {
 	 * @return likeList
 	 * @throws Exception
 	 */
-	public List<Board> selectLikeList(Connection conn, int boardNo) {
+	public List<Board> selectLikeList(Connection conn, int memberNo) {
 
 		List<Board> likeList = new ArrayList<>();
 
@@ -187,7 +187,7 @@ public class MemberDAO {
 			String sql = prop.getProperty("selectLikeList");
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
+			pstmt.setInt(1, memberNo);
 
 			rs = pstmt.executeQuery();
 
@@ -196,9 +196,10 @@ public class MemberDAO {
 
 				b.setBoardNo(rs.getInt(1));
 				b.setBoardTitle(rs.getString(2));
-				b.setBoardContent(rs.getString(3));
+				b.setBoardName(rs.getString(3));
 				b.setCreateDate(rs.getString(4));
-
+				
+				likeList.add(b);
 			}
 
 
