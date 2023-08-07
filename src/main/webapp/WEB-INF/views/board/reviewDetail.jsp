@@ -51,13 +51,28 @@
                                     </c:if>
                                 </div>
                                 <div>
+                                    <!-- 별점을 출력하는 라디오 버튼 -->
+                                    <c:forEach var="i" begin="1" end="5">
+                                        <c:choose>
+                                            <c:when test="${i <= detail.score}">
+                                                <!-- 점수 이하의 별은 채워짐 -->
+                                                <input type="radio" name="reviewStar" value="${i}" id="rate${i}"
+                                                    checked><label for="rate${i}">★</label>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <!-- 점수 초과의 별은 비어있음 -->
+                                                <input type="radio" name="reviewStar" value="${i}" id="rate${i}"><label
+                                                    for="rate${i}">★</label>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
                                     <!-- <span class="star">
                                         ★★★★★
                                         <span>★★★★★</span>
                                         <input type="range" oninput="drawStar(this)" value="1" step="1" min="0"
                                             max="10">
                                     </span> -->
-                                    <form class="mb-3" name="myform" id="myform" method="post">
+                                    <!-- <form class="mb-3" name="myform" id="myform" method="post">
                                         <input type="radio" name="reviewStar" value="1" id="rate5"><label
                                             for="rate5">★</label>
                                         <input type="radio" name="reviewStar" value="3" id="rate3"><label
@@ -68,7 +83,10 @@
                                             for="rate2">★</label>
                                         <input type="radio" name="reviewStar" value="5" id="rate1"><label
                                             for="rate1">★</label>
-                                    </form>
+                                    </form> -->
+                                    <c:forEach var="i" begin="1" end="${score}">
+                                        ★
+                                    </c:forEach>
 
                                 </div>
                             </div>

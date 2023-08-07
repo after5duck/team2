@@ -22,12 +22,13 @@ public class Board {
 	private int memberNo;
 	private String memberNickname;
 	private String boardName;
-
+	private int score;
+	
 	private List<Photo> photos = new ArrayList<>(); 
 	
 	
 	public Board(int boardNo, String boardTitle, String boardContent, String createDate, int readCount, char boardStatus,
-			int boardCode, int memberNo, String memberNick, List<Photo> photos) {
+			int boardCode, int memberNo, String memberNick, List<Photo> photos, int score) {
 		super();
 		this.boardNo = boardNo;
 		this.boardTitle = boardTitle;
@@ -39,6 +40,23 @@ public class Board {
 		this.memberNo = memberNo;
 		this.memberNickname = memberNick;
 		this.photos = photos;
+		this.score= score;
+	}
+
+
+
+
+
+	public int getScore() {
+		return score;
+	}
+
+
+
+
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 

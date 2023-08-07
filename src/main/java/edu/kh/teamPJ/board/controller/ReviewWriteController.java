@@ -65,6 +65,14 @@ public class ReviewWriteController extends HttpServlet {
 			
 			String boardTitle = req.getParameter("boardTitle");
 	        String boardContent = req.getParameter("boardContent");
+	        String reviewStar = req.getParameter("reviewStar");
+	        
+	        int score = 0;
+
+	        if (reviewStar != null) {
+	            score = Integer.parseInt(reviewStar);
+	            System.out.println("score에 담음");
+	        }
 
 	        int type = Integer.parseInt(req.getParameter("type"));
 
@@ -77,6 +85,7 @@ public class ReviewWriteController extends HttpServlet {
 			reviewWrite.setBoardTitle(boardTitle);
 			reviewWrite.setBoardContent(boardContent);
 			reviewWrite.setMemberNo(memberNo);
+			reviewWrite.setScore(score);
 
 			BoardService service = new BoardService();
 

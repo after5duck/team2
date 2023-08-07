@@ -117,6 +117,22 @@ main {
     font-size: 20px;
 }
 
+/* 라디오 버튼을 숨김 */
+#myform input[type=radio] {
+    display: none;
+}
+
+/* 별 모양 라벨의 기본 스타일 */
+#myform label {
+    font-size: 28px;
+    color: #c8c8c8;
+}
+
+/* 체크된 라디오 버튼에 대응하는 라벨 스타일 */
+#myform input[type=radio]:checked~label {
+    color: rgb(255, 225, 0);
+}
+
 
 /* 별점 */
 #reviewContent fieldset {
