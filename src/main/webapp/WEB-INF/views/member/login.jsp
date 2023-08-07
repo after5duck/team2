@@ -43,9 +43,9 @@
             </div>
     
             <!-- 비번 찾기 영역 -->
-            <div class="findPw">
+            <!-- <div class="findPw">
                 <a href="#" id="Pwsearch">비밀번호 찾기</a>
-            </div>
+            </div> -->
     
             <!-- 로그인 버튼 -->
             <div class="btnarea">
