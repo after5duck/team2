@@ -696,7 +696,7 @@ public class BoardDAO {
 	}
 
 	/**
-	 * 이동호 게시글 상세 조회 DAO
+	 * 이동호 이민주 게시글 상세 조회 DAO
 	 * 
 	 * @param conn
 	 * @param boardNo
@@ -727,8 +727,8 @@ public class BoardDAO {
 				detail.setMemberNickname(rs.getString(7));
 				detail.setProfileImage(rs.getString(8));
 				detail.setBoardName(rs.getString(9));
+				detail.setScore(rs.getInt(10));
 			}
-
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -1309,6 +1309,7 @@ public class BoardDAO {
 			pstmt.setString(3, reviewWrite.getBoardContent());
 			pstmt.setInt(4, reviewWrite.getMemberNo());
 			pstmt.setInt(5, type);
+			pstmt.setInt(6, reviewWrite.getScore());
 
 			result = pstmt.executeUpdate();
 

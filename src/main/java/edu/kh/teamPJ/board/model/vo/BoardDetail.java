@@ -23,7 +23,7 @@ public class BoardDetail {
 	private String memberNickname;
 	private String profileImage;
 	private String boardName;
-	
+	private int score;
 	private String Image;
 	
 	
