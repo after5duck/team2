@@ -471,7 +471,18 @@ body {
 .container4 {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	gap: 100px;
+	width : 1000px;
+	gap: 97px;
+
+}
+
+.container4 > a{
+	text-decoration: none;
+	color: black;
+	font-size: 21px;
+}
+.container4 > a:hover{
+	color: black;
 }
 
 
