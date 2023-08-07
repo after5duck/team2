@@ -237,7 +237,7 @@ memberTel.addEventListener("input", function(){
 
 /* 이메일 인증 */
 
-let ranCode;
+let ranCode = 0;
 
 
 const emailCertificateBtn = document.getElementById("emailBtn");
@@ -284,27 +284,33 @@ email2Btn.addEventListener("click", function(){
         alert("인증번호를 입력해주세요");
     }else{
 
-        $.ajax({
-            url : contextPath + "/member/signUp/checkCode",
-            data : {"inputCode" : email2.value,
-                    "ranCode" : ranCode},
-            type : "post",
-            success : function(res){
+        if(ranCode == 0){
+            alert("인증번호를 먼저 전송해주세요");
+        }else{
 
-                if(res > 0){
-                    alert("인증이 완료되었습니다.");
-                    count = 1;
-                }else{
-                    alert("인증번호가 일치하지 않습니다.");
-                    email2.value = "";
-                    email2.focus();
-                    count = 0;
+            $.ajax({
+                url : contextPath + "/member/signUp/checkCode",
+                data : {"inputCode" : email2.value,
+                        "ranCode" : ranCode},
+                type : "post",
+                success : function(res){
+    
+                    if(res > 0){
+                        alert("인증이 완료되었습니다.");
+                        count = 1;
+                    }else{
+                        alert("인증번호가 일치하지 않습니다.");
+                        email2.value = "";
+                        email2.focus();
+                        count = 0;
+                    }
+                },
+                error : function(){
+                    console.log("에러 발생");
                 }
-            },
-            error : function(){
-                console.log("에러 발생");
-            }
-        })
+            });
+        }
+
     }
 })
 
