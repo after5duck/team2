@@ -29,51 +29,22 @@ for (let i = 0; i < review_agree.length; i++) {
 
 document.getElementById("btn_review").addEventListener('click', function (event) {
     let essential = document.getElementById("essential");
-
-    if (!essential.checked) {
-        alert('필수 선택사항을 체크해주세요.');
-        event.preventDefault(); // 이벤트를 막아서 form 제출을 막음
-    }
-});
-
-// 제목, 내용 필수입력 사항
-
-document.getElementById("btn_review").addEventListener('click', function (event) {
-    let essential = document.getElementById("essential");
     let title = document.getElementById("reviewTitle");
     let content = document.getElementById("review_content");
 
     if (!essential.checked) {
         alert('필수 선택사항을 체크해주세요.');
         event.preventDefault();
-    }
-
-    if (title.value.trim() === "") {
+    } else if (title.value.trim() === "") {
         alert('제목은 필수 입력사항입니다.');
         event.preventDefault();
-    }
-
-    if (content.value.trim() === "") {
+    } else if (content.value.trim() === "") {
         alert('내용은 필수 입력사항입니다.');
         event.preventDefault();
     }
 });
 
 
-
-// })
-// function reviewValidate() {
-//     const essential = document.getElementById("essential");
-
-//     if (essential.checked == false) {
-
-//         alert("필수 항목을 체크 해주세요!");
-
-//         return false;
-//     }
-
-//     return true;
-// }
 
 //게시글 작성 유효성 검사
 function reviewValidate() {
@@ -127,4 +98,12 @@ function reviewValidate() {
 
     }
 })();
+
+// 별점
+
+// const drawStar = (target) => {
+//     document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+// }
+
+
 
