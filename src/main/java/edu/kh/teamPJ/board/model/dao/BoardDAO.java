@@ -975,6 +975,35 @@ public class BoardDAO {
 	 * @return
 	 * @throws Exception
 	 */
+	public Board selectListCount(int boardNo, int memberNo, Connection conn) throws Exception {
+
+		Board boardLike = new Board();
+
+		try {
+
+			String sql = prop.getProperty("selectLikeCount");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				boardLike.setBoardNo(boardNo);
+				boardLike.setMemberNo(memberNo);
+			}
+
+		} finally {
+
+			close(rs);
+			close(pstmt);
+
+		}
+
+		return boardLike;
+	}
+	
 	public int selectLikeCount(int boardNo, int memberNo, Connection conn) throws Exception {
 
 		int likeCount = 0;
@@ -992,7 +1021,6 @@ public class BoardDAO {
 
 			if (rs.next()) {
 				likeCount = rs.getInt(1);
-
 			}
 
 		} finally {
@@ -1004,6 +1032,8 @@ public class BoardDAO {
 
 		return likeCount;
 	}
+	
+	
 
 	public List<Board> searchSearchArea(Connection conn, String inputSearch, int memberNo) throws Exception {
 

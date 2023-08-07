@@ -29,9 +29,9 @@ public class BoardLikeDeleteServlet extends HttpServlet {
          
          if(result == 1) {
             
-            int likeCount = service.selectLikeCount(boardNo, memberNo);
+            //int likeCount = service.selectLikeCount(boardNo, memberNo);
             
-            resp.getWriter().print(likeCount);
+            //resp.getWriter().print(likeCount);
             
          }
          

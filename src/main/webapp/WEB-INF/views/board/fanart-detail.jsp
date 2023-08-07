@@ -53,18 +53,19 @@
 						<!-- 연수 원래 코드 주석! -->
 					<section class="fanart-heartClick">
 						<div>좋아요</div>
-							<c:if test="${!empty likeCount}">
-								<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
-								<div id="like-count"></div>
-							</c:if>
-							<c:if test="${empty likeCount}">
-								<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
-								<div id="like-count"></div>
+						<c:if test="${boardLike.memberNo == loginMember.memberNo}">
+							<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
+							<div id="like-count">${boardLike}</div>
 
-							</c:if>
+						</c:if>
+						<c:if test="${boardLike.memberNo != loginMember.memberNo}">
+
+							<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
+							<div id="like-count"></div>
+						</c:if>
+
 					</section>
 
-					<input type="hidden" name="memberNo" value="${board.memberNo}">
 					
 						<!-- 민주 test -->
 						<!-- <%-- <section class="fanart-heartClick">
@@ -117,7 +118,7 @@
 										</div>
 										<div class="fanartListInfo">
 											<div>
-												<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${loginMember.memberNo}">
+												<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${param.memberNo}">
 													<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}"
 														class="fanart-img">
 												</a>
@@ -131,7 +132,6 @@
 								</div>
 							</c:forEach>
 
-
 						</section>
 
 				</main>
@@ -140,7 +140,7 @@
 
 				<script>
 					const boardNo1 = "${board.boardNo}";
-					const memberNo1 = "${board.memberNo}";
+					const memberNo1 = "${param.memberNo}";
 					const contextPath = "${contextPath}";
 					const loginMemberNo = "${loginMember.memberNo}";
 

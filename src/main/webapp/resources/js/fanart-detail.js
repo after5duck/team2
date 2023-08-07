@@ -47,9 +47,13 @@ heartIcon.addEventListener('click', function() {
 /* 좋아요 수 증가 */
 const heartIcon = document.getElementById('fanart-heartClick');
 
-heartIcon.addEventListener('click', function(){
+heartIcon.addEventListener("click", function(){
 
-    /* 좋아요 하지 않은 상태 */
+    if(loginMemberNo == 0){
+        alert("로그인후 이용해주세요.");
+    }else{
+
+         /* 좋아요 하지 않은 상태 */
     if(heartIcon.classList.contains('fa-regular')){
 
         alert("눌러따");
@@ -61,14 +65,14 @@ heartIcon.addEventListener('click', function(){
             type : "get",
 
             data : {"boardNo" : boardNo1,
-                    "memberNo" : loginMemberNo},
+                    "memberNo" : memberNo1},
 
             success : function(data){
 
                 heartIcon.classList.remove('fa-regular');
                 heartIcon.classList.add('fa-solid');
                 
-                document.getElementById("like-count").innerText = data;
+                /* document.getElementById("like-count").innerText = data; */
 
 
             },
@@ -95,14 +99,14 @@ heartIcon.addEventListener('click', function(){
             type : "get",
 
             data : {"boardNo" : boardNo1,
-                    "memberNo" : loginMemberNo},
+                    "memberNo" : memberNo1},
 
             success : function(data){
 
                 heartIcon.classList.remove('fa-solid');
                 heartIcon.classList.add('fa-regular');
                 
-                document.getElementById("like-count").innerText = data;
+                /* document.getElementById("like-count").innerText = data; */
 
             },
 
@@ -113,6 +117,8 @@ heartIcon.addEventListener('click', function(){
             }
 
         });
+
+    }
 
     }
 })
@@ -133,12 +139,9 @@ heartIcon.addEventListener('click', function() {
     }
 
 });*/
-
-
-
-
-
 /* test 끝 */
+
+
 
 
 
