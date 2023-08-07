@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,15 +57,14 @@
                                     <td><button type="button" id="btn-check">중복확인</button></td>
                                 </tr>
                                 <tr>
-                                    <th>이메일</th><td class="td1"><input type="email" id="inputEmail" name="memberEmail" value="${loginMember.memberEmail}"></td>
-                                    <td><button type="button" id="btn-delEmail">이메일 삭제</button></td>
+                                    <th>이메일</th>
+                                    <td class="td1"><input type="email" id="inputEmail" name="memberEmail" value="${loginMember.memberEmail}"></td>
+                                    <td><button type="button" id="btn-cerEmail">인증번호 발송</button></td>
                                 </tr>
                                 <tr>
-                                    <form>
-                                        <th>인증번호</th>
-                                        <td><input type="text"></td>
-                                        <td><button type="button">인증하기</button></td>
-                                    </form>
+                                    <th>인증번호</th>
+                                    <td class="td1"><input type="text" id="inputCheck"></td>
+                                    <td><button type="button" id="btn-checkEmail">인증번호 확인</button></td>
                                 </tr>
                                 <tr>
                                     <th>핸드폰 번호</th>
@@ -95,6 +95,8 @@
         const memberNo = "${loginMember.memberNo}";
 
         const loginMemberNick = "${loginMember.memberNickname}";
+
+        const loginMemberEmail = "${loginMember.memberEmail}"
 
     </script>
     

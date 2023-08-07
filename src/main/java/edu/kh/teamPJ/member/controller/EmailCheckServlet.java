@@ -20,7 +20,7 @@ public class EmailCheckServlet extends HttpServlet{
 		int inputCheckNumber = Integer.parseInt(req.getParameter("inputCode"));
 		int checkCode = Integer.parseInt(req.getParameter("ranCode")); 
 
-		System.out.println(inputCheckNumber);
+		System.out.println(inputCheckNumber);	
 		System.out.println(checkCode);
 		
 		boolean isRight = (checkCode == inputCheckNumber ? true : false);

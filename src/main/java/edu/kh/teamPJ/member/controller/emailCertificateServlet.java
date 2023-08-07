@@ -90,15 +90,11 @@ public class emailCertificateServlet extends HttpServlet{
 				
 				ranConfirm = ranCode;
 				
-				System.out.println("인증번호 난수 후" + ranCode);
+				System.out.println("인증번호 난수 후 " + ranCode);
 				
 				
 		    }
-		    
-		    
 		    resp.getWriter().print(ranConfirm);
-		    
-		    
 		    
 		}catch(Exception e){
 			e.printStackTrace();
