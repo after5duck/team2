@@ -45,9 +45,9 @@
 					
 					<c:if test="${!empty loginMember}">
 						<div class="fanartBtnArea">
-							<button id='fanart-write-btn'
+							<button class="button btnPush btnPurple" id='fanart-write-btn'
 								onclick="location.href='fanart/write?mode=insert&boardCode=${param.boardCode}'">
-								글쓰기
+								<span>글쓰기</span>
 							</button>
 
 						</div>
@@ -70,6 +70,7 @@
 												<div>
 	
 													<span class="fanart-title">${board.boardTitle}</span>
+													<i class="fa-solid fa-eye fa-xl"></i>${board.readCount}</span>
 	
 												</div>
 											</div>
@@ -84,6 +85,7 @@
 												<div>
 	
 													<span class="fanart-title">${board.boardTitle}</span>
+													<i class="fa-solid fa-eye fa-xl"></i>${board.readCount}</span>
 	
 												</div>
 											</div>
