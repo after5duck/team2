@@ -33,14 +33,13 @@
                 <!-- 마이페이지 목록 -->
                 <article id="menu">
                     <ul id="menu-ul">
-                        <li>프로필</li>
-                        <li><a href="mypage(profile).html">프로필 변경</a></li>
-                        <li><a href="mypage(password).html">비밀번호 변경</a></li>
-                        <li><a href="mypage(like).html">좋아요 목록</a></li>
-                        <li><a href="mypage(review).html">게시글 목록</a></li>
-                        <li><a href="mypage(secession).html">회원탈퇴</a></li>
+                        <li><a href="${contextPath}/member/mypage/info">프로필</a></li>
+                        <li><a href="${contextPath}/member/mypage/changeInfo">프로필 변경</a></li>
+                        <li><a href="${contextPath}/member/mypage/changePw">비밀번호 변경</a></li>
+                        <li><a href="${contextPath}/member/mypage/likeList">좋아요 목록</a></li>
+                        <li><a href="${contextPath}/member/mypage/contentList">게시글 목록</a></li>
+                        <li><a href="${contextPath}/member/mypage/secession">회원탈퇴</a></li>
                     </ul>
-
                 </article>
 
                 <article id="main-body">
