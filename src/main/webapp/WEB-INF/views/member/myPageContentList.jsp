@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,18 +74,40 @@
     
                                 <nav class="writeContent">
                                     <article class="contentTitle">${board.boardName}</article>
-                                    <c:when test="${board.boardCode == 4}">
-                                        <a href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
-                                            <c:choose>
-                                                <c:when test="${fn:length(board.boardTitle) > 25}">
-                                                    ${fn:substring(board.boardTitle, 0, 25)}...
-                                                </c:when>
-                                                <c:otherwise>
-                                                    ${board.boardTitle}
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </a>
-                                    </c:when>
+                                    <article id="contentDetail" class="contentDetail">
+                                        <c:if test="${board.boardCode == 4}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                            ${fn:substring(board.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${board.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+
+                                        <c:if test="${board.boardCode == 6}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                            ${fn:substring(board.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${board.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+                                        
+                                    </article>
                                     <article id="contentDate" class="contentDate">${board.createDate}</article>
                                 </nav>
     

@@ -5,54 +5,6 @@ $("#slide_header_btn").on('click',function(){
 
 
 const inputEmail = document.getElementById("inputEmail")
-const delEmail_btn = document.getElementById("btn-delEmail");
-
-delEmail_btn.addEventListener("click",()=>{
-    if(confirm("이메일주소를 삭제하시겠습니까?")){
-        if(inputEmail.value.trim().length == 0){
-            alert("이메일이 등록되어 있지 않습니다.")
-        }else{
-            inputEmail.value="";
-        }
-    }
-})
-
-const dateStart = document.getElementsByClassName("dateStart")[0];
-const dateEnd = document.getElementsByClassName("dateEnd")[0];
-
-dateStart.addEventListener("change",()=>{
-    console.log(dateStart.value);
-})
-
-
-// function listValidate(){
-
-//     console.log(dateStart.value);
-//     console.log(dateEnd.value);
-
-
-//     if(dateStart.value == "" || dateEnd.value == ""){
-//         alert("날짜를 설정해주세요");
-//         return false;
-//     }
-
-//     if(dateStart.value > dateEnd.value){
-//         alert("범위를 다시 설정해주세요");
-//         return false;
-//     }
-
-//     return true;
-// }
-
-// function changeProfile(){
-
-//     if(!confirm("변경하시겠습니까?")){
-//         return false;
-//     }
-
-//     return true;
-// }
-
 const checkBtn =  document.getElementById("btn-check");
 const nickInfo = document.getElementById("nickInfo"); // 닉네임 input
 
@@ -104,11 +56,96 @@ function changeProfile(){
         count = 1;
     }
 
-    if(count == 0){
+    if(nickInfo.value != loginMemberNick && count == 0){
         alert("아이디 중복확인을 먼저 해주세요!");
+        return false;
+    }
+
+    if(inputEmail.value == loginMemberEmail){
+        checkCount = 1;
+    }
+
+    if(inputEmail.value != loginMemberEmail && checkCount == 0){
+        alert("먼저 이메일 인증을 진행해주세요");
+        return false;
+    }
+
+    if( inputEmail.value != 0 && checkCount == 0){
+        alert("먼저 이메일 인증을 진행해주세요");
+        return false;
+    }
+
+    if(nickInfo.value == loginMemberNick && inputEmail.value == loginMemberEmail){
+        alert("변경사항이 없습니다.");
         return false;
     }
 
     return true;
     
 }
+
+/* 이메일 인증받기 */
+
+let ranCode;
+let checkCount;
+
+const btnCertify = document.getElementById("btn-cerEmail");
+
+btnCertify.addEventListener("click", ()=>{
+    $.ajax({
+
+            url: contextPath + "/member/signUp/certificate",
+            data : {"inputEmail" : inputEmail.value},
+            type : "POST",
+            success: function(res){
+
+                if(res == 0){
+                    alert("이미 사용중인 이메일 입니다.");
+                   
+                }else{
+                    alert("해당 이메일로 인증번호를 전송했습니다.");
+                    
+                    ranCode = res;
+                    console.log("ranCode = " + ranCode);
+                   
+                }
+            },
+            error : function(){
+                console.log("에러 발생");   
+            }
+        })
+})
+
+const btnCheck = document.getElementById("btn-checkEmail");
+const inputCheck = document.getElementById("inputCheck");
+
+
+btnCheck.addEventListener("click",()=>{
+
+    if(inputCheck.value.trim().length == 0 ){
+        alert("인증번호를 입력해주세요");
+    }else{
+
+        $.ajax({
+            url : contextPath + "/member/signUp/checkCode",
+            data : {"inputCode" : inputCheck.value,
+                    "ranCode" : ranCode},
+            type : "post",
+            success : function(res){
+
+                if(res > 0){
+                    alert("인증이 완료되었습니다.");
+                    checkCount = 1;
+                }else{
+                    alert("인증번호가 일치하지 않습니다.");
+                    inputCheck.value = "";
+                    inputCheck.focus();
+                    checkCount = 0;
+                }
+            },
+            error : function(){
+                console.log("에러 발생");
+            }
+        })
+    }
+})

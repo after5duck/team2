@@ -86,3 +86,35 @@ function searchArea(){
         }
     })
 }
+
+// const dateStart = document.getElementsByClassName("dateStart")[0];
+// const dateEnd = document.getElementsByClassName("dateEnd")[0];
+
+
+// function listValidate(){
+
+//     console.log(dateStart.value);
+//     console.log(dateEnd.value);
+
+
+//     if(dateStart.value == "" || dateEnd.value == ""){
+//         alert("날짜를 설정해주세요");
+//         return false;
+//     }
+
+//     if(dateStart.value > dateEnd.value){
+//         alert("범위를 다시 설정해주세요");
+//         return false;
+//     }
+
+//     return true;
+// }
+
+// function changeProfile(){
+
+//     if(!confirm("변경하시겠습니까?")){
+//         return false;
+//     }
+
+//     return true;
+// }
