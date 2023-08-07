@@ -51,6 +51,7 @@
 
 
 			<input type="hidden" name="boardCode" value="${param.boardCode}">
+			<input type="hidden" name="memberNo" value="${loginMember.memberNo}">
 			<input type="hidden" name="boardNo" value="${param.boardNo}">
 			<input type="hidden" name="mode" value="${param.mode}">
 			<input type="hidden" name="deleteList" id="deleteList" value="">

@@ -147,9 +147,10 @@
 	<!-- 팬아트 게시글/이미지 가져오기 -->
 	<entry key="selectBoardWithPhotos">
 		SELECT
-		BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CONTENT_PATH,READ_COUNT,BOARD_CD
+		BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CONTENT_PATH,READ_COUNT,BOARD_CD, MEMBER_NO
 		FROM BOARD
 		JOIN PHOTO USING(BOARD_NO)
+        JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_CD = 4
 		AND BOARD_ST =
 		'N'
@@ -239,14 +240,20 @@
 
 		INSERT INTO LIKE_LIST VALUES(?, ?, 3)
 	</entry>
+	
+	<!-- 팬아트 좋아요 해제 -->
+	<entry key="likeDelete">
+		DELETE FROM LIKE_LIST
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
 
 	<!-- 팬아트 좋아요수 조회 -->
 	<entry key="selectLikeCount">
-		SELECT COUNT(*)
-		FROM LIKE_LIST
-		JOIN BOARD
-		USING(BOARD_NO)
+		SELECT COUNT(*), BOARD_NO FROM LIKE_LIST
 		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+		GROUP BY BOARD_NO
 	</entry>
 	<!-- 정연수 SQL 끝 -->
 

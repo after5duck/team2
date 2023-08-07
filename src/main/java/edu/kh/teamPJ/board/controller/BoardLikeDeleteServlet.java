@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.kh.teamPJ.board.model.service.BoardService;
 
-@WebServlet("/board/fanart/detail/likeCount")
-public class BoardLikeListServlet extends HttpServlet {
+@WebServlet("/board/fanart/detail/likeCountDelete")
+public class BoardLikeDeleteServlet extends HttpServlet {
 
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class BoardLikeListServlet extends HttpServlet {
          
          BoardService service = new BoardService();
          
-         int result = service.updateLikeCount(boardNo, memberNo);
+         int result = service.likeDelete(boardNo, memberNo);
          
          
          if(result == 1) {

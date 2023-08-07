@@ -153,15 +153,16 @@ public class BoardService {
 	 * 
 	 * @param boardNo
 	 * @param boardCode
+	 * @param memberNo 
 	 * @param type
 	 * @return boardPhoto
 	 * @throws Exception
 	 */
-	public Board selectBoardWithPhotos2(int boardNo, int boardCode) throws Exception {
+	public Board selectBoardWithPhotos2(int boardNo, int boardCode, int memberNo) throws Exception {
 
 		Connection conn = getConnection();
 
-		Board board = dao.selectBoardWithPhotos2(conn, boardNo, boardCode);
+		Board board = dao.selectBoardWithPhotos2(conn, boardNo, boardCode, memberNo);
 
 		close(conn);
 
@@ -214,10 +215,11 @@ public class BoardService {
 	 * @param boardDetail
 	 * @param photos
 	 * @param boardCode
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public int insertBoard(Board boardDetail, List<Photo> photos, int boardCode) throws Exception {
+	public int insertBoard(Board boardDetail, List<Photo> photos, int boardCode, int memberNo) throws Exception {
 
 		Connection conn = getConnection();
 
@@ -225,7 +227,7 @@ public class BoardService {
 
 		boardDetail.setBoardNo(boardNo);
 
-		int result = dao.insertBoard(conn, boardDetail, boardCode);
+		int result = dao.insertBoard(conn, boardDetail, boardCode, memberNo);
 
 		if (result > 0) {
 
@@ -459,14 +461,15 @@ public class BoardService {
 	 * 좋아요 수 조회 Service
 	 * 
 	 * @param boardNo
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectLikeCount(int boardNo) throws Exception {
+	public int selectLikeCount(int boardNo, int memberNo) throws Exception {
 
 		Connection conn = getConnection();
 
-		int likeCount = dao.selectLikeCount(boardNo, conn);
+		int likeCount = dao.selectLikeCount(boardNo, memberNo, conn);
 
 		close(conn);
 
@@ -694,5 +697,27 @@ public class BoardService {
 		close(conn);
 		
 		return readCount;
+	}
+
+	/** 정연수 좋아요 삭제
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int likeDelete(int boardNo, int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+
+		int result = dao.likeDelete(conn, boardNo, memberNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+
+		return result;
 	}
 }

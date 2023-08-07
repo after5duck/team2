@@ -42,7 +42,6 @@
 						</div>
 					</section>
 					<hr>
-
 					
 					<c:if test="${!empty loginMember}">
 						<div class="fanartBtnArea">
@@ -57,29 +56,46 @@
 					<!-- 팬아트 사진 가져오기~~!!! -->
 					<c:set var="maxPhotos" value="18" />
 
+
+					${loginMember.memberNo}
+
 					<section class="fanArt-img">
 						<div class="fanart-grid">
 							<c:forEach var="board" items="${boardList}">
 								<c:set var="photos" value="${board.photos}" />
 								<c:forEach var="photo" items="${photos}" varStatus="photoStatus">
-									<a href="fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
-										<div class="grid-item">
-											<img src="../resources/images/fanArt-images/${photo.contentPath}"
-												class="fanart-img">
-											<div>
-
-												<span class="fanart-title">${board.boardTitle}</span>
-
+									<c:if test="${empty loginMember}">
+										<a href="fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=0">
+											<div class="grid-item">
+												<img src="../resources/images/fanArt-images/${photo.contentPath}"
+													class="fanart-img">
+												<div>
+	
+													<span class="fanart-title">${board.boardTitle}</span>
+	
+												</div>
 											</div>
-										</div>
-									</a>
-									<c:if test="${photoStatus.count % 3 == 0}">
-										<div class="clear"></div>
+										</a>
+									</c:if>
+									<c:if test="${!empty loginMember}">
+
+										<a href="fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${loginMember.memberNo}">
+											<div class="grid-item">
+												<img src="../resources/images/fanArt-images/${photo.contentPath}"
+													class="fanart-img">
+												<div>
+	
+													<span class="fanart-title">${board.boardTitle}</span>
+	
+												</div>
+											</div>
+										</a>
 									</c:if>
 								</c:forEach>
 							</c:forEach>
 						</div>
 					</section>
+
 
 
 					<section class="fanart-page">

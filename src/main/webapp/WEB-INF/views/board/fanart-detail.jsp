@@ -53,21 +53,21 @@
 						<!-- 연수 원래 코드 주석! -->
 					<section class="fanart-heartClick">
 						<div>좋아요</div>
-						<c:if test="${empty loginMember}">
-							<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
-							<div id="like-count">${likeCount}</div>
-						</c:if>
-						<c:if test="${!empty loginMember}">
-							<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
-							<div id="like-count"></div>
-						</c:if>
+							<c:if test="${!empty likeCount}">
+								<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
+								<div id="like-count"></div>
+							</c:if>
+							<c:if test="${empty likeCount}">
+								<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
+								<div id="like-count"></div>
+
+							</c:if>
 					</section>
-					
-					
-					
+
+					<input type="hidden" name="memberNo" value="${board.memberNo}">
 					
 						<!-- 민주 test -->
-						<%-- <section class="fanart-heartClick">
+						<!-- <%-- <section class="fanart-heartClick">
 							<div>좋아요</div>
 							<c:if test="${empty loginMember}">
 								<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
@@ -76,7 +76,7 @@
 							<c:if test="${!empty loginMember}">
 								<i id="fanart-heartClick" class="fa-regular fa-heart fa-2xl"></i>
 								<div id="like-count"></div>
-							</c:if> --%>
+							</c:if> --%> -->
 							
 						<!-- 민주 test 끝-->
 
@@ -85,7 +85,7 @@
 
 							<div class="update-delete">
 								<button id="fanartUpdateBtn"
-									onclick="location.href='write?mode=update&boardNo=${param.boardNo}&boardCode=${param.boardCode}'">수정</button>
+									onclick="location.href='write?mode=update&boardNo=${param.boardNo}&boardCode=${param.boardCode}&memberNo=${loginMember.memberNo}'">수정</button>
 								<button id="fanartDeleteBtn">삭제</button>
 							</div>
 
@@ -104,10 +104,6 @@
 						<section id="fanartList">
 							<c:forEach var="board" items="${boardList}" varStatus="boardStatus" begin="0" end="3">
 								<div class="fanartList-first">
-									<!-- <c:out value="${board.boardTitle}" />
-					<c:out value="${board.boardContent}" />
-					<c:out value="${board.createDate}" />
-					<c:out value="${board.memberNickname}" /> -->
 
 									<c:set var="photos" value="${board.photos}" />
 									<c:forEach var="photo" items="${photos}" varStatus="photoStatus" begin="0" end="3">
@@ -121,7 +117,7 @@
 										</div>
 										<div class="fanartListInfo">
 											<div>
-												<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+												<a href="detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${loginMember.memberNo}">
 													<img src="${contextPath}/resources/images/fanArt-images/${photo.contentPath}"
 														class="fanart-img">
 												</a>
