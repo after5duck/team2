@@ -56,7 +56,7 @@ heartIcon.addEventListener("click", function(){
          /* 좋아요 하지 않은 상태 */
     if(heartIcon.classList.contains('fa-regular')){
 
-        alert("눌러따");
+        alert("좋아요를 눌렀습니다💗");
 
         $.ajax({
 
@@ -90,7 +90,7 @@ heartIcon.addEventListener("click", function(){
 
         console.log("왜 안돼");
 
-        alert("해제했당");
+        alert("좋아요 해제");
 
         $.ajax({
 
