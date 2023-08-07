@@ -39,7 +39,7 @@
                 <div><h1>굿즈</h1></div>
                 <div id="goods_kind">
                     <div>전체</div>
-                    <div>진격의 거인</div>
+                    <div id="select1">진격의 거인</div>
                     <div>귀멸의 칼날</div>
                     <div>체인소맨</div>
                     <div>에반게리온</div>
