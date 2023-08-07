@@ -25,9 +25,12 @@ public class FanartServlet extends HttpServlet{
 		try {
 			
 			BoardService service = new BoardService();
+			
+			int memberNo = Integer.parseInt(req.getParameter("memberNo"));
 
 			
 			List<Board> boardList = service.selectBoardWithPhotos();
+			
 			
 			req.setAttribute("boardList", boardList);
 			

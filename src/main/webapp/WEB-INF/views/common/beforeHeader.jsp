@@ -27,7 +27,14 @@
 						<a href="${contextPath}/board/theme" class="a_tag">테마추천</a>
 					</div>
 					<div class="menu_text_con">
-						<a href="${contextPath}/board/fanart?boardCode=4" class="a_tag">팬아트</a>
+						<c:if test="${empty loginMember}">
+
+							<a href="${contextPath}/board/fanart?memberNo=0&boardCode=4" class="a_tag">팬아트</a>
+						</c:if>
+						<c:if test="${!empty loginMember}">
+
+							<a href="${contextPath}/board/fanart?memberNo=${loginMember.memberNo}&boardCode=4" class="a_tag">팬아트</a>
+						</c:if>
 					</div>
 					<div class="menu_text_con">
 						<a href="${contextPath}/board/goods" class="a_tag">굿즈</a>

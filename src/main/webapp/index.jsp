@@ -277,7 +277,7 @@
 												<c:set var="photos" value="${fanart.photos}" />
 												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0"
 													end="9">
-													<a href="board/fanart/detail?boardNo=${fanart.boardNo}&boardCode=${fanart.boardCode}">
+													<a href="board/fanart/detail?boardNo=${fanart.boardNo}&boardCode=${fanart.boardCode}&memberNo=${fanart.memberNo}">
 													<div class="list_container">
 														<div class="img_con">
 															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}"

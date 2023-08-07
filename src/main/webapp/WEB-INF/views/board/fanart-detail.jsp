@@ -55,7 +55,7 @@
 						<div>좋아요</div>
 						<c:if test="${boardLike.memberNo == loginMember.memberNo}">
 							<i id="fanart-heartClick" class="fa-solid fa-heart fa-2xl"></i>
-							<div id="like-count">${boardLike}</div>
+							<div id="like-count"></div>
 
 						</c:if>
 						<c:if test="${boardLike.memberNo != loginMember.memberNo}">
