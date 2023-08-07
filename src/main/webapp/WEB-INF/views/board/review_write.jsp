@@ -73,6 +73,7 @@
                                         </div>
                                         <br>
                                         <div class="main_sixth">
+                                            
                                             <div><input type="checkbox" id="review_all"> 전체 동의하기</div> <br>
                                             <div><input type="checkbox" name="review_agree" id="essential"> 작성된 리뷰는 애니버스
                                                 홍보
