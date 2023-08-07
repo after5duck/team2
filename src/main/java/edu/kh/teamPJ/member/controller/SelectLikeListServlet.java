@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.member.model.service.MemberService;
@@ -22,16 +23,20 @@ public class SelectLikeListServlet extends HttpServlet{
 		MemberService service = new MemberService();
 		
 		try {
-			// 게시판 번호 매개변수로 전달하기 위해 파라미터 얻어오기
-			int boardNo = Integer.parseInt( req.getParameter("boardNo"));
+			
+			HttpSession session =  req.getSession();
+			
+			Member loginMember = (Member)session.getAttribute("loginMember");
+			
+			int memberNo = loginMember.getMemberNo();
 			
 			// 좋아요 리스트 뽑아오기
-			List<Board> likeList = service.selectLikeList(boardNo);
-			
+			List<Board> likeList = service.selectLikeList(memberNo);
+			System.out.println(likeList);
 			req.setAttribute("likeList", likeList);
 
 			// req에 정보를 담아서 해당 jsp로 위임
-			String path = "${contextPath}/member/mypageSelectLike.jsp";
+			String path = "/WEB-INF/views/member/mypageSelectLike.jsp";
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 			dispatcher.forward(req, resp);
 			

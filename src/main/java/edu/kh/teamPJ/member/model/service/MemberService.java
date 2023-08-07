@@ -90,11 +90,11 @@ public class MemberService {
 	 * @return likeList
 	 * @throws Exception
 	 */
-	public List<Board> selectLikeList(int boardNo) throws Exception{
+	public List<Board> selectLikeList(int memberNo) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		List<Board> likeList = dao.selectLikeList(conn, boardNo);
+		List<Board> likeList = dao.selectLikeList(conn, memberNo);
 		
 		close(conn);
 		
