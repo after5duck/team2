@@ -465,15 +465,56 @@ public class BoardService {
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectLikeCount(int boardNo, int memberNo) throws Exception {
-
+	
+	 public int selectLikeCount(int boardNo, int memberNo) throws Exception {
+	  
+	 Connection conn = getConnection();
+	 
+	 int likeCount = dao.selectLikeCount(boardNo, memberNo, conn);
+	  
+	 close(conn);
+	 
+	 return likeCount; }
+	 
+	
+	/** 정연수 좋아요 삭제
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int likeDelete(int boardNo, int memberNo) throws Exception{
+		
 		Connection conn = getConnection();
 
-		int likeCount = dao.selectLikeCount(boardNo, memberNo, conn);
+		int result = dao.likeDelete(conn, boardNo, memberNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 
 		close(conn);
 
-		return likeCount;
+		return result;
+	}
+
+	/** 좋아요 수 조회(Board board)
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public Board selectListCount(int boardNo, int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+
+		Board boardLike = dao.selectListCount(boardNo, memberNo, conn);
+
+		close(conn);
+
+		return boardLike;
+		
 	}
 
 	/**
@@ -699,25 +740,7 @@ public class BoardService {
 		return readCount;
 	}
 
-	/** 정연수 좋아요 삭제
-	 * @param boardNo
-	 * @param memberNo
-	 * @return
-	 * @throws Exception
-	 */
-	public int likeDelete(int boardNo, int memberNo) throws Exception{
-		
-		Connection conn = getConnection();
+	
 
-		int result = dao.likeDelete(conn, boardNo, memberNo);
-
-		if (result > 0)
-			commit(conn);
-		else
-			rollback(conn);
-
-		close(conn);
-
-		return result;
-	}
+	
 }

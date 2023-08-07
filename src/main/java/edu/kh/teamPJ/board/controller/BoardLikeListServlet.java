@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import edu.kh.teamPJ.board.model.service.BoardService;
+import edu.kh.teamPJ.board.model.vo.Board;
 
 @WebServlet("/board/fanart/detail/likeCount")
 public class BoardLikeListServlet extends HttpServlet {
@@ -29,9 +32,13 @@ public class BoardLikeListServlet extends HttpServlet {
          
          if(result == 1) {
             
-            int likeCount = service.selectLikeCount(boardNo, memberNo);
+            //int likeCount = service.selectLikeCount(boardNo, memberNo);
             
-            resp.getWriter().print(likeCount);
+            Board boardLike = service.selectListCount(boardNo, memberNo);
+            
+            new Gson().toJson(boardLike, resp.getWriter());
+            
+            //resp.getWriter().print(likeCount);
             
          }
          

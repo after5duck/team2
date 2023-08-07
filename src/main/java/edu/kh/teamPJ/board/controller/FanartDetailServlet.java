@@ -36,11 +36,14 @@ public class FanartDetailServlet extends HttpServlet{
 			
 			List<Board> boardList = service.selectBoardWithPhotos();
 			
-			int likeCount = service.selectLikeCount(boardNo, memberNo);
+			//int likeCount = service.selectLikeCount(boardNo, memberNo);
+			
+			Board boardLike = service.selectListCount(boardNo, memberNo);
 
 			req.setAttribute("board", board);
 			req.setAttribute("boardList", boardList);
-			req.setAttribute("likeCount", likeCount);
+			req.setAttribute("boardLike", boardLike);
+			//req.setAttribute("likeCount", likeCount);
 			
 			String path = "/WEB-INF/views/board/fanart-detail.jsp";
 			

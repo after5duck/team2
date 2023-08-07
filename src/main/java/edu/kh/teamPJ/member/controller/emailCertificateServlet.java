@@ -48,7 +48,7 @@ public class emailCertificateServlet extends HttpServlet{
 		    	
 		    	int ranCode = new SHA256().getSHA256();
 				
-				String host = "http://localhost:8080/after5duck-ldh/";
+				String host = "http://localhost:8080/after5duck/";
 				String from = "hwabyreTest@gmail.com";
 				String to = req.getParameter("inputEmail");
 				String subject = "ANIVERSE 이메일 인증 메일입니다";

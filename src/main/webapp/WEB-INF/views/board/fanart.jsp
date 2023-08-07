@@ -57,8 +57,6 @@
 					<c:set var="maxPhotos" value="18" />
 
 
-					${loginMember.memberNo}
-
 					<section class="fanArt-img">
 						<div class="fanart-grid">
 							<c:forEach var="board" items="${boardList}">

@@ -250,10 +250,10 @@
 
 	<!-- 팬아트 좋아요수 조회 -->
 	<entry key="selectLikeCount">
-		SELECT COUNT(*), BOARD_NO FROM LIKE_LIST
+		SELECT COUNT(*), MEMBER_NO, BOARD_NO
+		FROM LIKE_LIST
 		WHERE BOARD_NO = ?
-		AND MEMBER_NO = ?
-		GROUP BY BOARD_NO
+		GROUP BY MEMBER_NO, BOARD_NO
 	</entry>
 	<!-- 정연수 SQL 끝 -->
 
