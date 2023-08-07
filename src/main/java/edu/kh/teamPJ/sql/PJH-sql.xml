@@ -41,7 +41,18 @@
 
 	</entry>
 
+	<!-- 테마추천 상세 좋아요 수 증가 -->
+	<entry key="updateThemeLikeCount">
 
+		INSERT INTO LIKE_LIST VALUES(?, ?, 3)
+	</entry>
+	
+	<!-- 테마추천 상세 좋아요 해제 -->
+	<entry key="">
+		DELETE FROM LIKE_LIST
+		WHERE BOARD_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
 	<!-- 박정흠 sql 끝 -->
 
 </properties>

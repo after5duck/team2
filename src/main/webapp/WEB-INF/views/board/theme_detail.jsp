@@ -96,7 +96,12 @@
                     <div>
                         <div class="detail_header">
                             <div class="detail_title">${sportsList.boardTitle}</div>
-                            <div><button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button></div>
+                            <div>
+                                <a href="${contextPath}/board/theme_detail/like?boardNo=${param.boardNo}">
+                                    <button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button>
+                                </a>
+                            </div>
+                                
                         </div>
                         <div class="detail_genre">${sportsList.age} | ${sportsList.genre}</div>
                         <div class="detail_explain">${sportsList.boardContent}
@@ -173,6 +178,83 @@
                 });
             });
         });
+        /* 좋아요 수 증가 */
+        
+        icon.addEventListener("click",function(){
+
+            if(loginMemberNo == 0){  //로그인 안했을때
+                alert("로그인 후 이용해 주세요.");
+
+            }else{
+
+                if(icon.classList.contains('fa-regular')){
+
+                    $.ajax({        
+
+                            url : contextPath + "theme_detail/like",
+
+                            type : "get",
+
+                            data : {"boardNo" : boardNo1,
+                                    "memberNo" : memberNo1},
+
+                            success : function(data){
+
+                                icon.classList.remove('fa-regular');
+                                icon.classList.add('fa-solid');
+                                
+                                /* document.getElementById("like-count").innerText = data; */
+
+
+                            },
+
+                            error : function(req, status, error){
+
+                                console.log("좋아요 등록 실패");
+                                console.log(req.responseText);
+
+                            }
+
+                    });
+
+                }else{
+
+                    console.log("왜 안돼");
+
+
+                    $.ajax({
+
+                        url : contextPath + "/board/fanart/detail/likeCountDelete",
+
+                        type : "get",
+
+                        data : {"boardNo" : boardNo1,
+                                "memberNo" : memberNo1},
+
+                        success : function(data){
+
+                            icon.classList.remove('fa-solid');
+                            icon.classList.add('fa-regular');
+                            
+                            /* document.getElementById("like-count").innerText = data; */
+
+                        },
+
+                        error : function(req, status, error){
+
+                            console.log("좋아요 해제 실패");
+                            console.log(req.responseText);
+                        }
+
+                    });
+
+                    }
+
+
+            }
+        });
+
+
 
     </script>
     

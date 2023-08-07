@@ -89,5 +89,32 @@ public class ThemeDetailDAO {
 	}
 
 
+	/** 좋아요수 증가 dao
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateThemeLikeCount(Connection conn, int boardNo, int memberNo) throws Exception{
+		
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("updateThemeLikeCount");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
+
 
 }
