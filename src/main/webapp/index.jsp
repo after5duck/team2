@@ -97,8 +97,7 @@
 									<div class="day_con">
 										<div class="day-move-con">
 											<div id="day">요일별 신작</div>
-											<a href="${contextPath}/board/newAnime" class="day-move">신작 애니
-												줄거리 >보러가기</a>
+											<a href="${contextPath}/board/newAnime" class="day-move">신작 애니 예고편 >보러가기</a>
 										</div>
 
 										<br>
@@ -273,12 +272,12 @@
 										<div class="container4">
 
 											<!-- 정연수 팬아트 사진 불러오기 ~~ -->
-
+	
 											<c:forEach var="fanart" items="${boardList }" begin="0" end="9">
 												<c:set var="photos" value="${fanart.photos}" />
 												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0"
 													end="9">
-
+													<a href="board/fanart/detail?boardNo=${fanart.boardNo}&boardCode=${fanart.boardCode}">
 													<div class="list_container">
 														<div class="img_con">
 															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}"
@@ -286,13 +285,10 @@
 														</div>
 														<div class="fanArt_text_con">
 															<div class="title_2">${fanart.boardTitle }</div>
-															<div class="writer_con">
-																<div class="writer">작성자 :</div>
-																<div class="writerId">유저</div>
-															</div>
 														</div>
 
 													</div>
+													</a>
 
 												</c:forEach>
 											</c:forEach>
