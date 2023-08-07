@@ -327,6 +327,7 @@ public class BoardDAO {
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setBoardCode(rs.getInt("BOARD_CD"));
+				board.setMemberNo(rs.getInt("MEMBER_NO"));
 
 				if (rs.getString("CONTENT_PATH") != null) {
 
@@ -353,11 +354,12 @@ public class BoardDAO {
 	 * 
 	 * @param conn
 	 * @param boardNo
+	 * @param memberNo 
 	 * @param type
 	 * @return board
 	 * @throws Exception
 	 */
-	public Board selectBoardWithPhotos2(Connection conn, int boardNo, int boardCode) throws Exception {
+	public Board selectBoardWithPhotos2(Connection conn, int boardNo, int boardCode, int memberNo) throws Exception {
 
 		Board board = null;
 
@@ -368,6 +370,7 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, boardNo);
+			
 
 			rs = pstmt.executeQuery();
 
@@ -511,10 +514,11 @@ public class BoardDAO {
 	 * @param conn
 	 * @param boardDetail
 	 * @param boardCode
+	 * @param memberNo 
 	 * @return
 	 * @throws Exception
 	 */
-	public int insertBoard(Connection conn, Board boardDetail, int boardCode) throws Exception {
+	public int insertBoard(Connection conn, Board boardDetail, int boardCode, int memberNo) throws Exception {
 
 		int result = 0;
 
@@ -966,11 +970,12 @@ public class BoardDAO {
 	 * 좋아요 수 조회 DAO
 	 * 
 	 * @param boardNo
+	 * @param memberNo 
 	 * @param conn
 	 * @return
 	 * @throws Exception
 	 */
-	public int selectLikeCount(int boardNo, Connection conn) throws Exception {
+	public int selectLikeCount(int boardNo, int memberNo, Connection conn) throws Exception {
 
 		int likeCount = 0;
 
@@ -981,6 +986,7 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
 
 			rs = pstmt.executeQuery();
 
@@ -1494,6 +1500,34 @@ public class BoardDAO {
 			close(pstmt);
 		}
 		return readCount;
+	}
+
+	/** 팬아트 좋아요 해제 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int likeDelete(Connection conn, int boardNo, int memberNo) throws Exception{
+		
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("likeDelete");
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
 	}
 
 }

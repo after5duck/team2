@@ -29,8 +29,8 @@ function updateViewCount() {
 })(); 
 
 
-
-const heartIcon = document.getElementById('fanart-heartClick');
+/* 좋아요 눌렀을때 상태 */
+/* const heartIcon = document.getElementById('fanart-heartClick');
 heartIcon.addEventListener('click', function() {
 
     if (heartIcon.classList.contains('fa-regular')) {
@@ -41,59 +41,82 @@ heartIcon.addEventListener('click', function() {
         heartIcon.classList.add('fa-regular');
     }
 
-});
+}); */
  
 
 /* 좋아요 수 증가 */
-const fanartHeartClick = document.getElementById("fanart-heartClick");
+const heartIcon = document.getElementById('fanart-heartClick');
 
-fanartHeartClick.addEventListener("click", function(){
+heartIcon.addEventListener('click', function(){
 
-    $.ajax({
+    /* 좋아요 하지 않은 상태 */
+    if(heartIcon.classList.contains('fa-regular')){
 
-        url : contextPath + "/board/fanart/detail/likeCount",
-        
-        type : "get",
+        alert("눌러따");
 
-        data : {"boardNo" : boardNo1,
-                    "memberNo" : memberNo1},
+        $.ajax({
 
+            url : contextPath + "/board/fanart/detail/likeCount",
 
-        success : function(data){
+            type : "get",
 
-            if(data == 1){
+            data : {"boardNo" : boardNo1,
+                    "memberNo" : loginMemberNo},
 
+            success : function(data){
+
+                heartIcon.classList.remove('fa-regular');
+                heartIcon.classList.add('fa-solid');
                 
                 document.getElementById("like-count").innerText = data;
+
+
+            },
+
+            error : function(req, status, error){
+
+                console.log("좋아요 등록 실패");
+                console.log(req.responseText);
+    
             }
 
-        },
-        error : function(req, status, error){
+        });
 
-            console.log("좋아요 등록 실패");
-            console.log(req.responseText);
+    }else{
 
-        }
-    });
-})
+        console.log("왜 안돼");
 
+        alert("해제했당");
 
+        $.ajax({
 
-function is_checked() {
+            url : contextPath + "/board/fanart/detail/likeCountDelete",
 
-    const checkbox = document.getElementById("likeCount");
-    const isChecked = checkbox.checked;
+            type : "get",
 
-    if(isChecked){
+            data : {"boardNo" : boardNo1,
+                    "memberNo" : loginMemberNo},
 
-        alert("좋아요 체크됨");
+            success : function(data){
 
+                heartIcon.classList.remove('fa-solid');
+                heartIcon.classList.add('fa-regular');
+                
+                document.getElementById("like-count").innerText = data;
 
+            },
+
+            error : function(req, status, error){
+
+                console.log("좋아요 해제 실패");
+                console.log(req.responseText);
+            }
+
+        });
 
     }
+})
 
-
-}
 
 /* 이민주 test */
 /* 좋아요 수 증가 + 하트 채워짐  */

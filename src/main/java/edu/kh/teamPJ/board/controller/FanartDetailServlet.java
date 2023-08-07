@@ -24,15 +24,19 @@ public class FanartDetailServlet extends HttpServlet{
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 			
 			int boardCode = Integer.parseInt(req.getParameter("boardCode"));
+			
+			int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+			
+			System.out.println(memberNo);
 	
 			
 			BoardService service = new BoardService();
 			
-			Board board = service.selectBoardWithPhotos2(boardNo, boardCode);
+			Board board = service.selectBoardWithPhotos2(boardNo, boardCode, memberNo);
 			
 			List<Board> boardList = service.selectBoardWithPhotos();
 			
-			int likeCount = service.selectLikeCount(boardNo);
+			int likeCount = service.selectLikeCount(boardNo, memberNo);
 
 			req.setAttribute("board", board);
 			req.setAttribute("boardList", boardList);

@@ -29,9 +29,8 @@ public class FanartServlet extends HttpServlet{
 			
 			List<Board> boardList = service.selectBoardWithPhotos();
 			
-			
 			req.setAttribute("boardList", boardList);
-
+			
 
 			String path = "/WEB-INF/views/board/fanart.jsp";
 

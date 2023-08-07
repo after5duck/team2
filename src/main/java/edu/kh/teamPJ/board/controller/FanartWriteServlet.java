@@ -32,12 +32,14 @@ public class FanartWriteServlet extends HttpServlet {
 			String mode = req.getParameter("mode");
 
 			if (mode.equals("update")) {
+				
+				int memberNo = Integer.parseInt(req.getParameter("memberNo"));
 
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 
 				int boardCode = Integer.parseInt(req.getParameter("boardCode"));
 
-				Board boardDetail = new BoardService().selectBoardWithPhotos2(boardNo, boardCode);
+				Board boardDetail = new BoardService().selectBoardWithPhotos2(boardNo, boardCode, memberNo);
 
 				req.setAttribute("boardDetail", boardDetail);
 
@@ -112,14 +114,14 @@ public class FanartWriteServlet extends HttpServlet {
 
 			if (mode.equals("insert")) {
 
-				int boardNo = service.insertBoard(boardDetail, photos, boardCode);
+				int boardNo = service.insertBoard(boardDetail, photos, boardCode, memberNo);
 
 				String path = null;
 
 				if (boardNo > 0) {
 					session.setAttribute("message", "게시글이 등록되었습니다.");
 
-					path = req.getContextPath() + "/board/fanart/detail?boardNo=" + boardNo + "&boardCode=" + boardCode;
+					path = req.getContextPath() + "/board/fanart/detail?boardNo=" + boardNo + "&memberNo=" + memberNo + "&boardCode=" + boardCode;
 
 				} else {
 					session.setAttribute("message", "게시글 등록 실패 ㅠㅠ");
@@ -148,7 +150,7 @@ public class FanartWriteServlet extends HttpServlet {
 
 				if (result > 0) { // 성공
 
-					path = "detail?boardNo=" + boardNo + "&boardCode=" + boardCode;
+					path = "detail?boardNo=" + boardNo + "&memberNo=" + memberNo + "&boardCode=" + boardCode;
 					message = "게시글이 수정되었습니다.";
 
 				} else {
