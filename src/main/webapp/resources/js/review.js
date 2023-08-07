@@ -1,8 +1,8 @@
 // 검색 유효성 검사(검색어를 입력했는지 확인)
-function searchValidate(){
+function searchValidate() {
     const searchQuery = document.getElementById("search-query");
 
-    if(searchQuery.value.trim().length == 0){ // 미작성
+    if (searchQuery.value.trim().length == 0) { // 미작성
         alert("검색어를 입력하세요");
         searchQuery.value = "";
         searchQuery.focus();
@@ -11,11 +11,11 @@ function searchValidate(){
     return true;
 }
 
-(function(){
+(function () {
     const goToListBtn = document.getElementById("btn-list");
 
-    if(goToListBtn != null){
-        goToListBtn.addEventListener("click", function(){
+    if (goToListBtn != null) {
+        goToListBtn.addEventListener("click", function () {
 
             const pathname = location.pathname;
             let url = pathname.substring(0, pathname.indexOf("/", 1));
@@ -28,15 +28,15 @@ function searchValidate(){
 
             let cp;
 
-            if(params.get("cp") != ""){
+            if (params.get("cp") != "") {
                 cp = "cp=" + params.get("cp");
-            }else{
+            } else {
                 cp = "cp=1";
             }
-            
+
             url += type + "&" + cp;
-            
-            if(params.get("key") != null){
+
+            if (params.get("key") != null) {
                 const key = "&key" + params.get("key");
                 const query = "&query" + params.get("query");
 
@@ -78,10 +78,10 @@ function searchValidate(){
 
 
 // 검색 유효성 검사
-function searchValidate(){
+function searchValidate() {
     const searchQuery = document.getElementById("search-query");
 
-    if(searchQuery.value.trim().length == 0){
+    if (searchQuery.value.trim().length == 0) {
         alert("검색어를 입력하세요");
         searchQuery.value = "";
         searchQuery.focus();
@@ -89,3 +89,6 @@ function searchValidate(){
     }
     return true;
 }
+
+// 조회수 정렬
+
