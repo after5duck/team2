@@ -40,30 +40,11 @@ public List<Theme> selectSportsList(int boardNo, int boardCode) throws Exception
 	
 	
 	return sportsList;
+	
 }
 
 
 
-///**
-// * @param boardNo
-// * @param boardCode
-// * @return head
-// * @throws Exception
-// */
-//public List<Theme> selectHeadList(int boardNo, int boardCode) throws Exception{
-//	
-//	Connection conn = getConnection();
-//	
-//	List<Theme> head = dao.selectHeadList(conn, boardNo, boardCode);
-//	
-//	
-//	
-//	close(conn);
-//	
-//	
-//	
-//	return head;
-//}
 
   
   

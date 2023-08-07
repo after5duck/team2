@@ -89,50 +89,5 @@ public class ThemeDetailDAO {
 	}
 
 
-//	/**
-//	 * @param conn
-//	 * @param boardNo
-//	 * @param boardCode
-//	 * @return head
-//	 * @throws Exception
-//	 */
-//	public List<Theme> selectHeadList(Connection conn, int boardNo, int boardCode) throws Exception{
-//		
-//		List<Theme> head = new ArrayList<Theme>();
-//		
-//		try {
-//			
-//			String sql = prop.getProperty("selectHeadList");
-//			
-//			pstmt = conn.prepareStatement(sql);
-//			
-//			pstmt.setInt(1, boardCode);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			while (rs.next()) {
-//
-//				Theme hd = new Theme();
-//
-//				hd.setContentPath(rs.getString("CONTENT_PATH"));
-//				hd.setBoardTitle(rs.getString("BOARD_TITLE"));
-//				hd.setBoardContent(rs.getString("BOARD_CONTENT"));
-//				
-//								
-//				
-//				head.add(hd);
-//
-//			}
-//			
-//			
-//		}finally {
-//			close(rs);
-//			close(pstmt);
-//		}
-//		
-//		return head;
-//	}
-//
-//
 
 }
