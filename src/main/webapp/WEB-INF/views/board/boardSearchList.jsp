@@ -60,6 +60,10 @@
                                                     <c:when test="${board.boardName == '테마추천'}">
                                                         <a href="${contextPath}/board/theme">${board.boardName}</a>
                                                     </c:when>
+                                                    <c:when test="${board.boardName == '테마추천상세'}">
+                                                        <a href="${contextPath}/board/theme">${board.boardName}</a>
+                                                    </c:when>
+
                                                     <c:when test="${board.boardName == '팬아트'}">
                                                         <a
                                                             href="${contextPath}/board/fanart?boardCode=4">${board.boardName}</a>
@@ -124,7 +128,22 @@
                                                         </a>
                                                     </td>
                                                 </c:when>
-                                                <c:otherwise>
+                                                <c:when test="${board.boardCode == 5}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/goods?boardNo=${board.boardNo}">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardCode == 6}">
                                                     <td class="title">
                                                         <a
                                                             href="${contextPath}/board/detail?boardNo=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">
@@ -138,6 +157,159 @@
                                                             </c:choose>
                                                         </a>
                                                     </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 53 and board.boardNo <= 56}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=44">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 57 and board.boardNo <= 60}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=45">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 61 and board.boardNo <= 66}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=46">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 67 and board.boardNo <= 73}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=47">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 74 and board.boardNo <= 77}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=48">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 78 and board.boardNo <= 82}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=49">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 83 and board.boardNo <= 86}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=50">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 87 and board.boardNo <= 91}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=51">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:when test="${board.boardNo >= 92 and board.boardNo <= 98}">
+                                                    <td class="title">
+                                                        <a href="${contextPath}/board/theme_detail?boardNo=52">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+                                                </c:when>
+
+                                                <c:otherwise>
+
+                                                    <td class="title">
+                                                        <a
+                                                            href="${contextPath}/board/theme_detail?boardNo=${board.boardNo}">
+                                                            <c:choose>
+                                                                <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                                    ${fn:substring(board.boardTitle, 0, 25)}...
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${board.boardTitle}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </td>
+
                                                 </c:otherwise>
                                             </c:choose>
 
