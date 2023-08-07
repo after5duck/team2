@@ -20,7 +20,7 @@ main {
 fieldset {
     margin-top: 100px;
     width: 900px;
-    height: 800px;
+    height: 900px;
 }
 
 legend {
@@ -52,17 +52,13 @@ h1 {
 }
 
 .main_second>div:last-child {
-    padding-left: 120px;
+    padding-left: 100px;
 }
 
 .main_third {
-    /* display: flex; */
+    position: relative;
+    right: 230px;
     font-size: 25px;
-    /* padding: 33px; */
-}
-
-.main_third>div:last-child {
-    padding-left: 30px;
 }
 
 .main_fourth {
@@ -163,4 +159,53 @@ h1 {
 #essential,
 #check {
     font-size: 15px;
+}
+
+/* 
+.star {
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+}
+
+.star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.star span {
+    width: 0;
+    position: absolute;
+    left: 0;
+    color: rgb(255, 215, 71);
+    overflow: hidden;
+    pointer-events: none; */
+/*}*/
+
+/* 별점 */
+
+#myform input[type=radio] {
+    display: none !important;
+}
+
+#myform label {
+    font-size: 28px;
+    color: transparent;
+    text-shadow: 0 0 0 #c8c8c8;
+}
+
+#myform label:hover {
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621) !important;
+}
+
+#myform label:hover~label {
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621) !important;
+}
+
+#myform input[type=radio]:checked~label {
+    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621) !important;
 }
