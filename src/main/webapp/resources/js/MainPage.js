@@ -1,6 +1,5 @@
 // -------------------------- 스크롤 함수 --------------------------
 
-
 document.addEventListener('DOMContentLoaded', function () {
 	var scrollTopBtn = document.querySelector('.scroll-top-btn');
 
