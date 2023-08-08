@@ -238,7 +238,7 @@
 	<!-- 팬아트 좋아요 증가 -->
 	<entry key="updateLikeCount">
 
-		INSERT INTO LIKE_LIST VALUES(?, ?, 3)
+		INSERT INTO LIKE_LIST VALUES(?, ?)
 	</entry>
 	
 	<!-- 팬아트 좋아요 해제 -->
