@@ -117,62 +117,21 @@ main {
     font-size: 20px;
 }
 
-/* 라디오 버튼을 숨김 */
-#myform input[type=radio] {
+//* 라디오 버튼을 숨김 */
+#stars input[type=radio] {
     display: none;
 }
 
 /* 별 모양 라벨의 기본 스타일 */
-#myform label {
+#stars label {
     font-size: 28px;
     color: #c8c8c8;
 }
 
 /* 체크된 라디오 버튼에 대응하는 라벨 스타일 */
-#myform input[type=radio]:checked~label {
+#stars input[type=radio]:checked~label {
     color: rgb(255, 225, 0);
 }
-
-
-/* 별점 */
-#reviewContent fieldset {
-    height: 100%;
-    display: flex;
-    justify-content: left;
-}
-
-#myform fieldset {
-    display: inline-block;
-    direction: rtl;
-    border: 0;
-}
-
-#myform fieldset legend {
-    text-align: right;
-}
-
-#myform input[type=radio] {
-    display: none;
-}
-
-#myform label {
-    font-size: 28px;
-    color: transparent;
-    text-shadow: 0 0 0 #c8c8c8;
-}
-
-#myform label:hover {
-    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
-}
-
-#myform label:hover~label {
-    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
-}
-
-#myform input[type=radio]:checked~label {
-    text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621);
-}
-
 
 /* 수정 삭제 버튼 */
 #btn-modify {

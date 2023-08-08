@@ -12,16 +12,15 @@ main {
 }
 
 .row {
-	margin-top: 50px;
+	margin-top: 80px;
 }
 
 .container {
 
-	/* box-sizing: border-box; */
 	margin: 0 !important;
 	padding-bottom: 100px;
 	max-width: 1350px !important;
-	font-size: 17px !important;
+	font-size: 18px !important;
 
 
 }
@@ -34,6 +33,7 @@ a:hover {
 
 a {
 	text-decoration: none !important;
+
 }
 
 .my-link {

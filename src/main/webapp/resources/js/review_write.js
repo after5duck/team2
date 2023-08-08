@@ -99,11 +99,27 @@ function reviewValidate() {
     }
 })();
 
-// 별점
+// 별점 해제하기..
 
-// const drawStar = (target) => {
-//     document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-// }
+$(document).ready(function () {
+    var lastClicked;
 
+    $('label').hover(function () {
+        $(this).prevAll('label').addBack().css('color', 'rgb(255, 225, 0)');
+    }, function () {
+        $('label').css('color', '#c8c8c8');
+        $('input[type="radio"]:checked').next('label').prevAll('label').addBack().css('color', 'rgb(255, 225, 0)');
+    });
 
-
+    $('input[type="radio"]').click(function () {
+        if ($(this).is(':checked') && $(this).is(lastClicked)) {
+            $(this).prop('checked', false);
+            $('label').css('color', '#c8c8c8');
+            lastClicked = null;
+        } else {
+            $('label').css('color', '#c8c8c8');
+            $(this).next('label').prevAll('label').addBack().css('color', 'rgb(255, 225, 0)');
+            lastClicked = $(this);
+        }
+    });
+});

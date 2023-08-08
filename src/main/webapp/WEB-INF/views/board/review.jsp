@@ -25,6 +25,20 @@
                 <c:remove var="message" scope="session" /> <!-- 세션에서 메시지 제거 -->
             </c:if>
 
+            <style>
+                @font-face {
+                    font-family: 'Pretendard-Regular' !important;
+                    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff') !important;
+                    font-weight: 400 !important;
+                    font-style: normal !important;
+                }
+
+                /* 글꼴을 적용할 요소 선택자에 대한 스타일 지정 */
+                body {
+                    font-family: 'Pretendard-Regular' !important;
+                }
+            </style>
+
         </head>
 
 
