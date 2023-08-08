@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/mypageProfileMain.css">
     <script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     

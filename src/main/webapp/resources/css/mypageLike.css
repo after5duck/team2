@@ -106,7 +106,7 @@ main {
 
 #dropDown {
     display: flex;
-    width: 700px;
+    width: 1000px;
     align-items: center;
     margin: 0 auto 0;
 }
@@ -116,13 +116,14 @@ main {
 }
 
 #dropDown div:first-child {
-    flex-basis: 60%;
+    display: flex;
+    flex-basis: 56%;
 }
 
 #dropDown div:last-child {
     display: flex;
     justify-content: right;
-    flex-basis: 40%;
+    flex-basis: 44%;
 }
 
 #dropDown span {
@@ -170,6 +171,7 @@ main {
     overflow-y: auto;
     border-top: 3px solid #ddd;
     border-bottom: 3px solid #ddd;
+
 }
 
 .likeContent {

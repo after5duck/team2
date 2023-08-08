@@ -41,7 +41,6 @@
                     </ul>
                 </article>
 
-
                 <article id="main-body">
                     <article id="dropDown">
                         
@@ -78,7 +77,7 @@
                                         <c:if test="${board.boardCode == 4}">
                                             <td class="title">
                                                 <a
-                                                    href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                                    href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${board.memberNo}">
                                                     <c:choose>
                                                         <c:when test="${fn:length(board.boardTitle) > 25}">
                                                             ${fn:substring(board.boardTitle, 0, 25)}...
