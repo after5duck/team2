@@ -35,20 +35,48 @@ pbtn3.addEventListener("click", function(){
 }) */
 
 /* 박스들 얻어오기 */
-const check1 = document.getElementById("check1"); // 전체선택 박스
-const checkList = document.getElementsByName("CHEBOX");
+// const check1 = document.getElementById("check1"); // 전체선택 박스
+// const checkList = document.getElementsByName("CHEBOX");
 
 
-// 약관 동의 체크 검사
+// // 약관 동의 체크 검사
 
-/* 전체선택약관 선택시 전체 선택 되게함 */
-function selectAll(selectAll){
-    const checkboxes = document.getElementsByName("CHEBOX");
+// /* 전체선택약관 선택시 전체 선택 되게함 */
+// function selectAll(selectAll){
+//     const checkboxes = document.getElementsByName("CHEBOX");
 
-    checkboxes.forEach((checkbox) => {
-        checkbox.checked = selectAll.checked;
-    })
-}
+//     checkboxes.forEach((checkbox) => {
+//         checkbox.checked = selectAll.checked;
+//     })
+// }document.addEventListener('DOMContentLoaded', function() {
+// $(document).ready(function () {
+//     // 전체 동의 체크박스
+//     var $allCheck = $('#check1');
+
+//     // 개별 체크박스들
+//     var $checks = $('#check2, #check3, #check4');
+
+//     // 개별 체크박스가 변경될 때
+//     $checks.on('change', function () {
+//         // 모든 체크박스가 체크되면 전체 동의 체크
+//         if ($checks.filter(':checked').length === $checks.length) {
+//             $allCheck.prop('checked', true);
+//             alert("체크됨");
+//         } else {
+//             $allCheck.prop('checked', false);
+//         }
+//     });
+
+//     // 전체 동의 체크박스를 클릭할 때
+//     $allCheck.on('change', function () {
+//         if ($(this).is(':checked')) {
+//             $checks.prop('checked', true);
+//         } else {
+//             $checks.prop('checked', false);
+//         }
+//     });
+// });
+
 
 
 /* 필수속성 체크 안됐을때 안넘어가게 */

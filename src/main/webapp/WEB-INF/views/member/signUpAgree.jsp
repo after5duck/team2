@@ -1,51 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>약관동의</title>
-        
-        <link rel="stylesheet" href="${contextPath}/resources/css/signUpAgree.css">
-        
-        <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    </head>
-    <body>
+            <!DOCTYPE html>
+            <html lang="en">
 
-    <section class="logo">
-        <a href="${contextPath}">
-            <img src="${contextPath}/resources/images/자른로고.png" id="logo">
-        </a>
-    </section>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>약관동의</title>
 
-    <form action="signUp" method="get" name="signUpAgree-form" onsubmit="return agreeValidate()">
-        <section class="container">
+                <link rel="stylesheet" href="${contextPath}/resources/css/signUpAgree.css">
 
-            <div style="font-size:45px; font-weight:bold; color: #000000;">약관동의</div>
-    
-            <div>
-                <!-- 전체동의 약관 박스 -->
-                <input type="checkbox"  id="check1" class="cbox" name="CHEBOX" onclick="selectAll(this)">
-                <label for="check1" style="font-size: xx-large;">전체 약관에 동의합니다.</label>
-            </div>
-            <div class="line1" style="padding:0 40px"></div>
-            
+                <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
-            <div class="content">
+            </head>
 
-                <!-- 1 애니버스 이용약관 동의 -->
-                <div class="smallContainer">
-                    <div class="one">
-                        <div><input type="checkbox" id="check2" name="CHEBOX" class="req" required></div>
-                        <div><label>애니버스 이용약관 동의(필수)</label></div>
-                    </div>
-                    <!-- 약관 박스1 -->
-                    <div class="agreeArea">
-                        <textarea id="agreeContent1" readonly>
+            <body>
+
+                <section class="logo">
+                    <a href="${contextPath}">
+                        <img src="${contextPath}/resources/images/자른로고.png" id="logo">
+                    </a>
+                </section>
+
+                <form action="signUp" method="get" name="signUpAgree-form" onsubmit="return agreeValidate()">
+                    <section class="container">
+
+                        <div style="font-size:45px; font-weight:bold; color: #000000;">약관동의</div>
+
+                        <div>
+                            <!-- 전체동의 약관 박스 -->
+                            <input type="checkbox" id="check1" class="cbox" name="CHEBOX" onclick="selectAll(this)">
+                            <label for="check1" style="font-size: xx-large;">전체 약관에 동의합니다.</label>
+                        </div>
+                        <div class="line1" style="padding:0 40px"></div>
+
+
+                        <div class="content">
+
+                            <!-- 1 애니버스 이용약관 동의 -->
+                            <div class="smallContainer">
+                                <div class="one">
+                                    <div><input type="checkbox" id="check2" name="CHEBOX" class="req" required></div>
+                                    <div><label>애니버스 이용약관 동의(필수)</label></div>
+                                </div>
+                                <!-- 약관 박스1 -->
+                                <div class="agreeArea">
+                                    <textarea id="agreeContent1" readonly>
 제 1 장 총칙
 제 1 조 (목적)
 본 약관은 애니버스 (이하 "애니버스")이 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차, 이용자와 애니버스의 권리, 의무, 책임사항과 기타 제반 사항을 규정함을 목적으로 합니다.
@@ -87,19 +89,19 @@
 5. 회원은 등록사항에 변경이 있는 경우, 즉시 회원정보 수정 등 기타 방법으로 누리집에 대하여 그 변경사항을 알려야 합니다.
 6. 회원은 가입 이후 누리집에서 제공하는 서비스를 제공받을 의사가 없는 등의 사유가 있을 경우에는 언제든지 회원탈퇴(해지)를 할 수 있습니다. 다만 타인에 의해 재 게시되거나, 게시판, 커뮤니티, 카페 등 공유 및 알림의 목적으로 등록된 게시물은 삭제되지 않으니 사전에 삭제 후 탈퇴하여야 합니다.
                         </textarea>
-                    </div>
-                </div>
+                                </div>
+                            </div>
 
 
-                <!-- 2 개인정보 동의 -->
-                <div class="smallContainer">
-                    <div class="one">
-                        <div><input type="checkbox" id="check3" name="CHEBOX" class="req" required></div>
-                        <div><label>개인정보 수집 및 이용에 대한 안내 (필수)</label></div>
-                    </div>
-                    <!-- 약관 박스2 -->
-                    <div class="agreeArea">
-                        <textarea id="agreeContent2" readonly>
+                            <!-- 2 개인정보 동의 -->
+                            <div class="smallContainer">
+                                <div class="one">
+                                    <div><input type="checkbox" id="check3" name="CHEBOX" class="req" required></div>
+                                    <div><label>개인정보 수집 및 이용에 대한 안내 (필수)</label></div>
+                                </div>
+                                <!-- 약관 박스2 -->
+                                <div class="agreeArea">
+                                    <textarea id="agreeContent2" readonly>
 1. 수집하는 개인정보 항목
 문화체육관광부 대표 누리집의 이용자 참여와 이용통계 분석 등의 서비스를 위해 회원 가입시 아래의 개인정보를 수집하고 있습니다.
 
@@ -119,20 +121,20 @@
 동의 거부 권리 사실 및 불이익 내용
 이용자는 동의를 거부할 권리가 있습니다. 동의를 거부할 경우에는 서비스 이용에 제한됨을 알려드립니다.
                         </textarea>
-                    </div>
-                </div>
-        
+                                </div>
+                            </div>
 
 
-                <!-- 3 이벤트 동의 -->
-                <div class="smallContainer">
-                    <div class="one">
-                        <div><input type="checkbox" id="check4" name="CHEBOX"></div>
-                        <div><label>이벤트 소식 메일 수신(선택)</label></div>
-                    </div>
-                    <!-- 약관 박스3 -->
-                    <div class="agreeArea">
-                        <textarea id="agreeContent3" readonly>
+
+                            <!-- 3 이벤트 동의 -->
+                            <div class="smallContainer">
+                                <div class="one">
+                                    <div><input type="checkbox" id="check4" name="CHEBOX"></div>
+                                    <div><label>이벤트 소식 메일 수신(선택)</label></div>
+                                </div>
+                                <!-- 약관 박스3 -->
+                                <div class="agreeArea">
+                                    <textarea id="agreeContent3" readonly>
 본 광고 서비스 이용약관(이하 “본 약관”이라 합니다)은 애니버스(이하 “회사”)가 
 제공하는 서비스를 통하여 상품을 등록하고 펀딩을 통해 자금을 모으거나 또는 
 판매하는 자(이하 “메이커”라 합니다)가 본 서비스를 제공하는 회사가 
@@ -141,27 +143,31 @@
 이를 시행함에 있어 회사와 메이커 간의 권리, 
 의무 등 필요한 제반 사항을 규정함을 목적으로 합니다.
                         </textarea>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- 다음 단계로 가기 버튼 -->
-            <button id="btn">다음 단계로 가기</button>
-    
-        </section>
+                                </div>
+                            </div>
+                        </div>
 
-    </form>
+                        <!-- 다음 단계로 가기 버튼 -->
+                        <button id="btn">다음 단계로 가기</button>
 
-    <c:if test="${ !empty sessionScope.message }">
-		<script>
-			alert("${message}");
-			
-		</script>
+                    </section>
 
-		<c:remove var="message" scope="session" />
-	</c:if>
+                </form>
 
-    
-    <script src="${contextPath}/resources/js/signUpAgree.js"></script>
-</body>
-</html>
+                <c:if test="${ !empty sessionScope.message }">
+                    <script>
+                        alert("${message}");
+
+                    </script>
+
+                    <c:remove var="message" scope="session" />
+                </c:if>
+
+
+                <script src="${contextPath}/resources/js/test.js"></script>
+                <!-- <script src="${contextPath}/resources/js/signUpAgree.js"></script> -->
+                <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+                    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+            </body>
+
+            </html>

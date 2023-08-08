@@ -311,37 +311,37 @@ body {
 }
 
 /* ----------------------- 요일별 애니 끝 -----------------------*/
+.center{
+	display: flex;
+
+}
 
 /* 추천, 분기, 역대, 이번주 클릭 버튼 시작 */
 
-.select_btn_con {
-	display: flex;
-	gap: 5px;
-	margin-top: 15px;
-}
+
 
 /* 버튼 4개 */
 .select_btn {
-	width: 80px;
-	height: 40px;
+	
+	font-size: 25px;
+	width: 90px;
+	height: 45px;
 	border-radius: 40px;
-	border: 1px solid rgba(128, 128, 128, 0.277);
-	font-size: 20px;
-	color: #505050;
-	font-size: 20px;
-	font-weight: 550;
-	background-color: rgba(255, 255, 255, 0.544);
+	font-weight: bold;
+	border: none;
+	background-color: rgb(237, 21, 93);
+	color: #fff;
 	transition: background-color 0.3s, color 0.3s, transform 0.3s;
 	/* 애니메이션 효과 추가 */
 }
-
+/*
 .select_btn:hover {
 	cursor: pointer;
 	background-color: rgb(237, 21, 93);
 	color: #fff;
 	transform: scale(1.1);
 	/* 커서를 가져갈 때 약간 확대 효과 추가 */
-}
+/*}
 
 .select_btn.selected {
 	background-color: rgb(237, 21, 93);
@@ -349,7 +349,7 @@ body {
 	transform: scale(1);
 	/* 선택된 상태에서 원래 사이즈로 돌아오는 효과 */
 	/* 기타 스타일 속성들 */
-}
+
 
 /* ----------------------- 버튼 끝 -----------------------*/
 

@@ -153,14 +153,11 @@
 									<!-- 감싸는 큰 div -->
 
 
-									<div></div>
-									<div id="best">애니버스 인기애니</div>
-
-									<div class="select_btn_con">
+									<div class="center">
 										<button type="button" class="select_btn">추천</button>
-										<button type="button" class="select_btn">분기</button>
-										<!-- 			<button type="button" class="select_btn">역대</button>
-				<button type="button" class="select_btn">이번주</button> -->
+									<div id="best">애니버스 인기애니</div>
+									
+									
 									</div>
 
 									<div class="container2">
@@ -272,22 +269,23 @@
 										<div class="container4">
 
 											<!-- 정연수 팬아트 사진 불러오기 ~~ -->
-	
+
 											<c:forEach var="fanart" items="${boardList }" begin="0" end="9">
 												<c:set var="photos" value="${fanart.photos}" />
 												<c:forEach var="photo" items="${photos}" varStatus="pStatus" begin="0"
 													end="9">
-													<a href="board/fanart/detail?boardNo=${fanart.boardNo}&boardCode=${fanart.boardCode}&memberNo=${fanart.memberNo}">
-													<div class="list_container">
-														<div class="img_con">
-															<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}"
-																class="img_size" id="fanArt_img">
-														</div>
-														<div class="fanArt_text_con">
-															<div class="title_2">${fanart.boardTitle }</div>
-														</div>
+													<a
+														href="board/fanart/detail?boardNo=${fanart.boardNo}&boardCode=${fanart.boardCode}&memberNo=${fanart.memberNo}">
+														<div class="list_container">
+															<div class="img_con">
+																<img src="${contextPath }/resources/images/fanArt-images/${photo.contentPath}"
+																	class="img_size" id="fanArt_img">
+															</div>
+															<div class="fanArt_text_con">
+																<div class="title_2">${fanart.boardTitle }</div>
+															</div>
 
-													</div>
+														</div>
 													</a>
 
 												</c:forEach>

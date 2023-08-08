@@ -57,7 +57,7 @@
                                 <input type="hidden" name="type" value="${param.type}">
 
                                 <select id="sortSelect" name="key" class="form-control mr-2">
-                                    <option value="readCount">조회수</option>
+                                    <!-- <option value="readCount">조회수</option> -->
                                     <option value="title">제목</option>
                                     <option value="author">작성자</option>
                                 </select>
