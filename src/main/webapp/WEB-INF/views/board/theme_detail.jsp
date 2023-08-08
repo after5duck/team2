@@ -97,9 +97,9 @@
                         <div class="detail_header">
                             <div class="detail_title">${sportsList.boardTitle}</div>
                             <div>
-                                <a href="${contextPath}/board/theme_detail/like?boardNo=${param.boardNo}">
+                                
                                     <button name="like_btn"><i name="icon" class="fa-regular fa-heart"></i></button>
-                                </a>
+                                
                             </div>
                                 
                         </div>
@@ -178,81 +178,81 @@
                 });
             });
         });
-        /* 좋아요 수 증가 */
+        // /* 좋아요 수 증가 */
         
-        icon.addEventListener("click",function(){
+        // icon.addEventListener("click",function(){
 
-            if(loginMemberNo == 0){  //로그인 안했을때
-                alert("로그인 후 이용해 주세요.");
+        //     if(loginMemberNo == 0){  //로그인 안했을때
+        //         alert("로그인 후 이용해 주세요.");
 
-            }else{
+        //     }else{
 
-                if(icon.classList.contains('fa-regular')){
+        //         if(icon.classList.contains('fa-regular')){
 
-                    $.ajax({        
+        //             $.ajax({        
 
-                            url : contextPath + "theme_detail/like",
+        //                     url : contextPath + "theme_detail/like",
 
-                            type : "get",
+        //                     type : "get",
 
-                            data : {"boardNo" : boardNo1,
-                                    "memberNo" : memberNo1},
+        //                     data : {"boardNo" : boardNo1,
+        //                             "memberNo" : memberNo1},
 
-                            success : function(data){
+        //                     success : function(data){
 
-                                icon.classList.remove('fa-regular');
-                                icon.classList.add('fa-solid');
+        //                         icon.classList.remove('fa-regular');
+        //                         icon.classList.add('fa-solid');
                                 
-                                /* document.getElementById("like-count").innerText = data; */
+        //                         /* document.getElementById("like-count").innerText = data; */
 
 
-                            },
+        //                     },
 
-                            error : function(req, status, error){
+        //                     error : function(req, status, error){
 
-                                console.log("좋아요 등록 실패");
-                                console.log(req.responseText);
+        //                         console.log("좋아요 등록 실패");
+        //                         console.log(req.responseText);
 
-                            }
+        //                     }
 
-                    });
+        //             });
 
-                }else{
+        //         }else{
 
-                    console.log("왜 안돼");
+        //             console.log("왜 안돼");
 
 
-                    $.ajax({
+        //             $.ajax({
 
-                        url : contextPath + "/board/fanart/detail/likeCountDelete",
+        //                 url : contextPath + "/board/fanart/detail/likeCountDelete",
 
-                        type : "get",
+        //                 type : "get",
 
-                        data : {"boardNo" : boardNo1,
-                                "memberNo" : memberNo1},
+        //                 data : {"boardNo" : boardNo1,
+        //                         "memberNo" : memberNo1},
 
-                        success : function(data){
+        //                 success : function(data){
 
-                            icon.classList.remove('fa-solid');
-                            icon.classList.add('fa-regular');
+        //                     icon.classList.remove('fa-solid');
+        //                     icon.classList.add('fa-regular');
                             
-                            /* document.getElementById("like-count").innerText = data; */
+        //                     /* document.getElementById("like-count").innerText = data; */
 
-                        },
+        //                 },
 
-                        error : function(req, status, error){
+        //                 error : function(req, status, error){
 
-                            console.log("좋아요 해제 실패");
-                            console.log(req.responseText);
-                        }
+        //                     console.log("좋아요 해제 실패");
+        //                     console.log(req.responseText);
+        //                 }
 
-                    });
+        //             });
 
-                    }
+        //             }
 
 
-            }
-        });
+        //     }
+        // });
 
 
 
