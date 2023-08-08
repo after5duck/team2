@@ -1166,7 +1166,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("selectMyContent");
+			String sql = prop.getProperty("selectMyContentList");
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -1563,6 +1563,43 @@ public class BoardDAO {
 		}
 
 		return result;
+	}
+
+	/** 마이페이지 좋아요 조회 DAO
+	 * @param conn
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Board> selectLikeList(Connection conn, int memberNo) {
+		List<Board> likeList = new ArrayList<>();
+
+		try {
+			String sql = prop.getProperty("selectMyContentList");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt(1));
+				board.setBoardName(rs.getString(2));
+				board.setBoardTitle(rs.getString(3));
+				board.setCreateDate(rs.getString(4));
+				board.setBoardCode(rs.getInt(5));
+				board.setMemberNo(rs.getInt(6));
+				
+				likeList.add(board);
+			}
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return likeList;
 	}
 
 }
