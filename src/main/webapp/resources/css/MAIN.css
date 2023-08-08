@@ -610,7 +610,8 @@ body {
 	padding: 20px;
 	border: none;
 	max-width: 700px;
-	height: 570px;
+	min-height: 570px;
+	max-height: 620px;
 	position: fixed;
 
 }

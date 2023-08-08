@@ -114,7 +114,8 @@ h1 {
 	padding: 20px;
 	border: none;
 	max-width: 700px;
-	height: 500px;
+	min-height: 450px;
+	max-height: 500px;
 	/* 높이 설정 */
 }
 

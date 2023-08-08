@@ -11,14 +11,14 @@
 /* 팬아트 */
 .fanArt-text{
     font-family: 'Pretendard-Regular';
-    font-size: 35px;
+    font-size: 32px;
     font-weight: bold;
-    color: rgb(237, 21, 93);
+    color: black;
 
     margin-bottom: 50px;
+    margin-top: 50px;
 
     padding-top: 20px;
-    padding-left: 20px;
 }
 
 /* 팬아트 작성란 */
