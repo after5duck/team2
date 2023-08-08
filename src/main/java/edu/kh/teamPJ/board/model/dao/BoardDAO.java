@@ -1166,7 +1166,7 @@ public class BoardDAO {
 
 		try {
 
-			String sql = prop.getProperty("selectMyContentList");
+			String sql = prop.getProperty("selectMyContentWriteList");
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -1183,7 +1183,8 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString(4));
 				board.setBoardCode(rs.getInt(5));
 				board.setMemberNo(rs.getInt(6));	
-
+				board.setMemberNickname(rs.getString(7));;
+				
 				boardList.add(board);
 			}
 			System.out.println(boardList);
@@ -1574,7 +1575,7 @@ public class BoardDAO {
 		List<Board> likeList = new ArrayList<>();
 
 		try {
-			String sql = prop.getProperty("selectMyContentList");
+			String sql = prop.getProperty("selectMyContentLikeList");
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberNo);
@@ -1590,6 +1591,7 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString(4));
 				board.setBoardCode(rs.getInt(5));
 				board.setMemberNo(rs.getInt(6));
+				board.setMemberNickname(rs.getString(7));
 				
 				likeList.add(board);
 			}

@@ -11,7 +11,7 @@
 		JOIN MEMBER USING (MEMBER_NO)
 		WHERE BOARD_NO = ?
 		AND REPLY_ST = 'N'
-		ORDER BY REPLY_KEY
+		ORDER BY REPLY_KEY DESC
    </entry>
    
       <!-- 댓글 수 조회 --> <!-- 이동호 -->
