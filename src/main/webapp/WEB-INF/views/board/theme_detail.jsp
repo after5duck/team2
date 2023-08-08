@@ -104,10 +104,10 @@
                                 
                         </div>
                         <div class="detail_genre">${sportsList.age} | ${sportsList.genre}</div>
-                        <div class="detail_explain">${sportsList.boardContent}
+                        <div class="detail_explain"><i class="fa-solid fa-play" style="color:rgb(195, 82, 244)"></i> &nbsp;${sportsList.boardContent}
                             <!-- 예고편 유튜브 팝업 -->
                             <div class="popupVideo">
-                                <a data-video="${sportsList.videoPath}"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> preview</button></a>
+                                <a data-video="${sportsList.videoPath}"><button class="custom-btn btn-15"><i class="fa-brands fa-youtube"></i> PREVIEW</button></a>
                                 <div class="video-popup">
                                     <div class="video-popup-closer"></div>
                                 </div>
