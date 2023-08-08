@@ -103,6 +103,17 @@ public class ReplyService {
 		
 		return result;
 	}
+
+	public int countReply(int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int countComment = dao.countComment(conn, boardNo);
+		
+		close(conn);
+		
+		return countComment;
+	}
    
 	
 }

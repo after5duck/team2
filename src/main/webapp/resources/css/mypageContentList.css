@@ -183,9 +183,10 @@ main {
     color: black;
 }
 
-#contentList>nav {
+#contentList > nav {
     display: flex;
 
+    border-bottom: #ccc;
 }
 
 #contentList>nav>article:nth-of-type(1) {
@@ -227,9 +228,8 @@ main {
 }
 
 .contentDetail>a:hover {
-    transition-duration: 0.3s;
     text-decoration: underline;
-    text-decoration-color: #e52e71;
+    text-decoration-color: #343232;
     text-underline-position: under;
 }
 

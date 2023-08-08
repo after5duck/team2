@@ -117,7 +117,7 @@ main {
     font-size: 20px;
 }
 
-//* 라디오 버튼을 숨김 */
+/* 라디오 버튼을 숨김 */
 #stars input[type=radio] {
     display: none;
 }
@@ -237,7 +237,7 @@ main {
     font-size: 20px;
 }
 
-#countNo {
+.countNo {
     color: rgb(239, 161, 15);
     font-size: 20px;
 }

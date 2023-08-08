@@ -90,7 +90,7 @@ public class ReplyDAO {
 	      int result = 0;
 	      
 	      try {
-	         String sql = prop.getProperty("commentCount");
+	         String sql = prop.getProperty("commentCount1");
 	         
 	         pstmt = conn.prepareStatement(sql);
 	         
@@ -193,6 +193,33 @@ public class ReplyDAO {
 		}
 		
 		return result;
+	}
+
+	public int countComment(Connection conn, int boardNo) throws Exception{
+		
+		int countComment = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("commentCount1");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next())
+			countComment = rs.getInt(1);
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		
+		return 0;
 	}
 	
 }
