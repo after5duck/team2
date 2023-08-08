@@ -341,11 +341,12 @@
 	</entry>
 
 	<!-- 마이페이지 게시글 전체 조회 -->
-	<entry key="selectMyContent">
+	<entry key="selectMyContentList">
 		SELECT BOARD_NO, BOARD_NM, BOARD_TITLE, CREATE_DT, BOARD_CD, MEMBER_NO
 		FROM BOARD_TYPE
 		JOIN BOARD USING(BOARD_CD)
 		WHERE MEMBER_NO = ?
+		AND BOARD_ST = 'N'
 
 	</entry>
 
