@@ -15,8 +15,9 @@
 			const params = new URL(location.href).searchParams;
 
 			const boardCode = "boardCode=" + params.get("boardCode"); 
+			const memberNo = "&memberNo=" + params.get("memberNo"); 
 
-			url += boardCode;
+			url += boardCode + memberNo;
 			
 			location.href = url;
 		});
@@ -39,10 +40,11 @@
             const params = new URL(location.href).searchParams;
 
             const boardNo = "?boardNo=" + params.get("boardNo");
+            const memberNo = "&memberNo=" + params.get("memberNo");
 
             const boardCode = "&boardCode=" + params.get("boardCode");
 
-            url += boardNo + boardCode;
+            url += boardNo + memberNo + boardCode;
 
             if(confirm("정말로 삭제하시겠습니까??")){
                 location.href = url;

@@ -187,6 +187,10 @@ hr {
     text-align: start;
 }
 
+.grid-item i {
+    margin-right: 10px;
+}
+
 .grid-item>img {
     width: 320px;
     height: 400px;

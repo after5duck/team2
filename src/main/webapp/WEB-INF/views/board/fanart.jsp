@@ -69,8 +69,8 @@
 													class="fanart-img">
 												<div>
 	
-													<span class="fanart-title">${board.boardTitle}</span>
 													<i class="fa-solid fa-eye fa-xl"></i>${board.readCount}</span>
+													<span class="fanart-title">${board.boardTitle}</span>
 	
 												</div>
 											</div>
@@ -84,8 +84,8 @@
 													class="fanart-img">
 												<div>
 	
-													<span class="fanart-title">${board.boardTitle}</span>
 													<i class="fa-solid fa-eye fa-xl"></i>${board.readCount}</span>
+													<span class="fanart-title">${board.boardTitle}</span>
 	
 												</div>
 											</div>
