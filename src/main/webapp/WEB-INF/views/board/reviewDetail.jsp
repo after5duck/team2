@@ -51,42 +51,21 @@
                                     </c:if>
                                 </div>
                                 <div>
-                                    <!-- 별점을 출력하는 라디오 버튼 -->
-                                    <c:forEach var="i" begin="1" end="5">
-                                        <c:choose>
-                                            <c:when test="${i <= detail.score}">
-                                                <!-- 점수 이하의 별은 채워짐 -->
-                                                <input type="radio" name="reviewStar" value="${i}" id="rate${i}"
-                                                    checked><label for="rate${i}">★</label>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <!-- 점수 초과의 별은 비어있음 -->
-                                                <input type="radio" name="reviewStar" value="${i}" id="rate${i}"><label
-                                                    for="rate${i}">★</label>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:forEach>
-                                    <!-- <span class="star">
-                                        ★★★★★
-                                        <span>★★★★★</span>
-                                        <input type="range" oninput="drawStar(this)" value="1" step="1" min="0"
-                                            max="10">
-                                    </span> -->
-                                    <!-- <form class="mb-3" name="myform" id="myform" method="post">
-                                        <input type="radio" name="reviewStar" value="1" id="rate5"><label
-                                            for="rate5">★</label>
-                                        <input type="radio" name="reviewStar" value="3" id="rate3"><label
-                                            for="rate4">★</label>
-                                        <input type="radio" name="reviewStar" value="2" id="rate4"><label
-                                            for="rate3">★</label>
-                                        <input type="radio" name="reviewStar" value="4" id="rate2"><label
-                                            for="rate2">★</label>
-                                        <input type="radio" name="reviewStar" value="5" id="rate1"><label
-                                            for="rate1">★</label>
-                                    </form> -->
-                                    <c:forEach var="i" begin="1" end="${score}">
-                                        ★
-                                    </c:forEach>
+                                    <div id="stars">
+                                        <c:forEach var="i" begin="1" end="5">
+                                            <c:choose>
+                                                <c:when test="${i <= detail.score}">
+                                                    <!-- 점수 이하의 별은 채워짐 -->
+                                                    <span class="star"
+                                                        style="color: rgb(255, 225, 0); text-shadow: 1px 1px 2px rgb(255, 225, 0), 0 0 1em rgba(191, 255, 0, 0.199), 0 0 0.2em rgba(0, 255, 17, 0.621), 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;">★</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <!-- 점수 초과의 별은 비어있음 -->
+                                                    <span class="star" style="color: #c8c8c8;">★</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </div>
 
                                 </div>
                             </div>

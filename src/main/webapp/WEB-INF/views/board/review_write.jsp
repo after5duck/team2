@@ -49,31 +49,32 @@
                                             value="${reviewWrite.boardTitle}">
                                     </div>
                                 </div>
-                                <div>
+                                <div class="main_third">
                                     <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i></div>
 
-                                    <div>별점주기</div>
+                                    <div>별점</div>
 
                                     <!-- <form action="/board/review_write" class="mb-3" name="myform" id="myform" method="post"> -->
-                                    <input type="radio" name="reviewStar" value="1" id="rate5"><label
-                                        for="rate5">★</label>
-                                    <input type="radio" name="reviewStar" value="3" id="rate3"><label
-                                        for="rate4">★</label>
-                                    <input type="radio" name="reviewStar" value="2" id="rate4"><label
-                                        for="rate3">★</label>
-                                    <input type="radio" name="reviewStar" value="4" id="rate2"><label
-                                        for="rate2">★</label>
-                                    <input type="radio" name="reviewStar" value="5" id="rate1"><label
-                                        for="rate1">★</label>
+                                    <div id="stars">
+                                        <input type="radio" name="reviewStar" value="1" id="rate1"><label
+                                            for="rate1">★</label>
+                                        <input type="radio" name="reviewStar" value="2" id="rate2"><label
+                                            for="rate2">★</label>
+                                        <input type="radio" name="reviewStar" value="3" id="rate3"><label
+                                            for="rate3">★</label>
+                                        <input type="radio" name="reviewStar" value="4" id="rate4"><label
+                                            for="rate4">★</label>
+                                        <input type="radio" name="reviewStar" value="5" id="rate5"><label
+                                            for="rate5">★</label>
+
+                                    </div>
+
+
                                     <!-- </form> -->
                                 </div>
-                                <!-- <div class="main_third">
-                                    <div><i class="fa-solid fa-play" style="color:rgb(237, 21, 93)"></i></div>
-                                    <div>별점을 주세요😉</div>
-                                    <div>
-                                        별이 다섯개
-                                    </div>
-                                </div> -->
+
+                                <p class="clickStar">별점을 클릭해주세요</p>
+
                                 <div class="main_fourth">
                                     <div>
                                         <div class="insertContent">
@@ -126,7 +127,7 @@
                 </div>
 
             </main>
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="${contextPath}/resources/js/review_write.js"></script>
 
 

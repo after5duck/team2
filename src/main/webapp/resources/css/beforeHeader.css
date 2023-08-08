@@ -33,8 +33,7 @@
 .a_tag {
 	text-decoration-line: none;
 	color: black;
-	font-weight: 500;
-	font-size: 1.2em;
+	font-size: 1.3em;
 }
 
 .a_tag:hover {
@@ -88,7 +87,7 @@
 
 .login_move {
 	display: flex;
-	padding: 3px;
+	padding: 5px;
 	border: 2px solid rgba(86, 65, 72, 0.579);
 	border-radius: 15px;
 
