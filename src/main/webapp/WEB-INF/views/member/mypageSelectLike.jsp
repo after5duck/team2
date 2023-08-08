@@ -53,47 +53,60 @@
                     </article>
 
                     <article id="likeList">
-                        <c:forEach var="list" items="${likeList}">
-                            <nav class="likeContent">
-                                <article class="fa-solid fa-heart"></article>
-                                <article>${list.boardName}</article>
-                                <article class="contentDetail">
-                                    <c:if test="${list.boardCode == 4}">
-                                        <td class="title">
-                                            <a
-                                                href="${contextPath}/board/fanart/detail?boardNo=${list.boardNo}&boardCode=${list.boardCode}&memberNo=${list.memberNo}">
-                                                <c:choose>
-                                                    <c:when test="${fn:length(list.boardTitle) > 25}">
-                                                        ${fn:substring(list.boardTitle, 0, 25)}...
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        ${list.boardTitle}
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </a>
-                                        </td>
-                                    </c:if>
+                        <c:if test="${!empty likeList}">
+                            <c:forEach var="list" items="${likeList}">
 
-                                    <c:if test="${list.boardCode == 6}">
-                                        <td class="title">
-                                            <a
-                                                href="${contextPath}/board/detail?boardNo=${list.boardNo}&boardCode=${list.boardCode}">
-                                                <c:choose>
-                                                    <c:when test="${fn:length(list.boardTitle) > 25}">
-                                                        ${fn:substring(list.boardTitle, 0, 25)}...
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        ${list.boardTitle}
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </a>
-                                        </td>
-                                    </c:if>
-                                </article>
-                                <article>${fn:substring(list.createDate, 0 , 10)}</article>
-                            </nav>
+                                <nav class="likeContent">
 
-                        </c:forEach>
+                                    <article class="fa-solid fa-heart"></article>
+
+                                    <article>${list.boardName}</article>
+
+                                    <article>${list.memberNickname}</article>
+
+                                    <article class="contentDetail">
+
+                                        <c:if test="${list.boardCode == 4}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/fanart/detail?boardNo=${list.boardNo}&boardCode=${list.boardCode}&memberNo=${list.memberNo}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(list.boardTitle) > 25}">
+                                                            ${fn:substring(list.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${list.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+
+                                        <c:if test="${list.boardCode == 6}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/detail?boardNo=${list.boardNo}&boardCode=${list.boardCode}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(list.boardTitle) > 25}">
+                                                            ${fn:substring(list.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${list.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+                                    </article>
+                                    <article>${fn:substring(list.createDate, 0 , 10)}</article>
+                                </nav>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <c:if test="${empty likeList}">
+                            <p>좋아요를 누른 글이 없습니다</p>
+                        </c:if>
+
                     </article>
                 </article>
 

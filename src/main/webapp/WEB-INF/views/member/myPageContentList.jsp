@@ -63,8 +63,11 @@
                             <c:forEach var="board" items="${bList}">
     
                                 <nav class="writeContent">
+
                                     <article class="contentTitle">${board.boardName}</article>
+
                                     <article id="contentDetail" class="contentDetail">
+
                                         <c:if test="${board.boardCode == 4}">
                                             <td class="title">
                                                 <a
