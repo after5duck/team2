@@ -33,6 +33,8 @@ public class ReplyController extends HttpServlet{
 				
 				List<Reply> replyList = service.selectReplyList(boardNo); 
 				
+				int commentCount = service.commentCount(boardNo);
+				
 				new Gson().toJson(replyList, resp.getWriter());
 				
 			}
@@ -73,8 +75,16 @@ public class ReplyController extends HttpServlet{
 				int result = service.updateReply(replyNo, replyContent);
 				
 				resp.getWriter().print(result);
+			}
+			
+			// 댓글 개수
+			if(command.equals("countComment")) {
+
+				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 				
+				int countComment = service.countReply(boardNo);
 				
+				resp.getWriter().print(countComment);
 			}
 			
 		}catch(Exception e) {

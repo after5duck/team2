@@ -1,4 +1,30 @@
 // 댓글 목록 조회
+// function countComment(){
+// $.ajax({
+
+//     url : contextPath + "/reply/countComment",
+//     data : {"boardNo" : boardNo},
+//     type : "get",
+//     dataType : "JSON",
+
+//     success : function(res){
+//         const countComment = document.getElementById("commentCount");
+
+//         countComment.innerHTML = "";
+//         const pComment = document.getElementById("p");
+//         pComment.classList("countNo");
+//         pComment.innerHTML = res;
+
+//         countComment.append(pComment);
+//     }
+
+// })
+
+
+// }
+
+
+
 function selectReplyList(){
 
     $.ajax({
@@ -111,6 +137,7 @@ addComment.addEventListener("click", function(){
                 comment.value = "";
                 
                 selectReplyList();
+                countComment()
             }else{
                 alert("댓글 등록 실패");
             }
@@ -136,6 +163,7 @@ function deleteReply(replyNo){
                     alert("댓글이 삭제되었습니다.");
 
                     selectReplyList();
+                    countComment()
 
                 }else{
                     alert("댓글 삭제에 실패했습니다.");
@@ -223,6 +251,7 @@ function updateReply(replyNo, btn){
             if(result > 0){
                 alert("댓글 수정 성공");
                 selectReplyList();
+                countComment();
             }else{
                 alert("댓글 수정 실패");
             }

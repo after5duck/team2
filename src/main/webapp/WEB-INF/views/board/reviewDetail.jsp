@@ -43,7 +43,6 @@
                                 <div id="reviewWriter">
                                     <div>${detail.memberNickname}</div>
                                     <div>${detail.createDate}</div>
-                                    ${reviewWrite}
                                     <c:if test="${loginMember.memberNo == detail.memberNo}">
                                         <button id="btn-modify"
                                             onclick="location.href='review_write?mode=update&boardNo=${param.boardNo}&type=${param.type}'">수정</button>
@@ -86,7 +85,8 @@
                             <p id="reviewTextarea">${detail.boardContent}</p>
 
                             <div id="reviewPart2">
-                                <div id="commentCount">댓글&nbsp; &nbsp; <p id="countNo">${commentCount}</p>
+                                <div id="commentCount">댓글&nbsp; &nbsp; 
+                                    <p class="countNo">${commentCount}</p>
                                 </div>
 
                                 <div id="commentBtn">
@@ -136,6 +136,8 @@
                 const boardNo = "${detail.boardNo}";
 
                 const loginMemberNo = "${loginMember.memberNo}";
+
+                const commentCount = "${commentCount}";
 
             </script>
 

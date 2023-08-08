@@ -193,10 +193,11 @@ main {
     display: flex;
     justify-content: left;
     align-items: center;
-    flex-basis: 20%;
+    flex-basis: 15%;
+
+    color: #e52e71;
 
     font-size: 20px;
-    letter-spacing: -2px;
     padding-left: 5px;
 }
 
@@ -206,7 +207,8 @@ main {
     align-items: center;
     flex-basis: 55%;
 
-    letter-spacing: -2px;
+   
+
     font-size: 20px;
     padding-left: 5px;
 }
@@ -217,8 +219,18 @@ main {
     align-items: center;
     flex-basis: 20%;
 
-    letter-spacing: -2px;
     font-size: 20px;
     padding-left: 5px;
     margin: 1px 0;
+}
+
+.contentDetail > a {
+    color: black;
+    text-decoration: none;
+}
+
+.contentDetail > a:hover{
+    text-decoration: underline;
+    text-decoration-color: #343232;
+    text-underline-position: under;
 }

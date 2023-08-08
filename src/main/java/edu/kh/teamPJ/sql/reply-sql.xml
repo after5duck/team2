@@ -37,6 +37,12 @@
 		UPDATE REPLY SET REPLY_CONTENT = ?
 		WHERE REPLY_KEY = ?
 	</entry>
+	
+	<entry key="commentCount1">
+		SELECT COUNT(*) FROM REPLY
+		WHERE BOARD_NO = ?
+		AND REPLY_ST = 'N'
+	</entry>
 
 
 </properties>
