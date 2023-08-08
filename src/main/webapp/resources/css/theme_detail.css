@@ -11,6 +11,12 @@ main{
     margin-top: 130px;
     
 }
+body {
+
+	font-family: 'Pretendard-Regular', sans-serif;
+	overflow-x: hidden;
+    margin : 0;
+}
 
 .main_container{
     
@@ -124,7 +130,7 @@ main{
 }
 .detail_explain{
     color: gray;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 30px;
     
 }
@@ -142,7 +148,7 @@ main{
 }
 
 .custom-btn {
-    width: 130px;
+    width: 150px;
     height: 40px;
     color: #fff;
     border-radius: 50px;
@@ -163,6 +169,7 @@ main{
   border: none;
   z-index: 1;
   font-size: 15px;
+  font-weight: bolder;
   letter-spacing: 0.5px;
 }
 .btn-15:after {
