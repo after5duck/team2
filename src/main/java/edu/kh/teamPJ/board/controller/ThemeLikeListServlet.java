@@ -21,7 +21,6 @@ public class ThemeLikeListServlet extends HttpServlet {
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
       try {
-         System.out.println(11111);
          int boardNo = Integer.parseInt(req.getParameter("boardNo"));
          
          int memberNo = Integer.parseInt(req.getParameter("memberNo"));
