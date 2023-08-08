@@ -47,7 +47,7 @@ checkBtn.addEventListener("click", ()=>{
                     }).then((result) => {
                         if (result.isConfirmed) {
                             Swal.fire(
-                                '닉네임이 변경되었습니다.',
+                                '닉네임이 변경되었습니다.'
                                 )
                                 flagCount = true;
                             }

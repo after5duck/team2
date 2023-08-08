@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import edu.kh.teamPJ.board.model.service.BoardService;
 import edu.kh.teamPJ.board.model.vo.Board;
 import edu.kh.teamPJ.member.model.service.MemberService;
 import edu.kh.teamPJ.member.model.vo.Member;
@@ -20,7 +21,7 @@ public class SelectLikeListServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		MemberService service = new MemberService();
+		BoardService service = new BoardService();
 		
 		try {
 			

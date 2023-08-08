@@ -555,7 +555,7 @@ public class BoardService {
 		close(conn);
 
 		return boardList;
-	}
+	}	
 
 	/**
 	 * 이동호
@@ -738,6 +738,16 @@ public class BoardService {
 		close(conn);
 		
 		return readCount;
+	}
+
+	public List<Board> selectLikeList(int memberNo) {
+		Connection conn = getConnection();
+		
+		List<Board> likeList = dao.selectLikeList(conn, memberNo);
+		
+		close(conn);
+		
+		return likeList;
 	}
 
 	

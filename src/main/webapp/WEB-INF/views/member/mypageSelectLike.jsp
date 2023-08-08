@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +63,39 @@
                             <nav class="likeContent">
                                 <article class="fa-solid fa-heart"></article>
                                 <article>${list.boardName}</article>
-                                <article>${list.boardTitle}</article>
+                                <article>
+                                    <c:if test="${board.boardCode == 4}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/fanart/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}&memberNo=${board.memberNo}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                            ${fn:substring(board.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${board.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+
+                                        <c:if test="${board.boardCode == 6}">
+                                            <td class="title">
+                                                <a
+                                                    href="${contextPath}/board/detail?boardNo=${board.boardNo}&boardCode=${board.boardCode}">
+                                                    <c:choose>
+                                                        <c:when test="${fn:length(board.boardTitle) > 25}">
+                                                            ${fn:substring(board.boardTitle, 0, 25)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${board.boardTitle}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </td>
+                                        </c:if>
+                                </article>
                                 <article>${list.createDate}</article>
                             </nav>
 
