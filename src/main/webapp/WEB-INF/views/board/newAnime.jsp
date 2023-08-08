@@ -13,6 +13,8 @@
 		<body>
 			<jsp:include page="/WEB-INF/views/common/beforeHeader.jsp" />
 
+			<!-- 스크롤 함수 -->
+			<a href="#" class="scroll-top-btn">Top</a>
 
 			<div class="big-con">
 				<div class="new-title">
@@ -66,15 +68,6 @@
 					</div>
 				</div>
 			</c:forEach>
-
-			<!-- 
-	<div id="myModalModal" class="modal">
-		<div class="modal-content">
-			<span class="close" onclick="closeModal()">&times;</span>
-			<p>모달 내용을 여기에 입력하세요.</p>
-		</div>
-	</div>
- -->
 
 			<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 			<script src="../resources/js/footer.js"></script>

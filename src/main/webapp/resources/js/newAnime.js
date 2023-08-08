@@ -38,3 +38,41 @@ window.onkeydown = function (event) {
 		}
 	}
 };
+
+// -------------------------- 스크롤 함수 --------------------------
+
+document.addEventListener('DOMContentLoaded', function () {
+	var scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+	window.addEventListener('scroll', function () {
+		if (window.pageYOffset > 500) {
+			scrollTopBtn.classList.add('show');
+		} else {
+			scrollTopBtn.classList.remove('show');
+		}
+	});
+
+	scrollTopBtn.addEventListener('click', function (e) {
+		e.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+
+// -------------------------- 스크롤 함수 끝 --------------------------
+
+// function changeBtn(btnId) {
+// 	const buttons = document.querySelectorAll(".select_btn");
+
+// 	buttons.forEach(function (button) {
+// 		if (button.id === btnId) {
+// 			button.classList.add("selected");
+
+// 		} else {
+// 			button.classList.remove("selected");
+// 		}
+// 	});
+// }
