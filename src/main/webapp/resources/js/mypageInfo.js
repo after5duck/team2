@@ -188,9 +188,9 @@ btnCheck.addEventListener("click",()=>{
 let flagValidate = false;
 
 function changeProfile(){
-    const regExp = /^([A-z][0-9][가-힣]){2,6}$/;
+    const regExp = /^([A-z0-9가-힣]){2,6}$/;
  
-
+    console.log(flagCount);
     if(nickInfo.value == loginMemberNick){
         flagValidate = true;
     }
@@ -202,13 +202,13 @@ function changeProfile(){
                 icon: 'error',                        
                 text: "올바르지 않은 닉네임 형식입니다!",  
             });
-        }
-
-        if(flagCount == false){
+            flagValidate = false;
+        }else{
             Swal.fire({
                 icon: 'error',                         
                 text: "닉네임 중복검사를 해주세요!",  
             });
+            flagValidate = false;
         }
     }
 
@@ -221,7 +221,7 @@ function changeProfile(){
         flagValidate = false;
     }
 
-    if(inputEmail.value == loginMemberEmail){
+    if(flagCount == true && inputEmail.value == loginMemberEmail && flagCheckCount == false){
         flagValidate = true;
     }
 
