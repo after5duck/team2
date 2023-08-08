@@ -1177,12 +1177,16 @@ public class BoardDAO {
 			while (rs.next()) {
 				Board board = new Board();
 
-				board.setBoardName(rs.getString(1));
-				board.setBoardTitle(rs.getString(2));
-				board.setCreateDate(rs.getString(3));
+				board.setBoardNo(rs.getInt(1));
+				board.setBoardName(rs.getString(2));
+				board.setBoardTitle(rs.getString(3));
+				board.setCreateDate(rs.getString(4));
+				board.setBoardCode(rs.getInt(5));
+				board.setMemberNo(rs.getInt(6));	
 
 				boardList.add(board);
 			}
+			System.out.println(boardList);
 
 		} finally {
 			close(rs);

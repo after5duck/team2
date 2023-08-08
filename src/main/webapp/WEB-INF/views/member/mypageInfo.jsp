@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/mypageProfile.css"?after>
     <script src="https://kit.fontawesome.com/9c5650c683.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     
@@ -53,7 +54,7 @@
                                 </tr>
                                 <tr>
                                     <th>닉네임</th>
-                                    <td class="td1"><input id="nickInfo" type="text" name="memberNickname" value="${loginMember.memberNickname}" required></td>
+                                    <td class="td1"><input id="nickInfo" type="text" name="memberNickname" value="${loginMember.memberNickname}" maxlength="6" required></td>
                                     <td><button type="button" id="btn-check">중복확인</button></td>
                                 </tr>
                                 <tr>
@@ -63,7 +64,7 @@
                                 </tr>
                                 <tr>
                                     <th>인증번호</th>
-                                    <td class="td1"><input type="text" id="inputCheck"></td>
+                                    <td class="td1"><input type="text" id="inputCheck" maxlength="6"></td>
                                     <td><button type="button" id="btn-checkEmail">인증번호 확인</button></td>
                                 </tr>
                                 <tr>

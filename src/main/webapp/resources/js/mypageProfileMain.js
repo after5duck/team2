@@ -45,9 +45,20 @@ function profileValidate(){
     const del = document.getElementById("delete");
 
     if(searchImage.value == "" && del.value == 0){
-        alert("이미지를 선택한 후 변경 버튼을 클릭해주세요")
+        Swal.fire({
+            icon: 'error',                         // Alert 타입
+            //title: 'Alert가 실행되었습니다.',         // Alert 제목
+            text: '이미지를 선택한 후 변경 버튼을 클릭해주세요.',  // Alert 내용
+        });
+        //alert("이미지를 선택한 후 변경 버튼을 클릭해주세요")
         return false;
     }
+
+    Swal.fire({
+        icon: 'success',                         // Alert 타입
+        //title: 'Alert가 실행되었습니다.',         // Alert 제목
+        text: '프로필 이미지를 변경하였습니다.',  // Alert 내용
+    });
     return true;
 }
 
