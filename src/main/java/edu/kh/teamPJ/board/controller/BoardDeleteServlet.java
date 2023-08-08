@@ -21,6 +21,7 @@ public class BoardDeleteServlet extends HttpServlet{
 		try {
 
 			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+			int memberNo = Integer.parseInt(req.getParameter("memberNo"));
 
 			int boardCode = Integer.parseInt(req.getParameter("boardCode"));
 
@@ -34,7 +35,7 @@ public class BoardDeleteServlet extends HttpServlet{
 
 			if(result > 0) {
 				message = "게시글이 삭제 되었습니다.";
-				path = req.getContextPath()+ "/board/fanart?boardCode=4";
+				path = req.getContextPath()+ "/board/fanart?boardCode=4&memberNo=" + memberNo;
 
 			}else {
 
